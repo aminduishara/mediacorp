@@ -115,7 +115,7 @@
                     <div class="col-sm-12">
                     <div class="wrapper">
                         <div class="input-data">
-                            <input type="text" name="ProjectName" id="pname" required>
+                            <input type="text" name="ProjectName" id="project_name" required>
                             <div class="underline"></div>
                             <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                         </div>
@@ -140,7 +140,7 @@
                     <div class="col-sm-6" style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="email" name="ApplicationEmail" id="aemail" required>
+                                <input type="email" name="ApplicationEmail" id="applicant_email" required>
                                 <div class="underline"></div>
                                 <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                             </div>
@@ -161,7 +161,7 @@
                 <div class="form-group col-sm-6" style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="WebSite" id="weburl" required>
+                                <input type="text" name="WebSite" id="website_url" required>
                                 <div class="underline"></div>
                                 <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                             </div>
@@ -183,7 +183,7 @@
                             <div class="col-sm-12">
                                 <div class="wrapper">
                                     <div class="input-data">
-                                        <input type="text" name="Organization" id="org" required>
+                                        <input type="text" name="Organization" id="organization" required>
                                         <div class="underline"></div>
                                         <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                                     </div>
@@ -209,7 +209,7 @@
                     <div class="col-sm-6"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="number" name="NoEmployees" id="nemp" required>
+                            <input type="number" name="No_Employees" id="nemp" required>
                                 <div class="underline"></div>
                                 <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                             </div>
@@ -257,7 +257,7 @@
                     <div class="col-sm-6"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="text" name="Address1" id="add1" required>
+                            <input type="text" name="Address1" id="address_line1" required>
                                 <div class="underline"></div>
                                 <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                             </div>
@@ -279,7 +279,7 @@
                     <div class="col-sm-6"  style="display:<?php echo $visibility?>">
                             <div class="wrapper">
                                 <div class="input-data">
-                                <input type="text" name="Address2" id="add2" required>
+                                <input type="text" name="Address2" id="address_line2" required>
                                     <div class="underline"></div>
                                     <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                                 </div>
@@ -349,7 +349,7 @@
                 <div class="col-sm-6"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="text" name="ZipCode" id="zip" required>
+                            <input type="text" name="ZipCode" id="zipcode" required>
                                 <div class="underline"></div>
                                 <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                             </div>
@@ -374,7 +374,7 @@
                 <div class="col-sm-6"  style="display:<?php echo $visibility?>">
                     <div class="wrapper">
                         <div class="input-data">
-                        <input type="text" name="FirstName" id="fname" required>
+                        <input type="text" name="FirstName" id="first_name" required>
                             <div class="underline"></div>
                             <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                         </div>
@@ -396,7 +396,7 @@
                     <div class="col-sm-6"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="text" name="LastName" id="lname" required>
+                            <input type="text" name="LastName" id="last_name" required>
                                 <div class="underline"></div>
                                 <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                             </div>
@@ -442,7 +442,7 @@
                 <div class="col-sm-3"  style="display:<?php echo $visibility?>">
                     <div class="wrapper">
                         <div class="input-data">
-                        <input type="tel" name="Mobile" id="mobile" required>
+                        <input type="tel" name="Mobile" id="mobile_no" required>
                             <div class="underline"></div>
                             <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                         </div>
@@ -464,7 +464,7 @@
                 <div class="form-group col-sm-3"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="tel" name="Telephone" id="lname" required>
+                            <input type="tel" name="Telephone" id="telephone_no" required>
                                 <div class="underline"></div>
                                 <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                             </div>
