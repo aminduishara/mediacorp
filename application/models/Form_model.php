@@ -42,6 +42,22 @@ class Form_model extends CI_Model {
     return $lableData;
   }
 
+  public function InsertGeneralFormData($id,$type,$economy,$category,$subCategory,$projectName,$applicantEmail,$webSite,
+  $organization,$noEmployees,$date,$address1,$address2,$city,$province,$zipCode,
+  $fullName,$lastName,$designation,$mobileNo,$teleNo){
+
+    $query1 = $this->db->query("INSERT INTO `aplicent_reg`(`aplicent_id`, `aplicant_nam`, `aplicent_type`, `mas_economy_id`, `aplicant_cat`, `sub_cat_mast_id`, `product_name`, `reg_email`, `aplicent_website`, `aplicent_profile`, `aplicent_size`, `aplicent_date`, `aplicent_add1`, `aplicent_add2`, `aplicent_city`, `aplicent_state`, `aplicent_postal`, `aplicent_con_fname`, `aplicent_con_lname`, `aplicent_con_desig`, `aplicent_con_mobile`, `aplicent_con_telno`) 
+                      VALUES ($id, $fullName+$lastName, $type,$economy,$category,$subCategory,$projectName,$applicantEmail,$webSite, $organization,$noEmployees,$date,$address1,$address2,$city,$province,$zipCode, $fullName,$lastName,$designation,$mobileNo,$teleNo)");
+
+
+    if($query1->num_rows() == 1){
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
+
+  }
 }
 
 /* End of file Form_model.php */
