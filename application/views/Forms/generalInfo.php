@@ -689,7 +689,7 @@ $("#butsave").click(function()
 			alert('Data saved successfully');
             document.getElementById("butsave").disabled = true;
             document.getElementById("butsave").value = 'Inserted';	
-            document.getElementById("butsave").blur();
+            document.getElementById("butsave").style.color= red;
 			}
 			else
 			{
