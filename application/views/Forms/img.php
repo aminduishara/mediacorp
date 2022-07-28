@@ -112,9 +112,9 @@ for($i=0; $i < $no; $i++){?>
                                 if(res==1)
                                 {
                                 alert('All Images uploaded successfully');
-                                document.getElementById("butsave").disabled = true;
-                                document.getElementById("butsave").value = 'Inserted';	
-                                document.getElementById("butsave").blur();
+                                document.getElementById("butupload").disabled = true;
+                                document.getElementById("butupload").value = 'Uploaded';	
+                                document.getElementById("butupload").style.color = "#00FF00";
                                 }
                                 else
                                 {
