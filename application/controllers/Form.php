@@ -79,9 +79,9 @@ class Form extends CI_Controller
   public function SaveImages(){
     
     $id = $this->input->post('id');
-    $img1 = $this->input->post('ImgFile1');
-    $img2 = $this->input->post('ImgFile2');
-    $img3 = $this->input->post('ImgFile3');
+    $img1 = base64_decode($this->input->post('ImgFile1', TRUE));
+    $img2 = base64_decode($this->input->post('ImgFile2', TRUE));
+    $img3 = base64_decode($this->input->post('ImgFile3', TRUE));
 
     $splitImg1 = pathinfo($img1);
     $splitImg2 = pathinfo($img2);
@@ -98,14 +98,20 @@ class Form extends CI_Controller
     $userImageFile2 = fopen($ImagePath2, "w") or die("Fail to add the image to forlder");
     $userImageFile3 = fopen($ImagePath3, "w") or die("Fail to add the image to forlder");
 
-    fwrite($userImageFile1, $img1);
-    fwrite($userImageFile2, $img2);
-    fwrite($userImageFile3, $img3);
+    $result1 = fwrite($userImageFile1, $img1);
+    $result2 = fwrite($userImageFile2, $img2);
+    $result3 = fwrite($userImageFile3, $img3);
 
     fclose($userImageFile1);
     fclose($userImageFile2);
     fclose($userImageFile3);
 
+    if($result1 == TRUE && $result2 == TRUE &&  $result3 == TRUE){
+      echo 1;
+    }
+    else{
+      echo 0;
+    }
     // $link= "http://images5.fanpop.com/image/photos/31100000/random-random-31108109-500-502.jpg";
     // $destdir = 'images-folder/';
     // $img=file_get_contents($link);
