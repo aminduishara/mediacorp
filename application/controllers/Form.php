@@ -35,76 +35,84 @@ class Form extends CI_Controller
   public function SaveDescriptionData()
   {
 
-    $id = $this->input->post('id', TRUE);
-    $type = $this->input->post('type', TRUE);
-    $economy = $this->input->post('economy', TRUE);
-    $category = $this->input->post('category', TRUE);
-    $subCategory = $this->input->post('subCategory', TRUE);
-    $projectName = $this->input->post('projectName', TRUE);
-    $applicantEmail = $this->input->post('applicantEmail', TRUE);
-    $webSite = $this->input->post('webSite', TRUE);
-    $organization = $this->input->post('organization', TRUE);
-    $noEmployees = $this->input->post('noEmployees', TRUE);
-    $date = $this->input->post('date', TRUE);
-    $address1 = $this->input->post('address1', TRUE);
-    $address2 = $this->input->post('address2', TRUE);
-    $city = $this->input->post('city', TRUE);
-    $province = $this->input->post('province', TRUE);
-    $zipCode = $this->input->post('zipCode', TRUE);
-    $fullName = $this->input->post('fullName', TRUE);
-    $lastName = $this->input->post('lastName', TRUE);
-    $designation = $this->input->post('designation', TRUE);
-    $mobileNo = $this->input->post('mobileNo', TRUE);
-    $teleNo = $this->input->post('teleNo', TRUE);
+    $data = array(
+      'aplicent_id'=> $this->input->post('id', TRUE), 
+      'aplicant_nam'=> $this->input->post('fullName', TRUE), 
+      'aplicent_type'=> $this->input->post('type', TRUE), 
+      'mas_economy_id'=> $this->input->post('economy', TRUE), 
+      'aplicant_cat'=> $this->input->post('category', TRUE), 
+      'sub_cat_mast_id'=> $this->input->post('subCategory', TRUE), 
+      'product_name'=> $this->input->post('projectName', TRUE), 
+      'reg_email'=> $this->input->post('applicantEmail', TRUE), 
+      'aplicent_website'=> $this->input->post('webSite', TRUE), 
+      'aplicent_profile'=> $this->input->post('organization', TRUE), 
+      'aplicent_size'=> $this->input->post('noEmployees', TRUE), 
+      'aplicent_date'=> $this->input->post('date', TRUE), 
+      'aplicent_add1'=> $this->input->post('address1', TRUE), 
+      'aplicent_add2'=> $this->input->post('address2', TRUE), 
+      'aplicent_city'=> $this->input->post('city', TRUE), 
+      'aplicent_state'=> $this->input->post('province', TRUE), 
+      'aplicent_postal'=> $this->input->post('zipCode', TRUE), 
+      'aplicent_con_fname'=> $this->input->post('fullName', TRUE), 
+      'aplicent_con_lname'=> $this->input->post('lastName', TRUE), 
+      'aplicent_con_desig'=> $this->input->post('designation', TRUE), 
+      'aplicent_con_mobile'=> $this->input->post('mobileNo', TRUE), 
+      'aplicent_con_telno' => $this->input->post('teleNo', TRUE)
 
-    // $this->form_validation->set_rules('economy_id', 'Economy', 'required');
-    // $this->form_validation->set_rules('category', 'Category', 'required');
-    // $this->form_validation->set_rules('sub_category', 'Sub Category', 'required');
-    // $this->form_validation->set_rules('project_name', 'Project Name', 'required');
-    // $this->form_validation->set_rules('applicant_email', 'Applicant Email', 'required');
-    // $this->form_validation->set_rules('website_url', 'Web Site URL', 'required');
-    // $this->form_validation->set_rules('organization', 'Organization', 'required');
-    // $this->form_validation->set_rules('no_employees', 'No Employees', 'required');
-    // $this->form_validation->set_rules('date', 'Registered Date', 'required');
-    // $this->form_validation->set_rules('address_line1', 'Address Line 1', 'required');
-    // $this->form_validation->set_rules('address_line2', 'Address Line 2 ', 'required');
-    // $this->form_validation->set_rules('city', 'City', 'required');
-    // $this->form_validation->set_rules('state', 'State', 'required');
-    // $this->form_validation->set_rules('zipcode', 'Zip Code', 'required');
-    // $this->form_validation->set_rules('first_name', 'First Name', 'required');
-    // $this->form_validation->set_rules('last_name', 'Last Name', 'required');
-    // $this->form_validation->set_rules('designation', 'Designation', 'required');
-    // $this->form_validation->set_rules('mobile_no', 'Mobile No', 'required');
-    // $this->form_validation->set_rules('telephone_no', 'Telephone No', 'required');
+    );
 
-    // if($this->form_validation->run() == FALSE)
-    // {
-    //   echo '<script>alert("Fill all the fields")</script>';
+    $this->load->model('Form_model');
+  
+    $result=$this->Form_model->saveData($data);
 
-    // }
-    // else
-    // {
-    //   $this->load->model("Form_model");
-    //   $this->Committee_model->Update_Committee();
-    //   //$this->CommitteeMembers();
+      if($result)
+      {
+      echo  1;	
+      }
+      else
+      {
+      echo  0;	
+      }
 
-    //   redirect(base_url() . "index.php/Committee/CommitteeMembers");
-    //   // $this->load->model("Committee_model");
-    //   // $data["fetch_CommitteeMember"] = $this->Committee_model->fetch_CommitteeMember();
-    //   // $this->load->view("Manager/CommitteeMember", $data);
+  }
 
-    // // }
+  public function SaveImages(){
+    
+    $id = $this->input->post('id');
+    $img1 = $this->input->post('ImgFile1');
+    $img2 = $this->input->post('ImgFile2');
+    $img3 = $this->input->post('ImgFile3');
 
-    $this->load->model("Form_model");
-    $result = $this->Form_model->InsertGeneralFormData($id,$type,$economy,$category,$subCategory,$projectName,$applicantEmail,$webSite,
-    $organization,$noEmployees,$date,$address1,$address2,$city,$province,$zipCode,
-    $fullName,$lastName,$designation,$mobileNo,$teleNo);
+    $splitImg1 = pathinfo($img1);
+    $splitImg2 = pathinfo($img2);
+    $splitImg3 = pathinfo($img3);
 
-    if($result == TRUE){
-      $this->alert->set('alert-success', 'Successfully Inserted');
-    }else{
-      $this->alert->set('alert-danger', 'Insertion Fail');
-    }
+    $FilePath = base_url('assets/UserImages/'.$id);
+    mkdir($FilePath);
+
+    $ImagePath1 = $FilePath."/".$splitImg1['filename'].".".$splitImg1['extension'];
+    $ImagePath2 = $FilePath."/".$splitImg2['filename'].".".$splitImg2['extension'];
+    $ImagePath3 = $FilePath."/".$splitImg3['filename'].".".$splitImg3['extension'];
+
+    $userImageFile1 = fopen($ImagePath1, "w") or die("Fail to add the image to forlder");
+    $userImageFile2 = fopen($ImagePath2, "w") or die("Fail to add the image to forlder");
+    $userImageFile3 = fopen($ImagePath3, "w") or die("Fail to add the image to forlder");
+
+    fwrite($userImageFile1, $img1);
+    fwrite($userImageFile2, $img2);
+    fwrite($userImageFile3, $img3);
+
+    fclose($userImageFile1);
+    fclose($userImageFile2);
+    fclose($userImageFile3);
+
+    // $link= "http://images5.fanpop.com/image/photos/31100000/random-random-31108109-500-502.jpg";
+    // $destdir = 'images-folder/';
+    // $img=file_get_contents($link);
+    // file_put_contents($destdir.substr($link, strrpos($link,'/')), $img);
+
+
+
 
   }
 

@@ -86,8 +86,8 @@
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
                                 <select class="form-select" name="category" id="category" <?php echo $status ?>>
                                 <option value="Consumer">Consumer</option>
-                                <option value="Technology-AI">Technology-AI</option>
-                                <option value="Technology-IOT">Technology-IOT</option>
+                                <option value="TechnologyAI">Technology-AI</option>
+                                <option value="TechnologyIOT">Technology-IOT</option>
                                 </select>
                     </div>
                 
@@ -604,7 +604,7 @@
 
         <div class="row mt-4 mb-4">
             <div class="form-group col-sm-12 text-center">
-            <button onclick="SaveData()" class="text-white float-end" 
+            <input type="button" class="text-white float-end" 
             style="width: 150px;
             height: 40px;
             padding: 7px 10px;
@@ -612,54 +612,97 @@
             border:none;
             font-size: 15px;
             text-align: center;
-            background-color:#0000FF">Next</button>
+            background-color:#0000FF" value="save data" id="butsave">
             </div>
         </div> 
+
+        
 </form>
 
-<script>
+<script type="text/javascript">
 
-    function SaveData(){
+// Ajax post
+$(document).ready(function() 
+{
+$("#butsave").click(function() 
+{
+
 
         const val = Math.floor(1000 + Math.random() * 9000);
+
+        var id= val;
+        var type=document.getElementById("aplicent_type").value;
+        var economy=document.getElementById("economy_id").value;
+        var category=document.getElementById("category").value;
+        var subCategory=document.getElementById("sub_category").value;
+        var projectName=document.getElementById("project_name").value;
+        var applicantEmail=document.getElementById("applicant_email").value;
+        var webSite=document.getElementById("website_url").value;
+        var organization=document.getElementById("organization").value;
+        var noEmployees=document.getElementById("no_employees").value;
+        var date=document.getElementById("date").value;
+        var address1=document.getElementById("address_line1").value;
+        var address2=document.getElementById("address_line2").value;
+        var city=document.getElementById("city").value;
+        var province=document.getElementById("state").value;
+        var zipCode=document.getElementById("zip_code").value;
+        var fullName=document.getElementById("first_name").value;
+        var lastName=document.getElementById("last_name").value;
+        var designation=document.getElementById("designation").value;
+        var mobileNo=document.getElementById("mobile_no").value;
+        var teleNo=document.getElementById("telephone_no").value
+
+	
+		jQuery.ajax({
+		type: "POST",
+		url: "<?php echo base_url('/index.php/Form/SaveDescriptionData'); ?>",
+		dataType: 'html',
+		data: {
+
+            id: id,
+            type: type,
+            economy:economy,
+            category:category,
+            subCategory:subCategory,
+            projectName:projectName,
+            applicantEmail:applicantEmail,
+            webSite:webSite,
+            organization:organization,
+            noEmployees:noEmployees,
+            date:date,
+            address1:address1,
+            address2:address2,
+            city:city,
+            province:province,
+            zipCode:zipCode,
+            fullName:fullName,
+            lastName:lastName,
+            designation:designation,
+            mobileNo:mobileNo,
+            teleNo:teleNo     
         
-        $.ajax({
-                    type: "post",
-                    url: <?php echo base_url("application/controllers/Form/SaveDescriptionData");?>,
-                    data: {
+        },
+		success: function(res) 
+		{
+			if(res==1)
+			{
+			alert('Data saved successfully');
+            document.getElementById("butsave").disabled = true;
+            document.getElementById("butsave").value = 'Inserted';	
+            document.getElementById("butsave").blur();
+			}
+			else
+			{
+			alert('Data not saved');	
+			}
+			
+		},
+		error:function()
+		{
+		alert('data not saved');	
+		}
+		});
 
-                        id: val,
-                        type:document.getElementById("aplicent_type").value,
-                        economy:document.getElementById("economy_id").value,
-                        category:document.getElementById("category").value,
-                        subCategory:document.getElementById("sub_category").value,
-                        projectName:document.getElementById("project_name").value,
-                        applicantEmail:document.getElementById("applicant_email").value,
-                        webSite:document.getElementById("website_url").value,
-                        organization:document.getElementById("organization").value,
-                        noEmployees:document.getElementById("no_employees").value,
-                        date:document.getElementById("date").value,
-                        address1:document.getElementById("address_line1").value,
-                        address2:document.getElementById("address_line2").value,
-                        city:document.getElementById("city").value,
-                        province:document.getElementById("state").value,
-                        zipCode:document.getElementById("zip_code").value,
-                        fullName:document.getElementById("first_name").value,
-                        lastName:document.getElementById("last_name").value,
-                        designation:document.getElementById("designation").value,
-                        mobileNo:document.getElementById("mobile_no").value,
-                        teleNo:document.getElementById("telephone_no").value
-
-                    },
-                    dataType: 'json',
-                    async: true,
-                    success: function (response) {
-                        alert(response);
-                    },
-                    error: function (e) {
-                        console.log(e);
-                    }
-                });
-
-    }
+});
+});
 </script>
