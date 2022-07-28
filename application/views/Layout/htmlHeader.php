@@ -8,6 +8,6 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/bootstrap/css/bootstrap.css">    
     <script src="<?= base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<?= base_url(); ?>assets/FormCss/form.css">
-    <script src="https://use.fontawesome.com/66fcf391bc.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
