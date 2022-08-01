@@ -54,6 +54,24 @@ class Form_model extends CI_Model {
 		}
   }
 
+  public function insertDes($data)
+  {
+    if($this->db->insert('aplicent_content',$data))
+		{
+		return 1;	
+		}
+		else
+		{
+		return 0;	
+		}
+  }
+
+  public function GetDesData(){
+    //$query = $this->db->get_where('aplicent_content', array('aplicent_content_id' => $userID));
+    $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE aplicent_id = 5319');
+    return $query;
+  }
+
 }
 
 /* End of file Form_model.php */
