@@ -655,7 +655,7 @@ $("#butsave").click(function()
 	
 		jQuery.ajax({
 		type: "POST",
-		url: "<?php echo base_url('/index.php/Form/SaveDescriptionData'); ?>",
+		url: "<?php echo base_url('/index.php/Form/SaveFormData'); ?>",
 		dataType: 'html',
 		data: {
 
@@ -689,7 +689,7 @@ $("#butsave").click(function()
 			alert('Data saved successfully');
             document.getElementById("butsave").disabled = true;
             document.getElementById("butsave").value = 'Inserted';	
-            document.getElementById("butsave").style.color= red;
+            document.getElementById("userID").value = id;
 			}
 			else
 			{

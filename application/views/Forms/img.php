@@ -1,6 +1,6 @@
 <div class="m-5">
 
-<?php echo form_open_multipart('ImageUpload/do_upload');?>
+<?php echo form_open_multipart('Form/GetImages');?>
 
 <?php 
 
@@ -41,7 +41,7 @@ for($i=0; $i < $no; $i++){?>
 
         <div class="row mt-4 mb-4">
             <div class="form-group col-sm-12 text-center">
-            <input type="button" class="text-white float-end" 
+            <input type="submit" class="text-white float-end" 
             style="width: 150px;
             height: 40px;
             padding: 7px 10px;
@@ -84,50 +84,50 @@ for($i=0; $i < $no; $i++){?>
                     Image3.src = "";
             }
                 // Ajax post
-                $(document).ready(function() 
-                {
-                $("#butupload").click(function() 
-                {
-                        var Image1 = document.getElementById('ImgFile1').value;
-                        var Image2 = document.getElementById('ImgFile2').value;
-                        var Image3 = document.getElementById('ImgFile3').value;
+                // $(document).ready(function() 
+                // {
+                // $("#butupload").click(function() 
+                // {
+                //         var Image1 = document.getElementById('ImgFile1').value;
+                //         var Image2 = document.getElementById('ImgFile2').value;
+                //         var Image3 = document.getElementById('ImgFile3').value;
 
-                        var i = 0;
-                        i++;
+                //         var i = 0;
+                //         i++;
 
-                        jQuery.ajax({
-                        type: "POST",
-                        url: "<?php echo base_url('/index.php/Form/SaveImages'); ?>",
-                        dataType: 'html',
-                        data: {
+                //         jQuery.ajax({
+                //         type: "POST",
+                //         url: "<?php echo base_url('/index.php/Form/SaveImages'); ?>",
+                //         dataType: 'html',
+                //         data: {
 
-                                id: i,
-                                ImgFile1:Image1,
-                                ImgFile2:Image2,
-                                ImgFile3:Image3   
+                //                 id: i,
+                //                 ImgFile1:Image1,
+                //                 ImgFile2:Image2,
+                //                 ImgFile3:Image3   
                 
-                        },
-                        success: function(res) 
-                        {
-                                if(res==1)
-                                {
-                                alert('All Images uploaded successfully');
-                                document.getElementById("butupload").disabled = true;
-                                document.getElementById("butupload").value = 'Uploaded';	
-                                document.getElementById("butupload").style.color = "#00FF00";
-                                }
-                                else
-                                {
-                                alert('Image Upload Fail');	
-                                }
+                //         },
+                //         success: function(res) 
+                //         {
+                //                 if(res==1)
+                //                 {
+                //                 alert('All Images uploaded successfully');
+                //                 document.getElementById("butupload").disabled = true;
+                //                 document.getElementById("butupload").value = 'Uploaded';	
+                //                 document.getElementById("butupload").style.color = "#00FF00";
+                //                 }
+                //                 else
+                //                 {
+                //                 alert('Image Upload Fail');	
+                //                 }
                                 
-                        },
-                        error:function()
-                        {
-                        alert('Upload Fail');	
-                        }
-                        });
-                })
-                });
+                //         },
+                //         error:function()
+                //         {
+                //         alert('Upload Fail');	
+                //         }
+                //         });
+                // })
+                // });
 </script>
 
