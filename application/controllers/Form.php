@@ -32,7 +32,7 @@ class Form extends CI_Controller
   }
 
   
-  public function SaveDescriptionData()
+  public function SaveFormData()
   {
 
     $data = array(
@@ -119,6 +119,99 @@ class Form extends CI_Controller
 
 
 
+
+  }
+
+  public function SaveDescription(){
+
+    $id = $this->input->post('id', TRUE);
+    $des = $this->input->post('des', TRUE);
+
+    $data = array(
+      'aplicent_content_id'=>'',
+      'aplicent_id'=>$id,
+      'cat_mast_label_id'=>$id,
+      'aplicent_content_content'=>$des,
+      'aplicent_content_status'=>1
+    );
+
+    $this->load->model('Form_model');
+    $result = $this->Form_model->insertDes($data);
+
+    if($result){
+
+      echo 1;
+      
+    }else{
+
+      echo 0;
+
+    }
+
+  }
+
+  public function GetUserDesData(){
+
+    //$id = $this->input->post('id', TRUE);
+
+    $this->load->model('Form_model');
+    $query = $this->Form_model->GetDesData();    
+    return json_encode($query);
+    //return $query;
+
+  }
+
+  public function GetUserDes(){
+
+    $id = $this->input->post('id', TRUE);
+    // load table library
+    $this->load->library('table');
+            
+    // set heading
+    $this->table->set_heading('Ref No', 'Applicant ID', 'Dscription', 'Lable ID', 'Status');
+
+    // set template
+    $style = array('table_open'  => '<table class="table rounded shadow-sm text-center align-content-center">');
+    $this->table->set_template($style);
+
+    echo $this->table->generate($this->db->query('SELECT * FROM `aplicent_content` WHERE aplicent_id = '.$id.''));
+  
+  }
+
+  public function GetImages(){
+
+    $ImgFile1 = $this->input->post('ImgFile1', TRUE);
+    $ImgFile2 = $this->input->post('ImgFile2', TRUE);
+    $ImgFile3 = $this->input->post('ImgFile3', TRUE);
+
+    
+    $config['upload_path']          = './uploads/';
+    $config['allowed_types']        = 'gif|jpg|png';
+    $config['max_size']             = 100;
+    $config['max_width']            = 1024;
+    $config['max_height']           = 768;
+  
+    $img1 = $this->upload->do_upload($ImgFile1);
+    $img2 = $this->upload->do_upload($ImgFile2);
+    $img3 = $this->upload->do_upload($ImgFile3);
+
+
+    $this->load->library('upload', $config);
+
+    if ($img1 == TRUE && $img2 == TRUE && $img3 == TRUE)
+    {
+            // $error = array('error' => $this->upload->display_errors());
+
+            // $this->load->view('upload_form', $error);.
+            echo "<script>alert('Succefully Images Uploaded')</script>";
+    }
+    else
+    {
+            // $data = array('upload_data' => $this->upload->data());
+
+            // $this->load->view('upload_success', $data);
+            echo "<script>alert('Upload Faliure')</script>";
+    }
 
   }
 
