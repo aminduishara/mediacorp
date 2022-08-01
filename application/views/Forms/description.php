@@ -1,6 +1,6 @@
 <form class="rounded p-5 m-5 shadow-sm">
     
-    <input type="text" name="hiddenContentID" id="hiddenContentID" value="0" hidden>
+    <input type="text" name="hiddenContentID" id="hiddenContentID" hidden>
 
     <div class="row"  style="display:<?php echo $visibility?>">
         <div class="form-group col-sm-12">
@@ -56,6 +56,22 @@
             background-color:green" value="Referesh" id="butRefresh" onclick="RefreshTable()">
             </div>
 </div> 
+
+<!-- <div class="m-5">
+<div class="row mt-4 mb-4">
+            <div class="form-group col-sm-12 text-center">
+            <input type="button" class="text-white float-start" 
+            style="width: 150px;
+            height: 40px;
+            padding: 7px 10px;
+            border-radius: 25px;
+            border:none;
+            font-size: 15px;
+            text-align: center;
+            background-color:green" value="Check Content" id="checkC" onclick="CheckContentStatus()">
+            </div>
+</div>  -->
+
 <div id="hello"></div>
 
 <div id="customers-list"></div>
@@ -84,80 +100,81 @@
                 {
                         $('#butAdd').click(function()
                         {
-                                var id = document.getElementById('userID').value;
-                                var description = document.getElementById('des').value;
+                                // var id = document.getElementById('userID').value;
+                                // var description = document.getElementById('des').value;
 
-                                var contentHiddenValue = document.getElementById('hiddenContentID').value;
+                                // var contentHiddenValue = document.getElementById('hiddenContentID').value;
 
 
-                                if(id == 0000){
-                                        alert("Please fill the General Information Form First");
-                                        location.reload();
-                                }else{
-                                        if(contentHiddenValue == 0){
+                                // if(id == 0000){
+                                //         alert("Please fill the General Information Form First");
+                                //         location.reload();
+                                // }else{
+                                //         if(contentHiddenValue == 0){
 
-                                                jQuery.ajax({
-                                                        type:'POST',
-                                                        url:"<?php echo base_url('/index.php/Form/SaveDescription'); ?>",
-                                                        dataType:'html',
-                                                        data:{
-                                                                id:id,
-                                                                des:description
-                                                        },
-                                                        success: function(res) 
-                                                        {
-                                                                if(res==1)
-                                                                {
-                                                                        alert('Description Added');
-                                                                        RefreshTable();
-                                                                }
-                                                                else
-                                                                {
-                                                                        alert('Description Adding Faliure');	
-                                                                }
+                                //                 jQuery.ajax({
+                                //                         type:'POST',
+                                //                         url:"<?php echo base_url('/index.php/Form/SaveDescription'); ?>",
+                                //                         dataType:'html',
+                                //                         data:{
+                                //                                 id:id,
+                                //                                 des:description
+                                //                         },
+                                //                         success: function(res) 
+                                //                         {
+                                //                                 if(res==1)
+                                //                                 {
+                                //                                         alert('Description Added');
+                                //                                         RefreshTable();
+                                //                                 }
+                                //                                 else
+                                //                                 {
+                                //                                         alert('Description Adding Faliure');	
+                                //                                 }
                                                                 
-                                                        },
-                                                        error:function()
-                                                        {
-                                                                alert('Error Occured when Adding');	
-                                                        }
-                                                });
+                                //                         },
+                                //                         error:function()
+                                //                         {
+                                //                                 alert('Error Occured when Adding');	
+                                //                         }
+                                //                 });
 
-                                        }else{
-                                                jQuery.ajax({
-                                                        type:'POST',
-                                                        url:"<?php echo base_url('/index.php/Form/UpdateDescription'); ?>",
-                                                        dataType:'html',
-                                                        data:{
-                                                                hiddenContentID:contentHiddenValue,
-                                                                des:description
-                                                        },
-                                                        success:function(res) 
-                                                        {
-                                                                if(res == 1)
-                                                                {
-                                                                        alert('Description Updated');
-                                                                        RefreshTable();
-                                                                        document.getElementById('hiddenContentID').value = 0;
-                                                                }
-                                                                else
-                                                                {
-                                                                        alert('Description Update Fail. Try Again');
-                                                                        RefreshTable();	
-                                                                        document.getElementById('hiddenContentID').value = 0;
-                                                                }
+                                //         }else{
+                                //                 jQuery.ajax({
+                                //                         type:'POST',
+                                //                         url:"<?php echo base_url('/index.php/Form/UpdateDescription'); ?>",
+                                //                         dataType:'html',
+                                //                         data:{
+                                //                                 hiddenContentID:contentHiddenValue,
+                                //                                 des:description
+                                //                         },
+                                //                         success:function(res) 
+                                //                         {
+                                //                                 if(res == 1)
+                                //                                 {
+                                //                                         alert('Description Updated');
+                                //                                         RefreshTable();
+                                //                                         document.getElementById('hiddenContentID').value = 0;
+                                //                                 }
+                                //                                 else
+                                //                                 {
+                                //                                         alert('Description Update Fail. Try Again');
+                                //                                         RefreshTable();	
+                                //                                         document.getElementById('hiddenContentID').value = 0;
+                                //                                 }
                                                                 
-                                                        },
-                                                        error:function()
-                                                        {
-                                                        alert('Error Occured when Updataing');	
-                                                        }
-                                                });
+                                //                         },
+                                //                         error:function()
+                                //                         {
+                                //                         alert('Error Occured when Updataing');	
+                                //                         }
+                                //                 });
 
-                                        }
+                                //         }
                                         
                                 
-                                }
+                                // }
+                                CheckContentStatus();
 
                         });
                 });
@@ -265,6 +282,89 @@
                                         }
                         });
 
+                }
+
+                function CheckContentStatus(){
+
+                        jQuery.ajax({
+                                type:"POST",
+                                url:"<?php echo base_url('/index.php/Form/CheckContent'); ?>",
+                                data:{
+                                        id:document.getElementById('hiddenContentID').value
+                                },
+                                success:function(data){
+
+                                        var id = document.getElementById('userID').value;
+                                        var description = document.getElementById('des').value;
+
+                                        var contentHiddenValue = document.getElementById('hiddenContentID').value;
+
+                                        if(data > 0){
+                                                //alert("Already have a data");
+                                                jQuery.ajax({
+                                                        type:'POST',
+                                                        url:"<?php echo base_url('/index.php/Form/UpdateDescription'); ?>",
+                                                        dataType:'html',
+                                                        data:{
+                                                                hiddenContentID:contentHiddenValue,
+                                                                des:description
+                                                        },
+                                                        success:function(res) 
+                                                        {
+                                                                if(res == 1)
+                                                                {
+                                                                        alert('Description Updated');
+                                                                        RefreshTable();
+                                                                        document.getElementById('hiddenContentID').value = 0;
+                                                                }
+                                                                else
+                                                                {
+                                                                        alert('Description Update Fail. Try Again');
+                                                                        RefreshTable();	
+                                                                        document.getElementById('hiddenContentID').value = 0;
+                                                                }
+                                                                
+                                                        },
+                                                        error:function()
+                                                        {
+                                                        alert('Error Occured when Updataing');	
+                                                        }
+                                                });
+                                        }else{
+                                                //alert(data);
+                                                jQuery.ajax({
+                                                        type:'POST',
+                                                        url:"<?php echo base_url('/index.php/Form/SaveDescription'); ?>",
+                                                        dataType:'html',
+                                                        data:{
+                                                                id:id,
+                                                                des:description
+                                                        },
+                                                        success: function(res) 
+                                                        {
+                                                                if(res==1)
+                                                                {
+                                                                        alert('Description Added');
+                                                                        RefreshTable();
+                                                                }
+                                                                else
+                                                                {
+                                                                        alert('Description Adding Faliure');	
+                                                                }
+                                                                
+                                                        },
+                                                        error:function()
+                                                        {
+                                                                alert('Error Occured when Adding');	
+                                                        }
+                                                });
+                                        }
+                                        
+                                },
+                                error:function(){
+                                        alert("Content Check Error");
+                                }
+                        });
                 }
 
 

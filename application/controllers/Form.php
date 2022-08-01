@@ -245,13 +245,28 @@ class Form extends CI_Controller
   }
 
   public function CheckContent(){
-    $id = $this->input->post('contentID', TRUE);
 
-    echo '<script>alert('. $id .')</script>';
+    $id = $this->input->post('id', TRUE);
 
-    $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id`'.$id.'');
+    if($id == NULL){
+      $id = 0;
+    }
 
-    echo '<script>alert('.$query->num_rows().')</script>';
+    $this->load->model('Form_model');
+    $result = $this->Form_model->CheckContentRows($id);
+
+    
+    echo $result;
+    // if($result > 0){
+      
+    // }else{
+
+    // }
+    // echo '<script>alert('. $id .')</script>';
+
+    // $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id`'.$id.'');
+
+    // echo '<script>alert('.$query->num_rows().')</script>';
   }
 
 }

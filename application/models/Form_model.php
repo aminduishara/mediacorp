@@ -87,6 +87,11 @@ class Form_model extends CI_Model {
 
   }
 
+  public function CheckContentRows($id){
+    $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id` = '.$id.'');
+    return $query->num_rows();
+  }
+
 }
 
 /* End of file Form_model.php */
