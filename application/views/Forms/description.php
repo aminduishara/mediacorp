@@ -228,6 +228,7 @@
                         //alert(id);
 
                         var hiddenContentID = id;
+                        document.getElementById('butAdd').value = "Update";
 
                         jQuery.ajax({
                                         type:'POST',
@@ -313,6 +314,7 @@
                                                         {
                                                                 if(res == 1)
                                                                 {
+                                                                        document.getElementById('butAdd').value = "Add"
                                                                         alert('Description Updated');
                                                                         RefreshTable();
                                                                         document.getElementById('hiddenContentID').value = 0;
