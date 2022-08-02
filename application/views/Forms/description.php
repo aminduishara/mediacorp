@@ -234,7 +234,7 @@
 
                                                 document.getElementById('hiddenContentID').value = json_data[0]['aplicent_content_id'];
                                                 document.getElementById('des').value = json_data[0]['aplicent_content_content'];
-                                                document.getElementById('label').value = json_data[0]['aplicent_content_id'];
+                                                document.getElementById('label').value = json_data[0]['cat_mast_label_id'];
 
                                         },
                                         error:function()
