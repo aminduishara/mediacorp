@@ -24,11 +24,11 @@
 
             <div class="col-sm-4">
                 <div class="form-check form-check-inline" >
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aplicent_type" value="Organization" <?php echo $status ?>>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aplicent_type" value="1" <?php echo $status ?>>
                     <label class="form-check-label" for="inlineRadio2">Organization</label>
                 </div><br>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aplicent_type" value="Other" <?php echo $status ?>>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aplicent_type" value="2" <?php echo $status ?>>
                     <label class="form-check-label" for="inlineRadio1">Other</label>
                 </div>
             </div>
@@ -56,9 +56,9 @@
                             <div class="form-group col-sm-12">
                                 <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
                                         <select class="form-select" name="economy_id" id="economy_id"  <?php echo $status ?>>
-                                        <option value="China">China</option>
-                                        <option value="Australia">Australia</option>
-                                        <option value="Myanmar">Myanmar</option>
+                                        <option value="1">China</option>
+                                        <option value="2">Australia</option>
+                                        <option value="3">Myanmar</option>
                                         </select>
                             </div>
                         </div>
@@ -85,9 +85,9 @@
                     <div class="col-sm-6" style="display:<?php echo $visibility?>">
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
                                 <select class="form-select" name="category" id="category" <?php echo $status ?>>
-                                <option value="Consumer">Consumer</option>
-                                <option value="TechnologyAI">Technology-AI</option>
-                                <option value="TechnologyIOT">Technology-IOT</option>
+                                <option value="10">Consumer</option>
+                                <option value="20">Technology-AI</option>
+                                <option value="30">Technology-IOT</option>
                                 </select>
                     </div>
                 
@@ -114,9 +114,9 @@
                     <div class="form-group col-sm-6" style="display:<?php echo $visibility?>">
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
                                 <select class="form-select" name="subCategory" id="sub_category" <?php echo $status ?>>
-                                <option value="Cat1">Category 1</option>
-                                <option value="Cat2">Category 2</option>
-                                <option value="Cat3">Category 3</option>
+                                <option value="11">Category 1</option>
+                                <option value="22">Category 2</option>
+                                <option value="33">Category 3</option>
                                 </select>
                     </div>
 
@@ -618,6 +618,7 @@
 
         
 </form>
+
 
 <script type="text/javascript">
 

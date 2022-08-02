@@ -35,9 +35,11 @@ class Form extends CI_Controller
   public function SaveFormData()
   {
 
+
     $data = array(
-      'aplicent_id'=> $this->input->post('id', TRUE), 
-      'aplicant_nam'=> $this->input->post('fullName', TRUE), 
+      'aplicent_id'=> "",
+      'aplicent_ref'=> $this->input->post('id', TRUE),
+      'aplicant_nam'=> $this->input->post('fullName', TRUE).' '.$this->input->post('lastName', TRUE), 
       'aplicent_type'=> $this->input->post('type', TRUE), 
       'mas_economy_id'=> $this->input->post('economy', TRUE), 
       'aplicant_cat'=> $this->input->post('category', TRUE), 
@@ -150,31 +152,13 @@ class Form extends CI_Controller
 
   }
 
-  public function GetUserDesData(){
-
-    //$id = $this->input->post('id', TRUE);
-
-    $this->load->model('Form_model');
-    $query = $this->Form_model->GetDesData();    
-    return json_encode($query);
-    //return $query;
-
-  }
-
   public function GetUserDes(){
 
     $id = $this->input->post('id', TRUE);
-    // load table library
-    $this->load->library('table');
-            
-    // set heading
-    $this->table->set_heading('Ref No', 'Applicant ID', 'Dscription', 'Lable ID', 'Status');
+    $query = $this->db->query('SELECT `aplicent_content_id`,`aplicent_id`, `cat_mast_label_id`, `aplicent_content_content` FROM `aplicent_content` WHERE `aplicent_id` = '.$id.'');
 
-    // set template
-    $style = array('table_open'  => '<table class="table rounded shadow-sm text-center align-content-center">');
-    $this->table->set_template($style);
-
-    echo $this->table->generate($this->db->query('SELECT * FROM `aplicent_content` WHERE aplicent_id = '.$id.''));
+    $json_data['data'] =  $query->result();
+    echo json_encode($json_data);
   
   }
 
@@ -213,6 +197,76 @@ class Form extends CI_Controller
             echo "<script>alert('Upload Faliure')</script>";
     }
 
+  }
+
+  public function GetContent(){
+
+    $contentID = $this->input->post('contentID', TRUE);
+
+    $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id` = '.$contentID.'');
+
+    echo json_encode($query->result());
+
+  }
+
+  public function UpdateDescription(){
+
+    $contentID = $this->input->post('hiddenContentID', TRUE);
+    $description = $this->input->post('des', TRUE);
+
+    $this->load->model('Form_model');
+    $result = $this->Form_model->UpdateUser($contentID,$description);
+
+    //$query = $this->db->query('UPDATE `aplicent_content` SET `aplicent_content_content`='.$description.' WHERE `aplicent_content_id`= '.$contentID.'');
+
+    if($result){
+
+      echo 1;
+
+    }else{
+
+      echo 0;
+
+    }
+    
+  }
+
+  public function RemoveDescription(){
+
+    $contentID = $this->input->post('contentID', TRUE);
+    if($this->db->query('DELETE FROM `aplicent_content` WHERE `aplicent_content_id` = '.$contentID.'')){
+      echo 1;
+
+    }else{
+
+      echo 0;
+
+    }
+  }
+
+  public function CheckContent(){
+
+    $id = $this->input->post('id', TRUE);
+
+    if($id == NULL){
+      $id = 0;
+    }
+
+    $this->load->model('Form_model');
+    $result = $this->Form_model->CheckContentRows($id);
+
+    
+    echo $result;
+    // if($result > 0){
+      
+    // }else{
+
+    // }
+    // echo '<script>alert('. $id .')</script>';
+
+    // $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id`'.$id.'');
+
+    // echo '<script>alert('.$query->num_rows().')</script>';
   }
 
 }
