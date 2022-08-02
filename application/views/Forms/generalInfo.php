@@ -56,9 +56,30 @@
                             <div class="form-group col-sm-12">
                                 <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
                                         <select class="form-select" name="economy_id" id="economy_id"  <?php echo $status ?>>
-                                        <option value="1">China</option>
-                                        <option value="2">Australia</option>
-                                        <option value="3">Myanmar</option>
+
+                                        <script>
+                                            jQuery.ajax({
+                                                type:"POST",
+                                                url:"<?php echo base_url('/index.php/Form/GetEconomy'); ?>",
+                                                success:function(data){
+                                                    var json_data = JSON.parse(data);
+                                                    //console.log(json_data);
+
+                                                    document.getElementById('economy_id').innerHTML = json_data["dataEconomy"].map(
+                                                        row=>
+                                                        `<option value="${row['mas_economy_id']}">${row['mas_economy_name']}</option>`
+                                                    );
+                                                },
+                                                error:function(){
+
+                                                    document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
+
+                                                }
+                                                
+                                            });
+
+                                        </script>
+
                                         </select>
                             </div>
                         </div>
@@ -84,10 +105,29 @@
                 }?>
                     <div class="col-sm-6" style="display:<?php echo $visibility?>">
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
-                                <select class="form-select" name="category" id="category" <?php echo $status ?>>
-                                <option value="10">Consumer</option>
-                                <option value="20">Technology-AI</option>
-                                <option value="30">Technology-IOT</option>
+                                <select class="form-select" name="category" id="category" onchange="GetSubCate()" <?php echo $status ?>>
+                                <script>
+                                            jQuery.ajax({
+                                                type:"POST",
+                                                url:"<?php echo base_url('/index.php/Form/GetCate'); ?>",
+                                                success:function(data){
+                                                    var json_data = JSON.parse(data);
+                                                    //console.log(json_data);
+
+                                                    document.getElementById('category').innerHTML = json_data["dataCate"].map(
+                                                        row=>
+                                                        `<option value="${row['cat_id']}">${row['cat_name']}</option>`
+                                                    );
+                                                },
+                                                error:function(){
+
+                                                    document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
+
+                                                }
+                                                
+                                            });
+
+                                        </script>
                                 </select>
                     </div>
                 
@@ -114,9 +154,6 @@
                     <div class="form-group col-sm-6" style="display:<?php echo $visibility?>">
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
                                 <select class="form-select" name="subCategory" id="sub_category" <?php echo $status ?>>
-                                <option value="11">Category 1</option>
-                                <option value="22">Category 2</option>
-                                <option value="33">Category 3</option>
                                 </select>
                     </div>
 
@@ -621,6 +658,64 @@
 
 
 <script type="text/javascript">
+
+function GetSubCate(){
+    var id = document.getElementById('category').value;
+    //alert(id);
+    jQuery.ajax({
+        type:"POST",
+        url:"<?php echo base_url('/index.php/Form/GetSubCate'); ?>",
+        data:{
+            id:id
+        },
+        success:function(data){
+
+            var json_data = JSON.parse(data);
+            //console.log(json_data);
+
+            document.getElementById('sub_category').innerHTML = json_data["dataSubCate"].map(
+                row=>
+                `<option value="${row['sub_cat_mast_id']}">${row['sub_cat_mast_name']}</option>`            
+            );
+
+        },
+        error:function(){
+            document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
+        }
+    });
+    
+
+    jQuery.ajax({
+        type:"POST",
+        url:"<?php echo base_url('/index.php/Form/GetLabel'); ?>",
+        data:{
+            id:id
+        },
+        success:function(data){
+
+            var json_data = JSON.parse(data);
+            //console.log(json_data);
+
+            if(json_data["dataLabel"].length == 0){
+
+                document.getElementById('label').innerHTML = '<option value="0">Empty</option>'    
+
+            }else{
+                document.getElementById('label').innerHTML = json_data["dataLabel"].map(
+                row=>
+                `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`            
+            );
+            }
+
+
+
+        },
+        error:function(){
+            document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
+        }
+    });
+
+}
 
 // Ajax post
 $(document).ready(function() 

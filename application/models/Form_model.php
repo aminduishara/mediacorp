@@ -72,9 +72,9 @@ class Form_model extends CI_Model {
     return $query;
   }
 
-  public function UpdateUser($contentID, $description){
+  public function UpdateUser($contentID, $description, $label){
     
-    $query = $this->db->query('UPDATE `aplicent_content` SET `aplicent_content_content`="'.$description.'" WHERE `aplicent_content_id` = '.$contentID.'');
+    $query = $this->db->query('UPDATE `aplicent_content` SET `cat_mast_label_id`= '.$label.', `aplicent_content_content`="'.$description.'" WHERE `aplicent_content_id` = '.$contentID.'');
 
     if($query)
 		{
@@ -90,6 +90,36 @@ class Form_model extends CI_Model {
   public function CheckContentRows($id){
     $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id` = '.$id.'');
     return $query->num_rows();
+  }
+
+  public function GetEconomyData(){
+
+    $query = $this->db->query('SELECT * FROM `gen_mas_economy` WHERE `mas_economy_status` = 1');
+    return $query;
+
+
+  }
+
+  public function GetCateData(){
+
+    $query = $this->db->query('SELECT * FROM `cat_mast` WHERE `freeze_status` = "unfreezed"');
+    return $query;
+
+
+  }
+
+  public function GetSubCateData($id){
+
+    $query = $this->db->query('SELECT * FROM `sub_cat_mast` WHERE `cat_id` = '.$id.'');
+    return $query;
+
+  }
+  
+  public function GetLabelData($id){
+
+    $query = $this->db->query('SELECT * FROM `cat_mast_label` WHERE `cat_id` = '.$id.'');
+    return $query;
+
   }
 
 }
