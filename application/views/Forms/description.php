@@ -6,7 +6,7 @@
     <div class="row"  style="display:<?php echo $visibility?>">
         <div class="form-group col-sm-12">
             <label for="exampleInputName" class="form-label">Label</label><br>
-                <select class="form-select" name="label" id="label">
+                <select class="form-select" name="label" id="label" required="required">
                 </select>
         </div>
     </div>
@@ -17,7 +17,7 @@
         <div class="col-sm-12">
             <div class="wrapper">
                 <div class="input-data">
-                    <input type="text" name="des" id="des" required>
+                    <input type="text" name="des" id="des" required="required">
                     <div class="underline"></div>
                     <label class="form-label">Description</label>
                 </div>
@@ -96,10 +96,6 @@
 
                                                 alert('Please fill all the required data');
 
-                                        }else if($('#label').val() == '' && $('#economy_id').attr('required') == "required"){
-
-                                                alert('Please fill all the required data'); 
-
                                         }else{
 
                                                 if(contentHiddenValue == 0){
@@ -118,7 +114,6 @@
                                                                                 if(res==1)
                                                                                 {
                                                                                         document.getElementById('des').value = '';
-                                                                                        document.getElementById('label').value = '';
                                                                                         alert('Description Added');
                                                                                         RefreshTable();
                                                                                 }
@@ -126,7 +121,6 @@
                                                                                 {
                                                                                         alert('Description Adding Faliure');	
                                                                                         document.getElementById('des').value = '';
-                                                                                        document.getElementById('label').value = '';
                                                                                 }
                                                                                 
                                                                         },
@@ -155,7 +149,6 @@
                                                                                         RefreshTable();
                                                                                         document.getElementById('hiddenContentID').value = 0;
                                                                                         document.getElementById('des').value = '';
-                                                                                        document.getElementById('label').value = '';
                                                                                 }
                                                                                 else
                                                                                 {
@@ -163,7 +156,6 @@
                                                                                         RefreshTable();	
                                                                                         document.getElementById('hiddenContentID').value = 0;
                                                                                         document.getElementById('des').value = '';
-                                                                                        document.getElementById('label').value = '';
                                                                                 }
                                                                                 
                                                                         },

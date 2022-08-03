@@ -703,10 +703,10 @@ function GetSubCate(){
             if(json_data["dataLabel"].length == 0){
 
                 document.getElementById('label').innerHTML = '<option value="0">No Data</option>';
-                document.getElementById('butAdd').style.visibility = "hidden"; 
-
+                document.getElementById("butAdd").disabled = true;
 
             }else{
+                document.getElementById("butAdd").disabled = false;
                 document.getElementById('label').innerHTML = json_data["dataLabel"].map(
                 row=>
                 `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`            
