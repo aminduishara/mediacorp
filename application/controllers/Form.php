@@ -128,11 +128,12 @@ class Form extends CI_Controller
 
     $id = $this->input->post('id', TRUE);
     $des = $this->input->post('des', TRUE);
+    $label = $this->input->post('label', TRUE);
 
     $data = array(
       'aplicent_content_id'=>'',
       'aplicent_id'=>$id,
-      'cat_mast_label_id'=>$id,
+      'cat_mast_label_id'=>$label,
       'aplicent_content_content'=>$des,
       'aplicent_content_status'=>1
     );
@@ -155,7 +156,7 @@ class Form extends CI_Controller
   public function GetUserDes(){
 
     $id = $this->input->post('id', TRUE);
-    $query = $this->db->query('SELECT `aplicent_content_id`,`aplicent_id`, `cat_mast_label_id`, `aplicent_content_content` FROM `aplicent_content` WHERE `aplicent_id` = '.$id.'');
+    $query = $this->db->query('SELECT a.aplicent_content_id, a.aplicent_content_content, c.cat_mast_label_name FROM aplicent_content a, cat_mast_label c WHERE a.cat_mast_label_id = c.cat_mast_label_id && a.aplicent_id = '.$id.'');
 
     $json_data['data'] =  $query->result();
     echo json_encode($json_data);
@@ -213,9 +214,11 @@ class Form extends CI_Controller
 
     $contentID = $this->input->post('hiddenContentID', TRUE);
     $description = $this->input->post('des', TRUE);
+    $label = $this->input->post('label', TRUE);
+    
 
     $this->load->model('Form_model');
-    $result = $this->Form_model->UpdateUser($contentID,$description);
+    $result = $this->Form_model->UpdateUser($contentID,$description,$label);
 
     //$query = $this->db->query('UPDATE `aplicent_content` SET `aplicent_content_content`='.$description.' WHERE `aplicent_content_id`= '.$contentID.'');
 
@@ -267,6 +270,53 @@ class Form extends CI_Controller
     // $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id`'.$id.'');
 
     // echo '<script>alert('.$query->num_rows().')</script>';
+  }
+
+  public function GetEconomy(){
+
+    $this->load->model('Form_model');
+
+    $result = $this->Form_model->GetEconomyData();
+
+    $json_data['dataEconomy'] = $result->result();
+    echo json_encode($json_data);
+
+  }
+
+  public function GetCate(){
+
+    $this->load->model('Form_model');
+
+    $result = $this->Form_model->GetCateData();
+
+    $json_data['dataCate'] = $result->result();
+    echo json_encode($json_data);
+
+  }
+
+
+  public function GetSubCate(){
+
+    $id = $this->input->post('id', TRUE);
+
+    $this->load->model('Form_model');
+    $result = $this->Form_model->GetSubCateData($id);
+
+    $json_data['dataSubCate'] = $result->result();
+    echo json_encode($json_data);
+
+  }
+
+  public function GetLabel(){
+
+    $id = $this->input->post('id', TRUE);
+
+    $this->load->model('Form_model');
+    $result = $this->Form_model->GetLabelData($id);
+
+    $json_data['dataLabel'] = $result->result();
+    echo json_encode($json_data);
+
   }
 
 }
