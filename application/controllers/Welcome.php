@@ -23,7 +23,7 @@ class Welcome extends CI_Controller {
 		//$this->load->view('home');
 		$this->load->model("Form_model");
 		$data["lableData"] = $this->Form_model->formData();
-		$this->load->view('homeImpl', $data);	
+		$this->load->view('homeImpl', $data);   
 		//$this->load->view('upload_form', array('error' => ' ' ));
 		
 	}

@@ -34,11 +34,11 @@ class Form extends CI_Controller
   
   public function SaveFormData()
   {
-
+    
 
     $data = array(
-      'aplicent_id'=> "",
       'aplicent_ref'=> $this->input->post('id', TRUE),
+      'date_time'=> $this->input->post('datetime', TRUE),
       'aplicant_nam'=> $this->input->post('fullName', TRUE).' '.$this->input->post('lastName', TRUE), 
       'aplicent_type'=> $this->input->post('type', TRUE), 
       'mas_economy_id'=> $this->input->post('economy', TRUE), 
@@ -59,8 +59,8 @@ class Form extends CI_Controller
       'aplicent_con_lname'=> $this->input->post('lastName', TRUE), 
       'aplicent_con_desig'=> $this->input->post('designation', TRUE), 
       'aplicent_con_mobile'=> $this->input->post('mobileNo', TRUE), 
-      'aplicent_con_telno' => $this->input->post('teleNo', TRUE)
-
+      'aplicent_con_telno' => $this->input->post('teleNo', TRUE),
+      'aplicent_status' => 1
     );
 
     $this->load->model('Form_model');
