@@ -1,10 +1,11 @@
-<form class="rounded p-5 m-5 shadow-sm">
-    
-    <input type="text" name="hiddenContentID" id="hiddenContentID" hidden>
+
+<form class="rounded p-5 mt-5 mb-5 shadow-sm" id="desForm">    
+
+    <input type="text" name="hiddenContentID" id="hiddenContentID" value="0" hidden>
 
     <div class="row"  style="display:<?php echo $visibility?>">
         <div class="form-group col-sm-12">
-            <label for="exampleInputName" class="form-label">Select Label</label><br>
+            <label for="exampleInputName" class="form-label">Label</label><br>
                 <select class="form-select" name="label" id="label">
                 </select>
         </div>
@@ -24,41 +25,16 @@
         </div>
     </div>
 
-    <div class="row mt-4 mb-4">
+        <div class="row mt-4 mb-4">
             <div class="form-group col-sm-12 text-center">
-            <input type="button" class="text-white float-end" 
-            style="width: 150px;
-            height: 40px;
-            padding: 7px 10px;
-            border-radius: 25px;
-            border:none;
-            font-size: 15px;
-            text-align: center;
-            background-color:#0000FF" value="Add" id="butAdd">
+            <input type="button" class="text-white text-center btn btn-md btn-primary px-5 mt-5" value="Add Description" id="butAdd">
             </div>
         </div> 
+
 </form>
 
-<!-- <div class="m-5">
-<div class="row mt-4 mb-4">
-            <div class="form-group col-sm-12 text-center">
-            <input type="button" class="text-white float-start" 
-            style="width: 150px;
-            height: 40px;
-            padding: 7px 10px;
-            border-radius: 25px;
-            border:none;
-            font-size: 15px;
-            text-align: center;
-            background-color:green" value="Check Content" id="checkC" onclick="CheckContentStatus()">
-            </div>
-</div>  -->
-<!-- 
-<div id="hello"></div>
- -->
-
-<div id="tableCont">
-<table class="table rounded shadow-sm text-center align-content-center" id="DesTable">
+<div id="tableCont p-5 m-5">
+<table class="table rounded shadow-sm text-center align-content-center table-dark" id="DesTable">
   <thead>
     <tr>
       <th scope="col" hidden>Content ID</th>
@@ -73,9 +49,28 @@
   </tbody>
 </table>
 </div>   
-<div id="hello" class="text-center"></div>     
-</div>
 
+<div id="hello" class="text-center"></div>  
+
+        <div class="col float-start">
+
+                <div class="row mt-4 mb-4">
+                <div class="form-group col-sm-12 text-center">
+                <input type="button" class="text-white btn btn-md btn-warning float-end px-5" value="Back" id="Back">
+                </div>
+                </div> 
+
+        </div>
+
+        <div class="col float-end">
+                
+                <div class="row mt-4 mb-4">
+                <div class="form-group col-sm-12 text-center">
+                <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Next" id="Next">
+                </div>
+                </div> 
+
+        </div>
 
 
 <script type="text/javascript">
@@ -84,81 +79,106 @@
                 {
                         $('#butAdd').click(function()
                         {
-                                // var id = document.getElementById('userID').value;
-                                // var description = document.getElementById('des').value;
 
-                                // var contentHiddenValue = document.getElementById('hiddenContentID').value;
+                                var id = document.getElementById('userID').value;
+                                var description = document.getElementById('des').value;
+                                var label = document.getElementById('label').value;
+
+                                var contentHiddenValue = document.getElementById('hiddenContentID').value;
 
 
-                                // if(id == 0000){
-                                //         alert("Please fill the General Information Form First");
-                                //         location.reload();
-                                // }else{
-                                //         if(contentHiddenValue == 0){
+                                if(id == 0000){
+                                        alert("Please fill the General Information Form First");
+                                        location.reload();
+                                }else{
+                                        
+                                        if($('#des').val() == '' && $('#des').attr('required') == "required"){
 
-                                //                 jQuery.ajax({
-                                //                         type:'POST',
-                                //                         url:"<?php echo base_url('/index.php/Form/SaveDescription'); ?>",
-                                //                         dataType:'html',
-                                //                         data:{
-                                //                                 id:id,
-                                //                                 des:description
-                                //                         },
-                                //                         success: function(res) 
-                                //                         {
-                                //                                 if(res==1)
-                                //                                 {
-                                //                                         alert('Description Added');
-                                //                                         RefreshTable();
-                                //                                 }
-                                //                                 else
-                                //                                 {
-                                //                                         alert('Description Adding Faliure');	
-                                //                                 }
-                                                                
-                                //                         },
-                                //                         error:function()
-                                //                         {
-                                //                                 alert('Error Occured when Adding');	
-                                //                         }
-                                //                 });
+                                                alert('Please fill all the required data');
 
-                                //         }else{
-                                //                 jQuery.ajax({
-                                //                         type:'POST',
-                                //                         url:"<?php echo base_url('/index.php/Form/UpdateDescription'); ?>",
-                                //                         dataType:'html',
-                                //                         data:{
-                                //                                 hiddenContentID:contentHiddenValue,
-                                //                                 des:description
-                                //                         },
-                                //                         success:function(res) 
-                                //                         {
-                                //                                 if(res == 1)
-                                //                                 {
-                                //                                         alert('Description Updated');
-                                //                                         RefreshTable();
-                                //                                         document.getElementById('hiddenContentID').value = 0;
-                                //                                 }
-                                //                                 else
-                                //                                 {
-                                //                                         alert('Description Update Fail. Try Again');
-                                //                                         RefreshTable();	
-                                //                                         document.getElementById('hiddenContentID').value = 0;
-                                //                                 }
-                                                                
-                                //                         },
-                                //                         error:function()
-                                //                         {
-                                //                         alert('Error Occured when Updataing');	
-                                //                         }
-                                //                 });
+                                        }else if($('#label').val() == '' && $('#economy_id').attr('required') == "required"){
 
-                                //         }
+                                                alert('Please fill all the required data'); 
+
+                                        }else{
+
+                                                if(contentHiddenValue == 0){
+
+                                                        jQuery.ajax({
+                                                                        type:'POST',
+                                                                        url:"<?php echo base_url('/index.php/Form/SaveDescription'); ?>",
+                                                                        dataType:'html',
+                                                                        data:{
+                                                                                id:id,
+                                                                                des:description,
+                                                                                label:label
+                                                                        },
+                                                                        success: function(res) 
+                                                                        {
+                                                                                if(res==1)
+                                                                                {
+                                                                                        document.getElementById('des').value = '';
+                                                                                        document.getElementById('label').value = '';
+                                                                                        alert('Description Added');
+                                                                                        RefreshTable();
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                        alert('Description Adding Faliure');	
+                                                                                        document.getElementById('des').value = '';
+                                                                                        document.getElementById('label').value = '';
+                                                                                }
+                                                                                
+                                                                        },
+                                                                        error:function()
+                                                                        {
+                                                                                alert('Error Occured when Adding');	
+                                                                        }
+                                                                });
+
+                                                }else{
+                                                        jQuery.ajax({
+                                                                        type:'POST',
+                                                                        url:"<?php echo base_url('/index.php/Form/UpdateDescription'); ?>",
+                                                                        dataType:'html',
+                                                                        data:{
+                                                                                hiddenContentID:contentHiddenValue,
+                                                                                des:description,
+                                                                                label:label
+                                                                        },
+                                                                        success:function(res) 
+                                                                        {
+                                                                                if(res == 1)
+                                                                                {
+                                                                                        document.getElementById('butAdd').value = "Add"
+                                                                                        alert('Description Updated');
+                                                                                        RefreshTable();
+                                                                                        document.getElementById('hiddenContentID').value = 0;
+                                                                                        document.getElementById('des').value = '';
+                                                                                        document.getElementById('label').value = '';
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                        alert('Description Update Fail. Try Again');
+                                                                                        RefreshTable();	
+                                                                                        document.getElementById('hiddenContentID').value = 0;
+                                                                                        document.getElementById('des').value = '';
+                                                                                        document.getElementById('label').value = '';
+                                                                                }
+                                                                                
+                                                                        },
+                                                                        error:function()
+                                                                        {
+                                                                        alert('Error Occured when Updataing');	
+                                                                        }
+                                                                });
+
+                                                }
+                                        }
                                         
                                 
-                                // }
-                                CheckContentStatus();
+                                }
+                                //CheckContentStatus();
 
                         });
                 });
@@ -239,7 +259,7 @@
                                         },
                                         error:function()
                                         {
-                                        alert('Error Occured');	
+                                                alert('Error Occured');	
                                         }
                         });
                 }
