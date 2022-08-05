@@ -141,6 +141,48 @@
                                 }
                         });
                 }
+                if (image2) {
+                        let files = new FormData(), // you can consider this as 'data bag'
+                                url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
+
+                        files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
+                        files.append('name', $('#ImgFile2').val().split('\\').pop());
+                        $.ajax({
+                                type: 'post',
+                                url: url,
+                                processData: false,
+                                contentType: false,
+                                data: files,
+                                success: function(res) {
+                                        alert('Image Uploaded');
+
+                                },
+                                error: function() {
+                                        console.log('Upload Fail');
+                                }
+                        });
+                }
+                if (image3) {
+                        let files = new FormData(), // you can consider this as 'data bag'
+                                url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
+
+                        files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
+                        files.append('name', $('#ImgFile3').val().split('\\').pop());
+                        $.ajax({
+                                type: 'post',
+                                url: url,
+                                processData: false,
+                                contentType: false,
+                                data: files,
+                                success: function(res) {
+                                        alert('Image Uploaded');
+
+                                },
+                                error: function() {
+                                        console.log('Upload Fail');
+                                }
+                        });
+                }
         });
         // });
 </script>

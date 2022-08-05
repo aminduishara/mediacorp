@@ -88,7 +88,7 @@ class Form extends CI_Controller
           $extension = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
           $newname = $_POST['name'];
 
-          if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target . $newname . "." . $extension)) {
+          if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target . $newname)) {
             $status = "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded";
             $imageFileType = pathinfo($newname . '.' . $extension, PATHINFO_EXTENSION);
           } else {
