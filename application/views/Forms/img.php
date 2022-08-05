@@ -51,7 +51,7 @@
         <div class="col float-end">
                 <div class="row mt-4 mb-4">
                         <div class="form-group col-sm-12 text-center">
-                                <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Submit" id="btnSubmit">
+                                <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Finish" id="btnSubmit">
                         </div>
                 </div>
         </div>
