@@ -1,4 +1,4 @@
-<form class="rounded p-5 m-5 shadow-sm">
+<form class="rounded p-5 mt-5 mb-5 shadow-sm">
     <?php 
     if($lableData->num_rows() > 0){
         foreach($lableData->result() as $row){
@@ -11,7 +11,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -23,14 +23,19 @@
             </div>
 
             <div class="col-sm-4">
-                <div class="form-check form-check-inline" >
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aplicent_type" value="1" <?php echo $status ?>>
-                    <label class="form-check-label" for="inlineRadio2">Organization</label>
-                </div><br>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="aplicent_type" value="2" <?php echo $status ?>>
-                    <label class="form-check-label" for="inlineRadio1">Other</label>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status ?>>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Organization
+                </label>
                 </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status ?>>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Other
+                </label>
+                </div>
+
             </div>
 
             </div>
@@ -47,7 +52,7 @@
                 }
 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -99,13 +104,13 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
                     <div class="col-sm-6" style="display:<?php echo $visibility?>">
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
-                                <select class="form-select" name="category" id="category" onchange="GetSubCate()" <?php echo $status ?>>
+                                <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()"<?php echo $status ?>>
                                 <script>
                                             jQuery.ajax({
                                                 type:"POST",
@@ -144,7 +149,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -173,7 +178,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -182,7 +187,7 @@
                     <div class="col-sm-12">
                     <div class="wrapper">
                         <div class="input-data">
-                            <input type="text" name="ProjectName" id="project_name"  <?php echo $status ?>>
+                            <input type="text" name="ProjectName" id="project_name"  onclick="GetSubCate()" <?php echo $status ?>>
                             <div class="underline"></div>
                             <label class="form-label"><?php echo $row->mas_reglable_text?></label>
                         </div>
@@ -205,7 +210,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -232,7 +237,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>                
@@ -260,7 +265,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -292,7 +297,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -321,7 +326,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -352,7 +357,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -380,7 +385,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -411,7 +416,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -440,7 +445,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -468,7 +473,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -499,7 +504,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -528,7 +533,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -558,7 +563,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -585,7 +590,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -613,7 +618,7 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status = "required";
+                    $status =  'required="required"';
                 }else{
                     $status = "";
                 }?>
@@ -641,15 +646,13 @@
 
         <div class="row mt-4 mb-4">
             <div class="form-group col-sm-12 text-center">
-            <input type="button" class="text-white float-end" 
-            style="width: 150px;
-            height: 40px;
-            padding: 7px 10px;
-            border-radius: 25px;
-            border:none;
-            font-size: 15px;
-            text-align: center;
-            background-color:#0000FF" value="save data" id="butsave">
+            <input type="button" class="text-white text-center btn btn-md btn-primary px-5 mt-5" value="Save Data" id="butsave">
+            </div>
+        </div> 
+
+        <div class="row mt-4 mb-4">
+            <div class="form-group col-sm-12 text-center">
+            <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Next" id="Next">
             </div>
         </div> 
 
@@ -671,12 +674,13 @@ function GetSubCate(){
         success:function(data){
 
             var json_data = JSON.parse(data);
-            //console.log(json_data);
+            //alert(json_data["dataSubCate"]);
 
-            document.getElementById('sub_category').innerHTML = json_data["dataSubCate"].map(
+                document.getElementById('sub_category').innerHTML = json_data["dataSubCate"].map(
                 row=>
                 `<option value="${row['sub_cat_mast_id']}">${row['sub_cat_mast_name']}</option>`            
-            );
+                );
+
 
         },
         error:function(){
@@ -698,9 +702,11 @@ function GetSubCate(){
 
             if(json_data["dataLabel"].length == 0){
 
-                document.getElementById('label').innerHTML = '<option value="0">Empty</option>'    
+                document.getElementById('label').innerHTML = '<option value="0">No Data</option>';
+                document.getElementById("butAdd").disabled = true;
 
             }else{
+                document.getElementById("butAdd").disabled = false;
                 document.getElementById('label').innerHTML = json_data["dataLabel"].map(
                 row=>
                 `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`            
@@ -723,11 +729,20 @@ $(document).ready(function()
 $("#butsave").click(function() 
 {
 
+        var aplicent_type;
 
+        if(document.getElementById("aplicent_type1").checked){
+            aplicent_type = document.getElementById("aplicent_type1").value;
+        }else{
+            aplicent_type = document.getElementById("aplicent_type2").value;
+        }
         const val = Math.floor(1000 + Math.random() * 9000);
 
+        var currentdate = new Date(); 
+
+        var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth()+1)  + "-" + currentdate.getDate() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
         var id= val;
-        var type=document.getElementById("aplicent_type").value;
+        var type=aplicent_type;
         var economy=document.getElementById("economy_id").value;
         var category=document.getElementById("category").value;
         var subCategory=document.getElementById("sub_category").value;
@@ -746,59 +761,152 @@ $("#butsave").click(function()
         var lastName=document.getElementById("last_name").value;
         var designation=document.getElementById("designation").value;
         var mobileNo=document.getElementById("mobile_no").value;
-        var teleNo=document.getElementById("telephone_no").value
-
-	
-		jQuery.ajax({
-		type: "POST",
-		url: "<?php echo base_url('/index.php/Form/SaveFormData'); ?>",
-		dataType: 'html',
-		data: {
-
-            id: id,
-            type: type,
-            economy:economy,
-            category:category,
-            subCategory:subCategory,
-            projectName:projectName,
-            applicantEmail:applicantEmail,
-            webSite:webSite,
-            organization:organization,
-            noEmployees:noEmployees,
-            date:date,
-            address1:address1,
-            address2:address2,
-            city:city,
-            province:province,
-            zipCode:zipCode,
-            fullName:fullName,
-            lastName:lastName,
-            designation:designation,
-            mobileNo:mobileNo,
-            teleNo:teleNo     
+        var teleNo=document.getElementById("telephone_no").value;
         
-        },
-		success: function(res) 
-		{
-			if(res==1)
-			{
-			alert('Data saved successfully');
-            document.getElementById("butsave").disabled = true;
-            document.getElementById("butsave").value = 'Inserted';	
-            document.getElementById("userID").value = id;
-			}
-			else
-			{
-			alert('Data not saved');	
-			}
-			
-		},
-		error:function()
-		{
-		alert('data not saved');	
-		}
-		});
+        if($('#economy_id').val() == '' && $('#economy_id').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+
+        }else if($('#economy_id').val() == '' && $('#economy_id').attr('required') == "required"){
+
+            alert('Please fill all the required data'); 
+
+        }else if($('#category').val() == '' && $('#category').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+
+        }else if($('#sub_category').val() == '' && $('#sub_category').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+
+        }else if($('#project_name').val() == '' && $('#project_name').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+
+        }else if($('#applicant_email').val() == '' && $('#applicant_email').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#website_url').val() == '' && $('#website_url').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#organization').val() == '' && $('#organization').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#no_employees').val() == '' && $('#no_employees').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#date').val() == '' && $('#date').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#address_line1').val() == '' && $('#address_line1').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#address_line2').val() == '' && $('#address_line2').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#city').val() == '' && $('#city').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#state').val() == '' && $('#state').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#zip_code').val() == '' && $('#zip_code').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+
+        }else if($('#first_name').val() == '' && $('#first_name').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+
+        }else if($('#last_name').val() == '' && $('#last_name').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+        }else if($('#designation').val() == '' && $('#designation').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+
+        }else if($('#mobile_no').val() == '' && $('#mobile_no').attr('required') == "required"){
+            
+            alert('Please fill all the required data');
+
+        }else if($('#telephone_no').val() == '' && $('#telephone_no').attr('required') == "required"){
+
+            alert('Please fill all the required data');
+
+        }else{           
+	
+                jQuery.ajax({
+                type: "POST",
+                url: "<?php echo base_url('/index.php/Form/SaveFormData'); ?>",
+                dataType: 'html',
+                data: {
+
+                    id: id,
+                    datetime:datetime,
+                    type: type,
+                    economy:economy,
+                    category:category,
+                    subCategory:subCategory,
+                    projectName:projectName,
+                    applicantEmail:applicantEmail,
+                    webSite:webSite,
+                    organization:organization,
+                    noEmployees:noEmployees,
+                    date:date,
+                    address1:address1,
+                    address2:address2,
+                    city:city,
+                    province:province,
+                    zipCode:zipCode,
+                    fullName:fullName,
+                    lastName:lastName,
+                    designation:designation,
+                    mobileNo:mobileNo,
+                    teleNo:teleNo     
+                
+                },
+                success: function(res) 
+                {
+                    if(res==1)
+                    {
+                    alert('Data saved successfully');
+                    document.getElementById("butsave").disabled = true;
+                    document.getElementById("butsave").value = 'Inserted';	
+                    document.getElementById("userID").value = id;
+                    }
+                    else
+                    {
+                    alert('Data not saved');	
+                    }
+                    
+                },
+                error:function()
+                {
+                alert('data not saved');	
+                }
+                });
+
+        }
+
 
 });
 });
+
+
+
+$(document).ready(function() 
+{
+$("#Next").click(function(e) 
+{
+
+    e.preventDefault();
+    $('#mytabs a[href="#profile-tab-pane"]').tab('show');
+
+});
+});
+
+// $('#Next').on('click', function (e) {
+//     var triggerEl = document.querySelector('#myTab li:last-child a')
+//     bootstrap.Tab.getInstance(triggerEl).show()
+// })
 </script>

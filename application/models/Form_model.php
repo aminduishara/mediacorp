@@ -46,11 +46,20 @@ class Form_model extends CI_Model {
 	{
 		if($this->db->insert('aplicent_reg',$data))
 		{
-		return 1;	
+      $query = $this->db->query('UPDATE `aplicent_reg` SET `aplicent_refno` = ( SELECT `aplicent_id` FROM (SELECT aplicent_id, aplicent_ref FROM `aplicent_reg`) as reg WHERE `aplicent_ref` = '.(int)$data['aplicent_ref'].' ) WHERE `aplicent_ref` = '.(int)$data["aplicent_ref"].'');
+		  if($query){
+
+        return 1;
+
+      }
+      else{
+        return 0;
+      }
+      //return 1;
 		}
 		else
 		{
-		return 0;	
+		  return 0;	
 		}
   }
 

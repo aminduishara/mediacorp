@@ -40,18 +40,26 @@ for($i=0; $i < $no; $i++){?>
 
 
         <div class="row mt-4 mb-4">
-            <div class="form-group col-sm-12 text-center">
-            <input type="submit" class="text-white float-end" 
-            style="width: 150px;
-            height: 40px;
-            padding: 7px 10px;
-            border-radius: 25px;
-            border:none;
-            font-size: 15px;
-            text-align: center;
-            background-color:#0000FF" value="Upload Images" id="butupload">
-            </div>
+                <div class="form-group col-sm-12 text-center">
+                        <input type="button" class="text-white text-center btn btn-md btn-primary px-5 mt-5" value="Upload Images" id="butupload">
+                </div>
         </div> 
+
+        <div class="col float-start">
+                <div class="row mt-4 mb-4">
+                        <div class="form-group col-sm-12 text-center">
+                                <input type="button" class="text-white btn btn-md btn-warning float-end px-5" value="Back" id="Back">
+                        </div>
+                </div> 
+        </div>
+
+        <div class="col float-end">
+                <div class="row mt-4 mb-4">
+                        <div class="form-group col-sm-12 text-center">
+                                <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Next" id="Next">
+                        </div>
+                </div> 
+        </div>
 
         
 <?php echo form_close();?>
