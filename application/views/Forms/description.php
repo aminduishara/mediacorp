@@ -144,7 +144,7 @@
                                                                         {
                                                                                 if(res == 1)
                                                                                 {
-                                                                                        document.getElementById('butAdd').value = "Add"
+                                                                                        document.getElementById('butAdd').value = "Add Description"
                                                                                         alert('Description Updated');
                                                                                         RefreshTable();
                                                                                         document.getElementById('hiddenContentID').value = 0;

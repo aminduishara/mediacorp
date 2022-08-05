@@ -14,11 +14,11 @@ for($i=0; $i < $no; $i++){?>
         <div class="row">
                 
                 <div class="col-md-6">
-                        <input class="form-control mb-5" type="file" id="ImgFile<?php echo $i+1?>" onchange="preview<?php echo $i+1?>()" required>        
+                        <input class="form-control mb-5" type="file" id="ImgFile<?php echo $i+1?>" onchange="preview(<?php echo $i+1?>)" required>        
                 </div>
 
                 <div class="col-md-2">
-                        <button class="btn btn-danger" onclick="clearImage<?php echo $i+1?>()">Remove</button>      
+                        <button class="btn btn-danger" onclick="clearImage(<?php echo $i+1?>)">Remove</button>      
                 </div>
 
         </div>
@@ -67,29 +67,51 @@ for($i=0; $i < $no; $i++){?>
         
 
 <script  type="text/javascript">
-            function preview1() {
-                Image1.src = URL.createObjectURL(event.target.files[0]);
+            function preview(id) {                
+
+                if(id == 1){
+                        Image1.src = URL.createObjectURL(event.target.files[0]);
+                }else if(id == 2){
+                        Image2.src = URL.createObjectURL(event.target.files[0]);
+                }else if(id ==3){
+                        Image3.src = URL.createObjectURL(event.target.files[0]);
+                }else{
+                        return;
+                }
+
             }
-            function clearImage1() {
-                document.getElementById('ImgFile1').value = null;
-                $Image1.src = "";
+            function clearImage(id) {
+
+                if(id == 1){
+                        document.getElementById('ImgFile1').value = null;
+                        Image1.src = "";
+                }else if(id == 2){
+                        document.getElementById('ImgFile2').value = null;
+                        Image2.src = "";
+                }else if(id ==3){
+                        document.getElementById('ImgFile3').value = null;
+                        Image3.src = "";
+                }else{
+                        return;
+                }
+                
             }
 
-            function preview2() {
-                    Image2.src = URL.createObjectURL(event.target.files[0]);
-            }
-            function clearImage2() {
-                    document.getElementById('ImgFile2').value = null;
-                    Image2.src = "";
-            }
+        //     function preview2() {
+        //             Image2.src = URL.createObjectURL(event.target.files[0]);
+        //     }
+        //     function clearImage2() {
+        //             document.getElementById('ImgFile2').value = null;
+        //             Image2.src = "";
+        //     }
 
-            function preview3() {
-                    Image3.src = URL.createObjectURL(event.target.files[0]);
-            }
-            function clearImage3() {
-                    document.getElementById('ImgFile3').value = null;
-                    Image3.src = "";
-            }
+        //     function preview3() {
+        //             Image3.src = URL.createObjectURL(event.target.files[0]);
+        //     }
+        //     function clearImage3() {
+        //             document.getElementById('ImgFile3').value = null;
+        //             Image3.src = "";
+        //     }
                 // Ajax post
                 // $(document).ready(function() 
                 // {
