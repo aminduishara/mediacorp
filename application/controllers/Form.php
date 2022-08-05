@@ -91,14 +91,6 @@ class Form extends CI_Controller
           if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target . $newname . "." . $extension)) {
             $status = "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded";
             $imageFileType = pathinfo($newname . '.' . $extension, PATHINFO_EXTENSION);
-            $check = getimagesize($newname . '.' . $extension);
-            if ($check !== false) {
-              echo "File is an image - " . $check["mime"] . ".<br>";
-              $uploadOk = 1;
-            } else {
-              echo "File is not an image.<br>";
-              $uploadOk = 0;
-            }
           } else {
             $status = "Sorry, there was a problem uploading your file.";
           }
