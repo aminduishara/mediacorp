@@ -38,13 +38,6 @@
         }
         ?>
 
-
-        <div class="row mt-4 mb-4">
-                <div class="form-group col-sm-12 text-center">
-                        <input type="button" class="text-white text-center btn btn-md btn-primary px-5 mt-5" value="Upload Images" id="butupload">
-                </div>
-        </div>
-
         <?php echo form_close(); ?>
 
         <div class="col float-start">
@@ -58,7 +51,7 @@
         <div class="col float-end">
                 <div class="row mt-4 mb-4">
                         <div class="form-group col-sm-12 text-center">
-                                <input type="submit" class="text-white btn btn-md btn-success float-end px-5" value="Submit" id="submit">
+                                <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Submit" id="btnSubmit">
                         </div>
                 </div>
         </div>
@@ -116,12 +109,12 @@
         // Ajax post
         // $(document).ready(function() 
         // {
-        $("#butupload").click(function() {
+        $("#btnSubmit").click(function() {
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
                 var image3 = document.getElementById("ImgFile3").files.length;
                 if (image1) {
-                        let files = new FormData(), // you can consider this as 'data bag'
+                        let files = new FormData(),
                                 url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
 
                         files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
@@ -142,7 +135,7 @@
                         });
                 }
                 if (image2) {
-                        let files = new FormData(), // you can consider this as 'data bag'
+                        let files = new FormData(),
                                 url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
 
                         files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
@@ -163,7 +156,7 @@
                         });
                 }
                 if (image3) {
-                        let files = new FormData(), // you can consider this as 'data bag'
+                        let files = new FormData(),
                                 url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
 
                         files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
@@ -182,6 +175,18 @@
                                         console.log('Upload Fail');
                                 }
                         });
+                }
+
+                $(this).hide('slow');
+                if (image1 || image2 || image3) {
+                        $(this).html('Uploading.....');
+                        $(this).attr('disabled', true);
+                        $(this).show('slow');
+                        setTimeout(() => {
+                                window.location.reload();
+                        }, 5000);
+                } else {
+                        window.location.reload();
                 }
         });
         // });
