@@ -56,7 +56,7 @@
 
                 <div class="row mt-4 mb-4">
                 <div class="form-group col-sm-12 text-center">
-                <input type="button" class="text-white btn btn-md btn-warning float-end px-5" value="Back" id="Back">
+                <input type="button" class="text-white btn btn-md btn-warning float-end px-5" value="Back" onclick="Back(2)" id="Back">
                 </div>
                 </div> 
 
@@ -66,7 +66,7 @@
                 
                 <div class="row mt-4 mb-4">
                 <div class="form-group col-sm-12 text-center">
-                <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Next" id="Next">
+                <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Next" onclick="Next(2)" id="Next">
                 </div>
                 </div> 
 

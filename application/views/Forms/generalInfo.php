@@ -1,3 +1,4 @@
+
 <form class="rounded p-5 mt-5 mb-5 shadow-sm">
     <?php 
     if($lableData->num_rows() > 0){
@@ -11,26 +12,28 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
             <div class="row" style="display:<?php echo $visibility?>">
 
             <div class="col-sm-4">
-                <lable><?php echo $row->mas_reglable_text?></lable>
+                <lable><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></lable>
             </div>
 
             <div class="col-sm-4">
                 <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status ?>>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status;?>>
                 <label class="form-check-label" for="flexRadioDefault1">
                     Organization
                 </label>
                 </div>
                 <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status ?>>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status;?>>
                 <label class="form-check-label" for="flexRadioDefault2">
                     Other
                 </label>
@@ -52,15 +55,17 @@
                 }
 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';   
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
                         <div class="row mt-5"  style="display:<?php echo $visibility?>">
                             <div class="form-group col-sm-12">
-                                <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
-                                        <select class="form-select" name="economy_id" id="economy_id"  <?php echo $status ?>>
+                                <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><?php echo $requiredicon;?><br>
+                                        <select class="form-select" name="economy_id" id="economy_id"  <?php echo $status;?>>
 
                                         <script>
                                             jQuery.ajax({
@@ -104,13 +109,15 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
                     <div class="col-sm-6" style="display:<?php echo $visibility?>">
-                        <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
-                                <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()"<?php echo $status ?>>
+                        <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><?php echo $requiredicon;?><br>
+                                <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()"<?php echo $status;?>>
                                 <script>
                                             jQuery.ajax({
                                                 type:"POST",
@@ -149,16 +156,18 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
                 
 
                     <div class="form-group col-sm-6" style="display:<?php echo $visibility?>">
-                        <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><br>
-                                <select class="form-select" name="subCategory" id="sub_category" <?php echo $status ?>>
+                        <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><?php echo $requiredicon;?><br>
+                                <select class="form-select" name="subCategory" id="sub_category" <?php echo $status;?>>
                                 </select>
                     </div>
 
@@ -178,18 +187,23 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
                 <div class="row mt-4"  style="display:<?php echo $visibility?>">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 mt-3">
                     <div class="wrapper">
                         <div class="input-data">
-                            <input type="text" name="ProjectName" id="project_name"  onclick="GetSubCate()" <?php echo $status ?>>
+                            <input type="text" name="ProjectName" id="project_name"  onclick="GetSubCate()" <?php echo $status;?>>
                             <div class="underline"></div>
-                            <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                            <label class="form-label">
+                                <?php echo $row->mas_reglable_text?>
+                                <?php echo $requiredicon;?>
+                            </label>
                         </div>
                     </div>
                     </div>
@@ -210,17 +224,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
-                    <div class="col-sm-6" style="display:<?php echo $visibility?>">
+                    <div class="col-sm-6 mt-3" style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="email" name="ApplicationEmail" id="applicant_email" <?php echo $status ?>>
+                                <input type="email" name="ApplicationEmail" id="applicant_email" <?php echo $status;?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                             </div>
                         </div>                
                     </div>
@@ -237,17 +253,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>                
 
-                <div class="form-group col-sm-6" style="display:<?php echo $visibility?>">
+                <div class="form-group col-sm-6 mt-3" style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="WebSite" id="website_url" <?php echo $status ?>>
+                                <input type="text" name="WebSite" id="website_url" <?php echo $status;?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                             </div>
                         </div>  
                     </div>
@@ -265,17 +283,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
                         <div class="row mt-5"  style="display:<?php echo $visibility?>">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 mt-3">
                                 <div class="wrapper">
                                     <div class="input-data">
-                                        <input type="text" name="Organization" id="organization" <?php echo $status ?>>
+                                        <input type="text" name="Organization" id="organization" <?php echo $status;?>>
                                         <div class="underline"></div>
-                                        <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                        <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                                     </div>
                                 </div> 
                                 
@@ -297,17 +317,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
                 
-                    <div class="col-sm-6"  style="display:<?php echo $visibility?>">
+                    <div class="col-sm-6 mt-3"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="number" name="No_Employees" id="no_employees" <?php echo $status ?>>
+                            <input type="number" name="No_Employees" id="no_employees" <?php echo $status;?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                             </div>
                         </div> 
                     </div>
@@ -326,18 +348,20 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
 
-                    <div class="col-sm-6"  style="display:<?php echo $visibility?>">
+                    <div class="col-sm-6 mt-3"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="date" name="Date" id="date" placeholder=none <?php echo $status ?>>
+                                <input type="date" name="Date" id="date" placeholder=none <?php echo $status;?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                             </div>
                         </div> 
                     </div>
@@ -357,17 +381,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
-                    <div class="col-sm-6"  style="display:<?php echo $visibility?>">
+                    <div class="col-sm-6 mt-3"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="text" name="Address1" id="address_line1" <?php echo $status ?>>
+                            <input type="text" name="Address1" id="address_line1" <?php echo $status;?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                             </div>
                         </div> 
                     </div>
@@ -385,17 +411,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
-                    <div class="col-sm-6"  style="display:<?php echo $visibility?>">
+                    <div class="col-sm-6 mt-3"  style="display:<?php echo $visibility?>">
                             <div class="wrapper">
                                 <div class="input-data">
-                                <input type="text" name="Address2" id="address_line2" <?php echo $status ?>>
+                                <input type="text" name="Address2" id="address_line2" <?php echo $status;?>>
                                     <div class="underline"></div>
-                                    <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                    <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                                 </div>
                             </div> 
                         </div>
@@ -416,18 +444,20 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
 
-                <div class="col-sm-3"  style="display:<?php echo $visibility?>">
+                <div class="col-sm-3 mt-3"  style="display:<?php echo $visibility?>">
                     <div class="wrapper">
                         <div class="input-data">
-                        <input type="text" name="City" id="city" <?php echo $status ?>>
+                        <input type="text" name="City" id="city" <?php echo $status;?>>
                             <div class="underline"></div>
-                            <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                            <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                         </div>
                     </div> 
                 </div>
@@ -445,17 +475,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
-                <div class="col-sm-3"  style="display:<?php echo $visibility?>">
+                <div class="col-sm-3 mt-3"  style="display:<?php echo $visibility?>">
                     <div class="wrapper">
                         <div class="input-data">
-                        <input type="text" name="State" id="state" <?php echo $status ?>>
+                        <input type="text" name="State" id="state" <?php echo $status;?>>
                             <div class="underline"></div>
-                            <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                            <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                         </div>
                     </div>
                 </div>
@@ -473,17 +505,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
-                <div class="col-sm-6"  style="display:<?php echo $visibility?>">
+                <div class="col-sm-6 mt-3"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="text" name="ZipCode" id="zip_code" <?php echo $status ?>>
+                            <input type="text" name="ZipCode" id="zip_code" <?php echo $status;?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                             </div>
                         </div>
                     </div>
@@ -504,17 +538,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
-                <div class="col-sm-6"  style="display:<?php echo $visibility?>">
+                <div class="col-sm-6 mt-3"  style="display:<?php echo $visibility?>">
                     <div class="wrapper">
                         <div class="input-data">
-                        <input type="text" name="FirstName" id="first_name" <?php echo $status ?>>
+                        <input type="text" name="FirstName" id="first_name" <?php echo $status;?>>
                             <div class="underline"></div>
-                            <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                            <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                         </div>
                     </div> 
                 </div>
@@ -533,16 +569,18 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
-                    <div class="col-sm-6"  style="display:<?php echo $visibility?>">
+                    <div class="col-sm-6 mt-3"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="text" name="LastName" id="last_name" <?php echo $status ?>>
+                            <input type="text" name="LastName" id="last_name" <?php echo $status;?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                             </div>
                         </div>
                     </div>
@@ -563,16 +601,18 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
-                <div class="col-sm-6"  style="display:<?php echo $visibility?>">
+                <div class="col-sm-6 mt-3"  style="display:<?php echo $visibility?>">
                     <div class="wrapper">
                         <div class="input-data">
-                            <input type="text" name="Designation" id="designation" <?php echo $status ?>>
+                            <input type="text" name="Designation" id="designation" <?php echo $status;?>>
                             <div class="underline"></div>
-                            <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                            <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon; ?></label>
                         </div>
                     </div> 
                 </div>
@@ -590,17 +630,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
-                <div class="col-sm-3"  style="display:<?php echo $visibility?>">
+                <div class="col-sm-3 mt-3"  style="display:<?php echo $visibility?>">
                     <div class="wrapper">
                         <div class="input-data">
-                        <input type="tel" name="Mobile" id="mobile_no" <?php echo $status ?>>
+                        <input type="tel" name="Mobile" id="mobile_no" <?php echo $status; ?>>
                             <div class="underline"></div>
-                            <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                            <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                         </div>
                     </div> 
                 </div>
@@ -618,17 +660,19 @@
                 }
                 
                 if($row->mas_reglable_required == 1){
-                    $status =  'required="required"';
+                    $status =  'data-required="1"';                    
+                    $requiredicon = '<i class="fa-solid fa-circle-exclamation mx-3" style="color:red"></i>';
                 }else{
-                    $status = "";
+                    $status = 'data-required="0"';
+                    $requiredicon = '';
                 }?>
 
-                <div class="form-group col-sm-3"  style="display:<?php echo $visibility?>">
+                <div class="form-group col-sm-3 mt-3"  style="display:<?php echo $visibility?>">
                         <div class="wrapper">
                             <div class="input-data">
-                            <input type="tel" name="Telephone" id="telephone_no" <?php echo $status ?>>
+                            <input type="tel" name="Telephone" id="telephone_no" <?php echo $status;?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text?></label>
+                                <label class="form-label"><?php echo $row->mas_reglable_text?><?php echo $requiredicon;?></label>
                             </div>
                         </div> 
                     </div>
@@ -649,15 +693,15 @@
             <input type="button" class="text-white text-center btn btn-md btn-primary px-5 mt-5" value="Save Data" id="butsave">
             </div>
         </div> 
-
-        <div class="row mt-4 mb-4">
-            <div class="form-group col-sm-12 text-center">
-            <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Next" id="Next">
-            </div>
-        </div> 
-
         
 </form>
+
+
+        <div class="row mt-4 mb-4">
+                    <div class="form-group col-sm-12 text-center">
+                    <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Next" onclick="Next(1)" id="Next">
+                    </div>
+        </div> 
 
 
 <script type="text/javascript">
@@ -763,75 +807,142 @@ $("#butsave").click(function()
         var mobileNo=document.getElementById("mobile_no").value;
         var teleNo=document.getElementById("telephone_no").value;
         
-        if($('#economy_id').val() == '' && $('#economy_id').attr('required') == "required"){
-
-            alert('Please fill all the required data');
-
-        }else if($('#economy_id').val() == '' && $('#economy_id').attr('required') == "required"){
+        if($('#economy_id').val() == '' && $('#economy_id').attr('data-required') == 1){
 
             alert('Please fill all the required data'); 
+            document.getElementById("economy_id").focus();
+            return;
 
-        }else if($('#category').val() == '' && $('#category').attr('required') == "required"){
-
-            alert('Please fill all the required data');
-
-        }else if($('#sub_category').val() == '' && $('#sub_category').attr('required') == "required"){
+        }else if($('#category').val() == '' && $('#category').attr('data-required') ==1){
 
             alert('Please fill all the required data');
+            document.getElementById("category").focus();
+            return;
 
-        }else if($('#project_name').val() == '' && $('#project_name').attr('required') == "required"){
 
-            alert('Please fill all the required data');
-
-        }else if($('#applicant_email').val() == '' && $('#applicant_email').attr('required') == "required"){
-
-            alert('Please fill all the required data');
-        }else if($('#website_url').val() == '' && $('#website_url').attr('required') == "required"){
+        }else if($('#sub_category').val() == '' && $('#sub_category').attr('data-required') ==1){
 
             alert('Please fill all the required data');
-        }else if($('#organization').val() == '' && $('#organization').attr('required') == "required"){
+            document.getElementById("sub_category").focus();
+            return;
+
+
+        }else if($('#project_name').val() == '' && $('#project_name').attr('data-required') ==1){
 
             alert('Please fill all the required data');
-        }else if($('#no_employees').val() == '' && $('#no_employees').attr('required') == "required"){
+            document.getElementById("project_name").focus();
+            return;
+
+
+        }else if($('#applicant_email').val() == '' && $('#applicant_email').attr('data-required') ==1){
 
             alert('Please fill all the required data');
-        }else if($('#date').val() == '' && $('#date').attr('required') == "required"){
+            document.getElementById("applicant_email").focus();
+            return;
+
+
+        }else if($('#website_url').val() == '' && $('#website_url').attr('data-required') ==1){
 
             alert('Please fill all the required data');
-        }else if($('#address_line1').val() == '' && $('#address_line1').attr('required') == "required"){
+            document.getElementById("website_url").focus();
+            return;
+
+            
+        }else if($('#organization').val() == '' && $('#organization').attr('data-required') ==1){
 
             alert('Please fill all the required data');
-        }else if($('#address_line2').val() == '' && $('#address_line2').attr('required') == "required"){
+            document.getElementById("organization").focus();
+            return;
+
+            
+        }else if($('#no_employees').val() == '' && $('#no_employees').attr('data-required') ==1){
 
             alert('Please fill all the required data');
-        }else if($('#city').val() == '' && $('#city').attr('required') == "required"){
+            document.getElementById("no_employees").focus();
+            return;
+
+            
+        }else if($('#date').val() == '' && $('#date').attr('data-required') ==1){
 
             alert('Please fill all the required data');
-        }else if($('#state').val() == '' && $('#state').attr('required') == "required"){
+            document.getElementById("date").focus();
+            return;
+
+            
+        }else if($('#address_line1').val() == '' && $('#address_line1').attr('data-required') ==1){
 
             alert('Please fill all the required data');
-        }else if($('#zip_code').val() == '' && $('#zip_code').attr('required') == "required"){
+            document.getElementById("address_line1").focus();
+            return;
+
+            
+        }else if($('#address_line2').val() == '' && $('#address_line2').attr('data-required') ==1){
 
             alert('Please fill all the required data');
+            document.getElementById("address_line2").focus();
+            return;
 
-        }else if($('#first_name').val() == '' && $('#first_name').attr('required') == "required"){
-
-            alert('Please fill all the required data');
-
-        }else if($('#last_name').val() == '' && $('#last_name').attr('required') == "required"){
-
-            alert('Please fill all the required data');
-        }else if($('#designation').val() == '' && $('#designation').attr('required') == "required"){
+            
+        }else if($('#city').val() == '' && $('#city').attr('data-required') ==1){
 
             alert('Please fill all the required data');
+            document.getElementById("city").focus();
+            return;
 
-        }else if($('#mobile_no').val() == '' && $('#mobile_no').attr('required') == "required"){
+            
+        }else if($('#state').val() == '' && $('#state').attr('data-required') ==1){
+
+            alert('Please fill all the required data');
+            document.getElementById("state").focus();
+            return;
+
+            
+        }else if($('#zip_code').val() == '' && $('#zip_code').attr('data-required') ==1){
+
+            alert('Please fill all the required data');
+            document.getElementById("zip_code").focus();
+            return;
+
+            
+
+        }else if($('#first_name').val() == '' && $('#first_name').attr('data-required') ==1){
+
+            alert('Please fill all the required data');
+            document.getElementById("first_name").focus();
+            return;
+
+            
+
+        }else if($('#last_name').val() == '' && $('#last_name').attr('data-required') ==1){
+
+            alert('Please fill all the required data');
+            document.getElementById("last_name").focus();
+            return;
+
+            
+        }else if($('#designation').val() == '' && $('#designation').attr('data-required') ==1){
+
+            alert('Please fill all the required data');
+            document.getElementById("designation").focus();
+            return;
+
+            
+
+        }else if($('#mobile_no').val() == '' && $('#mobile_no').attr('data-required') ==1){
             
             alert('Please fill all the required data');
+            document.getElementById("mobile_no").focus();
+            return;
 
-        }else if($('#telephone_no').val() == '' && $('#telephone_no').attr('required') == "required"){
+            
+
+        }else if($('#telephone_no').val() == '' && $('#telephone_no').attr('data-required') ==1){
 
             alert('Please fill all the required data');
+            document.getElementById("telephone_no").focus();
+            return;
+
+            
 
         }else{           
 	
@@ -892,18 +1003,6 @@ $("#butsave").click(function()
 });
 });
 
-
-
-$(document).ready(function() 
-{
-$("#Next").click(function(e) 
-{
-
-    e.preventDefault();
-    $('#mytabs a[href="#profile-tab-pane"]').tab('show');
-
-});
-});
 
 // $('#Next').on('click', function (e) {
 //     var triggerEl = document.querySelector('#myTab li:last-child a')
