@@ -177,7 +177,7 @@
                         });
                 }
 
-                $(this).hide('slow');
+                $(this).hide();
                 if (image1 || image2 || image3) {
                         $(this).val('Uploading.....');
                         $(this).attr('disabled', true);
