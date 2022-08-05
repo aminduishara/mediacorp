@@ -68,11 +68,8 @@ class Form extends CI_Controller
 
     $result = $this->Form_model->saveData($data1, $data2);
 
-    if ($result) {
-      echo  1;
-    } else {
-      echo  0;
-    }
+    return $result;
+    
   }
 
   public function SaveImages()
@@ -83,7 +80,7 @@ class Form extends CI_Controller
     if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
       switch ($_FILES['fileToUpload']["error"]) {
         case UPLOAD_ERR_OK:
-          $target = "./uploads/Files/";
+          $target = "./uploads/";
           // $target = $target . basename($_FILES['fileToUpload']['name']);
           $extension = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
           $newname = $_POST['name'];
@@ -104,28 +101,22 @@ class Form extends CI_Controller
   public function SaveDescription()
   {
 
-    $id = $this->input->post('id', TRUE);
     $des = $this->input->post('des', TRUE);
     $label = $this->input->post('label', TRUE);
+    $aplicentID = $this->input->post('aplicentID', TRUE);
 
     $data = array(
       'aplicent_content_id' => '',
-      'aplicent_id' => 0,
+      'aplicent_id' => (int)$aplicentID,
       'cat_mast_label_id' => $label,
       'aplicent_content_content' => $des,
       'aplicent_content_status' => 1
     );
 
     $this->load->model('Form_model');
-    $result = $this->Form_model->insertDes($data, $id);
+    $result = $this->Form_model->insertDes($data);
 
-    if ($result) {
-
-      echo 1;
-    } else {
-
-      echo 0;
-    }
+    return $result;
   }
 
   public function GetUserDes()
@@ -191,17 +182,10 @@ class Form extends CI_Controller
 
 
     $this->load->model('Form_model');
-    $result = $this->Form_model->UpdateUser($contentID, $description, $label);
+    $result = $this->Form_model->UpdateUserDes($contentID, $description, $label);
 
-    //$query = $this->db->query('UPDATE `aplicent_content` SET `aplicent_content_content`='.$description.' WHERE `aplicent_content_id`= '.$contentID.'');
+    return $result;
 
-    if ($result) {
-
-      echo 1;
-    } else {
-
-      echo 0;
-    }
   }
 
   public function RemoveDescription()

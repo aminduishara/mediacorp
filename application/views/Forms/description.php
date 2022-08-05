@@ -80,9 +80,10 @@
                         $('#butAdd').click(function()
                         {
 
-                                var id = document.getElementById('userID').value;
+                                var id = document.getElementById('refNo').value;
                                 var description = document.getElementById('des').value;
                                 var label = document.getElementById('label').value;
+                                var aplicentID = document.getElementById('aplicentID').value;
 
                                 var contentHiddenValue = document.getElementById('hiddenContentID').value;
 
@@ -105,28 +106,23 @@
                                                                         url:"<?php echo base_url('/index.php/Form/SaveDescription'); ?>",
                                                                         dataType:'html',
                                                                         data:{
-                                                                                id:id,
                                                                                 des:description,
-                                                                                label:label
+                                                                                label:label,
+                                                                                aplicentID:aplicentID
                                                                         },
                                                                         success: function(res) 
                                                                         {
-                                                                                if(res==1)
-                                                                                {
-                                                                                        document.getElementById('des').value = '';
-                                                                                        alert('Description Added');
-                                                                                        RefreshTable();
-                                                                                }
-                                                                                else
-                                                                                {
-                                                                                        alert('Description Adding Faliure');	
-                                                                                        document.getElementById('des').value = '';
-                                                                                }
+                                                                                SaveDesDataQuery = JSON.parse(res);
+                                                                                console.log(SaveDesDataQuery);
+                                                                                document.getElementById('des').value = '';
+                                                                                alert('Description Added');
+                                                                                RefreshTable();
                                                                                 
                                                                         },
                                                                         error:function()
                                                                         {
-                                                                                alert('Error Occured when Adding');	
+                                                                                alert('Description Adding Faliure');	
+                                                                                document.getElementById('des').value = '';
                                                                         }
                                                                 });
 
@@ -142,26 +138,21 @@
                                                                         },
                                                                         success:function(res) 
                                                                         {
-                                                                                if(res == 1)
-                                                                                {
+                                                                                        UpdateDescription = JSON.parse(res);
+                                                                                        console.log(UpdateDescription);
                                                                                         document.getElementById('butAdd').value = "Add Description"
                                                                                         alert('Description Updated');
                                                                                         RefreshTable();
                                                                                         document.getElementById('hiddenContentID').value = 0;
                                                                                         document.getElementById('des').value = '';
-                                                                                }
-                                                                                else
-                                                                                {
-                                                                                        alert('Description Update Fail. Try Again');
-                                                                                        RefreshTable();	
-                                                                                        document.getElementById('hiddenContentID').value = 0;
-                                                                                        document.getElementById('des').value = '';
-                                                                                }
                                                                                 
                                                                         },
                                                                         error:function()
                                                                         {
-                                                                        alert('Error Occured when Updataing');	
+                                                                                        alert('Description Update Fail. Try Again');
+                                                                                        RefreshTable();	
+                                                                                        document.getElementById('hiddenContentID').value = 0;
+                                                                                        document.getElementById('des').value = '';
                                                                         }
                                                                 });
 
@@ -178,7 +169,7 @@
 
                 function RefreshTable() {
 
-                        var id = document.getElementById('userID').value;
+                        var id = document.getElementById('refNo').value;
 
                                 if(id == 0000){
 
@@ -300,7 +291,7 @@
                                 },
                                 success:function(data){
 
-                                        var id = document.getElementById('userID').value;
+                                        var id = document.getElementById('refNo').value;
                                         var description = document.getElementById('des').value;
                                         var label = document.getElementById('label').value;
 

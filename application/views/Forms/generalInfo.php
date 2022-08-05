@@ -971,18 +971,16 @@ $("#butsave").click(function()
                 },
                 success: function(res) 
                 {
-                    if(res==1)
-                    {
-                    alert('Data saved successfully');
-                    document.getElementById("butsave").disabled = true;
-                    document.getElementById("butsave").value = 'Inserted';	
-                    document.getElementById("userID").value = id;
-                    Next(1);
-                    }
-                    else
-                    {
-                    alert('Data not saved');	
-                    }
+                    var json_result = JSON.parse(res);
+                    
+                    console.log(json_result);
+                    document.getElementById('aplicentID').value = json_result["aplicent_id"];
+                    document.getElementById('refNo').value = json_result["refno"];
+                    console.log(json_result["insertQuery"]);
+                    console.log(json_result["updatequery"]);
+
+                    alert("Data Added");    
+                    Next(1);                
                     
                 },
                 error:function()

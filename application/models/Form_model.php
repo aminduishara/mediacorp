@@ -44,72 +44,39 @@ class Form_model extends CI_Model {
 
   public function saveData($data1, $data2) 
 	{
-		if($this->db->insert('aplicent_reg',$data1))
-		{
-      $insert_id = (int)$this->db->insert_id();
-      $refno = $insert_id.'-'.$data2;
-      $query = $this->db->query("UPDATE `aplicent_reg` SET `aplicent_ref` ='$refno', `aplicent_refno` = '$insert_id' WHERE `aplicent_id` = '$insert_id'");
-      
-      if($query){
+    $insertQuery = $this->db->insert('aplicent_reg',$data1);
+    $insert_id = (int)$this->db->insert_id();
+    $refno = $insert_id.'-'.$data2;
+    $query = $this->db->query("UPDATE `aplicent_reg` SET `aplicent_ref` ='$refno', `aplicent_refno` = '$insert_id' WHERE `aplicent_id` = '$insert_id'");
 
-        return 1;
+    $data =  array(
+      'aplicent_id'=>$insert_id,
+      'insertQuery'=>$insertQuery,
+      'updatequery'=> $query,
+      'refno'=>$refno 
+    );
 
-      }
-      else{
-
-        return 0;
-
-      }
-      //return 1;
-		}
-		else
-		{
-		  return 0;	
-		}
+		echo json_encode($data);
   }
 
-  public function insertDes($data, $id)
+  public function insertDes($data)
   {
-    if($this->db->insert('aplicent_content',$data))
-		{
-      $insert_id = (int)$this->db->insert_id();
-      $query = $this->db->query("UPDATE `aplicent_content` SET  `aplicent_id` = (SELECT `aplicent_id` FROM `aplicent_reg` WHERE aplicent_ref LIKE '%$id') WHERE `aplicent_content_id` = $insert_id");
-      
-      if($query){
+    $query = $this->db->insert('aplicent_content', $data);
+    echo json_encode($query);
 
-        return 1;
-
-      }
-      else{
-
-        return 0;
-
-      }
-		}
-		else
-		{
-		  return 0;	
-		}
   }
 
-  public function GetDesData(){
-    //$query = $this->db->get_where('aplicent_content', array('aplicent_content_id' => $userID));
-    $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE aplicent_id = 5319');
-    return $query;
-  }
+  // public function GetDesData(){
+  //   //$query = $this->db->get_where('aplicent_content', array('aplicent_content_id' => $userID));
+  //   $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE aplicent_id = 5319');
+  //   return $query;
+  // }
 
-  public function UpdateUser($contentID, $description, $label){
+  public function UpdateUserDes($contentID, $description, $label){
     
     $query = $this->db->query("UPDATE `aplicent_content` SET `cat_mast_label_id`= $label, `aplicent_content_content`='$description' WHERE `aplicent_content_id` = $contentID");
 
-    if($query)
-		{
-		  return 1;	
-		}
-		else
-		{
-		  return 0;	
-		}
+    echo json_encode($query);
 
   }
 

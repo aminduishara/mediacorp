@@ -91,28 +91,12 @@
 
         }
 
-        //     function preview2() {
-        //             Image2.src = URL.createObjectURL(event.target.files[0]);
-        //     }
-        //     function clearImage2() {
-        //             document.getElementById('ImgFile2').value = null;
-        //             Image2.src = "";
-        //     }
 
-        //     function preview3() {
-        //             Image3.src = URL.createObjectURL(event.target.files[0]);
-        //     }
-        //     function clearImage3() {
-        //             document.getElementById('ImgFile3').value = null;
-        //             Image3.src = "";
-        //     }
-        // Ajax post
-        // $(document).ready(function() 
-        // {
         $("#btnSubmit").click(function() {
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
                 var image3 = document.getElementById("ImgFile3").files.length;
+
                 let url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
                 if (image1) {
                         let files = new FormData()
