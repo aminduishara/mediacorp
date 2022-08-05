@@ -83,7 +83,7 @@ class Form extends CI_Controller
     if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
       switch ($_FILES['fileToUpload']["error"]) {
         case UPLOAD_ERR_OK:
-          $target = "/uploads/Files/";
+          $target = "./uploads/Files/";
           // $target = $target . basename($_FILES['fileToUpload']['name']);
           $extension = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
           $newname = $_POST['name'];
