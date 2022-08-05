@@ -126,7 +126,7 @@
                                 contentType: false,
                                 data: files,
                                 success: function(res) {
-                                        alert('Image Uploaded');
+                                        console.log('Image Uploaded');
 
                                 },
                                 error: function() {
@@ -147,7 +147,7 @@
                                 contentType: false,
                                 data: files,
                                 success: function(res) {
-                                        alert('Image Uploaded');
+                                        console.log('Image Uploaded');
 
                                 },
                                 error: function() {
@@ -168,7 +168,7 @@
                                 contentType: false,
                                 data: files,
                                 success: function(res) {
-                                        alert('Image Uploaded');
+                                        console.log('Image Uploaded');
 
                                 },
                                 error: function() {
@@ -179,7 +179,7 @@
 
                 $(this).hide('slow');
                 if (image1 || image2 || image3) {
-                        $(this).html('Uploading.....');
+                        $(this).text('Uploading.....');
                         $(this).attr('disabled', true);
                         $(this).show('slow');
                         setTimeout(() => {
