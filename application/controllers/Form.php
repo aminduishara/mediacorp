@@ -36,8 +36,7 @@ class Form extends CI_Controller
   {
     
 
-    $data = array(
-      'aplicent_ref'=> $this->input->post('id', TRUE),
+    $data1 = array(
       'date_time'=> $this->input->post('datetime', TRUE),
       'aplicant_nam'=> $this->input->post('fullName', TRUE).' '.$this->input->post('lastName', TRUE), 
       'aplicent_type'=> $this->input->post('type', TRUE), 
@@ -63,9 +62,11 @@ class Form extends CI_Controller
       'aplicent_status' => 1
     );
 
+    $data2 = $this->input->post('id', TRUE);
+    
     $this->load->model('Form_model');
   
-    $result=$this->Form_model->saveData($data);
+    $result=$this->Form_model->saveData($data1,$data2);
 
       if($result)
       {

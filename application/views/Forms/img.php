@@ -44,11 +44,13 @@ for($i=0; $i < $no; $i++){?>
                         <input type="button" class="text-white text-center btn btn-md btn-primary px-5 mt-5" value="Upload Images" id="butupload">
                 </div>
         </div> 
+        
+<?php echo form_close();?>
 
         <div class="col float-start">
                 <div class="row mt-4 mb-4">
                         <div class="form-group col-sm-12 text-center">
-                                <input type="button" class="text-white btn btn-md btn-warning float-end px-5" value="Back" id="Back">
+                                <input type="button" class="text-white btn btn-md btn-warning float-end px-5" value="Back" onclick="Back(3)" id="Back">
                         </div>
                 </div> 
         </div>
@@ -56,13 +58,10 @@ for($i=0; $i < $no; $i++){?>
         <div class="col float-end">
                 <div class="row mt-4 mb-4">
                         <div class="form-group col-sm-12 text-center">
-                                <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Next" id="Next">
+                                <input type="submit" class="text-white btn btn-md btn-success float-end px-5" value="Submit" id="submit">
                         </div>
                 </div> 
         </div>
-
-        
-<?php echo form_close();?>
 </div>    
 
         
