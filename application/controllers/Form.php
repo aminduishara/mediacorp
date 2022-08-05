@@ -63,7 +63,7 @@ class Form extends CI_Controller
     );
 
     $data2 = $this->input->post('id', TRUE);
-    
+
     $this->load->model('Form_model');
   
     $result=$this->Form_model->saveData($data1,$data2);
@@ -133,14 +133,14 @@ class Form extends CI_Controller
 
     $data = array(
       'aplicent_content_id'=>'',
-      'aplicent_id'=>$id,
+      'aplicent_id'=>0,
       'cat_mast_label_id'=>$label,
       'aplicent_content_content'=>$des,
       'aplicent_content_status'=>1
     );
 
     $this->load->model('Form_model');
-    $result = $this->Form_model->insertDes($data);
+    $result = $this->Form_model->insertDes($data,$id);
 
     if($result){
 
@@ -157,7 +157,7 @@ class Form extends CI_Controller
   public function GetUserDes(){
 
     $id = $this->input->post('id', TRUE);
-    $query = $this->db->query('SELECT a.aplicent_content_id, a.aplicent_content_content, c.cat_mast_label_name FROM aplicent_content a, cat_mast_label c WHERE a.cat_mast_label_id = c.cat_mast_label_id && a.aplicent_id = '.$id.'');
+    $query = $this->db->query("SELECT a.aplicent_content_id, a.aplicent_content_content, c.cat_mast_label_name FROM aplicent_content a, cat_mast_label c WHERE a.cat_mast_label_id = c.cat_mast_label_id && a.aplicent_id = (SELECT `aplicent_id` FROM `aplicent_reg` WHERE aplicent_ref LIKE '%$id')");
 
     $json_data['data'] =  $query->result();
     echo json_encode($json_data);
@@ -238,7 +238,7 @@ class Form extends CI_Controller
   public function RemoveDescription(){
 
     $contentID = $this->input->post('contentID', TRUE);
-    if($this->db->query('DELETE FROM `aplicent_content` WHERE `aplicent_content_id` = '.$contentID.'')){
+    if($this->db->query("DELETE FROM `aplicent_content` WHERE `aplicent_content_id` = $contentID")){
       echo 1;
 
     }else{

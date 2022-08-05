@@ -68,11 +68,23 @@ class Form_model extends CI_Model {
 		}
   }
 
-  public function insertDes($data)
+  public function insertDes($data, $id)
   {
     if($this->db->insert('aplicent_content',$data))
 		{
-		  return 1;	
+      $insert_id = (int)$this->db->insert_id();
+      $query = $this->db->query("UPDATE `aplicent_content` SET  `aplicent_id` = (SELECT `aplicent_id` FROM `aplicent_reg` WHERE aplicent_ref LIKE '%$id') WHERE `aplicent_content_id` = $insert_id");
+      
+      if($query){
+
+        return 1;
+
+      }
+      else{
+
+        return 0;
+
+      }
 		}
 		else
 		{
@@ -88,7 +100,7 @@ class Form_model extends CI_Model {
 
   public function UpdateUser($contentID, $description, $label){
     
-    $query = $this->db->query('UPDATE `aplicent_content` SET `cat_mast_label_id`= '.$label.', `aplicent_content_content`="'.$description.'" WHERE `aplicent_content_id` = '.$contentID.'');
+    $query = $this->db->query("UPDATE `aplicent_content` SET `cat_mast_label_id`= $label, `aplicent_content_content`='$description' WHERE `aplicent_content_id` = $contentID");
 
     if($query)
 		{
