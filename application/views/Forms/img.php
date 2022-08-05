@@ -179,7 +179,7 @@
 
                 $(this).hide('slow');
                 if (image1 || image2 || image3) {
-                        $(this).value('Uploading.....');
+                        $(this).val('Uploading.....');
                         $(this).attr('disabled', true);
                         $(this).show('slow');
                         setTimeout(() => {
