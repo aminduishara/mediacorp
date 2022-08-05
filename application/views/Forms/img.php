@@ -113,9 +113,10 @@
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
                 var image3 = document.getElementById("ImgFile3").files.length;
+                let url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
                 if (image1) {
-                        let files = new FormData(),
-                                url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
+                        let files = new FormData()
+
 
                         files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
                         files.append('name', $('#ImgFile1').val().split('\\').pop());
@@ -135,8 +136,8 @@
                         });
                 }
                 if (image2) {
-                        let files = new FormData(),
-                                url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
+                        let files = new FormData()
+
 
                         files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
                         files.append('name', $('#ImgFile2').val().split('\\').pop());
@@ -156,8 +157,8 @@
                         });
                 }
                 if (image3) {
-                        let files = new FormData(),
-                                url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
+                        let files = new FormData()
+
 
                         files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
                         files.append('name', $('#ImgFile3').val().split('\\').pop());
