@@ -77,7 +77,7 @@ class Form extends CI_Controller
 
   public function SaveImages()
   {
-
+    ob_start();
     define('SITE_ROOT', realpath(dirname(__FILE__)));
     // echo SITE_ROOT;
     if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
