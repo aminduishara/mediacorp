@@ -96,71 +96,140 @@
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
                 var image3 = document.getElementById("ImgFile3").files.length;
+                var aplicentID = document.getElementById("aplicentID").value;
 
                 let url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
-                if (image1) {
-                        let files = new FormData()
 
+                if(image1 == 0){
+                        alert("Please Choose the Image 1");
+                        return;
+                }else if(image2 == 0){
+                        alert("Please Choose the Image 2");
+                        return;
+                }else if(image3 == 0){
+                        alert("Please Choose the Image 3");
+                        return;
+                }else {
+                        
+                        var Filename1 = aplicentID+"-"+$('#ImgFile1').val().split('\\').pop();
+                        
+                        var Filename2 = aplicentID+"-"+$('#ImgFile2').val().split('\\').pop();
+                        
+                        var Filename3 = aplicentID+"-"+$('#ImgFile3').val().split('\\').pop();
 
-                        files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
-                        files.append('name', $('#ImgFile1').val().split('\\').pop());
-                        $.ajax({
-                                type: 'post',
-                                url: url,
-                                processData: false,
-                                contentType: false,
-                                data: files,
-                                success: function(res) {
-                                        console.log('Image Uploaded');
+                        if (image1) {
+                                let files = new FormData()
 
+                                files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
+                                files.append('name', Filename1);
+                                $.ajax({
+                                        type: 'post',
+                                        url: url,
+                                        processData: false,
+                                        contentType: false,
+                                        data: files,
+                                        success: function(res) {
+                                                console.log('Image Uploaded');
+
+                                        },
+                                        error: function() {
+                                                console.log('Upload Fail');
+                                        }
+                                });
+                        }
+                        if (image2) {
+                                let files = new FormData()
+
+                                files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
+                                files.append('name', Filename2);
+                                $.ajax({
+                                        type: 'post',
+                                        url: url,
+                                        processData: false,
+                                        contentType: false,
+                                        data: files,
+                                        success: function(res) {
+                                                console.log('Image Uploaded');
+
+                                        },
+                                        error: function() {
+                                                console.log('Upload Fail');
+                                        }
+                                });
+                        }
+                        if (image3) {
+                                let files = new FormData()
+
+                                files.append('fileToUpload', $('#ImgFile3')[0].files[0]);
+                                files.append('name', Filename3);
+
+                                $.ajax({
+                                        type: 'post',
+                                        url: url,
+                                        processData: false,
+                                        contentType: false,
+                                        data: files,
+                                        success: function(res) {
+                                                console.log('Image Uploaded');
+
+                                        },
+                                        error: function() {
+                                                console.log('Upload Fail');
+                                        }
+                                });
+                        }
+
+                        
+                        var filename1 = String(Filename1);
+                        var filename2 = String(Filename2);
+                        var filename3 = String(Filename3);
+
+                        // $.ajax({
+
+                        //                 type: 'post',
+                        //                 url:"<?php echo base_url('/index.php/Form/SaveImageToDB'); ?>",
+                        //                 dataType:'html',
+                        //                 data: {
+                        //                         img1:filename1,
+                        //                         img2:filename2,
+                        //                         img3:filename3,
+                        //                         aplicentID:aplicentID
+                        //                 },
+                        //                 success: function(res) {
+
+                        //                         console.log(res);
+
+                        //                 },
+                        //                 error: function(error) {
+                        //                         console.log(error);
+                        //                 }
+                        // });
+                        jQuery.ajax({
+                                type:'POST',
+                                url:"<?php echo base_url('/index.php/Form/SaveImagesToDB'); ?>",
+                                dataType:'html',
+                                data:{
+                                        img1:filename1,
+                                        img2:filename2,
+                                        img3:filename3,
+                                        aplicentID:aplicentID
                                 },
-                                error: function() {
-                                        console.log('Upload Fail');
+                                success: function(res) 
+                                {
+
+                                        console.log(JSON.parse(res));
+                                        
+                                },
+                                error:function()
+                                {
+                                        console.log("Fail To Update the DB");
                                 }
                         });
+
+
                 }
-                if (image2) {
-                        let files = new FormData()
 
 
-                        files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
-                        files.append('name', $('#ImgFile2').val().split('\\').pop());
-                        $.ajax({
-                                type: 'post',
-                                url: url,
-                                processData: false,
-                                contentType: false,
-                                data: files,
-                                success: function(res) {
-                                        console.log('Image Uploaded');
-
-                                },
-                                error: function() {
-                                        console.log('Upload Fail');
-                                }
-                        });
-                }
-                if (image3) {
-                        let files = new FormData()
-
-
-                        files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
-                        files.append('name', $('#ImgFile3').val().split('\\').pop());
-                        $.ajax({
-                                type: 'post',
-                                url: url,
-                                processData: false,
-                                contentType: false,
-                                data: files,
-                                success: function(res) {
-                                        console.log('Image Uploaded');
-
-                                },
-                                error: function() {
-                                        console.log('Upload Fail');
-                                }
-                        });
-                }
 
                 $(this).hide();
                 if (image1 || image2 || image3) {

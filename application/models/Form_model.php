@@ -115,6 +115,14 @@ class Form_model extends CI_Model {
 
   }
 
+  public function SaveImagesDB($img1, $img2, $img3, $aplicentID){
+
+    $id = (int)$aplicentID;
+    $result = $this->db->query("UPDATE `aplicent_reg` SET `aplicent_image` = '$img1',`aplicent_image2` = '$img2',`aplicent_image3` = '$img3' WHERE `aplicent_id` = $id");
+    return $result;
+
+  }
+
 }
 
 /* End of file Form_model.php */

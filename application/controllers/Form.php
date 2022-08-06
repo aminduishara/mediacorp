@@ -117,6 +117,7 @@ class Form extends CI_Controller
     $result = $this->Form_model->insertDes($data);
 
     return $result;
+
   }
 
   public function GetUserDes()
@@ -271,6 +272,20 @@ class Form extends CI_Controller
 
     $json_data['dataLabel'] = $result->result();
     echo json_encode($json_data);
+  }
+
+  public function SaveImagesToDB(){
+    $img1 = $this->input->post('img1', TRUE);
+    $img2 = $this->input->post('img2', TRUE);
+    $img3 = $this->input->post('img3', TRUE);
+    $aplicentID = $this->input->post('aplicentID', TRUE);
+
+    $this->load->model('Form_model');
+
+    $result = $this->Form_model->SaveImagesDB($img1, $img2, $img3, $aplicentID);
+
+    echo json_encode($result);
+
   }
 }
 
