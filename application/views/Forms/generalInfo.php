@@ -66,7 +66,6 @@
                             <div class="form-group col-sm-12">
                                 <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><?php echo $requiredicon;?><br>
                                         <select class="form-select" name="economy_id" id="economy_id"  <?php echo $status;?>>
-                                            <option value="0">Select the <?php echo $row->mas_reglable_text?></option>
                                         <script>
                                             jQuery.ajax({
                                                 type:"POST",
@@ -75,7 +74,7 @@
                                                     var json_data = JSON.parse(data);
                                                     //console.log(json_data);
 
-                                                    document.getElementById('economy_id').innerHTML = json_data["dataEconomy"].map(
+                                                    document.getElementById('economy_id').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text?></option>'+json_data["dataEconomy"].map(
                                                         row=>
                                                         `<option value="${row['mas_economy_id']}">${row['mas_economy_name']}</option>`
                                                     );
@@ -118,7 +117,6 @@
                     <div class="col-sm-6" style="display:<?php echo $visibility?>">
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><?php echo $requiredicon;?><br>
                                 <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()"<?php echo $status;?>>
-                                            <option value="0">Select the <?php echo $row->mas_reglable_text?></option>
                                 <script>
                                             jQuery.ajax({
                                                 type:"POST",
@@ -127,7 +125,7 @@
                                                     var json_data = JSON.parse(data);
                                                     //console.log(json_data);
 
-                                                    document.getElementById('category').innerHTML = json_data["dataCate"].map(
+                                                    document.getElementById('category').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text?></option>'+json_data["dataCate"].map(
                                                         row=>
                                                         `<option value="${row['cat_id']}">${row['cat_name']}</option>`
                                                     );
@@ -169,7 +167,7 @@
                     <div class="form-group col-sm-6" style="display:<?php echo $visibility?>">
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><?php echo $requiredicon;?><br>
                                 <select class="form-select" name="subCategory" id="sub_category" <?php echo $status;?>>
-                                            <option value="0">Select the <?php echo $row->mas_reglable_text?></option>
+                                <option value="0">Select the <?php echo $row->mas_reglable_text?></option>
                                 </select>
                     </div>
 
@@ -715,7 +713,7 @@ function GetSubCate(){
             var json_data = JSON.parse(data);
             //alert(json_data["dataSubCate"]);
 
-                document.getElementById('sub_category').innerHTML = json_data["dataSubCate"].map(
+                document.getElementById('sub_category').innerHTML = '<option value="0">Select the Sub Category</option>'+json_data["dataSubCate"].map(
                 row=>
                 `<option value="${row['sub_cat_mast_id']}">${row['sub_cat_mast_name']}</option>`            
                 );
