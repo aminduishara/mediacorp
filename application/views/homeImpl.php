@@ -17,6 +17,11 @@
       max-height: 80vh;
       overflow-y: auto;
     }
+
+    .nav {
+      flex-direction: column;
+      align-items: center;
+    }
   </style>
   <div class="card">
     <div class="row">
