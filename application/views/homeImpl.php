@@ -23,6 +23,12 @@
     .left-pane {
       background-color: seagreen;
     }
+
+    .tab-content {
+      height: 30vh;
+      max-height: 30vh;
+      overflow-y: auto;
+    }
   </style>
   <div class="card">
     <div class="row">
