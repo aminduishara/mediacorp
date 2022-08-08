@@ -24,19 +24,19 @@
       background-color: seagreen;
     }
   </style>
-  <div class="card">
+  <div class="card rounded">
     <div class="row">
       <div class="col-md-3 left-pane"></div>
       <div class="col-md-9">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, totam eos repellat maiores voluptate laudantium velit sapiente voluptates quidem. Neque, expedita exercitationem illum quos omnis eaque a illo commodi dolorum est, quam iure maiores! Explicabo quod eligendi ipsum qui assumenda quo eveniet quaerat, nobis blanditiis obcaecati perferendis libero accusantium doloribus sed? Non, hic voluptates sapiente voluptate quos esse reiciendis, minus voluptatum deleniti, cupiditate est quis veritatis itaque ipsum neque provident exercitationem numquam consectetur. Molestiae ab adipisci tempore maxime expedita nostrum! Itaque quos similique alias esse qui provident suscipit fugiat id, sequi unde adipisci animi, dolorum natus dignissimos sapiente ratione ut.
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="general-tab"><?php include 'application/views/Forms/generalInfo.php'; ?></div>
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="description-tab"><?php include 'application/views/Forms/description.php'; ?></div>
+          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="img-tab"><?php include 'application/views/Forms/img.php'; ?></div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="general-tab"><?php include 'application/views/Forms/generalInfo.php'; ?></div>
-    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="description-tab"><?php include 'application/views/Forms/description.php'; ?></div>
-    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="img-tab"><?php include 'application/views/Forms/img.php'; ?></div>
-  </div>
+
 </div>
 
 <script>
