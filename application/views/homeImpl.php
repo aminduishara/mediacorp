@@ -29,6 +29,13 @@
     .nav-tabs {
       border-bottom: none !important;
     }
+
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-item.show .nav-link {
+      color: none !important;
+      background-color: none !important;
+      border-color: none !important;
+    }
   </style>
   <div class="card">
     <div class="row">
