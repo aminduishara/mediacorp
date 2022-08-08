@@ -741,7 +741,7 @@ function GetSubCate(){
 
             if(json_data["dataLabel"].length == 0){
 
-                document.getElementById('label').innerHTML = '<option value="0">No Data</option>';
+                document.getElementById('label').innerHTML = '<option value="0">No Lable</option>';
                 document.getElementById("butAdd").disabled = true;
 
             }else{
