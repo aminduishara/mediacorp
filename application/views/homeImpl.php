@@ -41,6 +41,10 @@
     .nav-tabs .nav-link:focus {
       border: none !important;
     }
+
+    .nav-link {
+      color: white !important;
+    }
   </style>
   <div class="card">
     <div class="row">
