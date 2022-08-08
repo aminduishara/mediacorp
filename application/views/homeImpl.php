@@ -25,6 +25,10 @@
       flex-direction: column;
       align-items: center;
     }
+
+    .nav-tabs {
+      border-bottom: none;
+    }
   </style>
   <div class="card">
     <div class="row">
