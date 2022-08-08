@@ -10,6 +10,9 @@
   <style>
     .left-pane {
       background-color: seagreen;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .tab-content {
