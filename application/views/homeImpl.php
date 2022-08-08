@@ -24,7 +24,7 @@
       background-color: seagreen;
     }
   </style>
-  <div class="card rounded">
+  <div class="card">
     <div class="row">
       <div class="col-md-3 left-pane"></div>
       <div class="col-md-9">
