@@ -27,7 +27,7 @@
     }
 
     .nav-tabs {
-      border-bottom: none;
+      border-bottom: none !important;
     }
   </style>
   <div class="card">
