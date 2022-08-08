@@ -7,6 +7,7 @@
         <div class="form-group col-sm-12">
             <label for="exampleInputName" class="form-label">Label</label><br>
                 <select class="form-select" name="label" id="label" required="required">
+                        <option value="0">Select the Lable</option>
                 </select>
         </div>
     </div>

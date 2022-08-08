@@ -66,7 +66,7 @@
                             <div class="form-group col-sm-12">
                                 <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><?php echo $requiredicon;?><br>
                                         <select class="form-select" name="economy_id" id="economy_id"  <?php echo $status;?>>
-
+                                            <option value="0">Select the <?php echo $row->mas_reglable_text?></option>
                                         <script>
                                             jQuery.ajax({
                                                 type:"POST",
@@ -118,6 +118,7 @@
                     <div class="col-sm-6" style="display:<?php echo $visibility?>">
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><?php echo $requiredicon;?><br>
                                 <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()"<?php echo $status;?>>
+                                            <option value="0">Select the <?php echo $row->mas_reglable_text?></option>
                                 <script>
                                             jQuery.ajax({
                                                 type:"POST",
@@ -168,6 +169,7 @@
                     <div class="form-group col-sm-6" style="display:<?php echo $visibility?>">
                         <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text?></label><?php echo $requiredicon;?><br>
                                 <select class="form-select" name="subCategory" id="sub_category" <?php echo $status;?>>
+                                            <option value="0">Select the <?php echo $row->mas_reglable_text?></option>
                                 </select>
                     </div>
 
