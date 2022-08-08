@@ -7,18 +7,6 @@
 </div>
 <div class="container mb-5">
 
-
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">General Information</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="description-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" onclick="RefreshTable()">Add Description</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="img-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Upload Images</a>
-    </li>
-  </ul>
   <style>
     .left-pane {
       background-color: seagreen;
@@ -32,7 +20,19 @@
   </style>
   <div class="card">
     <div class="row">
-      <div class="col-md-3 left-pane"></div>
+      <div class="col-md-3 left-pane">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">General Information</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="description-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" onclick="RefreshTable()">Add Description</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="img-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Upload Images</a>
+          </li>
+        </ul>
+      </div>
       <div class="col-md-9">
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="general-tab"><?php include 'application/views/Forms/generalInfo.php'; ?></div>
