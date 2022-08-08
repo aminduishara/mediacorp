@@ -25,8 +25,8 @@
     }
 
     .tab-content {
-      height: 30vh;
-      max-height: 30vh;
+      height: 60vh;
+      max-height: 60vh;
       overflow-y: auto;
     }
   </style>
