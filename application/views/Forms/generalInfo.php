@@ -713,7 +713,7 @@ function GetSubCate(){
             var json_data = JSON.parse(data);
             //alert(json_data["dataSubCate"]);
 
-                document.getElementById('sub_category').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text?></option>'+json_data["dataSubCate"].map(
+                document.getElementById('sub_category').innerHTML = '<option value="0">Select the Sub Category</option>'+json_data["dataSubCate"].map(
                 row=>
                 `<option value="${row['sub_cat_mast_id']}">${row['sub_cat_mast_name']}</option>`            
                 );
