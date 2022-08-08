@@ -36,6 +36,11 @@
       background-color: inherit !important;
       border: none !important;
     }
+
+    .nav-tabs .nav-link:hover,
+    .nav-tabs .nav-link:focus {
+      border: none !important;
+    }
   </style>
   <div class="card">
     <div class="row">
