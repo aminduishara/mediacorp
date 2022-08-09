@@ -60,6 +60,7 @@
 
 <script type="text/javascript">
         $('#Back').click(function() {
+                console.log(1);
                 $("a[href='#description-tab']").tab("show");
         })
 
