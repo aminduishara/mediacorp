@@ -7,9 +7,8 @@
 
                 $no = 3;
                 for ($i = 0; $i < $no; $i++) { ?>
-                        <div class="card mt-4 col-md-4">
-                                <img class="card-img-top">
-                                <div class="card-body">
+                        <div class="mt-4 col-md-4">
+                                <div class="card card-body">
                                         <h5 class="card-title">Upload Image <?php echo $i + 1 ?></h5>
 
                                         <div class="row">
