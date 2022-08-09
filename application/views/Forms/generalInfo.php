@@ -108,7 +108,7 @@
                     $requiredicon = '';
                 } ?>
                     <div class="col-sm-6" style="display:<?php echo $visibility ?>">
-                        <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
+                        <label for="category" class="form-label"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
                         <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()" <?php echo $status; ?>>
                             <script>
                                 jQuery.ajax({
@@ -155,7 +155,7 @@
 
 
                     <div class="form-group col-sm-6" style="display:<?php echo $visibility ?>">
-                        <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
+                        <label for="subCategory" class="form-label"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                         <select class="form-select" name="subCategory" id="sub_category" <?php echo $status; ?>>
                             <option value="0">Select the <?php echo $row->mas_reglable_text ?></option>
                         </select>
