@@ -182,8 +182,8 @@
                     $requiredicon = '';
                 } ?>
 
-                <div class="row mt-4" style="display:<?php echo $visibility ?>">
-                    <div class="col-sm-12 mt-3">
+                <div class="row" style="display:<?php echo $visibility ?>">
+                    <div class="col-sm-12 mt-4">
                         <div class="wrapper">
                             <div class="input-data">
                                 <input type="text" name="ProjectName" id="project_name" onClick="GetSubCate()" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
@@ -197,7 +197,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-4">
+                <div class="row">
 
 
                 <?php
