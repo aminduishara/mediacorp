@@ -44,7 +44,7 @@
                 <div class="d-flex justify-content-between">
                         <div class="col">
                                 <div class="form-group col-sm-12">
-                                        <input type="button" class="text-white btn btn-md btn-dark" value="Back" id="Back">
+                                        <button type="button" class="text-white btn btn-md btn-dark" id="Back">Back</button>
                                 </div>
                         </div>
                         <div class="col">
