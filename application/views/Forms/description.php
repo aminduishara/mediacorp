@@ -72,17 +72,12 @@
 
                         if (id == 0000) {
                                 alert("Please fill the General Information Form First");
-                                location.reload();
+                                window.location.reload();
                         } else {
-
                                 if ($('#des').val() == '' && $('#des').attr('required') == "required") {
-
                                         alert('Please fill all the required data');
-
                                 } else {
-
                                         if (contentHiddenValue == 0) {
-
                                                 jQuery.ajax({
                                                         type: 'POST',
                                                         url: "<?php echo base_url('/index.php/Form/SaveDescription'); ?>",
@@ -96,12 +91,11 @@
                                                                 SaveDesDataQuery = JSON.parse(res);
                                                                 console.log(SaveDesDataQuery);
                                                                 document.getElementById('des').value = '';
-                                                                alert('Description Added');
                                                                 RefreshTable();
 
                                                         },
                                                         error: function() {
-                                                                alert('Description Adding Faliure');
+                                                                alert('Error Occured. Please try again.');
                                                                 document.getElementById('des').value = '';
                                                         }
                                                 });
@@ -120,7 +114,6 @@
                                                                 UpdateDescription = JSON.parse(res);
                                                                 console.log(UpdateDescription);
                                                                 document.getElementById('butAdd').value = "Add Description"
-                                                                alert('Description Updated');
                                                                 RefreshTable();
                                                                 document.getElementById('hiddenContentID').value = 0;
                                                                 document.getElementById('des').value = '';
@@ -133,14 +126,9 @@
                                                                 document.getElementById('des').value = '';
                                                         }
                                                 });
-
                                         }
                                 }
-
-
                         }
-                        //CheckContentStatus();
-
                 });
         });
 
@@ -149,29 +137,21 @@
 
                 var id = document.getElementById('refNo').value;
 
-                if (id == 0000) {
 
-                        document.getElementById('hello').innerHTML = "Empty Description Table";
-
-                } else {
-                        jQuery.ajax({
-                                type: 'POST',
-                                url: "<?php echo base_url('/index.php/Form/GetUserDes'); ?>",
-                                data: {
-                                        id: id
-                                },
-                                success: function(data) {
-                                        var json_data = JSON.parse(data);
-                                        //console.log(json_data);
-                                        //alert(json_data["data"]);
-
-                                        if (json_data["data"].length == 0) {
-                                                document.getElementById('hello').innerHTML = "Empty Description Table";
-                                        } else {
-                                                document.getElementById('hello').innerHTML = "";
-                                                document.getElementById('Des_tbody').innerHTML = json_data["data"].
-                                                map(row =>
-                                                        `<tr>
+                jQuery.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url('/index.php/Form/GetUserDes'); ?>",
+                        data: {
+                                id: id
+                        },
+                        success: function(data) {
+                                var json_data = JSON.parse(data);
+                                //console.log(json_data);
+                                //alert(json_data["data"]);
+                                if (json_data["data"].length) $('#DesTable tbody').append('<tr>No records</tr>');
+                                document.getElementById('Des_tbody').innerHTML = json_data["data"].
+                                map(row =>
+                                        `<tr>
                                                 <td hidden>${row['aplicent_content_id']}</td>
                                                 <td>${row['cat_mast_label_name']}</td>
                                                 <td>${row['aplicent_content_content']}</td>
@@ -181,14 +161,14 @@
                                                  </td>
                                                  </tr>`).join("");
 
-                                        }
-                                },
-                                error: function() {
-                                        alert('Error Occured');
-                                }
-                        });
 
-                }
+                        },
+                        error: function() {
+                                alert('Error Occured');
+                        }
+                });
+
+
 
         }
 
@@ -248,92 +228,5 @@
                         }
                 });
 
-        }
-
-        function CheckContentStatus() {
-
-                jQuery.ajax({
-                        type: "POST",
-                        url: "<?php echo base_url('/index.php/Form/CheckContent'); ?>",
-                        data: {
-                                id: document.getElementById('hiddenContentID').value
-                        },
-                        success: function(data) {
-
-                                var id = document.getElementById('refNo').value;
-                                var description = document.getElementById('des').value;
-                                var label = document.getElementById('label').value;
-
-                                var contentHiddenValue = document.getElementById('hiddenContentID').value;
-
-
-                                if (id == 0000) {
-                                        alert("Please fill the General Information Form First");
-                                        window.location.reload();
-
-                                } else {
-
-
-                                        if (data > 0) {
-                                                //alert("Already have a data");
-                                                jQuery.ajax({
-                                                        type: 'POST',
-                                                        url: "<?php echo base_url('/index.php/Form/UpdateDescription'); ?>",
-                                                        dataType: 'html',
-                                                        data: {
-                                                                hiddenContentID: contentHiddenValue,
-                                                                des: description,
-                                                                label: label
-                                                        },
-                                                        success: function(res) {
-                                                                if (res == 1) {
-                                                                        document.getElementById('butAdd').value = "Add"
-                                                                        alert('Description Updated');
-                                                                        RefreshTable();
-                                                                        document.getElementById('hiddenContentID').value = 0;
-                                                                } else {
-                                                                        alert('Description Update Fail. Try Again');
-                                                                        RefreshTable();
-                                                                        document.getElementById('hiddenContentID').value = 0;
-                                                                }
-
-                                                        },
-                                                        error: function() {
-                                                                alert('Error Occured when Updataing');
-                                                        }
-                                                });
-
-                                        } else {
-                                                //alert(data);
-                                                jQuery.ajax({
-                                                        type: 'POST',
-                                                        url: "<?php echo base_url('/index.php/Form/SaveDescription'); ?>",
-                                                        dataType: 'html',
-                                                        data: {
-                                                                id: id,
-                                                                des: description,
-                                                                label: label
-                                                        },
-                                                        success: function(res) {
-                                                                if (res == 1) {
-                                                                        alert('Description Added');
-                                                                        RefreshTable();
-                                                                } else {
-                                                                        alert('Description Adding Faliure');
-                                                                }
-
-                                                        },
-                                                        error: function() {
-                                                                alert('Error Occured when Adding');
-                                                        }
-                                                });
-                                        }
-                                }
-
-                        },
-                        error: function() {
-                                alert("Content Check Error");
-                        }
-                });
         }
 </script>
