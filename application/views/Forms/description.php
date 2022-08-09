@@ -1,4 +1,4 @@
-<form class="rounded p-5 mt-5 mb-5 shadow-sm" id="desForm">
+<form id="desForm">
         <input type="text" name="hiddenContentID" id="hiddenContentID" value="0" hidden>
         <div class="row" style="display:<?php echo $visibility ?>">
                 <div class="form-group col-sm-12">
