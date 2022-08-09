@@ -754,20 +754,20 @@
             var mobileNo = document.getElementById("mobile_no").value;
             var teleNo = document.getElementById("telephone_no").value;
 
-            if ($('#economy_id').val() == '' && $('#economy_id').attr('data-req') == 1) {
+            if ($('#economy_id').val() == '0' && $('#economy_id').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("economy_id").focus();
                 return;
 
-            } else if ($('#category').val() == '' && $('#category').attr('data-req') == 1) {
+            } else if ($('#category').val() == '0' && $('#category').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("category").focus();
                 return;
 
 
-            } else if ($('#sub_category').val() == '' && $('#sub_category').attr('data-req') == 1) {
+            } else if ($('#sub_category').val() == '0' && $('#sub_category').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("sub_category").focus();
