@@ -1,43 +1,44 @@
-<div class="m-5">
+<div class="p-5">
 
         <?php echo form_open_multipart('Form/GetImages'); ?>
 
-        <?php
+        <div class="row">
+                <?php
 
-        $no = 3;
-        for ($i = 0; $i < $no; $i++) { ?>
-                <div class="card  mt-4">
-                        <img class="card-img-top">
-                        <div class="card-body">
-                                <h5 class="card-title">Upload Image <?php echo $i + 1 ?></h5>
+                $no = 3;
+                for ($i = 0; $i < $no; $i++) { ?>
+                        <div class="card mt-4 col-md-4">
+                                <img class="card-img-top">
+                                <div class="card-body">
+                                        <h5 class="card-title">Upload Image <?php echo $i + 1 ?></h5>
 
-                                <div class="row">
+                                        <div class="row">
 
-                                        <div class="col-md-6">
-                                                <input class="form-control mb-5" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
+                                                <div class="col-md-6">
+                                                        <input class="form-control mb-5" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                        <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)">Remove</button>
+                                                </div>
+
                                         </div>
+                                        <div class="row mt-5">
 
-                                        <div class="col-md-2">
-                                                <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)">Remove</button>
+                                                <div class="col-md-4 mb-3">
+                                                        <img id="Image<?php echo $i + 1 ?>" class="img-fluid" />
+                                                </div>
+
                                         </div>
 
                                 </div>
-                                <div class="row mt-5">
-
-                                        <div class="col-md-4 mb-3">
-                                                <img id="Image<?php echo $i + 1 ?>" class="img-fluid" />
-                                        </div>
-
-                                </div>
-
                         </div>
-                </div>
 
 
-        <?php
-        }
-        ?>
-
+                <?php
+                }
+                ?>
+        </div>
         <?php echo form_close(); ?>
 
         <div class="col float-start">
@@ -100,22 +101,22 @@
 
                 let url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
 
-                if(image1 == 0){
+                if (image1 == 0) {
                         alert("Please Choose the Image 1");
                         return;
-                }else if(image2 == 0){
+                } else if (image2 == 0) {
                         alert("Please Choose the Image 2");
                         return;
-                }else if(image3 == 0){
+                } else if (image3 == 0) {
                         alert("Please Choose the Image 3");
                         return;
-                }else {
-                        
-                        var Filename1 = aplicentID+"-"+$('#ImgFile1').val().split('\\').pop();
-                        
-                        var Filename2 = aplicentID+"-"+$('#ImgFile2').val().split('\\').pop();
-                        
-                        var Filename3 = aplicentID+"-"+$('#ImgFile3').val().split('\\').pop();
+                } else {
+
+                        var Filename1 = aplicentID + "-" + $('#ImgFile1').val().split('\\').pop();
+
+                        var Filename2 = aplicentID + "-" + $('#ImgFile2').val().split('\\').pop();
+
+                        var Filename3 = aplicentID + "-" + $('#ImgFile3').val().split('\\').pop();
 
                         if (image1) {
                                 let files = new FormData()
@@ -179,7 +180,7 @@
                                 });
                         }
 
-                        
+
                         var filename1 = String(Filename1);
                         var filename2 = String(Filename2);
                         var filename3 = String(Filename3);
@@ -205,23 +206,21 @@
                         //                 }
                         // });
                         jQuery.ajax({
-                                type:'POST',
-                                url:"<?php echo base_url('/index.php/Form/SaveImagesToDB'); ?>",
-                                dataType:'html',
-                                data:{
-                                        img1:filename1,
-                                        img2:filename2,
-                                        img3:filename3,
-                                        aplicentID:aplicentID
+                                type: 'POST',
+                                url: "<?php echo base_url('/index.php/Form/SaveImagesToDB'); ?>",
+                                dataType: 'html',
+                                data: {
+                                        img1: filename1,
+                                        img2: filename2,
+                                        img3: filename3,
+                                        aplicentID: aplicentID
                                 },
-                                success: function(res) 
-                                {
+                                success: function(res) {
 
                                         console.log(JSON.parse(res));
-                                        
+
                                 },
-                                error:function()
-                                {
+                                error: function() {
                                         console.log("Fail To Update the DB");
                                 }
                         });
