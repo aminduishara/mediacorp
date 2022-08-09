@@ -9,7 +9,7 @@
 
   <style>
     .left-pane {
-      background: linear-gradient(90deg, #48c6ef 0%, #6f86d6 100%);
+      background: linear-gradient(45deg, #48c6ef 0%, #6f86d6 100%);
       display: flex;
       justify-content: center;
       align-items: center;
