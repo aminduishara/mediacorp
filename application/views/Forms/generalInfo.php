@@ -186,7 +186,7 @@
                     <div class="col-sm-12 mt-3">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="ProjectName" id="project_name" onClick="GetSubCate()" <?php echo $status; ?>>
+                                <input type="text" name="ProjectName" id="project_name" onClick="GetSubCate()">
                                 <div class="underline"></div>
                                 <label for="ProjectName" class="form-label">
                                     <?php echo $row->mas_reglable_text ?>
