@@ -122,6 +122,19 @@ class Form_model extends CI_Model {
     return $result;
 
   }
+ 
+  public function updateData($data1, $aplicent_id){
+
+    $this->db->where('aplicent_id', $aplicent_id);
+    $query = $this->db->update('aplicent_reg', $data1);
+
+    $data =  array(
+      'updatequery'=> $query
+    );
+
+    echo json_encode($data);
+
+  }
 
 }
 
