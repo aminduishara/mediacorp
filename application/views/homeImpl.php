@@ -44,6 +44,7 @@
 
     .nav-link {
       color: white !important;
+      pointer-events: none;
     }
   </style>
   <div class="card">
