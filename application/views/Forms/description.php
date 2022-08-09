@@ -24,7 +24,7 @@
                         <input type="button" class="text-white btn btn-md btn-info px-5" value="Add Description" id="butAdd">
                 </div>
         </div>
-        <div id="table-responsive" style="height: 30vh; max-height: 30vh; overflow-y: auto;">
+        <div id="table-responsive" style="height: 35vh; max-height: 35vh; overflow-y: auto;">
                 <table class="table table-dark" id="DesTable">
                         <thead>
                                 <tr>
