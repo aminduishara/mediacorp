@@ -44,7 +44,7 @@
                 <div class="d-flex justify-content-between">
                         <div class="col">
                                 <div class="form-group col-sm-12">
-                                        <button type="button" class="text-white btn btn-md btn-dark" id="Back">Back</button>
+                                        <button type="button" class="text-white btn btn-md btn-dark" id="btnBack">Back</button>
                                 </div>
                         </div>
                         <div class="col">
@@ -59,7 +59,7 @@
 
 
 <script type="text/javascript">
-        $('#Back').click(function() {
+        $('#btnBack').click(function() {
                 console.log(1);
                 $("a[href='#description-tab']").tab("show");
         })
