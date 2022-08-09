@@ -40,18 +40,15 @@
         </div>
         <?php echo form_close(); ?>
 
-        <div class="col float-start">
-                <div class="row mt-4 mb-4">
-                        <div class="form-group col-sm-12 text-center">
-                                <input type="button" class="text-white btn btn-md btn-warning float-end px-5" value="Back" onclick="Back(3)" id="Back">
+        <div class="row" style="position: absolute; bottom: 1rem;">
+                <div class="col">
+                        <div class="form-group col-sm-12">
+                                <input type="button" class="text-white btn btn-md btn-warning px-5" value="Back" onclick="Back(3)" id="Back">
                         </div>
                 </div>
-        </div>
-
-        <div class="col float-end">
-                <div class="row mt-4 mb-4">
-                        <div class="form-group col-sm-12 text-center">
-                                <input type="button" class="text-white btn btn-md btn-success float-end px-5" value="Finish" id="btnSubmit">
+                <div class="col">
+                        <div class="form-group col-sm-12 text-end">
+                                <input type="button" class="text-white btn btn-md btn-success px-5" value="Submit Application" id="btnSubmit">
                         </div>
                 </div>
         </div>
