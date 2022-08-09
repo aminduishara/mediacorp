@@ -72,6 +72,44 @@ class Form extends CI_Controller
     
   }
 
+  public function UpdateAplicentData(){
+
+    $data1 = array(
+      'date_time' => $this->input->post('datetime', TRUE),
+      'aplicant_nam' => $this->input->post('fullName', TRUE) . ' ' . $this->input->post('lastName', TRUE),
+      'aplicent_type' => $this->input->post('type', TRUE),
+      'mas_economy_id' => $this->input->post('economy', TRUE),
+      'aplicant_cat' => $this->input->post('category', TRUE),
+      'sub_cat_mast_id' => $this->input->post('subCategory', TRUE),
+      'product_name' => $this->input->post('projectName', TRUE),
+      'reg_email' => $this->input->post('applicantEmail', TRUE),
+      'aplicent_website' => $this->input->post('webSite', TRUE),
+      'aplicent_profile' => $this->input->post('organization', TRUE),
+      'aplicent_size' => $this->input->post('noEmployees', TRUE),
+      'aplicent_date' => $this->input->post('date', TRUE),
+      'aplicent_add1' => $this->input->post('address1', TRUE),
+      'aplicent_add2' => $this->input->post('address2', TRUE),
+      'aplicent_city' => $this->input->post('city', TRUE),
+      'aplicent_state' => $this->input->post('province', TRUE),
+      'aplicent_postal' => $this->input->post('zipCode', TRUE),
+      'aplicent_con_fname' => $this->input->post('fullName', TRUE),
+      'aplicent_con_lname' => $this->input->post('lastName', TRUE),
+      'aplicent_con_desig' => $this->input->post('designation', TRUE),
+      'aplicent_con_mobile' => $this->input->post('mobileNo', TRUE),
+      'aplicent_con_telno' => $this->input->post('teleNo', TRUE),
+      'aplicent_status' => 1
+    );
+
+    $aplicent_id = $this->input->post('aplicent_id', TRUE);
+
+    $this->load->model('Form_model');
+
+    $result = $this->Form_model->updateData($data1, $aplicent_id);
+
+    return $result;
+    
+  }
+
   public function SaveImages()
   {
     ob_start();
@@ -287,6 +325,7 @@ class Form extends CI_Controller
     echo json_encode($result);
 
   }
+
 }
 
 

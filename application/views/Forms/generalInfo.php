@@ -186,7 +186,7 @@
                     <div class="col-sm-12 mt-4">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="ProjectName" id="project_name" onClick="GetSubCate()" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                                <input type="text" name="ProjectName" id="project_name" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
                                 <div class="underline"></div>
                                 <label for="ProjectName">
                                     <?php echo $row->mas_reglable_text ?>
@@ -720,40 +720,6 @@
     $(document).ready(function() {
         $("#butsave").click(function() {
 
-            var aplicent_type;
-
-            if (document.getElementById("aplicent_type1").checked) {
-                aplicent_type = document.getElementById("aplicent_type1").value;
-            } else {
-                aplicent_type = document.getElementById("aplicent_type2").value;
-            }
-            const val = Math.floor(1000 + Math.random() * 9000);
-
-            var currentdate = new Date();
-
-            var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-            var id = val;
-            var type = aplicent_type;
-            var economy = document.getElementById("economy_id").value;
-            var category = document.getElementById("category").value;
-            var subCategory = document.getElementById("sub_category").value;
-            var projectName = document.getElementById("project_name").value;
-            var applicantEmail = document.getElementById("applicant_email").value;
-            var webSite = document.getElementById("website_url").value;
-            var organization = document.getElementById("organization").value;
-            var noEmployees = document.getElementById("no_employees").value;
-            var date = document.getElementById("date").value;
-            var address1 = document.getElementById("address_line1").value;
-            var address2 = document.getElementById("address_line2").value;
-            var city = document.getElementById("city").value;
-            var province = document.getElementById("state").value;
-            var zipCode = document.getElementById("zip_code").value;
-            var fullName = document.getElementById("first_name").value;
-            var lastName = document.getElementById("last_name").value;
-            var designation = document.getElementById("designation").value;
-            var mobileNo = document.getElementById("mobile_no").value;
-            var teleNo = document.getElementById("telephone_no").value;
-
             if ($('#economy_id').val() == '0' && $('#economy_id').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
@@ -892,52 +858,134 @@
 
 
             } else {
+                var aplicent_type;
 
-                jQuery.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url('/index.php/Form/SaveFormData'); ?>",
-                    dataType: 'html',
-                    data: {
+                if (document.getElementById("aplicent_type1").checked) {
+                    aplicent_type = document.getElementById("aplicent_type1").value;
+                } else {
+                    aplicent_type = document.getElementById("aplicent_type2").value;
+                }
+                const val = Math.floor(1000 + Math.random() * 9000);
 
-                        id: id,
-                        datetime: datetime,
-                        type: type,
-                        economy: economy,
-                        category: category,
-                        subCategory: subCategory,
-                        projectName: projectName,
-                        applicantEmail: applicantEmail,
-                        webSite: webSite,
-                        organization: organization,
-                        noEmployees: noEmployees,
-                        date: date,
-                        address1: address1,
-                        address2: address2,
-                        city: city,
-                        province: province,
-                        zipCode: zipCode,
-                        fullName: fullName,
-                        lastName: lastName,
-                        designation: designation,
-                        mobileNo: mobileNo,
-                        teleNo: teleNo
+                var currentdate = new Date();
 
-                    },
-                    success: function(res) {
-                        var json_result = JSON.parse(res);
+                var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+                var id = val;
+                var type = aplicent_type;
+                var economy = document.getElementById("economy_id").value;
+                var category = document.getElementById("category").value;
+                var subCategory = document.getElementById("sub_category").value;
+                var projectName = document.getElementById("project_name").value;
+                var applicantEmail = document.getElementById("applicant_email").value;
+                var webSite = document.getElementById("website_url").value;
+                var organization = document.getElementById("organization").value;
+                var noEmployees = document.getElementById("no_employees").value;
+                var date = document.getElementById("date").value;
+                var address1 = document.getElementById("address_line1").value;
+                var address2 = document.getElementById("address_line2").value;
+                var city = document.getElementById("city").value;
+                var province = document.getElementById("state").value;
+                var zipCode = document.getElementById("zip_code").value;
+                var fullName = document.getElementById("first_name").value;
+                var lastName = document.getElementById("last_name").value;
+                var designation = document.getElementById("designation").value;
+                var mobileNo = document.getElementById("mobile_no").value;
+                var teleNo = document.getElementById("telephone_no").value;
 
-                        console.log(json_result);
-                        document.getElementById('aplicentID').value = json_result["aplicent_id"];
-                        document.getElementById('refNo').value = json_result["refno"];
-                        console.log(json_result["insertQuery"]);
-                        console.log(json_result["updatequery"]);
-                        $('.nav-tabs li:eq(1) a').tab('show');
+                if(document.getElementById('aplicentID').value == 0){
 
-                    },
-                    error: function() {
-                        alert('data not saved');
-                    }
-                });
+                        jQuery.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url('/index.php/Form/SaveFormData'); ?>",
+                        dataType: 'html',
+                        data: {
+
+                            id: id,
+                            datetime: datetime,
+                            type: type,
+                            economy: economy,
+                            category: category,
+                            subCategory: subCategory,
+                            projectName: projectName,
+                            applicantEmail: applicantEmail,
+                            webSite: webSite,
+                            organization: organization,
+                            noEmployees: noEmployees,
+                            date: date,
+                            address1: address1,
+                            address2: address2,
+                            city: city,
+                            province: province,
+                            zipCode: zipCode,
+                            fullName: fullName,
+                            lastName: lastName,
+                            designation: designation,
+                            mobileNo: mobileNo,
+                            teleNo: teleNo
+
+                        },
+                        success: function(res) {
+                            var json_result = JSON.parse(res);
+
+                            console.log(json_result);
+                            document.getElementById('aplicentID').value = json_result["aplicent_id"];
+                            document.getElementById('refNo').value = json_result["refno"];
+                            console.log(json_result["insertQuery"]);
+                            console.log(json_result["updatequery"]);
+                            $('.nav-tabs li:eq(1) a').tab('show');
+
+                        },
+                        error: function() {
+                            alert('data not saved');
+                        }
+                    });
+
+                }else{                        
+
+                    jQuery.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url('/index.php/Form/UpdateAplicentData'); ?>",
+                        dataType: 'html',
+                        data: {
+
+                            id: id,
+                            aplicent_id:document.getElementById('aplicentID').value,
+                            datetime: datetime,
+                            type: type,
+                            economy: economy,
+                            category: category,
+                            subCategory: subCategory,
+                            projectName: projectName,
+                            applicantEmail: applicantEmail,
+                            webSite: webSite,
+                            organization: organization,
+                            noEmployees: noEmployees,
+                            date: date,
+                            address1: address1,
+                            address2: address2,
+                            city: city,
+                            province: province,
+                            zipCode: zipCode,
+                            fullName: fullName,
+                            lastName: lastName,
+                            designation: designation,
+                            mobileNo: mobileNo,
+                            teleNo: teleNo
+
+                        },
+                        success: function(res) {
+                            var json_result = JSON.parse(res);       
+                            console.log(json_result["updatequery"]);
+                            alert("Aplicent Data Updated");
+                            $('.nav-tabs li:eq(1) a').tab('show');
+
+                        },
+                        error: function() {
+                            alert('data not Updated');
+                        }
+                    });
+
+                }
 
             }
 
