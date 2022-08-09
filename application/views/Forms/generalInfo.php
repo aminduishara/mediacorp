@@ -271,7 +271,7 @@
                     $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
-                <div class="row mt-5" style="display:<?php echo $visibility ?>">
+                <div class="row mt-4" style="display:<?php echo $visibility ?>">
                     <div class="col-sm-12 mt-3">
                         <div class="wrapper">
                             <div class="input-data">
@@ -345,7 +345,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-5">
+                <div class="row mt-4">
 
                 <?php
 
