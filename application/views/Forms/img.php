@@ -60,7 +60,7 @@
 
 <script type="text/javascript">
         $('#Back').click(function() {
-                $('.nav-tabs li:eq(1) a').tab('show');
+                $("a[href='#description-tab']").tab("show");
         })
 
         function preview(id) {
