@@ -41,14 +41,14 @@
         <?php echo form_close(); ?>
 
         <div style="position: absolute; bottom: 1rem;">
-                <div class="row">
+                <div class="d-flex justify-between">
                         <div class="col">
                                 <div class="form-group col-sm-12">
                                         <input type="button" class="text-white btn btn-md btn-warning px-5" value="Back" onclick="Back(3)" id="Back">
                                 </div>
                         </div>
                         <div class="col">
-                                <div class="form-group col-sm-12 text-end">
+                                <div class="form-group col-sm-12">
                                         <input type="button" class="text-white btn btn-md btn-success px-5" value="Submit Application" id="btnSubmit">
                                 </div>
                         </div>
