@@ -25,8 +25,8 @@
                 </div>
         </div>
         <div id="table-responsive" style="height: 35vh; max-height: 35vh; overflow-y: auto;">
-                <table class="table table-dark" id="DesTable">
-                        <thead>
+                <table class="table" id="DesTable">
+                        <thead class="table-dark">
                                 <tr>
                                         <th scope="col" hidden>Content ID</th>
                                         <th scope="col" hidden>Applicant ID</th>
