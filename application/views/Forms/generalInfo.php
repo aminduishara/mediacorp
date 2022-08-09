@@ -10,10 +10,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -51,10 +51,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -101,10 +101,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
                     <div class="col-sm-6" style="display:<?php echo $visibility ?>">
@@ -145,10 +145,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -175,10 +175,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -210,10 +210,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -237,10 +237,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -265,10 +265,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
                 <div class="row mt-5" style="display:<?php echo $visibility ?>">
@@ -297,10 +297,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -326,10 +326,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -357,10 +357,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -385,10 +385,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -416,10 +416,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -445,10 +445,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -473,10 +473,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -504,10 +504,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -533,10 +533,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
@@ -563,10 +563,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
@@ -590,10 +590,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -618,10 +618,10 @@
                 }
 
                 if ($row->mas_reglable_required == 1) {
-                    $status =  'data-required="1"';
+                    $status =  'data-req="1"';
                     $requiredicon = ' <span class="text-danger">*</span>';
                 } else {
-                    $status = 'data-required="0"';
+                    $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
 
@@ -754,97 +754,97 @@
             var mobileNo = document.getElementById("mobile_no").value;
             var teleNo = document.getElementById("telephone_no").value;
 
-            if ($('#economy_id').val() == '' && $('#economy_id').attr('data-required') == 1) {
+            if ($('#economy_id').val() == '' && $('#economy_id').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("economy_id").focus();
                 return;
 
-            } else if ($('#category').val() == '' && $('#category').attr('data-required') == 1) {
+            } else if ($('#category').val() == '' && $('#category').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("category").focus();
                 return;
 
 
-            } else if ($('#sub_category').val() == '' && $('#sub_category').attr('data-required') == 1) {
+            } else if ($('#sub_category').val() == '' && $('#sub_category').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("sub_category").focus();
                 return;
 
 
-            } else if ($('#project_name').val() == '' && $('#project_name').attr('data-required') == 1) {
+            } else if ($('#project_name').val() == '' && $('#project_name').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("project_name").focus();
                 return;
 
 
-            } else if ($('#applicant_email').val() == '' && $('#applicant_email').attr('data-required') == 1) {
+            } else if ($('#applicant_email').val() == '' && $('#applicant_email').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("applicant_email").focus();
                 return;
 
 
-            } else if ($('#website_url').val() == '' && $('#website_url').attr('data-required') == 1) {
+            } else if ($('#website_url').val() == '' && $('#website_url').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("website_url").focus();
                 return;
 
 
-            } else if ($('#organization').val() == '' && $('#organization').attr('data-required') == 1) {
+            } else if ($('#organization').val() == '' && $('#organization').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("organization").focus();
                 return;
 
 
-            } else if ($('#no_employees').val() == '' && $('#no_employees').attr('data-required') == 1) {
+            } else if ($('#no_employees').val() == '' && $('#no_employees').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("no_employees").focus();
                 return;
 
 
-            } else if ($('#date').val() == '' && $('#date').attr('data-required') == 1) {
+            } else if ($('#date').val() == '' && $('#date').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("date").focus();
                 return;
 
 
-            } else if ($('#address_line1').val() == '' && $('#address_line1').attr('data-required') == 1) {
+            } else if ($('#address_line1').val() == '' && $('#address_line1').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("address_line1").focus();
                 return;
 
 
-            } else if ($('#address_line2').val() == '' && $('#address_line2').attr('data-required') == 1) {
+            } else if ($('#address_line2').val() == '' && $('#address_line2').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("address_line2").focus();
                 return;
 
 
-            } else if ($('#city').val() == '' && $('#city').attr('data-required') == 1) {
+            } else if ($('#city').val() == '' && $('#city').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("city").focus();
                 return;
 
 
-            } else if ($('#state').val() == '' && $('#state').attr('data-required') == 1) {
+            } else if ($('#state').val() == '' && $('#state').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("state").focus();
                 return;
 
 
-            } else if ($('#zip_code').val() == '' && $('#zip_code').attr('data-required') == 1) {
+            } else if ($('#zip_code').val() == '' && $('#zip_code').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("zip_code").focus();
@@ -852,7 +852,7 @@
 
 
 
-            } else if ($('#first_name').val() == '' && $('#first_name').attr('data-required') == 1) {
+            } else if ($('#first_name').val() == '' && $('#first_name').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("first_name").focus();
@@ -860,14 +860,14 @@
 
 
 
-            } else if ($('#last_name').val() == '' && $('#last_name').attr('data-required') == 1) {
+            } else if ($('#last_name').val() == '' && $('#last_name').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("last_name").focus();
                 return;
 
 
-            } else if ($('#designation').val() == '' && $('#designation').attr('data-required') == 1) {
+            } else if ($('#designation').val() == '' && $('#designation').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("designation").focus();
@@ -875,7 +875,7 @@
 
 
 
-            } else if ($('#mobile_no').val() == '' && $('#mobile_no').attr('data-required') == 1) {
+            } else if ($('#mobile_no').val() == '' && $('#mobile_no').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("mobile_no").focus();
@@ -883,7 +883,7 @@
 
 
 
-            } else if ($('#telephone_no').val() == '' && $('#telephone_no').attr('data-required') == 1) {
+            } else if ($('#telephone_no').val() == '' && $('#telephone_no').attr('data-req') == 1) {
 
                 alert('Please fill all the required data');
                 document.getElementById("telephone_no").focus();
