@@ -2,7 +2,7 @@
 
         <?php echo form_open_multipart('Form/GetImages'); ?>
 
-        <div class="row">
+        <div class="row mb-4">
                 <?php
 
                 $no = 3;
