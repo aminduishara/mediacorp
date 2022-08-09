@@ -1,18 +1,13 @@
 <form class="rounded p-5 mt-5 mb-5 shadow-sm" id="desForm">
-
         <input type="text" name="hiddenContentID" id="hiddenContentID" value="0" hidden>
-
         <div class="row" style="display:<?php echo $visibility ?>">
                 <div class="form-group col-sm-12">
                         <label for="exampleInputName" class="form-label">Label</label><br>
                         <select class="form-select" name="label" id="label" required="required">
-                                <option value="0">Select the Lable</option>
+                                <option value="0">Select the Label</option>
                         </select>
                 </div>
         </div>
-
-
-
         <div class="row mt-5">
                 <div class="col-sm-12">
                         <div class="wrapper">
@@ -24,13 +19,11 @@
                         </div>
                 </div>
         </div>
-
         <div class="row mt-4 mb-4">
-                <div class="form-group col-sm-12 text-center">
-                        <input type="button" class="text-white text-center btn btn-md btn-primary px-5 mt-5" value="Add Description" id="butAdd">
+                <div class="form-group col-sm-12 text-end">
+                        <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Add Description" id="butAdd">
                 </div>
         </div>
-
 </form>
 
 <div id="tableCont p-5 m-5">
@@ -49,8 +42,6 @@
                 </tbody>
         </table>
 </div>
-
-<div id="hello" class="text-center"></div>
 
 <div class="col float-start">
 
