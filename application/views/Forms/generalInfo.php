@@ -931,7 +931,7 @@
                         document.getElementById('refNo').value = json_result["refno"];
                         console.log(json_result["insertQuery"]);
                         console.log(json_result["updatequery"]);
-                        Next(1);
+                        $('.nav-tabs li:eq(1) a').tab('show');
 
                     },
                     error: function() {

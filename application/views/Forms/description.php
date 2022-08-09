@@ -44,12 +44,12 @@
         <div class="row mt-4">
                 <div class="col">
                         <div class="form-group col-12">
-                                <input type="button" class="text-white btn btn-md btn-dark px-5" value="Back" onclick="Back(2)" id="Back">
+                                <input type="button" class="text-white btn btn-md btn-dark px-5" value="Back" id="Back">
                         </div>
                 </div>
                 <div class="col">
                         <div class="form-group col-12 text-end">
-                                <input type="button" class="text-white btn btn-md btn-primary px-5" value="Save & Next" onclick="Next(2)" id="Next">
+                                <input type="button" class="text-white btn btn-md btn-primary px-5" value="Save & Next" id="Next">
                         </div>
                 </div>
 
@@ -59,6 +59,13 @@
 
 
 <script type="text/javascript">
+        $('#Back').click(function() {
+                $('.nav-tabs li:eq(0) a').tab('show');
+        })
+        $('#Next').click(function() {
+                $('.nav-tabs li:eq(2) a').tab('show')
+        })
+
         $(document).ready(function() {
                 $('#butAdd').click(function() {
 

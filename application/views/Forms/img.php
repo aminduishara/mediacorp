@@ -44,7 +44,7 @@
                 <div class="d-flex justify-content-between">
                         <div class="col">
                                 <div class="form-group col-sm-12">
-                                        <input type="button" class="text-white btn btn-md btn-warning px-5" value="Back" onclick="Back(3)" id="Back">
+                                        <input type="button" class="text-white btn btn-md btn-warning px-5" value="Back" id="Back">
                                 </div>
                         </div>
                         <div class="col" style="margin-left: -4rem;">
@@ -59,6 +59,10 @@
 
 
 <script type="text/javascript">
+        $('#Back').click(function() {
+                $('.nav-tabs li:eq(1) a').tab('show');
+        })
+
         function preview(id) {
 
                 if (id == 1) {
