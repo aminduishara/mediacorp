@@ -186,7 +186,7 @@
                     <div class="col-sm-12 mt-3">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="ProjectName" id="project_name" onClick="GetSubCate()" <?php echo $status; ?>>
+                                <input type="text" name="ProjectName" id="project_name" onClick="GetSubCate()" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label for="ProjectName">
                                     <?php echo $row->mas_reglable_text ?>
@@ -220,7 +220,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="email" name="ApplicationEmail" id="applicant_email" <?php echo $status; ?>>
+                                <input type="email" name="ApplicationEmail" id="applicant_email" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -247,7 +247,7 @@
                     <div class="form-group col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="WebSite" id="website_url" <?php echo $status; ?>>
+                                <input type="text" name="WebSite" id="website_url" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -275,7 +275,7 @@
                     <div class="col-sm-12 mt-3">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="Organization" id="organization" <?php echo $status; ?>>
+                                <input type="text" name="Organization" id="organization" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -307,7 +307,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="number" name="No_Employees" id="no_employees" <?php echo $status; ?>>
+                                <input type="number" name="No_Employees" id="no_employees" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -337,7 +337,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="date" name="Date" id="date" placeholder=none <?php echo $status; ?>>
+                                <input type="date" name="Date" id="date" placeholder=none <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -367,7 +367,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="Address1" id="address_line1" <?php echo $status; ?>>
+                                <input type="text" name="Address1" id="address_line1" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -395,7 +395,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="Address2" id="address_line2" <?php echo $status; ?>>
+                                <input type="text" name="Address2" id="address_line2" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -427,7 +427,7 @@
                     <div class="col-sm-3 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="City" id="city" <?php echo $status; ?>>
+                                <input type="text" name="City" id="city" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -455,7 +455,7 @@
                     <div class="col-sm-3 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="State" id="state" <?php echo $status; ?>>
+                                <input type="text" name="State" id="state" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -483,7 +483,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="ZipCode" id="zip_code" <?php echo $status; ?>>
+                                <input type="text" name="ZipCode" id="zip_code" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -514,7 +514,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="FirstName" id="first_name" <?php echo $status; ?>>
+                                <input type="text" name="FirstName" id="first_name" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -542,7 +542,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="LastName" id="last_name" <?php echo $status; ?>>
+                                <input type="text" name="LastName" id="last_name" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -572,7 +572,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="Designation" id="designation" <?php echo $status; ?>>
+                                <input type="text" name="Designation" id="designation" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -600,7 +600,7 @@
                     <div class="col-sm-3 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="tel" name="Mobile" id="mobile_no" <?php echo $status; ?>>
+                                <input type="tel" name="Mobile" id="mobile_no" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
@@ -628,7 +628,7 @@
                     <div class="form-group col-sm-3 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="tel" name="Telephone" id="telephone_no" <?php echo $status; ?>>
+                                <input type="tel" name="Telephone" id="telephone_no" <?php echo $status; ?> value="">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
