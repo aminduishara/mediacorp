@@ -61,7 +61,7 @@
 <script type="text/javascript">
         $('#btnBack').click(function() {
                 console.log(1);
-                $("a[href='#description-tab']").tab("show");
+                $('.nav-tabs li:eq(1) a').tab('show');
         })
 
         function preview(id) {
