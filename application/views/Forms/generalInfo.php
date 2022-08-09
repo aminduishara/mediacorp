@@ -646,7 +646,7 @@
 
 
     <div class="row mt-4 mb-4">
-        <div class="form-group col-sm-12 text-right">
+        <div class="form-group col-sm-12 text-end">
             <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Save & Next" id="butsave">
         </div>
     </div>
