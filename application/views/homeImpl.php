@@ -6,47 +6,6 @@
   <input class="float-end btn btn-sm btn-dark" id="aplicentID" value="0" hidden>
 </div>
 <div class="container mb-5">
-
-  <style>
-    .left-pane {
-      background: linear-gradient(45deg, #48c6ef 0%, #6f86d6 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .tab-content {
-      height: 80vh;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-
-    .nav {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .nav-tabs {
-      border-bottom: none !important;
-    }
-
-    .nav-tabs .nav-link.active,
-    .nav-tabs .nav-item.show .nav-link {
-      color: inherit !important;
-      background-color: inherit !important;
-      border: none !important;
-    }
-
-    .nav-tabs .nav-link:hover,
-    .nav-tabs .nav-link:focus {
-      border: none !important;
-    }
-
-    .nav-link {
-      color: white !important;
-      pointer-events: none;
-    }
-  </style>
   <div class="card">
     <div class="row">
       <div class="col-md-3 left-pane">
