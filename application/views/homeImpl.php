@@ -2,7 +2,7 @@
 
 <div class="container pt-5 pb-5">
   <h3 class="text-center">General Information</h3>
-  <input class="float-end btn btn-sm btn-dark" id="refNo" value="0000" disabled>
+  <input class="float-end btn btn-sm btn-dark" id="refNo" value="0000" disabled style="margin-top: 1rem;">
   <input class="float-end btn btn-sm btn-dark" id="aplicentID" value="0" hidden>
 </div>
 <div class="container mb-5">
