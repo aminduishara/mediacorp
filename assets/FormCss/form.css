@@ -6,7 +6,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
   }
-  input[type=date]:required:invalid::-webkit-datetime-edit {
+  input[type=date]:invalid::-webkit-datetime-edit {
     color: transparent;
   }
   .wrapper{
