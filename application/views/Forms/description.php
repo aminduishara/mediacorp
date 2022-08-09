@@ -24,38 +24,38 @@
                         <input type="button" class="text-white btn btn-md btn-info px-5" value="Add Description" id="butAdd">
                 </div>
         </div>
+        <div id="table-responsive" style="height: 20vh; max-height: 20vh; overflow-y: auto;">
+                <table class="table table-dark" id="DesTable">
+                        <thead>
+                                <tr>
+                                        <th scope="col" hidden>Content ID</th>
+                                        <th scope="col" hidden>Applicant ID</th>
+                                        <th scope="col">Label</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Action</th>
+                                </tr>
+                        </thead>
+                        <tbody id="Des_tbody">
+
+                        </tbody>
+                </table>
+        </div>
+
+        <div class="row mt-4">
+                <div class="col">
+                        <div class="form-group col-12">
+                                <input type="button" class="text-white btn btn-md btn-dark px-5" value="Back" onclick="Back(2)" id="Back">
+                        </div>
+                </div>
+                <div class="col">
+                        <div class="form-group col-12 text-end">
+                                <input type="button" class="text-white btn btn-md btn-primary px-5" value="Save & Next" onclick="Next(2)" id="Next">
+                        </div>
+                </div>
+
+        </div>
 </form>
 
-<div id="table-responsive" style="height: 20vh; max-height: 20vh; overflow-y: auto;">
-        <table class="table table-dark" id="DesTable">
-                <thead>
-                        <tr>
-                                <th scope="col" hidden>Content ID</th>
-                                <th scope="col" hidden>Applicant ID</th>
-                                <th scope="col">Label</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Action</th>
-                        </tr>
-                </thead>
-                <tbody id="Des_tbody">
-
-                </tbody>
-        </table>
-</div>
-
-<div class="row mt-4">
-        <div class="col">
-                <div class="form-group col-12">
-                        <input type="button" class="text-white btn btn-md btn-dark px-5" value="Back" onclick="Back(2)" id="Back">
-                </div>
-        </div>
-        <div class="col">
-                <div class="form-group col-12 text-end">
-                        <input type="button" class="text-white btn btn-md btn-primary px-5" value="Save & Next" onclick="Next(2)" id="Next">
-                </div>
-        </div>
-
-</div>
 
 
 <script type="text/javascript">
