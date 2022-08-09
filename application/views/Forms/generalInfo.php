@@ -931,8 +931,6 @@
                         document.getElementById('refNo').value = json_result["refno"];
                         console.log(json_result["insertQuery"]);
                         console.log(json_result["updatequery"]);
-
-                        alert("Data Added");
                         Next(1);
 
                     },
