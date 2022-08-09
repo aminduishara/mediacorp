@@ -44,12 +44,12 @@
         <div class="row mt-4">
                 <div class="col">
                         <div class="form-group col-12">
-                                <input type="button" class="text-white btn btn-md btn-dark px-5" value="Back" id="Back">
+                                <input type="button" class="text-white btn btn-md btn-dark" value="Back" id="Back">
                         </div>
                 </div>
                 <div class="col">
                         <div class="form-group col-12 text-end">
-                                <input type="button" class="text-white btn btn-md btn-primary px-5" value="Save & Next" id="Next">
+                                <input type="button" class="text-white btn btn-md btn-primary" value="Save & Next" id="Next">
                         </div>
                 </div>
 

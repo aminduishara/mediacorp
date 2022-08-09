@@ -40,15 +40,15 @@
         </div>
         <?php echo form_close(); ?>
 
-        <div style="position: absolute; bottom: 1rem; width: 100%;">
+        <div>
                 <div class="d-flex justify-content-between">
                         <div class="col">
                                 <div class="form-group col-sm-12">
                                         <input type="button" class="text-white btn btn-md btn-dark" value="Back" id="Back">
                                 </div>
                         </div>
-                        <div class="col" style="margin-left: -4rem;">
-                                <div class="form-group col-sm-12">
+                        <div class="col">
+                                <div class="form-group col-sm-12 text-end">
                                         <input type="button" class="text-white btn btn-md btn-success" value="Submit Application" id="btnSubmit">
                                 </div>
                         </div>
