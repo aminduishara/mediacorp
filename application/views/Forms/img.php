@@ -60,7 +60,8 @@
 
 <script type="text/javascript">
         $('#Back').click(function() {
-                $('.nav-tabs li:eq(1) a').tab('show');
+                var triggerFirstTabEl = document.querySelector('#myTab a[href="#profile-tab-pane"]')
+                bootstrap.Tab.getInstance(triggerFirstTabEl).show()
         })
 
         function preview(id) {
