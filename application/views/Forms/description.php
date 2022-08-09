@@ -26,7 +26,7 @@
         </div>
 </form>
 
-<div id="table-responsive" style="height: 30vh; max-height: 30vh; overflow-y: auto;">
+<div id="table-responsive" style="height: 20vh; max-height: 20vh; overflow-y: auto;">
         <table class="table table-dark" id="DesTable">
                 <thead>
                         <tr>
