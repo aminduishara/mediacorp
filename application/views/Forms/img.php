@@ -47,8 +47,8 @@
                                         <input type="button" class="text-white btn btn-md btn-warning px-5" value="Back" onclick="Back(3)" id="Back">
                                 </div>
                         </div>
-                        <div class="col">
-                                <div class="form-group col-sm-12 me-2">
+                        <div class="col" style="margin-left: -4rem;">
+                                <div class="form-group col-sm-12">
                                         <input type="button" class="text-white btn btn-md btn-success px-5" value="Submit Application" id="btnSubmit">
                                 </div>
                         </div>
