@@ -186,9 +186,9 @@
                     <div class="col-sm-12 mt-3">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="ProjectName" id="project_name" onclick="GetSubCate()" <?php echo $status; ?>>
+                                <input type="text" name="ProjectName" id="project_name" onClick="GetSubCate()" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label">
+                                <label for="ProjectName" class="form-label">
                                     <?php echo $row->mas_reglable_text ?>
                                     <?php echo $requiredicon; ?>
                                 </label>
