@@ -11,7 +11,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -52,7 +52,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -102,7 +102,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -146,7 +146,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -176,7 +176,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -211,7 +211,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -238,7 +238,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -266,7 +266,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -298,7 +298,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -327,7 +327,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -358,7 +358,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -386,7 +386,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -417,7 +417,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -446,7 +446,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -474,7 +474,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -505,7 +505,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -534,7 +534,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -564,7 +564,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -591,7 +591,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
@@ -619,7 +619,7 @@
 
                 if ($row->mas_reglable_required == 1) {
                     $status =  'data-required="1"';
-                    $requiredicon = '<i class="fa-solid fa-star-of-life"></i>';
+                    $requiredicon = ' <span class="text-red">*</span>';
                 } else {
                     $status = 'data-required="0"';
                     $requiredicon = '';
