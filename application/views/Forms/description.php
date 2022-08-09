@@ -21,7 +21,7 @@
         </div>
         <div class="row mt-4 mb-4">
                 <div class="form-group col-sm-12 text-end">
-                        <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Add Description" id="butAdd">
+                        <input type="button" class="text-white btn btn-md btn-info px-5" value="Add Description" id="butAdd">
                 </div>
         </div>
 </form>
@@ -43,20 +43,14 @@
         </table>
 </div>
 
-<div class="col float-start">
-
-        <div class="row mt-4 mb-4">
-                <div class="form-group col-sm-12 text-center">
-                        <input type="button" class="text-white btn btn-md btn-warning float-end px-5" value="Back" onclick="Back(2)" id="Back">
+<div class="row mt-4">
+        <div class="col">
+                <div class="form-group col-12">
+                        <input type="button" class="text-white btn btn-md btn-dark px-5" value="Back" onclick="Back(2)" id="Back">
                 </div>
         </div>
-
-</div>
-
-<div class="col float-end">
-
-        <div class="row mt-4 mb-4">
-                <div class="form-group col-sm-12 text-end">
+        <div class="col">
+                <div class="form-group col-12 text-end">
                         <input type="button" class="text-white btn btn-md btn-primary px-5" value="Save & Next" onclick="Next(2)" id="Next">
                 </div>
         </div>
