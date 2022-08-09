@@ -26,8 +26,8 @@
         </div>
 </form>
 
-<div id="tableCont p-5 m-5">
-        <table class="table rounded shadow-sm text-center align-content-center table-dark" id="DesTable">
+<div id="table-responsive" style="height: 30vh; max-height: 30vh; overflow-y: auto;">
+        <table class="table table-dark" id="DesTable">
                 <thead>
                         <tr>
                                 <th scope="col" hidden>Content ID</th>
