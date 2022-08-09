@@ -44,12 +44,12 @@
                 <div class="d-flex justify-content-between">
                         <div class="col">
                                 <div class="form-group col-sm-12">
-                                        <input type="button" class="text-white btn btn-md btn-dark px-5" value="Back" id="Back">
+                                        <input type="button" class="text-white btn btn-md btn-dark" value="Back" id="Back">
                                 </div>
                         </div>
                         <div class="col" style="margin-left: -4rem;">
                                 <div class="form-group col-sm-12">
-                                        <input type="button" class="text-white btn btn-md btn-success px-5" value="Submit Application" id="btnSubmit">
+                                        <input type="button" class="text-white btn btn-md btn-success" value="Submit Application" id="btnSubmit">
                                 </div>
                         </div>
                 </div>
