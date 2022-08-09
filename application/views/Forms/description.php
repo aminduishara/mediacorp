@@ -32,7 +32,7 @@
                         <tr>
                                 <th scope="col" hidden>Content ID</th>
                                 <th scope="col" hidden>Applicant ID</th>
-                                <th scope="col">Lable</th>
+                                <th scope="col">Label</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Action</th>
                         </tr>
