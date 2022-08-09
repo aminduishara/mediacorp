@@ -48,7 +48,7 @@
                                 </div>
                         </div>
                         <div class="col">
-                                <div class="form-group col-sm-12">
+                                <div class="form-group col-sm-12 me-2">
                                         <input type="button" class="text-white btn btn-md btn-success px-5" value="Submit Application" id="btnSubmit">
                                 </div>
                         </div>
