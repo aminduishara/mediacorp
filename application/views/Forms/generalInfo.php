@@ -337,7 +337,7 @@
                     <div class="col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="date" name="Date" id="date" placeholder=none <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                                <input type="date" name="Date" id="date" placeholder=none <?php echo $status; ?> value="<?php echo date('Y-m-d'); ?>" onchange="this.setAttribute('value', this.value);">
                                 <div class="underline"></div>
                                 <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
