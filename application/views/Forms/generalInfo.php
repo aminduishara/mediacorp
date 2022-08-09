@@ -60,7 +60,7 @@
 
                 <div class="row mt-5" style="display:<?php echo $visibility ?>">
                     <div class="form-group col-sm-12">
-                        <label for="economy_id" class="form-label"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
+                        <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                         <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
                             <script>
                                 jQuery.ajax({
@@ -108,7 +108,7 @@
                     $requiredicon = '';
                 } ?>
                     <div class="col-sm-6" style="display:<?php echo $visibility ?>">
-                        <label for="category" class="form-label"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
+                        <label for="category"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
                         <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()" <?php echo $status; ?>>
                             <script>
                                 jQuery.ajax({
@@ -155,7 +155,7 @@
 
 
                     <div class="form-group col-sm-6" style="display:<?php echo $visibility ?>">
-                        <label for="subCategory" class="form-label"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
+                        <label for="subCategory"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                         <select class="form-select" name="subCategory" id="sub_category" <?php echo $status; ?>>
                             <option value="0">Select the <?php echo $row->mas_reglable_text ?></option>
                         </select>
@@ -188,7 +188,7 @@
                             <div class="input-data">
                                 <input type="text" name="ProjectName" id="project_name" onClick="GetSubCate()" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label for="ProjectName" class="form-label">
+                                <label for="ProjectName">
                                     <?php echo $row->mas_reglable_text ?>
                                     <?php echo $requiredicon; ?>
                                 </label>
@@ -222,7 +222,7 @@
                             <div class="input-data">
                                 <input type="email" name="ApplicationEmail" id="applicant_email" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -249,7 +249,7 @@
                             <div class="input-data">
                                 <input type="text" name="WebSite" id="website_url" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -277,7 +277,7 @@
                             <div class="input-data">
                                 <input type="text" name="Organization" id="organization" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
 
@@ -309,7 +309,7 @@
                             <div class="input-data">
                                 <input type="number" name="No_Employees" id="no_employees" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -339,7 +339,7 @@
                             <div class="input-data">
                                 <input type="date" name="Date" id="date" placeholder=none <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -369,7 +369,7 @@
                             <div class="input-data">
                                 <input type="text" name="Address1" id="address_line1" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -397,7 +397,7 @@
                             <div class="input-data">
                                 <input type="text" name="Address2" id="address_line2" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -429,7 +429,7 @@
                             <div class="input-data">
                                 <input type="text" name="City" id="city" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -457,7 +457,7 @@
                             <div class="input-data">
                                 <input type="text" name="State" id="state" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -485,7 +485,7 @@
                             <div class="input-data">
                                 <input type="text" name="ZipCode" id="zip_code" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -516,7 +516,7 @@
                             <div class="input-data">
                                 <input type="text" name="FirstName" id="first_name" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -544,7 +544,7 @@
                             <div class="input-data">
                                 <input type="text" name="LastName" id="last_name" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -574,7 +574,7 @@
                             <div class="input-data">
                                 <input type="text" name="Designation" id="designation" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -602,7 +602,7 @@
                             <div class="input-data">
                                 <input type="tel" name="Mobile" id="mobile_no" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
@@ -630,7 +630,7 @@
                             <div class="input-data">
                                 <input type="tel" name="Telephone" id="telephone_no" <?php echo $status; ?>>
                                 <div class="underline"></div>
-                                <label class="form-label"><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                             </div>
                         </div>
                     </div>
