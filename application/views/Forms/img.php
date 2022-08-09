@@ -25,7 +25,7 @@
                                         <div class="row mt-5">
 
                                                 <div class="col-md-4 mb-3">
-                                                        <img id="Image<?php echo $i + 1 ?>" class="img-fluid" />
+                                                        <img id="Image<?php echo $i + 1 ?>" style="width: 200px; height: 200px; object-fit: contain;" />
                                                 </div>
 
                                         </div>
