@@ -60,7 +60,7 @@
 
                 <div class="row mt-5" style="display:<?php echo $visibility ?>">
                     <div class="form-group col-sm-12">
-                        <label for="exampleInputName" class="form-label"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
+                        <label for="economy_id" class="form-label"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                         <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
                             <script>
                                 jQuery.ajax({
