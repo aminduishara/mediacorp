@@ -655,6 +655,10 @@
 
 
 <script type="text/javascript">
+    
+
+    var labelData = {};
+
     function GetSubCate() {
         var id = document.getElementById('category').value;
         //alert(id);
@@ -681,7 +685,6 @@
             }
         });
 
-
         jQuery.ajax({
             type: "POST",
             url: "<?php echo base_url('/index.php/Form/GetLabel'); ?>",
@@ -690,7 +693,7 @@
             },
             success: function(data) {
 
-                var json_data = JSON.parse(data);
+                json_data = JSON.parse(data);
                 //console.log(json_data);
 
                 if (json_data["dataLabel"].length == 0) {
@@ -700,10 +703,18 @@
 
                 } else {
                     document.getElementById("butAdd").disabled = false;
+                    console.log(json_data["dataLabel"]);
+                    // json_data["dataLabel"].map(
+                    //     row =>
+                    //     labelData.push([row['cat_mast_label_id'],row['cat_mast_label_name']])
+                    // );
+                    labelData = json_data["dataLabel"];
                     document.getElementById('label').innerHTML = json_data["dataLabel"].map(
                         row =>
                         `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`
                     );
+                    console.log("Lable Data");
+                    console.log(labelData);
                 }
 
 
@@ -719,6 +730,40 @@
     // Ajax post
     $(document).ready(function() {
         $("#butsave").click(function() {
+
+            var aplicent_type;
+
+            if (document.getElementById("aplicent_type1").checked) {
+                aplicent_type = document.getElementById("aplicent_type1").value;
+            } else {
+                aplicent_type = document.getElementById("aplicent_type2").value;
+            }
+            const val = Math.floor(1000 + Math.random() * 9000);
+
+            var currentdate = new Date();
+
+            var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+            var id = val;
+            var type = aplicent_type;
+            var economy = document.getElementById("economy_id").value;
+            var category = document.getElementById("category").value;
+            var subCategory = document.getElementById("sub_category").value;
+            var projectName = document.getElementById("project_name").value;
+            var applicantEmail = document.getElementById("applicant_email").value;
+            var webSite = document.getElementById("website_url").value;
+            var organization = document.getElementById("organization").value;
+            var noEmployees = document.getElementById("no_employees").value;
+            var date = document.getElementById("date").value;
+            var address1 = document.getElementById("address_line1").value;
+            var address2 = document.getElementById("address_line2").value;
+            var city = document.getElementById("city").value;
+            var province = document.getElementById("state").value;
+            var zipCode = document.getElementById("zip_code").value;
+            var fullName = document.getElementById("first_name").value;
+            var lastName = document.getElementById("last_name").value;
+            var designation = document.getElementById("designation").value;
+            var mobileNo = document.getElementById("mobile_no").value;
+            var teleNo = document.getElementById("telephone_no").value;
 
             if ($('#economy_id').val() == '0' && $('#economy_id').attr('data-req') == 1) {
 
@@ -858,39 +903,6 @@
 
 
             } else {
-                var aplicent_type;
-
-                if (document.getElementById("aplicent_type1").checked) {
-                    aplicent_type = document.getElementById("aplicent_type1").value;
-                } else {
-                    aplicent_type = document.getElementById("aplicent_type2").value;
-                }
-                const val = Math.floor(1000 + Math.random() * 9000);
-
-                var currentdate = new Date();
-
-                var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-                var id = val;
-                var type = aplicent_type;
-                var economy = document.getElementById("economy_id").value;
-                var category = document.getElementById("category").value;
-                var subCategory = document.getElementById("sub_category").value;
-                var projectName = document.getElementById("project_name").value;
-                var applicantEmail = document.getElementById("applicant_email").value;
-                var webSite = document.getElementById("website_url").value;
-                var organization = document.getElementById("organization").value;
-                var noEmployees = document.getElementById("no_employees").value;
-                var date = document.getElementById("date").value;
-                var address1 = document.getElementById("address_line1").value;
-                var address2 = document.getElementById("address_line2").value;
-                var city = document.getElementById("city").value;
-                var province = document.getElementById("state").value;
-                var zipCode = document.getElementById("zip_code").value;
-                var fullName = document.getElementById("first_name").value;
-                var lastName = document.getElementById("last_name").value;
-                var designation = document.getElementById("designation").value;
-                var mobileNo = document.getElementById("mobile_no").value;
-                var teleNo = document.getElementById("telephone_no").value;
 
                 if(document.getElementById('aplicentID').value == 0){
 

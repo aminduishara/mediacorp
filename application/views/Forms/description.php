@@ -77,6 +77,7 @@
                         var contentHiddenValue = document.getElementById('hiddenContentID').value;
 
 
+
                         if (id == 0000) {
                                 alert("Please fill the General Information Form First");
                                 window.location.reload();
@@ -84,6 +85,7 @@
                                 if ($('#des').val() == '' && $('#des').attr('required') == "required") {
                                         alert('Please fill all the required data');
                                 } else {
+
                                         if (contentHiddenValue == 0) {
                                                 jQuery.ajax({
                                                         type: 'POST',
@@ -98,6 +100,15 @@
                                                                 SaveDesDataQuery = JSON.parse(res);
                                                                 console.log(SaveDesDataQuery);
                                                                 document.getElementById('des').value = '';
+
+                                                                document.getElementById('label').innerHTML = labelData.map(
+                                                                        (row,index) =>{
+                                                                                if(row['cat_mast_label_id'] == label){
+                                                                                        delete labelData[index];
+                                                                                }else{
+                                                                                        return `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`;
+                                                                                }
+                                                                });
                                                                 RefreshTable();
 
                                                         },
@@ -165,8 +176,8 @@
                                                 <td>
                                                         <button type="button" class="btn btn-primary" onclick="EditDes(${row['aplicent_content_id']})">Edit</button>
                                                         <button type="button" class="btn btn-danger" onclick="RemoveDes(${row['aplicent_content_id']})">Remove</button>
-                                                 </td>
-                                                 </tr>`).join("");
+                                                </td>
+                                                </tr>`).join("");
 
 
                         },
@@ -184,6 +195,11 @@
                 //alert(id);
 
                 var hiddenContentID = id;
+                var labelName = labelName;
+
+                console.log(labelName);
+                console.log(hiddenContentID);
+
                 document.getElementById('butAdd').value = "Update";
 
                 jQuery.ajax({
@@ -200,6 +216,7 @@
                                 document.getElementById('hiddenContentID').value = json_data[0]['aplicent_content_id'];
                                 document.getElementById('des').value = json_data[0]['aplicent_content_content'];
                                 document.getElementById('label').value = json_data[0]['cat_mast_label_id'];
+                                document.getElementById('label').innerHTML = `<option value="${json_data[0]['cat_mast_label_id']}">${labelName}</option>`;
 
                         },
                         error: function() {
@@ -208,9 +225,11 @@
                 });
         }
 
-        function RemoveDes(id) {
+        function RemoveDes(id, labelID, labelName) {
 
                 var contentID = id;
+
+                document.getElementById('label').innerHTML = `<option value="${labelID}">${labelName}</option>`;
 
                 alert("Do you wish to continue");
 
