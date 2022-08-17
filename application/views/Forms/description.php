@@ -12,9 +12,11 @@
                 <div class="col-sm-12">
                         <div class="wrapper">
                                 <div class="input-data">
-                                        <input type="text" name="des" id="des" required="required">
+                                        <input type="text" name="des" id="des" required="required" onchange="wordCount()" onclick="wordCount()">
                                         <div class="underline"></div>
                                         <label class="form-label">Description</label>
+                                        <div><span id="typedCount"></span>/<span  id="requiredCount"></span></div>
+
                                 </div>
                         </div>
                 </div>
@@ -59,6 +61,40 @@
 
 
 <script type="text/javascript">
+
+        function wordCount(){
+                
+                var typedString = document.getElementById('des').value;
+                var selectedLabel = document.getElementById('label').value;
+                var wordCount = 0;
+
+                jQuery.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url('/index.php/Form/GetWordCount'); ?>",
+                        dataType: 'html',
+                        data: {
+                                selectedLabel: selectedLabel
+                        },
+                        success: function(data) {
+                                
+                                json_data = JSON.parse(data);
+                                console.log(json_data["wordCount"][0]["cat_mast_label_conlength"]);
+                                wordCount = json_data["wordCount"][0]["cat_mast_label_conlength"];
+
+                                document.getElementById('requiredCount').innerHTML = wordCount;
+                                document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
+
+
+                        },
+                        error: function() {
+                                alert('Error Occured. Please try again.');
+                                document.getElementById('des').value = '';
+                        }
+                });
+
+
+        }
+
         $('#Back').click(function() {
                 $('.nav-tabs li:eq(0) a').tab('show');
         })
@@ -101,15 +137,16 @@
                                                                 console.log(SaveDesDataQuery);
                                                                 document.getElementById('des').value = '';
 
-                                                                document.getElementById('label').innerHTML = labelData.map(
-                                                                        (row,index) =>{
-                                                                                if(row['cat_mast_label_id'] == label){
-                                                                                        delete labelData[index];
-                                                                                }else{
-                                                                                        return `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`;
-                                                                                }
-                                                                });
+                                                                // document.getElementById('label').innerHTML = labelData.map(
+                                                                //         (row,index) =>{
+                                                                //                 if(row['cat_mast_label_id'] == label){
+                                                                //                         delete labelData[index];
+                                                                //                 }else{
+                                                                //                         return `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`;
+                                                                //                 }
+                                                                // });
                                                                 RefreshTable();
+                                                                getLabels();
 
                                                         },
                                                         error: function() {
@@ -135,6 +172,7 @@
                                                                 RefreshTable();
                                                                 document.getElementById('hiddenContentID').value = 0;
                                                                 document.getElementById('des').value = '';
+                                                                getLabels();
 
                                                         },
                                                         error: function() {
@@ -149,7 +187,6 @@
                         }
                 });
         });
-
 
         function RefreshTable() {
 
@@ -200,7 +237,7 @@
                 console.log(labelName);
                 console.log(hiddenContentID);
 
-                document.getElementById('butAdd').value = "Update";
+                document.getElementById('butAdd').value = "Update Description";
 
                 jQuery.ajax({
                         type: 'POST',
@@ -212,11 +249,11 @@
                                 var json_data = JSON.parse(data);
 
                                 //console.log(json_data[0]['aplicent_content_id']);
-
-                                document.getElementById('hiddenContentID').value = json_data[0]['aplicent_content_id'];
-                                document.getElementById('des').value = json_data[0]['aplicent_content_content'];
-                                document.getElementById('label').value = json_data[0]['cat_mast_label_id'];
-                                document.getElementById('label').innerHTML = `<option value="${json_data[0]['cat_mast_label_id']}">${labelName}</option>`;
+                                console.log(json_data);
+                                document.getElementById('hiddenContentID').value = json_data['data1'][0]['aplicent_content_id'];
+                                document.getElementById('des').value = json_data['data1'][0]['aplicent_content_content'];
+                                document.getElementById('label').value = json_data['data1'][0]['cat_mast_label_id'];
+                                document.getElementById('label').innerHTML = `<option value="${json_data['data1'][0]['cat_mast_label_id']}">${json_data['data2'][0]['cat_mast_label_name']}</option>`;
 
                         },
                         error: function() {
@@ -225,12 +262,9 @@
                 });
         }
 
-        function RemoveDes(id, labelID, labelName) {
+        function RemoveDes(id) {
 
                 var contentID = id;
-
-                document.getElementById('label').innerHTML = `<option value="${labelID}">${labelName}</option>`;
-
                 alert("Do you wish to continue");
 
                 jQuery.ajax({
@@ -243,6 +277,7 @@
                                 if (res == 1) {
                                         alert('Description Deleted');
                                         RefreshTable();
+                                        getLabels();
                                 } else {
                                         alert('Description Deletion Fail. Try Again');
                                         RefreshTable();

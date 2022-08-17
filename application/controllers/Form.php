@@ -162,7 +162,7 @@ class Form extends CI_Controller
   {
 
     $id = $this->input->post('id', TRUE);
-    $query = $this->db->query("SELECT a.aplicent_content_id, a.aplicent_content_content, c.cat_mast_label_name FROM aplicent_content a, cat_mast_label c WHERE a.cat_mast_label_id = c.cat_mast_label_id && a.aplicent_id = (SELECT `aplicent_id` FROM `aplicent_reg` WHERE aplicent_ref LIKE '%$id')");
+    $query = $this->db->query("SELECT a.aplicent_content_id, a.aplicent_content_content, c.cat_mast_label_id, c.cat_mast_label_name FROM aplicent_content a, cat_mast_label c WHERE a.cat_mast_label_id = c.cat_mast_label_id && a.aplicent_id = (SELECT `aplicent_id` FROM `aplicent_reg` WHERE aplicent_ref LIKE '%$id')");
 
     $json_data['data'] =  $query->result();
     echo json_encode($json_data);
@@ -208,8 +208,14 @@ class Form extends CI_Controller
     $contentID = $this->input->post('contentID', TRUE);
 
     $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id` = ' . $contentID . '');
+    $query1 = $this->db->query("SELECT cat_mast_label.cat_mast_label_name FROM cat_mast_label WHERE cat_mast_label.cat_mast_label_id = (SELECT cat_mast_label_id FROM `aplicent_content` WHERE `aplicent_content_id` = $contentID)");
 
-    echo json_encode($query->result());
+    $data = array(
+      'data1' => $query->result(),
+      'data2' => $query1->result()
+    );
+
+    echo json_encode($data);
   }
 
   public function UpdateDescription()
@@ -304,9 +310,10 @@ class Form extends CI_Controller
   {
 
     $id = $this->input->post('id', TRUE);
+    $aplicant_id = $this->input->post('aplicant_id', TRUE);
 
     $this->load->model('Form_model');
-    $result = $this->Form_model->GetLabelData($id);
+    $result = $this->Form_model->GetLabelData($id, $aplicant_id);
 
     $json_data['dataLabel'] = $result->result();
     echo json_encode($json_data);
@@ -323,6 +330,17 @@ class Form extends CI_Controller
     $result = $this->Form_model->SaveImagesDB($img1, $img2, $img3, $aplicentID);
 
     echo json_encode($result);
+
+  }
+
+  public function GetWordCount(){
+    $selectedLabel = $this->input->post('selectedLabel', TRUE);
+    
+    $this->load->model('Form_model');
+    $result = $this->Form_model->GetLabelWordCount($selectedLabel);
+
+    $json_data['wordCount'] = $result->result();
+    echo json_encode($json_data);
 
   }
 

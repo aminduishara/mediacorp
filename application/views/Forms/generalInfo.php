@@ -659,6 +659,44 @@
 
     var labelData = {};
 
+    function getLabels()
+        {
+                jQuery.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url('/index.php/Form/GetLabel'); ?>",
+                        data: {
+                                id: $('#category').val(),
+                                aplicant_id: $('#aplicentID').val()
+                        },
+                        success: function(data) {
+                                json_data = JSON.parse(data);
+                                console.log(json_data);
+                                if (json_data["dataLabel"].length == 0) {
+
+                                        document.getElementById('label').innerHTML = '<option value="0">Select the Lable</option>';
+                                        document.getElementById("butAdd").disabled = true;
+
+                                } else {
+
+                                        document.getElementById("butAdd").disabled = false;
+                                        var json_data = JSON.parse(data);
+                                        document.getElementById('label').innerHTML = json_data["dataLabel"].map(
+                                                post=>{
+                                                if(post["aplicent_id"] == null){
+                                                        return `<option value="${post["cat_mast_label_id"]}">${post["cat_mast_label_name"]}</option>`;
+                                                }
+                                        })
+
+                                }
+
+                        },
+                        error: function() {
+                                alert('Error Occured');
+                        }
+                });
+
+    }
+
     function GetSubCate() {
         var id = document.getElementById('category').value;
         //alert(id);
@@ -685,45 +723,48 @@
             }
         });
 
-        jQuery.ajax({
-            type: "POST",
-            url: "<?php echo base_url('/index.php/Form/GetLabel'); ?>",
-            data: {
-                id: id
-            },
-            success: function(data) {
+        getLabels();
+                
+        // jQuery.ajax({
+        //     type: "POST",
+        //     url: "<?php echo base_url('/index.php/Form/GetLabel'); ?>",
+        //     data: {
+        //         id: id,
+        //         aplicant_id: $('#aplicentID').val()
+        //     },
+        //     success: function(data) {
 
-                json_data = JSON.parse(data);
-                //console.log(json_data);
+        //         json_data = JSON.parse(data);
+        //         //console.log(json_data);
 
-                if (json_data["dataLabel"].length == 0) {
+        //         if (json_data["dataLabel"].length == 0) {
 
-                    document.getElementById('label').innerHTML = '<option value="0">Select the Lable</option>';
-                    document.getElementById("butAdd").disabled = true;
+        //             document.getElementById('label').innerHTML = '<option value="0">Select the Lable</option>';
+        //             document.getElementById("butAdd").disabled = true;
 
-                } else {
-                    document.getElementById("butAdd").disabled = false;
-                    console.log(json_data["dataLabel"]);
-                    // json_data["dataLabel"].map(
-                    //     row =>
-                    //     labelData.push([row['cat_mast_label_id'],row['cat_mast_label_name']])
-                    // );
-                    labelData = json_data["dataLabel"];
-                    document.getElementById('label').innerHTML = json_data["dataLabel"].map(
-                        row =>
-                        `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`
-                    );
-                    console.log("Lable Data");
-                    console.log(labelData);
-                }
+        //         } else {
+        //             document.getElementById("butAdd").disabled = false;
+        //             console.log(json_data["dataLabel"]);
+        //             // json_data["dataLabel"].map(
+        //             //     row =>
+        //             //     labelData.push([row['cat_mast_label_id'],row['cat_mast_label_name']])
+        //             // );
+        //             labelData = json_data["dataLabel"];
+        //             document.getElementById('label').innerHTML = json_data["dataLabel"].map(
+        //                 row =>
+        //                 `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`
+        //             );
+        //             console.log("Lable Data");
+        //             console.log(labelData);
+        //         }
 
 
 
-            },
-            error: function() {
-                document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
-            }
-        });
+        //     },
+        //     error: function() {
+        //         document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
+        //     }
+        // });
 
     }
 
@@ -904,7 +945,7 @@
 
             } else {
 
-                if(document.getElementById('aplicentID').value == 0){
+                if(document.getElementById('aplicentID').value == -1){
 
                         jQuery.ajax({
                         type: "POST",
@@ -989,6 +1030,7 @@
                             var json_result = JSON.parse(res);       
                             console.log(json_result["updatequery"]);
                             alert("Aplicent Data Updated");
+                            getLabels();
                             $('.nav-tabs li:eq(1) a').tab('show');
 
                         },
