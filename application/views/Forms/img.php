@@ -128,22 +128,18 @@
                 if (aplicentID != "" && typeID != 0) {
                         $(this).hide();
                         setTimeout(function () {
-                                let image = $('#fileUpload').val()
-                                let files = new FormData()
                                 let url = '<?php echo base_url('/index.php/Form/saveAplicentUpload'); ?>';
-
+                                
+                                let files = new FormData()
                                 files.append('aplicentID', aplicentID);
                                 files.append('typeID', typeID);
-                                files.append('fileToUpload', image);
-                        
+                                files.append('fileToUpload', $('#fileUpload')[0].files[0]);
                                 $.ajax({
                                         type: 'post',
                                         url: url,
                                         processData: false,
                                         contentType: false,
                                         data: files,
-                                        dataType: 'json',
-                                        async: true,
                                         success: function (response) {
                                                 $('#tblUploads tbody').empty();
                                                 response.forEach((file) => {
