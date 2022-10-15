@@ -27,7 +27,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                             <label class="form-check-label" for="flexRadioDefault1">
-                                Organization
+                                Organization A
                             </label>
                         </div>
                         <div class="form-check">
