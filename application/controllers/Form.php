@@ -352,12 +352,12 @@ class Form extends CI_Controller
     $this->load->model('Form_model');
     
     $result1 = $this->Form_model->GetUploadType();
-    $json_data['uploadTypes'] = $result1->result();
+    $data['uploadTypes'] = $result1->result();
 
-    $result2 = $this->Form_model->GetAplicentUpload();
-    $json_data['uploadFiles'] = $result2->result();
+    $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
+    $data['uploadFiles'] = $result2->result();
     
-    echo json_encode($json_data);
+    echo json_encode($data);
   }
 
   // public function SaveImages()

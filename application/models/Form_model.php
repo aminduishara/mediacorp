@@ -161,13 +161,13 @@ class Form_model extends CI_Model {
 
 
 
-  public function GetUploadType(){
+  public function GetUploadType() { // new-line
     $sql = "SELECT * FROM gen_mas_uploadtype";
     $query = $this->db->query($sql);
     return $query;
   }
 
-  public function GetAplicentUpload($aplicentID){
+  public function GetAplicentUpload($aplicentID) { // new-line
     $sql = "SELECT * FROM aplicent_upload WHERE aplicent_id = $aplicentID";
     $query = $this->db->query($sql);
     return $query;
