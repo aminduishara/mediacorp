@@ -5,7 +5,7 @@
         <div class="col-md-6">
                 <?php $no = 3; for ($i = 0; $i < $no; $i++) { ?>
                 <div class="col-md-12">
-                        <div class="card card-body">
+                        <div class="card card-body row">
                                 <div class="col-md-8">
                                         <h5 class="card-title">Upload Image <?php echo $i + 1 ?></h5>
                                         <div class="row">
