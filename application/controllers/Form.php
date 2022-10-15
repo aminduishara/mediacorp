@@ -347,6 +347,15 @@ class Form extends CI_Controller
 
 
 
+  public function getUploadTypes() 
+  {
+    $this->load->model('Form_model');
+    
+    $result1 = $this->Form_model->GetUploadType();
+    $data['uploadTypes'] = $result1->result();
+    echo json_encode($data);
+  }
+
   public function getUploadData() 
   {
     $this->load->model('Form_model');
