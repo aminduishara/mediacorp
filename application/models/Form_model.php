@@ -162,9 +162,14 @@ class Form_model extends CI_Model {
 
 
   public function GetUploadType() { // new-line
-    $sql = "SELECT * FROM gen_mas_uploadtype";
+
+    $sql = "SHOW COLUMNS FROM aplicent_upload";
+
+    // $sql = "SELECT * FROM gen_mas_uploadtype";
     $query = $this->db->query($sql);
-    return $query;
+    // return $query;
+
+    print_r($query->result());
   }
 
   public function GetAplicentUpload($aplicentID) { // new-line
@@ -176,7 +181,7 @@ class Form_model extends CI_Model {
   public function saveAplicentUpload($data)
   {
     $query = $this->db->insert('aplicent_upload', $data);
-    echo json_encode($query);
+    return $query;
   }
 
   public function deleteAplicentUpload($id)
