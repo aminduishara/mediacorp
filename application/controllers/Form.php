@@ -360,31 +360,44 @@ class Form extends CI_Controller
     echo json_encode($data);
   }
 
-  // public function SaveImages()
-  // {
-  //   ob_start();
-  //   define('SITE_ROOT', realpath(dirname(__FILE__)));
-  //   // echo SITE_ROOT;
-  //   if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
-  //     switch ($_FILES['fileToUpload']["error"]) {
-  //       case UPLOAD_ERR_OK:
-  //         $target = "./uploads/";
-  //         // $target = $target . basename($_FILES['fileToUpload']['name']);
-  //         $extension = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
-  //         $newname = $_POST['name'];
+  public function saveAplicentUpload()
+  {
+    ob_start();
+    define('SITE_ROOT', realpath(dirname(__FILE__)));
+    // echo SITE_ROOT;
+    if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
+      $pdfFile = $_FILES['fileToUpload']['name'];
+      switch ($_FILES['fileToUpload']["error"]) {
+        case UPLOAD_ERR_OK:
+          $target = "./uploads/";
+          // $target = $target . basename($_FILES['fileToUpload']['name']);
+          $extension = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
+          $newname = $pdfFile;
 
-  //         if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target . $newname)) {
-  //           $status = "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded";
-  //           $imageFileType = pathinfo($newname . '.' . $extension, PATHINFO_EXTENSION);
-  //         } else {
-  //           $status = "Sorry, there was a problem uploading your file.";
-  //         }
-  //         break;
-  //     }
+          if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target . $newname)) {
+            $status = "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded";
+            $imageFileType = pathinfo($newname . '.' . $extension, PATHINFO_EXTENSION);
+          } else {
+            $status = "Sorry, there was a problem uploading your file.";
+          }
+          break;
+      }
+    }
 
-  //     echo "Status: {$status}<br/>\n";
-  //   }
-  // }
+    $this->load->model('Form_model');
+    $insData = array(
+      'aplicent_id' => $_POST['aplicentID'],
+      'aplicent_upload_name' => $pdfFile,
+      'aplicent_upload_status' => 1,
+      'aplicent_upload_remarks' => '',
+      'mas_uploadtype_id' => $_POST['typeID']
+    );
+    $this->Form_model->saveAplicentUpload($insData);
+
+    $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
+    $data = $result2->result();
+    echo json_encode($data);
+  }
 
 
 

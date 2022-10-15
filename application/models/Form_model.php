@@ -173,6 +173,12 @@ class Form_model extends CI_Model {
     return $query;
   }
 
+  public function saveAplicentUpload($data)
+  {
+    $query = $this->db->insert('aplicent_upload', $data);
+    echo json_encode($query);
+  }
+
 }
 
 /* End of file Form_model.php */
