@@ -65,6 +65,9 @@
         $('#des').keyup(function() {
                 var required = parseInt($('#requiredCount').html().trim());
                 var value = $('#des').val().trim();
+
+                alert(required + " :: " + value);
+
                 if (value != "") {
                         let count = parseInt(value.split(' ').length);
                         if (required < count) {
