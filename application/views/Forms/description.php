@@ -12,7 +12,7 @@
                 <div class="col-sm-12">
                         <div class="wrapper">
                                 <div class="input-data">
-                                        <input type="text" name="des" id="des" required="required" onchange="wordCount()" onclick="wordCount()">
+                                        <input type="text" name="des" id="des" required="required"> <!-- onchange="wordCount()" onclick="wordCount()" -->
                                         <div class="underline"></div>
                                         <label class="form-label">Description</label>
                                         <div><span id="typedCount"></span>/<span  id="requiredCount"></span></div>
@@ -62,38 +62,7 @@
 
 <script type="text/javascript">
 
-        function wordCount(){
-                
-                var typedString = document.getElementById('des').value;
-                var selectedLabel = document.getElementById('label').value;
-                var wordCount = 0;
-
-                jQuery.ajax({
-                        type: 'POST',
-                        url: "<?php echo base_url('/index.php/Form/GetWordCount'); ?>",
-                        dataType: 'html',
-                        data: {
-                                selectedLabel: selectedLabel
-                        },
-                        success: function(data) {
-                                
-                                json_data = JSON.parse(data);
-                                console.log(json_data["wordCount"][0]["cat_mast_label_conlength"]);
-                                wordCount = json_data["wordCount"][0]["cat_mast_label_conlength"];
-
-                                document.getElementById('requiredCount').innerHTML = wordCount;
-                                document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
-
-
-                        },
-                        error: function() {
-                                alert('Error Occured. Please try again.');
-                                document.getElementById('des').value = '';
-                        }
-                });
-
-
-        }
+        
 
         $('#Back').click(function() {
                 $('.nav-tabs li:eq(0) a').tab('show');
@@ -186,6 +155,35 @@
                                 }
                         }
                 });
+
+                function wordCount(){
+                        // var typedString = document.getElementById('des').value;
+                        var selectedLabel = document.getElementById('label').value;
+                        var wordCount = 0;
+
+                        document.getElementById('typedCount').innerHTML = '0';
+
+                        jQuery.ajax({
+                                type: 'POST',
+                                url: "<?php echo base_url('/index.php/Form/GetWordCount'); ?>",
+                                dataType: 'html',
+                                data: {
+                                        selectedLabel: selectedLabel
+                                },
+                                success: function(data) {
+                                        json_data = JSON.parse(data);
+                                        console.log(json_data["wordCount"][0]["cat_mast_label_conlength"]);
+                                        wordCount = json_data["wordCount"][0]["cat_mast_label_conlength"];
+
+                                        document.getElementById('requiredCount').innerHTML = wordCount;
+                                        // document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
+                                },
+                                error: function() {
+                                        alert('Error Occured. Please try again.');
+                                        // document.getElementById('des').value = '';
+                                }
+                        });
+                }
         });
 
         function RefreshTable() {
