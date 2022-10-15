@@ -69,11 +69,12 @@
 
                 if (value != "") {
                         let count = parseInt(value.split(' ').length);
-                        $('#typedCount').html(count);
                         if (required < count) {
                                 $('#des').val(tempDesc);
+                                $('#typedCount').html(required);
                         } else {
                                 tempDesc = value;
+                                $('#typedCount').html(count);
                         }
                 }
         });
