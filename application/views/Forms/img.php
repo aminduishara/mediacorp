@@ -62,9 +62,9 @@
                 </div>
         </div>
 
-        <div class="col-md-12 previewPDF" style="padding-top: 0; padding-bottom: 0;">
+        <!-- <div class="col-md-12 previewPDF" style="padding-top: 0; padding-bottom: 0;">
                 <embed class="w-100" height="540" src="<?php echo base_url().'uploads/A1_coolfreecv_resume_en_06_n.pdf'; ?>" type="application/pdf">
-        </div>
+        </div> -->
 
         <?php echo form_close(); ?>
 
@@ -89,10 +89,9 @@
 <script type="text/javascript">
 
         $(document).ready(function() {
-
                 var aplicentID = document.getElementById("aplicentID").value;
                 console.log("L A_ID : " + aplicentID);
-                if (aplicentID != "") {
+                if (aplicentID != '-1') {
                         $.ajax({
                                 type: "post",
                                 url: "<?php echo base_url('/index.php/Form/getUploadData'); ?>",
@@ -130,7 +129,7 @@
                 console.log("U A_ID : " + aplicentID);
                 var typeID = $('#ddlType').val();
 
-                if (aplicentID != "" && typeID != 0 && $('#fileUpload')[0].files[0] != null) {
+                if (aplicentID != '-1' && typeID != 0 && $('#fileUpload')[0].files[0] != null) {
                         $(this).hide();
                         setTimeout(function () {
                                 let url = '<?php echo base_url('/index.php/Form/saveAplicentUpload'); ?>';
