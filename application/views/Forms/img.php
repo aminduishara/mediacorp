@@ -47,7 +47,7 @@
                                                 <table class="table table-striped table-bordered" id="tblUploads">
                                                         <thead>
                                                                 <tr>
-                                                                        <th >ID</th>
+                                                                        <th hidden>ID</th>
                                                                         <th>Upload Type</th>
                                                                         <th>File Name</th>
                                                                         <th width="12%">Action</th>
@@ -85,8 +85,7 @@
 <script type="text/javascript">
 
         $(document).ready(function() {
-
-                var aplicentID = 12000; //document.getElementById("aplicentID").value;
+                var aplicentID = document.getElementById("aplicentID").value;
                 if (aplicentID != "") {
                         $.ajax({
                                 type: "post",
@@ -106,7 +105,7 @@
                                         $('#tblUploads tbody').empty();
                                         response['uploadFiles'].forEach((file) => {
                                                 $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
-                                                        <td >${file['aplicent_upload_id']}</td>
+                                                        <td hidden>${file['aplicent_upload_id']}</td>
                                                         <td>${file['mas_uploadtype_des']}</td>
                                                         <td>${file['aplicent_upload_name']}</td>
                                                         <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
@@ -121,7 +120,7 @@
         });
 
         $('#btnUpload').click(function() {
-                var aplicentID = 12000; //document.getElementById("aplicentID").value;
+                var aplicentID = document.getElementById("aplicentID").value;
                 var typeID = $('#ddlType').val();
 
                 if (aplicentID != "" && typeID != 0) {
@@ -143,7 +142,7 @@
                                                 $('#tblUploads tbody').empty();
                                                 response['uploadFiles'].forEach((file) => {
                                                         $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
-                                                                <td >${file['aplicent_upload_id']}</td>
+                                                                <td hidden>${file['aplicent_upload_id']}</td>
                                                                 <td>${file['mas_uploadtype_des']}</td>
                                                                 <td>${file['aplicent_upload_name']}</td>
                                                                 <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
