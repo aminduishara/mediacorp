@@ -108,9 +108,24 @@ class Form_model extends CI_Model {
 
   }
   
-  public function GetLabelData($id){
+  public function GetLabelData($id, $aplicant_id = -1){
 
-    $query = $this->db->query('SELECT * FROM `cat_mast_label` WHERE `cat_id` = '.$id.'');
+    $sql = "SELECT cat_mast_label.cat_mast_label_id, cat_mast_label.cat_id,cat_mast_label.cat_mast_label_name,cat_mast_label.cat_mast_label_conlength,cat_mast_label.cat_mast_label_Instruction, aplicent_content.aplicent_id
+    FROM `cat_mast_label` 
+    LEFT JOIN aplicent_content ON cat_mast_label.cat_mast_label_id = aplicent_content.cat_mast_label_id AND aplicent_content.aplicent_id = $aplicant_id
+    WHERE `cat_id` = $id";
+
+    // $sql = "SELECT *
+    //         FROM `cat_mast_label` 
+    //         LEFT JOIN aplicent_content ON cat_mast_label.cat_mast_label_id = aplicent_content.cat_mast_label_id AND aplicent_content.aplicent_id = $aplicant_id";
+
+    // if($aplicant_id != -1){
+    //   $sql .= " AND aplicent_content.aplicent_id = $aplicant_id";
+    // }
+
+    // $sql .= " WHERE `cat_id` = $id";
+    // $sql .= " GROUP BY cat_mast_label.cat_mast_label_id";
+    $query = $this->db->query($sql);
     return $query;
 
   }
@@ -134,6 +149,13 @@ class Form_model extends CI_Model {
 
     echo json_encode($data);
 
+  }
+
+  public function GetLabelWordCount($selectedLabel) {
+    $sql = "SELECT cat_mast_label_conlength FROM cat_mast_label WHERE cat_mast_label_id = $selectedLabel";
+
+    $query = $this->db->query($sql);
+    return $query;
   }
 
 }
