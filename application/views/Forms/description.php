@@ -63,12 +63,11 @@
 <script type="text/javascript">
 
         $('#des').on('keyup', function(e) {
-                // var required = parseInt($('#requiredCount').html().trim());
-                // var value = $('#des').val().trim();
+                var required = parseInt($('#requiredCount').html().trim());
+                var value = $(this).val().trim();
 
-                // alert(required + " :: " + value);
+                alert(required + " :: " + value);
 
-                alert( $(this).val() );
 
                 // if (value != "") {
                 //         let count = parseInt(value.split(' ').length);
