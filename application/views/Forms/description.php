@@ -156,34 +156,33 @@
                         }
                 });
 
-                function wordCount(){
-                        // var typedString = document.getElementById('des').value;
-                        var selectedLabel = document.getElementById('label').value;
-                        var wordCount = 0;
+                // function wordCount(){
 
-                        document.getElementById('typedCount').innerHTML = '0';
+                // var typedString = document.getElementById('des').value;
+                var selectedLabel = document.getElementById('label').value;
+                var wordCount = 0;
+                document.getElementById('typedCount').innerHTML = '0';
+                jQuery.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url('/index.php/Form/GetWordCount'); ?>",
+                        dataType: 'html',
+                        data: {
+                                selectedLabel: selectedLabel
+                        },
+                        success: function(data) {
+                                json_data = JSON.parse(data);
+                                console.log(json_data["wordCount"][0]["cat_mast_label_conlength"]);
+                                wordCount = json_data["wordCount"][0]["cat_mast_label_conlength"];
 
-                        jQuery.ajax({
-                                type: 'POST',
-                                url: "<?php echo base_url('/index.php/Form/GetWordCount'); ?>",
-                                dataType: 'html',
-                                data: {
-                                        selectedLabel: selectedLabel
-                                },
-                                success: function(data) {
-                                        json_data = JSON.parse(data);
-                                        console.log(json_data["wordCount"][0]["cat_mast_label_conlength"]);
-                                        wordCount = json_data["wordCount"][0]["cat_mast_label_conlength"];
-
-                                        document.getElementById('requiredCount').innerHTML = wordCount;
-                                        // document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
-                                },
-                                error: function() {
-                                        alert('Error Occured. Please try again.');
-                                        // document.getElementById('des').value = '';
-                                }
-                        });
-                }
+                                document.getElementById('requiredCount').innerHTML = wordCount;
+                                // document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
+                        },
+                        error: function() {
+                                alert('Error Occured. Please try again.');
+                                // document.getElementById('des').value = '';
+                        }
+                });
+                // }
         });
 
         function RefreshTable() {
