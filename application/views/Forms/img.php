@@ -2,64 +2,65 @@
 
         <?php echo form_open_multipart('Form/GetImages'); ?>
 
-        <div class="col-md-6">
-                <?php $no = 3; for ($i = 0; $i < $no; $i++) { ?>
-                <div class="col-md-12">
-                        <div class="card card-body row">
-                                <div class="col-md-8">
-                                        <label>Upload Image <?php echo $i + 1 ?></label>
-                                        <div class="row">
-                                                <div class="col-md-6">
-                                                        <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
-                                                </div>
-                                                <div class="col-md-2">
-                                                        <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)">Remove</button>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="col-md-4">
-                                        <div class="col-md-4">
-                                                <img id="Image<?php echo $i + 1 ?>" style="width: 50px; height: 50px; object-fit: contain;" />
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-                <?php } ?>
-        </div>
-
-        <div class="col-md-6">
-                <div class="card card-body row">
-                        <div class="col-md-12 row">
-                                <div class="col-6">
-                                        <select class="form-select" id="ddlType" name="ddlType">
-                                            <option value="0">Select Type</option>
-                                        </select>
-                                </div>
-                                <div class="col-md-3">
-                                        <input class="form-control" type="file" id="fileUpload" name="fileUpload">
-                                </div>
-                                <button class="btn btn-warning" id="btnUpload" name="btnUpload">Upload</button>
-                        </div>
-
+        <div class="col-md-12 row">
+                <div class="col-md-6">
+                        <?php $no = 3; for ($i = 0; $i < $no; $i++) { ?>
                         <div class="col-md-12">
-                                <div class="table-responsive" style="max-height: 30vh; overflow-y: auto;">
-                                        <table class="table table-striped table-bordered" id="tblUploads">
-                                                <thead>
-                                                        <tr>
-                                                                <th hidden>ID</th>
-                                                                <th>Upload Type</th>
-                                                                <th>File Name</th>
-                                                                <th width="12%">Action</th>
-                                                        </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                        </table>
+                                <div class="card card-body row">
+                                        <div class="col-md-8">
+                                                <label>Upload Image <?php echo $i + 1 ?></label>
+                                                <div class="row">
+                                                        <div class="col-md-6">
+                                                                <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                                <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)">Remove</button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                                <div class="col-md-4">
+                                                        <img id="Image<?php echo $i + 1 ?>" style="width: 50px; height: 50px; object-fit: contain;" />
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <?php } ?>
+                </div>
+                
+                <div class="col-md-6">
+                        <div class="card card-body row">
+                                <div class="col-md-12 row">
+                                        <div class="col-6">
+                                                <select class="form-select" id="ddlType" name="ddlType">
+                                                <option value="0">Select Type</option>
+                                                </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                                <input class="form-control" type="file" id="fileUpload" name="fileUpload">
+                                        </div>
+                                        <button class="btn btn-warning" id="btnUpload" name="btnUpload">Upload</button>
+                                </div>
+
+                                <div class="col-md-12">
+                                        <div class="table-responsive" style="max-height: 30vh; overflow-y: auto;">
+                                                <table class="table table-striped table-bordered" id="tblUploads">
+                                                        <thead>
+                                                                <tr>
+                                                                        <th hidden>ID</th>
+                                                                        <th>Upload Type</th>
+                                                                        <th>File Name</th>
+                                                                        <th width="12%">Action</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                </table>
+                                        </div>
                                 </div>
                         </div>
                 </div>
         </div>
-
 
         <?php echo form_close(); ?>
 
