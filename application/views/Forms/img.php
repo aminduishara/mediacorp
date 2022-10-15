@@ -129,8 +129,8 @@
                         $(this).hide();
                         setTimeout(function () {
                                 let image = $('#fileUpload').val()
-                                let files = new FormData(), // you can consider this as 'data bag'
-                                url: "<?php echo base_url('/index.php/Form/saveAplicentUpload'); ?>";
+                                let files = new FormData()
+                                let url = '<?php echo base_url('/index.php/Form/saveAplicentUpload'); ?>';
 
                                 files.append('aplicentID', aplicentID);
                                 files.append('typeID', typeID);
