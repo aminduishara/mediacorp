@@ -129,7 +129,7 @@
                         $(this).hide();
                         setTimeout(function () {
                                 let url = '<?php echo base_url('/index.php/Form/saveAplicentUpload'); ?>';
-                                
+
                                 let files = new FormData()
                                 files.append('aplicentID', aplicentID);
                                 files.append('typeID', typeID);
@@ -142,7 +142,7 @@
                                         data: files,
                                         success: function (response) {
                                                 $('#tblUploads tbody').empty();
-                                                response.forEach((file) => {
+                                                response['uploadFiles'].forEach((file) => {
                                                         $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
                                                                 <td hidden>${file['aplicent_upload_id']}</td>
                                                                 <td>${file['mas_uploadtype_id']}</td>
@@ -150,6 +150,7 @@
                                                                 <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
                                                         </tr>`);
                                                 });
+                                                $('#btnUpload').show();
                                         },
                                         error: function (err) {
                                                 alert("Invalid!");

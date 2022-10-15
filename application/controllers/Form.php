@@ -395,7 +395,8 @@ class Form extends CI_Controller
     $this->Form_model->saveAplicentUpload($insData);
 
     $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
-    $data = $result2->result();
+    $data['uploadFiles'] = $result2->result();
+    
     echo json_encode($data);
   }
 
