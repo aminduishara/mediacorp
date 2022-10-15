@@ -349,6 +349,9 @@ class Form extends CI_Controller
 
   public function getUploadData() 
   {
+
+    echo file_exists("./uploads/A1_coolfreecv_resume_en_06_n.pdf");
+
     $this->load->model('Form_model');
     
     $result1 = $this->Form_model->GetUploadType();
@@ -392,14 +395,11 @@ class Form extends CI_Controller
       'aplicent_upload_remarks' => '',
       'mas_uploadtype_id' => $_POST['typeID']
     );
-    $query = $this->Form_model->saveAplicentUpload($insData);
+    $this->Form_model->saveAplicentUpload($insData);
 
     $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
     $data['uploadFiles'] = $result2->result();
-    
     echo json_encode($data);
-
-    // echo json_encode($query);
   }
 
   public function removeAplicentUpload()
