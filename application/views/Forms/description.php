@@ -69,7 +69,8 @@
                 if (value != "") {
                         let count = parseInt(value.split(' ').length);
                         alert("count : " + count);
-                        if (required < count) {
+                        if (required <= count) {
+                                alert("false");
                                 return false;
                         }
                 }
