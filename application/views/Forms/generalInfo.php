@@ -23,11 +23,11 @@
                         <lable><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></lable>
                     </div>
 
-                    <div class="col-sm-4">
+                    <!-- <div class="col-sm-4">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                             <label class="form-check-label" for="flexRadioDefault1">
-                                Organization A
+                                Organization
                             </label>
                         </div>
                         <div class="form-check">
@@ -36,7 +36,27 @@
                                 Other
                             </label>
                         </div>
+                    </div> -->
 
+                    <div class="col-sm-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Performance Categories
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status; ?>>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Programme Categories
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type3" value="3" <?php echo $status; ?>>
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                Creative Categories
+                            </label>
+                        </div>
                     </div>
 
                 </div>
