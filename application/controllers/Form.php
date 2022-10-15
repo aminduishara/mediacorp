@@ -351,6 +351,7 @@ class Form extends CI_Controller
   {
 
     echo file_exists('SITE_ROOT' . '/uploads/A1_coolfreecv_resume_en_06_n.pdf');
+    echo "AAAAAAAAAA";
 
     $this->load->model('Form_model');
     
