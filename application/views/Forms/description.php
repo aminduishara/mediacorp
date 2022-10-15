@@ -69,7 +69,7 @@
 
                 if (value != "") {
                         let count = parseInt(value.split(' ').length);
-                        $('#typedCount').val(count);
+                        $('#typedCount').html(count);
                         if (required < count) {
                                 $('#des').val(tempDesc);
                         } else {
