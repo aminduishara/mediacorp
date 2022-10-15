@@ -10,7 +10,7 @@
                                         <h5 class="card-title">Upload Image <?php echo $i + 1 ?></h5>
                                         <div class="row">
                                                 <div class="col-md-6">
-                                                        <input class="form-control mb-5" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
+                                                        <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
                                                 </div>
                                                 <div class="col-md-2">
                                                         <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)">Remove</button>
@@ -18,7 +18,7 @@
                                         </div>
                                 </div>
                                 <div class="col-md-4">
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-4">
                                                 <img id="Image<?php echo $i + 1 ?>" style="width: 50px; height: 50px; object-fit: contain;" />
                                         </div>
                                 </div>
