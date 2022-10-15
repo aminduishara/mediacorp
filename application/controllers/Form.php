@@ -394,12 +394,12 @@ class Form extends CI_Controller
     );
     $query = $this->Form_model->saveAplicentUpload($insData);
 
-    // $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
-    // $data['uploadFiles'] = $result2->result();
+    $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
+    $data['uploadFiles'] = $result2->result();
     
-    // echo json_encode($data);
+    echo json_encode($data);
 
-    echo json_encode($query);
+    // echo json_encode($query);
   }
 
   public function removeAplicentUpload()

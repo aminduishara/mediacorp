@@ -37,7 +37,7 @@
                                                 </select>
                                         </div>
                                         <div class="col-md-3">
-                                                <input class="form-control" type="file" id="fileUpload" name="fileUpload">
+                                                <input class="form-control" type="file" id="fileUpload" name="fileUpload" accept="application/pdf,application/vnd.ms-excel">
                                         </div>
                                         <button class="btn btn-warning col-md-3" id="btnUpload" name="btnUpload">Upload</button>
                                 </div>
@@ -139,9 +139,12 @@
                                         processData: false,
                                         contentType: false,
                                         data: files,
+                                        dataType: 'json',
+                                        async: true,
                                         success: function (response) {
+                                                $('#btnUpload').show();
                                                 $('#tblUploads tbody').empty();
-                                                response.forEach((file) => {
+                                                response['uploadFiles'].forEach((file) => {
                                                         $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
                                                                 <td >${file['aplicent_upload_id']}</td>
                                                                 <td>${file['mas_uploadtype_des']}</td>
@@ -149,7 +152,6 @@
                                                                 <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
                                                         </tr>`);
                                                 });
-                                                $('#btnUpload').show();
                                         },
                                         error: function (err) {
                                                 alert("Invalid!");
