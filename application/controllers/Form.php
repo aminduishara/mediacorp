@@ -352,7 +352,17 @@ class Form extends CI_Controller
 
     echo base_url() . 'uploads/';
     echo "\n\n";
-    echo file_exists(base_url() . 'uploads/A1_coolfreecv_resume_en_06_n.pdf');
+
+    $arrFiles = array();
+    $handle = opendir(base_url() . 'uploads');
+    if ($handle) {
+      while (($entry = readdir($handle)) !== FALSE) {
+          $arrFiles[] = $entry;
+      }
+    }
+    closedir($handle);
+    print_r($arrFiles);
+
     echo "\n\n";
 
     $this->load->model('Form_model');
