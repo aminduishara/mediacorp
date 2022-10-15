@@ -349,22 +349,6 @@ class Form extends CI_Controller
 
   public function getUploadData() 
   {
-
-    echo base_url() . 'uploads/';
-    echo "\n\n";
-
-    $arrFiles = array();
-    $handle = opendir(base_url() . 'uploads');
-    if ($handle) {
-      while (($entry = readdir($handle)) !== FALSE) {
-          $arrFiles[] = $entry;
-      }
-    }
-    closedir($handle);
-    print_r($arrFiles);
-
-    echo "\n\n";
-
     $this->load->model('Form_model');
     
     $result1 = $this->Form_model->GetUploadType();

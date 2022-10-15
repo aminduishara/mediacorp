@@ -62,6 +62,10 @@
                 </div>
         </div>
 
+        <div class="col-md-12 previewPDF" style="padding-top: 0; padding-bottom: 0;">
+                <embed class="w-100" height="540" src="<?php echo base_url().'uploads/A1_coolfreecv_resume_en_06_n.pdf'; ?>" type="application/pdf">
+        </div>
+
         <?php echo form_close(); ?>
 
         <div>
