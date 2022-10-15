@@ -179,6 +179,13 @@ class Form_model extends CI_Model {
     echo json_encode($query);
   }
 
+  public function deleteAplicentUpload($id)
+  {
+    $this->db->where('aplicent_upload_id', $id);
+    $this->db->delete('aplicent_upload');
+    echo 'Success';
+  }
+
 }
 
 /* End of file Form_model.php */

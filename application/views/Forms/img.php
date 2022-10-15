@@ -121,7 +121,6 @@
         });
 
         $('#btnUpload').click(function() {
-
                 var aplicentID = 12000; //document.getElementById("aplicentID").value;
                 var typeID = $('#ddlType').val();
 
@@ -162,7 +161,25 @@
                 }
         });
         
+        $('#tblUploads').on('click', '#btnRemove', function () {
+                let id = $(this).closest('tr').find('td:eq(0)').text().trim();
 
+                $.ajax({
+                        type: "post",
+                        url: "<?php echo base_url('/index.php/Form/removeAplicentUpload'); ?>",
+                        data: {
+                                id: id
+                        },
+                        dataType: 'json',
+                        async: true,
+                        success: function (response) {
+                                $('#tr' + id).remove();
+                        },
+                        error: function () {
+                                alert("Invalid!");
+                        }
+                });
+        })
 
 
 
