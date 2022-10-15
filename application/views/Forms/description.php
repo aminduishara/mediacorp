@@ -12,9 +12,11 @@
                 <div class="col-sm-12">
                         <div class="wrapper">
                                 <div class="input-data">
-                                        <input type="text" name="des" id="des" required="required">
+                                        <input type="text" name="des" id="des" required="required" onchange="wordCount()" onclick="wordCount()">
                                         <div class="underline"></div>
                                         <label class="form-label">Description</label>
+                                        <div><span id="typedCount"></span>/<span  id="requiredCount"></span></div>
+
                                 </div>
                         </div>
                 </div>
@@ -59,6 +61,40 @@
 
 
 <script type="text/javascript">
+
+        function wordCount(){
+                
+                var typedString = document.getElementById('des').value;
+                var selectedLabel = document.getElementById('label').value;
+                var wordCount = 0;
+
+                jQuery.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url('/index.php/Form/GetWordCount'); ?>",
+                        dataType: 'html',
+                        data: {
+                                selectedLabel: selectedLabel
+                        },
+                        success: function(data) {
+                                
+                                json_data = JSON.parse(data);
+                                console.log(json_data["wordCount"][0]["cat_mast_label_conlength"]);
+                                wordCount = json_data["wordCount"][0]["cat_mast_label_conlength"];
+
+                                document.getElementById('requiredCount').innerHTML = wordCount;
+                                document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
+
+
+                        },
+                        error: function() {
+                                alert('Error Occured. Please try again.');
+                                document.getElementById('des').value = '';
+                        }
+                });
+
+
+        }
+
         $('#Back').click(function() {
                 $('.nav-tabs li:eq(0) a').tab('show');
         })
@@ -77,6 +113,7 @@
                         var contentHiddenValue = document.getElementById('hiddenContentID').value;
 
 
+
                         if (id == 0000) {
                                 alert("Please fill the General Information Form First");
                                 window.location.reload();
@@ -84,6 +121,7 @@
                                 if ($('#des').val() == '' && $('#des').attr('required') == "required") {
                                         alert('Please fill all the required data');
                                 } else {
+
                                         if (contentHiddenValue == 0) {
                                                 jQuery.ajax({
                                                         type: 'POST',
@@ -98,7 +136,17 @@
                                                                 SaveDesDataQuery = JSON.parse(res);
                                                                 console.log(SaveDesDataQuery);
                                                                 document.getElementById('des').value = '';
+
+                                                                // document.getElementById('label').innerHTML = labelData.map(
+                                                                //         (row,index) =>{
+                                                                //                 if(row['cat_mast_label_id'] == label){
+                                                                //                         delete labelData[index];
+                                                                //                 }else{
+                                                                //                         return `<option value="${row['cat_mast_label_id']}">${row['cat_mast_label_name']}</option>`;
+                                                                //                 }
+                                                                // });
                                                                 RefreshTable();
+                                                                getLabels();
 
                                                         },
                                                         error: function() {
@@ -124,6 +172,7 @@
                                                                 RefreshTable();
                                                                 document.getElementById('hiddenContentID').value = 0;
                                                                 document.getElementById('des').value = '';
+                                                                getLabels();
 
                                                         },
                                                         error: function() {
@@ -138,7 +187,6 @@
                         }
                 });
         });
-
 
         function RefreshTable() {
 
@@ -165,8 +213,8 @@
                                                 <td>
                                                         <button type="button" class="btn btn-primary" onclick="EditDes(${row['aplicent_content_id']})">Edit</button>
                                                         <button type="button" class="btn btn-danger" onclick="RemoveDes(${row['aplicent_content_id']})">Remove</button>
-                                                 </td>
-                                                 </tr>`).join("");
+                                                </td>
+                                                </tr>`).join("");
 
 
                         },
@@ -184,7 +232,12 @@
                 //alert(id);
 
                 var hiddenContentID = id;
-                document.getElementById('butAdd').value = "Update";
+                var labelName = labelName;
+
+                console.log(labelName);
+                console.log(hiddenContentID);
+
+                document.getElementById('butAdd').value = "Update Description";
 
                 jQuery.ajax({
                         type: 'POST',
@@ -196,10 +249,11 @@
                                 var json_data = JSON.parse(data);
 
                                 //console.log(json_data[0]['aplicent_content_id']);
-
-                                document.getElementById('hiddenContentID').value = json_data[0]['aplicent_content_id'];
-                                document.getElementById('des').value = json_data[0]['aplicent_content_content'];
-                                document.getElementById('label').value = json_data[0]['cat_mast_label_id'];
+                                console.log(json_data);
+                                document.getElementById('hiddenContentID').value = json_data['data1'][0]['aplicent_content_id'];
+                                document.getElementById('des').value = json_data['data1'][0]['aplicent_content_content'];
+                                document.getElementById('label').value = json_data['data1'][0]['cat_mast_label_id'];
+                                document.getElementById('label').innerHTML = `<option value="${json_data['data1'][0]['cat_mast_label_id']}">${json_data['data2'][0]['cat_mast_label_name']}</option>`;
 
                         },
                         error: function() {
@@ -211,7 +265,6 @@
         function RemoveDes(id) {
 
                 var contentID = id;
-
                 alert("Do you wish to continue");
 
                 jQuery.ajax({
@@ -224,6 +277,7 @@
                                 if (res == 1) {
                                         alert('Description Deleted');
                                         RefreshTable();
+                                        getLabels();
                                 } else {
                                         alert('Description Deletion Fail. Try Again');
                                         RefreshTable();
