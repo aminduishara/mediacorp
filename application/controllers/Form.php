@@ -392,12 +392,14 @@ class Form extends CI_Controller
       'aplicent_upload_remarks' => '',
       'mas_uploadtype_id' => $_POST['typeID']
     );
-    $this->Form_model->saveAplicentUpload($insData);
+    $query = $this->Form_model->saveAplicentUpload($insData);
 
-    $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
-    $data['uploadFiles'] = $result2->result();
+    // $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
+    // $data['uploadFiles'] = $result2->result();
     
-    echo json_encode($data);
+    // echo json_encode($data);
+
+    echo json_encode($query);
   }
 
   public function removeAplicentUpload()

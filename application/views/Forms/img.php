@@ -141,7 +141,7 @@
                                         data: files,
                                         success: function (response) {
                                                 $('#tblUploads tbody').empty();
-                                                response['uploadFiles'].forEach((file) => {
+                                                response.forEach((file) => {
                                                         $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
                                                                 <td >${file['aplicent_upload_id']}</td>
                                                                 <td>${file['mas_uploadtype_des']}</td>
