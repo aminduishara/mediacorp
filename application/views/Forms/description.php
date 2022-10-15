@@ -62,18 +62,20 @@
 
 <script type="text/javascript">
 
-        $('#des').keyup(function() {
-                var required = parseInt($('#requiredCount').html().trim());
-                var value = $('#des').val().trim();
+        $('#des').on('keyup', function(e) {
+                // var required = parseInt($('#requiredCount').html().trim());
+                // var value = $('#des').val().trim();
 
-                alert(required + " :: " + value);
+                // alert(required + " :: " + value);
 
-                if (value != "") {
-                        let count = parseInt(value.split(' ').length);
-                        if (required < count) {
-                                return false;
-                        }
-                }
+                alert( $(this).val() );
+
+                // if (value != "") {
+                //         let count = parseInt(value.split(' ').length);
+                //         if (required < count) {
+                //                 return false;
+                //         }
+                // }
         });
 
         $('#Back').click(function() {
