@@ -124,7 +124,7 @@
                 var aplicentID = 12000; //document.getElementById("aplicentID").value;
                 var typeID = $('#ddlType').val();
 
-                alert($('#fileUpload').value);
+                alert($('#fileUpload').value == null);
 
                 if (aplicentID != "" && typeID != 0) {
                         // $(this).hide();
