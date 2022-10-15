@@ -66,15 +66,13 @@
                 var required = parseInt($('#requiredCount').html().trim());
                 var value = $(this).val().trim();
 
-                alert(required + " :: " + value);
-
-
-                // if (value != "") {
-                //         let count = parseInt(value.split(' ').length);
-                //         if (required < count) {
-                //                 return false;
-                //         }
-                // }
+                if (value != "") {
+                        let count = parseInt(value.split(' ').length);
+                        alert("count : " + count);
+                        if (required < count) {
+                                return false;
+                        }
+                }
         });
 
         $('#Back').click(function() {
