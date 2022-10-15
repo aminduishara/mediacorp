@@ -344,6 +344,61 @@ class Form extends CI_Controller
 
   }
 
+
+
+
+  public function getUploadData() 
+  {
+    $this->load->model('Form_model');
+    
+    $result1 = $this->Form_model->GetUploadType();
+    $json_data['uploadTypes'] = $result1->result();
+
+    $result2 = $this->Form_model->GetAplicentUpload();
+    $json_data['uploadFiles'] = $result2->result();
+    
+    echo json_encode($json_data);
+  }
+
+  // public function SaveImages()
+  // {
+  //   ob_start();
+  //   define('SITE_ROOT', realpath(dirname(__FILE__)));
+  //   // echo SITE_ROOT;
+  //   if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
+  //     switch ($_FILES['fileToUpload']["error"]) {
+  //       case UPLOAD_ERR_OK:
+  //         $target = "./uploads/";
+  //         // $target = $target . basename($_FILES['fileToUpload']['name']);
+  //         $extension = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
+  //         $newname = $_POST['name'];
+
+  //         if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target . $newname)) {
+  //           $status = "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded";
+  //           $imageFileType = pathinfo($newname . '.' . $extension, PATHINFO_EXTENSION);
+  //         } else {
+  //           $status = "Sorry, there was a problem uploading your file.";
+  //         }
+  //         break;
+  //     }
+
+  //     echo "Status: {$status}<br/>\n";
+  //   }
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

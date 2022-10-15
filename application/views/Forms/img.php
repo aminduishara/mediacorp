@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                         <div class="card card-body row">
                                 <div class="col-md-8">
-                                        <h5 class="card-title">Upload Image <?php echo $i + 1 ?></h5>
+                                        <label>Upload Image <?php echo $i + 1 ?></label>
                                         <div class="row">
                                                 <div class="col-md-6">
                                                         <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
@@ -26,6 +26,41 @@
                 </div>
                 <?php } ?>
         </div>
+
+        <div class="col-md-6">
+                <div class="card card-body row">
+                        <div class="col-md-12 row">
+                                <div class="col-6">
+                                        <select class="form-select" id="ddlType" name="ddlType">
+                                            <option value="0">Select Type</option>
+                                        </select>
+                                </div>
+                                <div class="col-md-3">
+                                        <input class="form-control" type="file" id="fileUpload" name="fileUpload">
+                                </div>
+                                <button class="btn btn-warning" id="btnUpload" name="btnUpload">Upload</button>
+                        </div>
+
+                        <div class="col-md-12">
+                                <div class="table-responsive" style="max-height: 30vh; overflow-y: auto;">
+                                        <table class="table table-striped table-bordered" id="tblUploads">
+                                                <thead>
+                                                        <tr>
+                                                                <th hidden>ID</th>
+                                                                <th>Upload Type</th>
+                                                                <th>File Name</th>
+                                                                <th width="12%">Action</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                        </table>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+
         <?php echo form_close(); ?>
 
         <div>
@@ -47,10 +82,92 @@
 
 
 <script type="text/javascript">
+
+        $(document).ready(function() {
+
+                var aplicentID = document.getElementById("aplicentID").value;
+                // if (aplicentID != "") {}
+                $.ajax({
+                        type: "post",
+                        url: "<?php echo base_url('/index.php/Form/....'); ?>",
+                        data: {aplicentID: aplicentID},
+                        dataType: 'json',
+                        async: true,
+                        success: function (response) {
+                                $('#ddlType').empty();
+                                $('#ddlType').append('<option value="0">Select Skill</option>');
+                                response['uploadTypes'].forEach((type)=>{
+                                        $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
+                                });
+
+                                $('#tblUploads tbody').empty();
+                                response['uploadFiles'].forEach((file) => {
+                                        $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
+                                                <td hidden>${file['aplicent_upload_id']}</td>
+                                                <td>${file['mas_uploadtype_id']}</td>
+                                                <td>${file['aplicent_upload_name']}</td>
+                                                <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
+                                        </tr>`);
+                                });
+                        },
+                        error: function () {
+                                alert("Invalid!");
+                        }
+                });
+        });
+
+        $('#btnUpload').click(function() {
+
+                var aplicentID = document.getElementById("aplicentID").value;
+                var typeID = $('#ddlType').val();
+                // if (aplicentID != "") {}
+
+                $(this).hide();
+                setTimeout(function () {
+                        let image = $('#fileUpload').val()
+                        let files = new FormData(), // you can consider this as 'data bag'
+                        url: "<?php echo base_url('/index.php/Form/....'); ?>";
+
+                        files.append('aplicentID', aplicentID);
+                        files.append('typeID', typeID);
+                        files.append('image', image);
+                
+                        $.ajax({
+                                type: 'post',
+                                url: url,
+                                processData: false,
+                                contentType: false,
+                                data: files,
+                                dataType: 'json',
+                                async: true,
+                                success: function (response) {
+                                        $('#tblUploads tbody').empty();
+                                        response.forEach((file) => {
+                                                $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
+                                                        <td hidden>${file['aplicent_upload_id']}</td>
+                                                        <td>${file['mas_uploadtype_id']}</td>
+                                                        <td>${file['aplicent_upload_name']}</td>
+                                                        <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
+                                                </tr>`);
+                                        });
+                                },
+                                error: function (err) {
+                                        alert("Invalid!");
+                                }
+                        });
+                },1000);
+        });
+        
+
+
+
+
+
+
         $('#btnBack').click(function() {
                 console.log(1);
                 $('.nav-tabs li:eq(1) a').tab('show');
-        })
+        });
 
         function preview(id) {
 
@@ -82,7 +199,6 @@
                 }
 
         }
-
 
         $("#btnSubmit").click(function() {
                 var image1 = document.getElementById("ImgFile1").files.length;
@@ -233,5 +349,4 @@
                         window.location.reload();
                 }
         });
-        // });
 </script>
