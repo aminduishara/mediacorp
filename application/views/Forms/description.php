@@ -62,7 +62,7 @@
 
 <script type="text/javascript">
 
-        $('#des').keyup(function(e) {
+        $('#des').keyup(function() {
                 var required = parseInt($('#requiredCount').html().trim());
                 var value = $('#des').val().trim();
                 if (value != "") {
