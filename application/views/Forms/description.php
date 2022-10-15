@@ -62,7 +62,16 @@
 
 <script type="text/javascript">
 
-        
+        $('#des').keyup(function(e) {
+                var required = parseInt($('#requiredCount').html().trim());
+                var value = $('#des').val().trim();
+                if (value != "") {
+                        let count = parseInt(value.split(' ').length);
+                        if (required < count) {
+                                return false;
+                        }
+                }
+        });
 
         $('#Back').click(function() {
                 $('.nav-tabs li:eq(0) a').tab('show');
@@ -156,12 +165,12 @@
                         }
                 });
 
-                // function wordCount(){
-
+                // function wordCount(){} ====
                 // var typedString = document.getElementById('des').value;
                 var selectedLabel = document.getElementById('label').value;
                 var wordCount = 0;
                 document.getElementById('typedCount').innerHTML = '0';
+
                 jQuery.ajax({
                         type: 'POST',
                         url: "<?php echo base_url('/index.php/Form/GetWordCount'); ?>",
@@ -182,7 +191,6 @@
                                 // document.getElementById('des').value = '';
                         }
                 });
-                // }
         });
 
         function RefreshTable() {
