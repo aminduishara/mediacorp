@@ -124,9 +124,7 @@
                 var aplicentID = 12000; //document.getElementById("aplicentID").value;
                 var typeID = $('#ddlType').val();
 
-                alert( $('#fileUpload')[0].files[0] == null );
-
-                if (aplicentID != "" && typeID != 0) {
+                if (aplicentID != "" && typeID != 0 && $('#fileUpload')[0].files[0] != null) {
                         // $(this).hide();
                         // setTimeout(function () {
                         //         let url = '<?php echo base_url('/index.php/Form/saveAplicentUpload'); ?>';
@@ -161,7 +159,7 @@
                         //         });
                         // },1000);
                 } else {
-                        alert("Select Type!");
+                        swal('Warning', 'Plese Select type & file', 'warning');
                 }
         });
         
