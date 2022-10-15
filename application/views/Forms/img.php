@@ -87,7 +87,7 @@
         $(document).ready(function() {
 
                 var aplicentID = document.getElementById("aplicentID").value;
-                console.log("L A_ID" + aplicentID);
+                console.log("L A_ID : " + aplicentID);
                 if (aplicentID != "") {
                         $.ajax({
                                 type: "post",
@@ -123,7 +123,7 @@
 
         $('#btnUpload').click(function() {
                 var aplicentID = document.getElementById("aplicentID").value;
-                console.log("U A_ID" + aplicentID);
+                console.log("U A_ID : " + aplicentID);
                 var typeID = $('#ddlType').val();
 
                 if (aplicentID != "" && typeID != 0 && $('#fileUpload')[0].files[0] != null) {
