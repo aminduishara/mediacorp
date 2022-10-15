@@ -62,6 +62,7 @@
 
 <script type="text/javascript">
 
+        // var tempDesc = "";
         $('#des').on('keyup', function(e) {
                 var required = parseInt($('#requiredCount').html().trim());
                 var value = $(this).val().trim();
@@ -73,8 +74,12 @@
                         
                         if (required <= count) {
                                 alert("false");
-                                return false;
-                        }
+                                // return false;
+                                e.preventDefault();
+                        } 
+                        // else {
+                        //         tempDesc = value;
+                        // }
                 }
         });
 
