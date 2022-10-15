@@ -163,8 +163,8 @@ class Form_model extends CI_Model {
 
   public function GetUploadType() { // new-line
 
-    // $sql = "SHOW COLUMNS FROM aplicent_upload";
-    $sql = "ALTER TABLE aplicent_upload MODIFY aplicent_upload_id INT(11) AUTO_INCREMENT PRIMARY KEY";
+    $sql = "SHOW COLUMNS FROM aplicent_upload";
+    // $sql = "ALTER TABLE aplicent_upload MODIFY aplicent_upload_id INT(11) AUTO_INCREMENT PRIMARY KEY";
 
     // $sql = "SELECT * FROM gen_mas_uploadtype";
     $query = $this->db->query($sql);
