@@ -339,9 +339,7 @@ class Form extends CI_Controller
     $this->load->model('Form_model');
     $result = $this->Form_model->GetLabelWordCount($selectedLabel);
 
-    $count = array(['cat_mast_label_conlength' => '5']); // delete this
-
-    $json_data['wordCount'] = $count; // $result->result();
+    $json_data['wordCount'] = $result->result();
     echo json_encode($json_data);
 
   }
