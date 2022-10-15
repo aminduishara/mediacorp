@@ -159,7 +159,7 @@
                         //         });
                         // },1000);
                 } else {
-                        swal.fire('Warning', 'Plese Select type & file', 'warning');
+                        alert("Plese Select type & file!");
                 }
         });
         
