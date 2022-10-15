@@ -2,12 +2,12 @@
 
         <?php echo form_open_multipart('Form/GetImages'); ?>
 
-        <div class="row mb-4">
+        <div class="col-md-6">
                 <?php
 
                 $no = 3;
                 for ($i = 0; $i < $no; $i++) { ?>
-                        <div class="mt-4 col-md-4">
+                        <div class="col-md-12">
                                 <div class="card card-body">
 
                                         <div class="col-md-8">
