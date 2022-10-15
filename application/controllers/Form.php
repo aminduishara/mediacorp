@@ -350,7 +350,10 @@ class Form extends CI_Controller
   public function getUploadData() 
   {
 
-    echo base_url() . '/uploads/';
+    echo base_url() . 'uploads/';
+    echo "\n\n";
+    echo file_exists(base_url() . 'uploads/A1_coolfreecv_resume_en_06_n.pdf');
+    echo "\n\n";
 
     $this->load->model('Form_model');
     
