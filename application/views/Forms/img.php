@@ -107,7 +107,7 @@
                                         response['uploadFiles'].forEach((file) => {
                                                 $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
                                                         <td hidden>${file['aplicent_upload_id']}</td>
-                                                        <td>${file['mas_uploadtype_id']}</td>
+                                                        <td>${file['mas_uploadtype_des']}</td>
                                                         <td>${file['aplicent_upload_name']}</td>
                                                         <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
                                                 </tr>`);
@@ -145,7 +145,7 @@
                                                 response['uploadFiles'].forEach((file) => {
                                                         $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
                                                                 <td hidden>${file['aplicent_upload_id']}</td>
-                                                                <td>${file['mas_uploadtype_id']}</td>
+                                                                <td>${file['mas_uploadtype_des']}</td>
                                                                 <td>${file['aplicent_upload_name']}</td>
                                                                 <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
                                                         </tr>`);

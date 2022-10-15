@@ -168,7 +168,7 @@ class Form_model extends CI_Model {
   }
 
   public function GetAplicentUpload($aplicentID) { // new-line
-    $sql = "SELECT * FROM aplicent_upload WHERE aplicent_id = $aplicentID";
+    $sql = "SELECT aplicent_upload_id, aplicent_id, aplicent_upload_name, aplicent_upload_status, aplicent_upload_remarks, mas_uploadtype_des FROM aplicent_upload INNER JOIN gen_mas_uploadtype ON aplicent_upload.mas_uploadtype_id = gen_mas_uploadtype.mas_uploadtype_id WHERE aplicent_id = $aplicentID";
     $query = $this->db->query($sql);
     return $query;
   }
