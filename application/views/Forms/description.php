@@ -62,24 +62,21 @@
 
 <script type="text/javascript">
 
-        // var tempDesc = "";
+        var tempDesc = "";
         $('#des').on('keyup', function(e) {
                 var required = parseInt($('#requiredCount').html().trim());
                 var value = $(this).val().trim();
 
                 if (value != "") {
                         let count = parseInt(value.split(' ').length);
-
-                        alert("count : " + count);
-                        
                         if (required <= count) {
                                 alert("false");
-                                // return false;
-                                e.preventDefault();
+                                
+                                $('#des').val(tempDesc);
                         } 
-                        // else {
-                        //         tempDesc = value;
-                        // }
+                        else {
+                                tempDesc = value;
+                        }
                 }
         });
 
