@@ -47,7 +47,7 @@
                                                 <table class="table table-striped table-bordered" id="tblUploads">
                                                         <thead>
                                                                 <tr>
-                                                                        <th hidden>ID</th>
+                                                                        <th >ID</th>
                                                                         <th>Upload Type</th>
                                                                         <th>File Name</th>
                                                                         <th width="12%">Action</th>
@@ -106,7 +106,7 @@
                                         $('#tblUploads tbody').empty();
                                         response['uploadFiles'].forEach((file) => {
                                                 $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
-                                                        <td hidden>${file['aplicent_upload_id']}</td>
+                                                        <td >${file['aplicent_upload_id']}</td>
                                                         <td>${file['mas_uploadtype_des']}</td>
                                                         <td>${file['aplicent_upload_name']}</td>
                                                         <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
@@ -143,7 +143,7 @@
                                                 $('#tblUploads tbody').empty();
                                                 response['uploadFiles'].forEach((file) => {
                                                         $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
-                                                                <td hidden>${file['aplicent_upload_id']}</td>
+                                                                <td >${file['aplicent_upload_id']}</td>
                                                                 <td>${file['mas_uploadtype_des']}</td>
                                                                 <td>${file['aplicent_upload_name']}</td>
                                                                 <td><button type="button" class="btn btn-danger btn-sm" id="btnRemove">X</button></td>
