@@ -76,6 +76,8 @@
                         } else {
                                 tempDesc = value;
                         }
+                } else {
+                        $('#typedCount').html('0');
                 }
         });
 
