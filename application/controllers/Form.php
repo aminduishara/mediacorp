@@ -400,7 +400,7 @@ class Form extends CI_Controller
     echo json_encode($data);
   }
 
-  function removeAplicentUpload()
+  public function removeAplicentUpload()
   {
     $this->load->model('Form_model');
     $this->Form_model->deleteAplicentUpload($_POST['id']);

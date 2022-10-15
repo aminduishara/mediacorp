@@ -183,7 +183,7 @@ class Form_model extends CI_Model {
   {
     $this->db->where('aplicent_upload_id', $id);
     $this->db->delete('aplicent_upload');
-    echo 'Success';
+    return 1;
   }
 
 }
