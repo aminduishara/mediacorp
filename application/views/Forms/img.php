@@ -27,7 +27,7 @@
                         </div>
                         <?php } ?>
                 </div>
-                
+
                 <div class="col-md-6">
                         <div class="card card-body row">
                                 <div class="col-md-12 row">
@@ -39,7 +39,7 @@
                                         <div class="col-md-3">
                                                 <input class="form-control" type="file" id="fileUpload" name="fileUpload">
                                         </div>
-                                        <button class="btn btn-warning" id="btnUpload" name="btnUpload">Upload</button>
+                                        <button class="btn btn-warning col-md-2" id="btnUpload" name="btnUpload">Upload</button>
                                 </div>
 
                                 <div class="col-md-12">
@@ -90,7 +90,7 @@
                 // if (aplicentID != "") {}
                 $.ajax({
                         type: "post",
-                        url: "<?php echo base_url('/index.php/Form/....'); ?>",
+                        url: "<?php echo base_url('/index.php/Form/getUploadData'); ?>",
                         data: {aplicentID: aplicentID},
                         dataType: 'json',
                         async: true,
