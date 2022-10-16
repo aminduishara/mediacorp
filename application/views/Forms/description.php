@@ -72,9 +72,10 @@
                 if (value != "") {
                         let count = parseInt(value.split(' ').length);
                         $('#typedCount').html(count);
-                        if (required < count) {
-                                alert('Maximum word count exceeded.')
-                        }
+                        // if (required < count) {
+                        //         alert('Maximum word count exceeded.');
+                        //         return;
+                        // }
                 } else {
                         $('#typedCount').html('0');
                 }
