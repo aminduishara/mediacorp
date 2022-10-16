@@ -42,7 +42,7 @@
                             </label>
                         </div>
                     </div>
-                <?php }
+                <?php } else
                 if ($row->mas_reglable_id == 2) {
                     if ($row->mas_reglable_visibility == 0) {
                         $visibility = "none";
