@@ -4,21 +4,21 @@
         foreach ($lableData->result() as $row) { ?>
 
 
-            <div class="row">
-                <?php if ($row->mas_reglable_id == 1) {
-                    if ($row->mas_reglable_visibility == 0) {
-                        $visibility = "none";
-                    } else {
-                        $visibility = "";
-                    }
+            <?php if ($row->mas_reglable_id == 1) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                    if ($row->mas_reglable_required == 1) {
-                        $status =  'data-req="1"';
-                        $requiredicon = ' <span class="text-danger">*</span>';
-                    } else {
-                        $status = 'data-req="0"';
-                        $requiredicon = '';
-                    } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
+                <div class="row">
                     <div class="col-md-2" style="display:<?php echo $visibility ?>">
                         <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                     </div>
@@ -43,36 +43,49 @@
                         </div>
                     </div>
                 <?php } ?>
+                <?php if ($row->mas_reglable_id == 2) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                <div class="col-md-6" style="display:<?php echo $lableData[1]['mas_reglable_visibility'] == 0 ? 'none' : ''; ?>">
-                    <label for="economy_id"><?php echo $lableData[1]['mas_reglable_text'] ?></label><?php echo $lableData[1]['mas_reglable_required'] == 1 ? '<span class="text-danger">*</span>"' : ''; ?>
-                    <select class="form-select" name="economy_id" id="economy_id" <?php echo $lableData[1]['mas_reglable_required'] == 1 ? 'data-req="1"' : 'data-req="0"'; ?>>
-                        <script>
-                            jQuery.ajax({
-                                type: "POST",
-                                url: "<?php echo base_url('/index.php/Form/GetEconomy'); ?>",
-                                success: function(data) {
-                                    var json_data = JSON.parse(data);
-                                    //console.log(json_data);
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+                    <div class="col-md-6" style="display:<?php echo $visibility ?>">
+                        <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
+                        <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
+                            <script>
+                                jQuery.ajax({
+                                    type: "POST",
+                                    url: "<?php echo base_url('/index.php/Form/GetEconomy'); ?>",
+                                    success: function(data) {
+                                        var json_data = JSON.parse(data);
+                                        //console.log(json_data);
 
-                                    document.getElementById('economy_id').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataEconomy"].map(
-                                        row =>
-                                        `<option value="${row['mas_economy_id']}">${row['mas_economy_name']}</option>`
-                                    );
-                                },
-                                error: function() {
+                                        document.getElementById('economy_id').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataEconomy"].map(
+                                            row =>
+                                            `<option value="${row['mas_economy_id']}">${row['mas_economy_name']}</option>`
+                                        );
+                                    },
+                                    error: function() {
 
-                                    document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
+                                        document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
 
-                                }
+                                    }
 
-                            });
-                        </script>
+                                });
+                            </script>
 
-                    </select>
+                        </select>
+                    </div>
                 </div>
-
-            </div>
+            <?php } ?>
             <div class="row">
 
                 <?php
