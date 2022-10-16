@@ -42,6 +42,7 @@
                             </label>
                         </div>
                     </div>
+                    1
                 <?php } ?>
                 <?php
                 if ($row->mas_reglable_id == 2) {
@@ -87,13 +88,6 @@
                     </div>
                 <?php } ?>
             </div>
-
-
-
-
-
-
-
             <div class="row">
 
                 <?php
