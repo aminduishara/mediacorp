@@ -46,7 +46,7 @@
                                                 <button class="btn btn-warning col-md-3" id="btnUpload" name="btnUpload">Upload</button>
                                         </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 mt-1">
                                                 <div class="table-responsive" style="max-height: 30vh; overflow-y: auto;">
                                                         <table class="table table-striped table-bordered" id="tblUploads">
                                                                 <thead>
