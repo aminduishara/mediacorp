@@ -10,9 +10,9 @@
         </div>
         <div class="row mt-2">
                 <div class="col-sm-12">
-                        <label class="form-label" for="des">Description</label>
+                        <label class="form-label" for="des">Description<span id="requiredCount">10</span></label>
                         <textarea name="des" id="des" rows="10" required="required" class="form-control"></textarea>
-                        <div>Remaining Word Count: <span id="typedCount" style="font-weight: bold"></span><span id="requiredCount" style="display: none">10</span></div>
+                        <div>Remaining Word Count: <span id="typedCount" style="font-weight: bold"></span></div>
                         <!-- <div class="wrapper">
                                 <div class="input-data">
                                         <input type="text" name="des" id="des" onclick="wordCount()" >
