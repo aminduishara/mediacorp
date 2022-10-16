@@ -34,16 +34,18 @@
 
                         <div class="col-md-8">
                                 <div class="card card-body row">
-                                        <div class="col-md-12 row">
-                                                <div class="col-6">
-                                                        <select class="form-select" id="ddlType" name="ddlType">
-                                                                <option value="0">Select Type</option>
-                                                        </select>
+                                        <div class="col-md-12">
+                                                <div class="row">
+                                                        <div class="col-md-6">
+                                                                <select class="form-select" id="ddlType" name="ddlType">
+                                                                        <option value="0">Select Type</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                                <input class="form-control" type="file" id="fileUpload" name="fileUpload" accept="application/pdf,application/vnd.ms-excel">
+                                                        </div>
+                                                        <button class="btn btn-warning col-md-3" id="btnUpload" name="btnUpload">Upload</button>
                                                 </div>
-                                                <div class="col-md-3">
-                                                        <input class="form-control" type="file" id="fileUpload" name="fileUpload" accept="application/pdf,application/vnd.ms-excel">
-                                                </div>
-                                                <button class="btn btn-warning col-md-3" id="btnUpload" name="btnUpload">Upload</button>
                                         </div>
 
                                         <div class="col-md-12 mt-1">
