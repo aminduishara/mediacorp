@@ -26,14 +26,20 @@
                     <div class="col-sm-4">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Organization
+                            <label class="form-check-label">
+                                PERFORMANCE CATEGORIES
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status; ?>>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Other
+                            <label class="form-check-label">
+                                PROGRAMME CATEGORIES
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type3" value="3" <?php echo $status; ?>>
+                            <label class="form-check-label">
+                                CREATIVE CATEGORIES
                             </label>
                         </div>
 
