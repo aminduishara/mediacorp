@@ -250,7 +250,7 @@
                     $requiredicon = '';
                 } ?>
 
-                    <div class="form-group col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
+                    <div class="form-group col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
                                 <input type="text" name="WebSite" id="website_url" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
