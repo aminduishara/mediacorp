@@ -8,7 +8,7 @@
 <div class="container mb-5">
   <div class="card">
     <div class="row">
-      <div class="col-md-3 left-pane">
+      <div class="col-md-2 left-pane">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <a class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><i class="fa-solid fa-circle"></i></a>
@@ -21,7 +21,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-10">
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="general-tab"><?php include 'application/views/Forms/generalInfo.php'; ?></div>
           <div class="tab-pane fade" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab"><?php include 'application/views/Forms/description.php'; ?></div>
