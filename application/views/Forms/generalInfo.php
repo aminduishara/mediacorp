@@ -1,44 +1,28 @@
 <form class="rounded p-4">
     <?php
     if ($lableData->num_rows() > 0) {
-        foreach ($lableData->result() as $row) {
-            if ($row->mas_reglable_id == 1) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+        foreach ($lableData->result() as $row) { ?>
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
 
-                <div class="row" style="display:<?php echo $visibility ?>">
+            <div class="row">
+                <?php if ($row->mas_reglable_id == 1) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                    <div class="col-sm-4">
-                        <lable><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></lable>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+                    <div class="col-sm-2" style="display:<?php echo $visibility ?>">
+                        <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                     </div>
-
-                    <!-- <div class="col-sm-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Organization
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status; ?>>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Other
-                            </label>
-                        </div>
-                    </div> -->
-
-                    <div class="col-sm-4">
+                    <div class="col-sm-6" style="display:<?php echo $visibility ?>">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                             <label class="form-check-label" for="flexRadioDefault1">
@@ -58,28 +42,23 @@
                             </label>
                         </div>
                     </div>
+                <?php } ?>
+                <?php
+                if ($row->mas_reglable_id == 2) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                </div>
-
-
-            <?php
-            } else if ($row->mas_reglable_id == 2) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                <div class="row mt-4" style="display:<?php echo $visibility ?>">
-                    <div class="form-group col-sm-12">
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+                    <div class="form-group col-sm-6" style="display:<?php echo $visibility ?>">
                         <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                         <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
                             <script>
@@ -106,27 +85,33 @@
 
                         </select>
                     </div>
-                </div>
+                <?php } ?>
+            </div>
 
 
-                <div class="row">
+
+
+
+
+
+            <div class="row">
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 3) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                if ($row->mas_reglable_id == 3) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <label for="category"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
                         <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()" <?php echo $status; ?>>
@@ -157,20 +142,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 4) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 4) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
 
 
@@ -181,539 +166,536 @@
                         </select>
                     </div>
 
-                </div>
+            </div>
 
+
+
+        <?php
+
+                } else if ($row->mas_reglable_id == 5) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+            <div class="row" style="display:<?php echo $visibility ?>">
+                <div class="col-sm-12 mt-4">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="ProjectName" id="project_name" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label for="ProjectName">
+                                <?php echo $row->mas_reglable_text ?>
+                                <?php echo $requiredicon; ?>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
 
 
             <?php
 
-            } else if ($row->mas_reglable_id == 5) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 6) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
-                <div class="row" style="display:<?php echo $visibility ?>">
-                    <div class="col-sm-12 mt-4">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="ProjectName" id="project_name" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label for="ProjectName">
-                                    <?php echo $row->mas_reglable_text ?>
-                                    <?php echo $requiredicon; ?>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 6) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="email" name="ApplicationEmail" id="applicant_email" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 7) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="form-group col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="WebSite" id="website_url" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
+                <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="email" name="ApplicationEmail" id="applicant_email" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                         </div>
                     </div>
                 </div>
 
             <?php
 
-            } else if ($row->mas_reglable_id == 8) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 7) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-                <div class="row mt-4" style="display:<?php echo $visibility ?>">
-                    <div class="col-sm-12">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="Organization" id="organization" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
-                    </div>
-                </div>
-                <div class="row mt-4">
-
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 9) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="col-sm-6" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="number" name="No_Employees" id="no_employees" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 10) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="date" name="Date" id="date" placeholder=none <?php echo $status; ?> value="<?php echo date('Y-m-d'); ?>" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
+                <div class="form-group col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="WebSite" id="website_url" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="row">
+        <?php
 
-                <?php
+                } else if ($row->mas_reglable_id == 8) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-            } else if ($row->mas_reglable_id == 11) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="Address1" id="address_line1" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+            <div class="row mt-4" style="display:<?php echo $visibility ?>">
+                <div class="col-sm-12">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="Organization" id="organization" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                         </div>
                     </div>
 
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 12) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="Address2" id="address_line2" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="row">
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 13) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-
-                    <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="City" id="city" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 14) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="State" id="state" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 15) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="ZipCode" id="zip_code" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 16) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="FirstName" id="first_name" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="row mt-4">
 
 
 
-                <?php
+            <?php
 
-            } else if ($row->mas_reglable_id == 17) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 9) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="LastName" id="last_name" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
-                <div class="row">
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 18) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="text" name="Designation" id="designation" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 19) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="tel" name="Mobile" id="mobile_no" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
-                        </div>
-                    </div>
-
-
-                <?php
-
-            } else if ($row->mas_reglable_id == 20) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
-
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
-
-                    <div class="form-group col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
-                        <div class="wrapper">
-                            <div class="input-data">
-                                <input type="tel" name="Telephone" id="telephone_no" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
-                                <div class="underline"></div>
-                                <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
-                            </div>
+                <div class="col-sm-6" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="number" name="No_Employees" id="no_employees" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                         </div>
                     </div>
                 </div>
 
 
-    <?php
 
+            <?php
+
+                } else if ($row->mas_reglable_id == 10) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+
+                <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="date" name="Date" id="date" placeholder=none <?php echo $status; ?> value="<?php echo date('Y-m-d'); ?>" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 11) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+                <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="Address1" id="address_line1" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 12) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+                <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="Address2" id="address_line2" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 13) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+
+                <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="City" id="city" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 14) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+                <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="State" id="state" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 15) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+                <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="ZipCode" id="zip_code" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 16) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+                <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="FirstName" id="first_name" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 17) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+                <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="LastName" id="last_name" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 18) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+                <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="text" name="Designation" id="designation" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 19) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+                <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="tel" name="Mobile" id="mobile_no" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+
+
+            <?php
+
+                } else if ($row->mas_reglable_id == 20) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+                <div class="form-group col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="tel" name="Telephone" id="telephone_no" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                            <div class="underline"></div>
+                            <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<?php
+
+                }
             }
         }
-    }
-    ?>
+?>
 
 
-    <div class="row mt-4 mb-4">
-        <div class="form-group col-sm-12 text-end">
-            <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Save & Next" id="butsave">
-        </div>
+<div class="row mt-4 mb-4">
+    <div class="form-group col-sm-12 text-end">
+        <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Save & Next" id="butsave">
     </div>
+</div>
 
 </form>
 
 
 <script type="text/javascript">
-    
-
     var labelData = {};
 
-    function getLabels()
-        {
-                jQuery.ajax({
-                        type: 'POST',
-                        url: "<?php echo base_url('/index.php/Form/GetLabel'); ?>",
-                        data: {
-                                id: $('#category').val(),
-                                aplicant_id: $('#aplicentID').val()
-                        },
-                        success: function(data) {
-                                json_data = JSON.parse(data);
-                                console.log(json_data);
-                                if (json_data["dataLabel"].length == 0) {
+    function getLabels() {
+        jQuery.ajax({
+            type: 'POST',
+            url: "<?php echo base_url('/index.php/Form/GetLabel'); ?>",
+            data: {
+                id: $('#category').val(),
+                aplicant_id: $('#aplicentID').val()
+            },
+            success: function(data) {
+                json_data = JSON.parse(data);
+                console.log(json_data);
+                if (json_data["dataLabel"].length == 0) {
 
-                                        document.getElementById('label').innerHTML = '<option value="0">Select the Lable</option>';
-                                        document.getElementById("butAdd").disabled = true;
+                    document.getElementById('label').innerHTML = '<option value="0">Select the Lable</option>';
+                    document.getElementById("butAdd").disabled = true;
 
-                                } else {
+                } else {
 
-                                        document.getElementById("butAdd").disabled = false;
-                                        var json_data = JSON.parse(data);
-                                        document.getElementById('label').innerHTML = json_data["dataLabel"].map(
-                                                post=>{
-                                                if(post["aplicent_id"] == null){
-                                                        return `<option value="${post["cat_mast_label_id"]}">${post["cat_mast_label_name"]}</option>`;
-                                                }
-                                        })
+                    document.getElementById("butAdd").disabled = false;
+                    var json_data = JSON.parse(data);
+                    document.getElementById('label').innerHTML = json_data["dataLabel"].map(
+                        post => {
+                            if (post["aplicent_id"] == null) {
+                                return `<option value="${post["cat_mast_label_id"]}">${post["cat_mast_label_name"]}</option>`;
+                            }
+                        })
 
-                                }
+                }
 
-                        },
-                        error: function() {
-                                alert('Error Occured');
-                        }
-                });
+            },
+            error: function() {
+                alert('Error Occured');
+            }
+        });
 
     }
 
@@ -744,7 +726,7 @@
         });
 
         getLabels();
-                
+
         // jQuery.ajax({
         //     type: "POST",
         //     url: "<?php echo base_url('/index.php/Form/GetLabel'); ?>",
@@ -965,9 +947,9 @@
 
             } else {
 
-                if(document.getElementById('aplicentID').value == -1){
+                if (document.getElementById('aplicentID').value == -1) {
 
-                        jQuery.ajax({
+                    jQuery.ajax({
                         type: "POST",
                         url: "<?php echo base_url('/index.php/Form/SaveFormData'); ?>",
                         dataType: 'html',
@@ -1013,7 +995,7 @@
                         }
                     });
 
-                }else{                        
+                } else {
 
                     jQuery.ajax({
                         type: "POST",
@@ -1022,7 +1004,7 @@
                         data: {
 
                             id: id,
-                            aplicent_id:document.getElementById('aplicentID').value,
+                            aplicent_id: document.getElementById('aplicentID').value,
                             datetime: datetime,
                             type: type,
                             economy: economy,
@@ -1047,7 +1029,7 @@
 
                         },
                         success: function(res) {
-                            var json_result = JSON.parse(res);       
+                            var json_result = JSON.parse(res);
                             console.log(json_result["updatequery"]);
                             alert("Aplicent Data Updated");
                             getLabels();
