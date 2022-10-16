@@ -10,18 +10,18 @@
         </div>
         <div class="row mt-5">
                 <div class="col-sm-12">
-                        <textarea name="des" id="des" rows="10" required="required" oninput="wordCount()" class="form-control"></textarea>
+                        <textarea name="des" id="des" rows="10" required="required" oninput="wordCount()"></textarea>
                         <div><span id="typedCount"></span>/<span id="requiredCount"></span></div>
                         <!-- <div class="wrapper">
                                 <div class="input-data">
-                                        <input type="text" name="des" id="des" onclick="wordCount()" > <!-- onchange="wordCount()" onclick="wordCount()" -->
-                        <!-- <div class="underline"></div> -->
-                        <!-- <label class="form-label">Description</label> -->
-                        <!-- <div><span id="typedCount"></span>/<span id="requiredCount"></span></div> -->
+                                        <input type="text" name="des" id="des" onclick="wordCount()" >
+                                        <div class="underline"></div>
+                                        <label class="form-label">Description</label>
+                                        <div><span id="typedCount"></span>/<span id="requiredCount"></span></div>
 
+                                </div>
+                        </div> -->
                 </div>
-        </div> -->
-        </div>
         </div>
         <div class="row mt-4 mb-4">
                 <div class="form-group col-sm-12 text-end">
