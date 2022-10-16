@@ -2,7 +2,7 @@
 
         <?php echo form_open_multipart('Form/GetImages'); ?>
 
-        <div class="col-md-12 row" style="height: 30vh;">
+        <div class="col-md-12 row" style="min-height: 50vh;">
                 <div class="col-md-4">
                         <?php $no = 3;
                         for ($i = 0; $i < $no; $i++) { ?>
