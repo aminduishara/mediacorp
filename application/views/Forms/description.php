@@ -8,11 +8,11 @@
                         </select>
                 </div>
         </div>
-        <div class="row mt-5">
+        <div class="row">
                 <div class="col-sm-12">
                         <label class="form-label" for="des">Description</label>
                         <textarea name="des" id="des" rows="10" required="required" oninput="wordCount()" class="form-control"></textarea>
-                        <div><span id="typedCount"></span>/<span id="requiredCount"></span></div>
+                        <div><span id="typedCount"></span>/<span id="requiredCount">10</span></div>
                         <!-- <div class="wrapper">
                                 <div class="input-data">
                                         <input type="text" name="des" id="des" onclick="wordCount()" >
