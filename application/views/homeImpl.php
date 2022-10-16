@@ -3,7 +3,7 @@
 <div class="container pt-5 pb-1 mb-5">
   <div class="col-12 text-end">
     <h3 class="text-center"><?php if (isset($para->mas_compara_header1)) echo $para->mas_compara_header1; ?></h3>
-    <div class="col-4 offset-8">
+    <div class="col-2 offset-10">
       <input class="mt-1 form-control" id="refNo" value="0000" disabled>
       <input id="aplicentID" value="-1" hidden>
     </div>
