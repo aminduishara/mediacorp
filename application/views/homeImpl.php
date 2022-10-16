@@ -8,7 +8,7 @@
 <div class="container mb-5">
   <div class="card">
     <div class="row">
-      <div class="col-md-1 left-pane d-none d-md-block d-lg-block d-xl-block">
+      <div class="col-md-1 left-pane d-none d-md-flex d-lg-flex d-xl-flex d-xxl-flex">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <a class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><i class="fa-solid fa-circle"></i></a>
