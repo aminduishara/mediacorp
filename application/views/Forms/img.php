@@ -25,9 +25,9 @@ The Terms and Conditions therefore, represent the document that helps in dealing
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="checkbox" id="cbAgree" name="cbAgree">
-                        <label for="cbAgree"> I agree to the Terms & Conditions</label><br>
-                        <button type="button" class="btn btn-primary" id="btnAgree" disabled>I Agree</button>
+                        <input type="checkbox" id="cbAgree" name="cbAgree" style="width: 30px; height: 30px;">
+                        <label for="cbAgree"> I agree to the Terms & Conditions</label>
+                        <button type="button" class="btn btn-primary" id="btnAgree">I Agree</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -423,5 +423,10 @@ The Terms and Conditions therefore, represent the document that helps in dealing
 
                 $('#modalView').modal('show');
                 
+        });
+
+        $("#btnAgree").click(function() {
+                $('#modalView').modal('hide');
+                alert("Agreed..");
         });
 </script>
