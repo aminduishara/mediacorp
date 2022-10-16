@@ -25,7 +25,7 @@ The Terms and Conditions therefore, represent the document that helps in dealing
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="checkbox" id="cbAgree" name="cbAgree" style="width: 22px; height: 22px;">
+                        <input type="checkbox" id="cbAgree" name="cbAgree" style="width: 20px; height: 20px;">
                         <label for="cbAgree"> I agree to the Terms & Conditions</label>
                         <button type="button" class="btn btn-primary" id="btnAgree">I Agree</button>
                         <button type="button" class="btn btn-secondary" onclick="$('#modalView').modal('hide');">Close</button>
@@ -424,10 +424,7 @@ The Terms and Conditions therefore, represent the document that helps in dealing
         $("#btnAgree").click(function() {
                 if($("#cbAgree").is(':checked')) {
                         $('#modalView').modal('hide');
-
-                        alert("Agreed..");
-
-                        // buttonSubmit();
+                        buttonSubmit();
                 }
         });
 </script>
