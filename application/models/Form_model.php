@@ -190,8 +190,8 @@ class Form_model extends CI_Model
 
   public function getParameters()
   {
-    $parameters = $this->db->get('gen_mas_companypara');
-    return $parameters;
+    $query = $this->db->get('gen_mas_companypara');
+    return $query->row();
   }
 }
 
