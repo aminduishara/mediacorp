@@ -8,10 +8,10 @@
                         </select>
                 </div>
         </div>
-        <div class="row">
+        <div class="row mt-2">
                 <div class="col-sm-12">
                         <label class="form-label" for="des">Description</label>
-                        <textarea name="des" id="des" rows="10" required="required" oninput="wordCount()" class="form-control"></textarea>
+                        <textarea name="des" id="des" rows="10" required="required" class="form-control"></textarea>
                         <div><span id="typedCount"></span>/<span id="requiredCount">10</span></div>
                         <!-- <div class="wrapper">
                                 <div class="input-data">
@@ -73,10 +73,7 @@
                         let count = parseInt(value.split(' ').length);
                         $('#typedCount').html(count);
                         if (required < count) {
-                                $('#des').val(tempDesc);
-                                $('#typedCount').html(required);
-                        } else {
-                                tempDesc = value;
+                                alert('Maximum word count exceeded.')
                         }
                 } else {
                         $('#typedCount').html('0');
@@ -106,7 +103,7 @@
                 $('.nav-tabs li:eq(2) a').tab('show');
         })
 
-        function wordCount() {
+        $('#label').change(function() {
                 // var typedString = document.getElementById('des').value;
                 var selectedLabel = document.getElementById('label').value;
                 var wordCount = 0;
@@ -132,7 +129,7 @@
                                 // document.getElementById('des').value = '';
                         }
                 });
-        }
+        });
 
         $(document).ready(function() {
                 $('#butAdd').click(function() {
