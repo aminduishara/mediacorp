@@ -10,7 +10,7 @@
         </div>
         <div class="row mt-5">
                 <div class="col-sm-12">
-                        <textarea name="des" id="des" rows="10" required="required" oninput="wordCount()"></textarea>
+                        <textarea name="des" id="des" rows="10" required="required" oninput="wordCount()" class="form-control"></textarea>
                         <div><span id="typedCount"></span>/<span id="requiredCount"></span></div>
                         <!-- <div class="wrapper">
                                 <div class="input-data">
