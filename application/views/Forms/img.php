@@ -8,9 +8,9 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: #1ABC9C; padding-bottom: 10px;">
-                        <h5 class="modal-title" style="color: white;" id="modalViewLabel">title</h5>
+                        <h5 class="modal-title" style="color: white;" id="modalViewLabel">Terms and Conditions</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                                <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body pb-0">
@@ -26,7 +26,9 @@ The Terms and Conditions therefore, represent the document that helps in dealing
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="btnSend" disabled>Send</button>
+                        <button type="button" class="btn btn-primary" id="btnAgree" disabled>I Agree</button>
+                        <input type="checkbox" id="cbAgree" name="cbAgree">
+                        <label for="cbAgree"> I agree to the Terms & Conditions</label><br>
                     </div>
                 </div>
             </div>
