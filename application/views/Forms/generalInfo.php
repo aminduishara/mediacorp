@@ -60,7 +60,7 @@
                         $status = 'data-req="0"';
                         $requiredicon = '';
                     } ?>
-                    <div class="form-group col-sm-12" style="display:<?php echo $visibility ?>">
+                    <div class="form-group col-sm-6" style="display:<?php echo $visibility ?>">
                         <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                         <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
                             <script>
