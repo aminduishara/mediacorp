@@ -45,7 +45,7 @@
                                                                         <label>Upload Image <?php echo $i + 1 ?></label>
                                                                         <div class="row">
                                                                                 <div class="col-md-8">
-                                                                                        <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
+                                                                                        <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)">
                                                                                 </div>
                                                                                 <div class="col-md-2">
                                                                                         <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)"><i class="fa fa-remove"></i></button>
@@ -265,6 +265,7 @@
         }
 
         function buttonSubmit() {
+                $(this).hide();
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
                 var image3 = document.getElementById("ImgFile3").files.length;
@@ -272,16 +273,7 @@
 
                 let url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
 
-                if (image1 == 0) {
-                        alert("Please Choose the Image 1");
-                        return;
-                } else if (image2 == 0) {
-                        alert("Please Choose the Image 2");
-                        return;
-                } else if (image3 == 0) {
-                        alert("Please Choose the Image 3");
-                        return;
-                } else {
+                if (image1 != 0 && image2 != 0 && image3 != 0) {
 
                         var Filename1 = aplicentID + "-" + $('#ImgFile1').val().split('\\').pop();
 
@@ -401,7 +393,6 @@
 
 
 
-                $(this).hide();
                 if (image1 || image2 || image3) {
                         $(this).val('Uploading.....');
                         $(this).attr('disabled', true);
