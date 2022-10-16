@@ -19,10 +19,10 @@
                         $status = 'data-req="0"';
                         $requiredicon = '';
                     } ?>
-                    <div class="col-sm-2" style="display:<?php echo $visibility ?>">
+                    <div class="col-md-2" style="display:<?php echo $visibility ?>">
                         <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                     </div>
-                    <div class="col-sm-4" style="display:<?php echo $visibility ?>">
+                    <div class="col-md-4" style="display:<?php echo $visibility ?>">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                             <label class="form-check-label" for="flexRadioDefault1">
@@ -58,7 +58,7 @@
                         $status = 'data-req="0"';
                         $requiredicon = '';
                     } ?>
-                    <div class="form-group col-sm-6" style="display:<?php echo $visibility ?>">
+                    <div class="form-group col-md-6" style="display:<?php echo $visibility ?>">
                         <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                         <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
                             <script>
