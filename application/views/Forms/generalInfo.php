@@ -44,9 +44,9 @@
                     </div>
                 <?php } ?>
 
-                <div class="col-md-6" style="display:<?php echo $lableData[1]->mas_reglable_visibility == 0 ? 'none' : ''; ?>">
-                    <label for="economy_id"><?php echo $lableData->mas_reglable_text ?></label><?php echo $lableData[1]->mas_reglable_required == 1 ? '<span class="text-danger">*</span>"' : ''; ?>
-                    <select class="form-select" name="economy_id" id="economy_id" <?php echo $lableData[1]->mas_reglable_required == 1 ? 'data-req="1"' : 'data-req="0"'; ?>>
+                <div class="col-md-6" style="display:<?php echo $lableData[1]['mas_reglable_visibility'] == 0 ? 'none' : ''; ?>">
+                    <label for="economy_id"><?php echo $lableData[1]['mas_reglable_text'] ?></label><?php echo $lableData[1]['mas_reglable_required'] == 1 ? '<span class="text-danger">*</span>"' : ''; ?>
+                    <select class="form-select" name="economy_id" id="economy_id" <?php echo $lableData[1]['mas_reglable_required'] == 1 ? 'data-req="1"' : 'data-req="0"'; ?>>
                         <script>
                             jQuery.ajax({
                                 type: "POST",
