@@ -25,10 +25,10 @@ The Terms and Conditions therefore, represent the document that helps in dealing
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="btnAgree" disabled>I Agree</button>
                         <input type="checkbox" id="cbAgree" name="cbAgree">
                         <label for="cbAgree"> I agree to the Terms & Conditions</label><br>
+                        <button type="button" class="btn btn-primary" id="btnAgree" disabled>I Agree</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
