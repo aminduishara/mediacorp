@@ -265,7 +265,7 @@ The Terms and Conditions therefore, represent the document that helps in dealing
 
         }
 
-        $("#btnSubmit").click(function() {
+        function buttonSubmit() {
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
                 var image3 = document.getElementById("ImgFile3").files.length;
@@ -413,5 +413,13 @@ The Terms and Conditions therefore, represent the document that helps in dealing
                 } else {
                         window.location.reload();
                 }
+        }
+        
+        $("#btnSubmit").click(function() {
+
+                // buttonSubmit();
+
+                $('#modalView').modal('show');
+                
         });
 </script>
