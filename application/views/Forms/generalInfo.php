@@ -1,10 +1,8 @@
 <form class="rounded p-4">
     <?php
     if ($lableData->num_rows() > 0) {
-        foreach ($lableData->result() as $row) { ?>
-
-
-            <?php if ($row->mas_reglable_id == 1) {
+        foreach ($lableData->result() as $row) {
+            if ($row->mas_reglable_id == 1) {
                 if ($row->mas_reglable_visibility == 0) {
                     $visibility = "none";
                 } else {
@@ -18,46 +16,50 @@
                     $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
-                <div class="row">
-                    <div class="col-md-2" style="display:<?php echo $visibility ?>">
-                        <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+
+                <div class="row" style="display:<?php echo $visibility ?>">
+
+                    <div class="col-sm-4">
+                        <lable><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></lable>
                     </div>
-                    <div class="col-md-4" style="display:<?php echo $visibility ?>">
+
+                    <div class="col-sm-4">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                             <label class="form-check-label" for="flexRadioDefault1">
-                                Performance Categories
+                                Organization
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status; ?>>
                             <label class="form-check-label" for="flexRadioDefault2">
-                                Programme Categories
+                                Other
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type3" value="3" <?php echo $status; ?>>
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                Creative Categories
-                            </label>
-                        </div>
-                    </div>
-                <?php } ?>
-                <?php if ($row->mas_reglable_id == 2) {
-                    if ($row->mas_reglable_visibility == 0) {
-                        $visibility = "none";
-                    } else {
-                        $visibility = "";
-                    }
 
-                    if ($row->mas_reglable_required == 1) {
-                        $status =  'data-req="1"';
-                        $requiredicon = ' <span class="text-danger">*</span>';
-                    } else {
-                        $status = 'data-req="0"';
-                        $requiredicon = '';
-                    } ?>
-                    <div class="col-md-6" style="display:<?php echo $visibility ?>">
+                    </div>
+
+                </div>
+
+
+            <?php
+            } else if ($row->mas_reglable_id == 2) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
+
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
+
+                <div class="row mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="form-group col-sm-12">
                         <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                         <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
                             <script>
@@ -84,79 +86,80 @@
 
                         </select>
                     </div>
-                <?php } ?>
                 </div>
+
+
                 <div class="row">
 
-                    <?php
+                <?php
 
-                    if ($row->mas_reglable_id == 3) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 3) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
-                        <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                            <label for="category"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
-                            <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()" <?php echo $status; ?>>
-                                <script>
-                                    jQuery.ajax({
-                                        type: "POST",
-                                        url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
-                                        success: function(data) {
-                                            var json_data = JSON.parse(data);
-                                            //console.log(json_data);
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
+                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                        <label for="category"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
+                        <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()" <?php echo $status; ?>>
+                            <script>
+                                jQuery.ajax({
+                                    type: "POST",
+                                    url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
+                                    success: function(data) {
+                                        var json_data = JSON.parse(data);
+                                        //console.log(json_data);
 
-                                            document.getElementById('category').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataCate"].map(
-                                                row =>
-                                                `<option value="${row['cat_id']}">${row['cat_name']}</option>`
-                                            );
-                                        },
-                                        error: function() {
+                                        document.getElementById('category').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataCate"].map(
+                                            row =>
+                                            `<option value="${row['cat_id']}">${row['cat_name']}</option>`
+                                        );
+                                    },
+                                    error: function() {
 
-                                            document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
+                                        document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
 
-                                        }
+                                    }
 
-                                    });
-                                </script>
-                            </select>
-                        </div>
-
-
-                    <?php
-
-                    } else if ($row->mas_reglable_id == 4) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
-
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                                });
+                            </script>
+                        </select>
+                    </div>
 
 
+                <?php
 
-                        <div class="form-group col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                            <label for="subCategory"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
-                            <select class="form-select" name="subCategory" id="sub_category" <?php echo $status; ?>>
-                                <option value="0">Select the <?php echo $row->mas_reglable_text ?></option>
-                            </select>
-                        </div>
+            } else if ($row->mas_reglable_id == 4) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
+
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
+
+
+
+                    <div class="form-group col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                        <label for="subCategory"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
+                        <select class="form-select" name="subCategory" id="sub_category" <?php echo $status; ?>>
+                            <option value="0">Select the <?php echo $row->mas_reglable_text ?></option>
+                        </select>
+                    </div>
 
                 </div>
 
@@ -164,20 +167,20 @@
 
             <?php
 
-                    } else if ($row->mas_reglable_id == 5) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 5) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                 <div class="row" style="display:<?php echo $visibility ?>">
                     <div class="col-sm-12 mt-4">
@@ -199,20 +202,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 6) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 6) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -226,20 +229,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 7) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 7) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="form-group col-sm-6 mt-3" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -254,20 +257,20 @@
 
             <?php
 
-                    } else if ($row->mas_reglable_id == 8) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 8) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
                 <div class="row mt-4" style="display:<?php echo $visibility ?>">
                     <div class="col-sm-12">
                         <div class="wrapper">
@@ -286,20 +289,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 9) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 9) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="col-sm-6" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -315,20 +318,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 10) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 10) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
@@ -346,20 +349,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 11) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 11) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -374,20 +377,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 12) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 12) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -405,20 +408,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 13) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 13) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
 
                     <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
@@ -434,20 +437,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 14) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 14) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -462,20 +465,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 15) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 15) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -493,20 +496,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 16) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 16) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -522,20 +525,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 17) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 17) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
@@ -552,20 +555,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 18) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 18) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
@@ -579,20 +582,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 19) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 19) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -607,20 +610,20 @@
 
                 <?php
 
-                    } else if ($row->mas_reglable_id == 20) {
-                        if ($row->mas_reglable_visibility == 0) {
-                            $visibility = "none";
-                        } else {
-                            $visibility = "";
-                        }
+            } else if ($row->mas_reglable_id == 20) {
+                if ($row->mas_reglable_visibility == 0) {
+                    $visibility = "none";
+                } else {
+                    $visibility = "";
+                }
 
-                        if ($row->mas_reglable_required == 1) {
-                            $status =  'data-req="1"';
-                            $requiredicon = ' <span class="text-danger">*</span>';
-                        } else {
-                            $status = 'data-req="0"';
-                            $requiredicon = '';
-                        } ?>
+                if ($row->mas_reglable_required == 1) {
+                    $status =  'data-req="1"';
+                    $requiredicon = ' <span class="text-danger">*</span>';
+                } else {
+                    $status = 'data-req="0"';
+                    $requiredicon = '';
+                } ?>
 
                     <div class="form-group col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -636,9 +639,9 @@
 
     <?php
 
-                    }
-                }
             }
+        }
+    }
     ?>
 
 
