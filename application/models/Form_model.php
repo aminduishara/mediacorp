@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  *
@@ -16,7 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class Form_model extends CI_Model {
+class Form_model extends CI_Model
+{
 
   // ------------------------------------------------------------------------
 
@@ -42,28 +43,27 @@ class Form_model extends CI_Model {
     return $lableData;
   }
 
-  public function saveData($data1, $data2) 
-	{
-    $insertQuery = $this->db->insert('aplicent_reg',$data1);
+  public function saveData($data1, $data2)
+  {
+    $insertQuery = $this->db->insert('aplicent_reg', $data1);
     $insert_id = (int)$this->db->insert_id();
-    $refno = $insert_id.'-'.$data2;
+    $refno = $insert_id . '-' . $data2;
     $query = $this->db->query("UPDATE `aplicent_reg` SET `aplicent_ref` ='$refno', `aplicent_refno` = '$insert_id' WHERE `aplicent_id` = '$insert_id'");
 
     $data =  array(
-      'aplicent_id'=>$insert_id,
-      'insertQuery'=>$insertQuery,
-      'updatequery'=> $query,
-      'refno'=>$refno 
+      'aplicent_id' => $insert_id,
+      'insertQuery' => $insertQuery,
+      'updatequery' => $query,
+      'refno' => $refno
     );
 
-		echo json_encode($data);
+    echo json_encode($data);
   }
 
   public function insertDes($data)
   {
     $query = $this->db->insert('aplicent_content', $data);
     echo json_encode($query);
-
   }
 
   // public function GetDesData(){
@@ -72,43 +72,43 @@ class Form_model extends CI_Model {
   //   return $query;
   // }
 
-  public function UpdateUserDes($contentID, $description, $label){
-    
+  public function UpdateUserDes($contentID, $description, $label)
+  {
+
     $query = $this->db->query("UPDATE `aplicent_content` SET `cat_mast_label_id`= $label, `aplicent_content_content`='$description' WHERE `aplicent_content_id` = $contentID");
 
     echo json_encode($query);
-
   }
 
-  public function CheckContentRows($id){
-    $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id` = '.$id.'');
+  public function CheckContentRows($id)
+  {
+    $query = $this->db->query('SELECT * FROM `aplicent_content` WHERE `aplicent_content_id` = ' . $id . '');
     return $query->num_rows();
   }
 
-  public function GetEconomyData(){
+  public function GetEconomyData()
+  {
 
     $query = $this->db->query('SELECT * FROM `gen_mas_economy` WHERE `mas_economy_status` = 1');
     return $query;
-
-
   }
 
-  public function GetCateData(){
+  public function GetCateData()
+  {
 
     $query = $this->db->query('SELECT * FROM `cat_mast` WHERE `freeze_status` = "unfreezed"');
     return $query;
-
-
   }
 
-  public function GetSubCateData($id){
+  public function GetSubCateData($id)
+  {
 
-    $query = $this->db->query('SELECT * FROM `sub_cat_mast` WHERE `cat_id` = '.$id.'');
+    $query = $this->db->query('SELECT * FROM `sub_cat_mast` WHERE `cat_id` = ' . $id . '');
     return $query;
-
   }
-  
-  public function GetLabelData($id, $aplicant_id = -1){
+
+  public function GetLabelData($id, $aplicant_id = -1)
+  {
 
     $sql = "SELECT cat_mast_label.cat_mast_label_id, cat_mast_label.cat_id,cat_mast_label.cat_mast_label_name,cat_mast_label.cat_mast_label_conlength,cat_mast_label.cat_mast_label_Instruction, aplicent_content.aplicent_id
     FROM `cat_mast_label` 
@@ -127,31 +127,31 @@ class Form_model extends CI_Model {
     // $sql .= " GROUP BY cat_mast_label.cat_mast_label_id";
     $query = $this->db->query($sql);
     return $query;
-
   }
 
-  public function SaveImagesDB($img1, $img2, $img3, $aplicentID){
+  public function SaveImagesDB($img1, $img2, $img3, $aplicentID)
+  {
 
     $id = (int)$aplicentID;
     $result = $this->db->query("UPDATE `aplicent_reg` SET `aplicent_image` = '$img1',`aplicent_image2` = '$img2',`aplicent_image3` = '$img3' WHERE `aplicent_id` = $id");
     return $result;
-
   }
- 
-  public function updateData($data1, $aplicent_id){
+
+  public function updateData($data1, $aplicent_id)
+  {
 
     $this->db->where('aplicent_id', $aplicent_id);
     $query = $this->db->update('aplicent_reg', $data1);
 
     $data =  array(
-      'updatequery'=> $query
+      'updatequery' => $query
     );
 
     echo json_encode($data);
-
   }
 
-  public function GetLabelWordCount($selectedLabel) {
+  public function GetLabelWordCount($selectedLabel)
+  {
     $sql = "SELECT cat_mast_label_conlength FROM cat_mast_label WHERE cat_mast_label_id = $selectedLabel";
 
     $query = $this->db->query($sql);
@@ -161,13 +161,15 @@ class Form_model extends CI_Model {
 
 
 
-  public function GetUploadType() { // new-line
+  public function GetUploadType()
+  { // new-line
     $sql = "SELECT * FROM gen_mas_uploadtype";
     $query = $this->db->query($sql);
     return $query;
   }
 
-  public function GetAplicentUpload($aplicentID) { // new-line
+  public function GetAplicentUpload($aplicentID)
+  { // new-line
     $sql = "SELECT aplicent_upload_id, aplicent_id, aplicent_upload_name, aplicent_upload_status, aplicent_upload_remarks, mas_uploadtype_des FROM aplicent_upload INNER JOIN gen_mas_uploadtype ON aplicent_upload.mas_uploadtype_id = gen_mas_uploadtype.mas_uploadtype_id WHERE aplicent_id = $aplicentID";
     $query = $this->db->query($sql);
     return $query;
@@ -186,6 +188,11 @@ class Form_model extends CI_Model {
     return 1;
   }
 
+  public function getParameters()
+  {
+    $parameters = $this->db->get('gen_mas_companypara');
+    return $parameters;
+  }
 }
 
 /* End of file Form_model.php */
