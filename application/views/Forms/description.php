@@ -123,6 +123,7 @@
                                 wordCount = json_data["wordCount"][0]["cat_mast_label_conlength"];
 
                                 document.getElementById('requiredCount').innerHTML = wordCount;
+                                document.getElementById('typedCount').innerHTML = wordCount;
                                 // document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
                         },
                         error: function() {
