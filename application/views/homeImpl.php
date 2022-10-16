@@ -1,11 +1,11 @@
 <?php include 'application/views/Layout/htmlHeader.php'; ?>
 
-<div class="container pt-5 pb-1">
-  <h3 class="text-center"><?php if (isset($para->mas_compara_header1)) echo $para->mas_compara_header1; ?></h3>
-  <input class="float-end btn btn-sm btn-dark mt-1" id="refNo" value="0000" disabled>
-  <input class="float-end btn btn-sm btn-dark" id="aplicentID" value="-1" hidden>
-</div>
-<div class="container mb-5">
+<div class="container pt-5 pb-1 mb-5">
+  <div class="col-12">
+    <h3 class="text-center"><?php if (isset($para->mas_compara_header1)) echo $para->mas_compara_header1; ?></h3>
+    <input class="float-end btn btn-sm btn-dark mt-1" id="refNo" value="0000" disabled>
+    <input class="float-end btn btn-sm btn-dark" id="aplicentID" value="-1" hidden>
+  </div>
   <div class="card">
     <div class="row">
       <div class="col-md-1 left-pane d-none d-md-flex d-lg-flex d-xl-flex d-xxl-flex">
