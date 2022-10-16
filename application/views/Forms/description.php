@@ -10,16 +10,18 @@
         </div>
         <div class="row mt-5">
                 <div class="col-sm-12">
-                        <div class="wrapper">
+                        <textarea name="des" id="des" rows="10" required="required" oninput="wordCount()"></textarea>
+                        <div><span id="typedCount"></span>/<span id="requiredCount"></span></div>
+                        <!-- <div class="wrapper">
                                 <div class="input-data">
-                                        <input type="text" name="des" id="des" onclick="wordCount()" required="required"> <!-- onchange="wordCount()" onclick="wordCount()" -->
-                                        <div class="underline"></div>
-                                        <label class="form-label">Description</label>
-                                        <div><span id="typedCount"></span>/<span  id="requiredCount"></span></div>
+                                        <input type="text" name="des" id="des" onclick="wordCount()" > <!-- onchange="wordCount()" onclick="wordCount()" -->
+                        <div class="underline"></div>
+                        <label class="form-label">Description</label>
+                        <div><span id="typedCount"></span>/<span id="requiredCount"></span></div>
 
-                                </div>
-                        </div>
                 </div>
+        </div> -->
+        </div>
         </div>
         <div class="row mt-4 mb-4">
                 <div class="form-group col-sm-12 text-end">
@@ -61,7 +63,6 @@
 
 
 <script type="text/javascript">
-
         var tempDesc = "";
         $('#des').on('keyup', function(e) {
                 var required = parseInt($('#requiredCount').html().trim());
@@ -90,14 +91,14 @@
                         url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
                         dataType: 'json',
                         async: true,
-                        success: function (response) {
+                        success: function(response) {
                                 $('#ddlType').empty();
                                 $('#ddlType').append('<option value="0">Select Type</option>');
-                                response['uploadTypes'].forEach((type)=>{
+                                response['uploadTypes'].forEach((type) => {
                                         $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
                                 });
                         },
-                        error: function () {
+                        error: function() {
                                 alert("Invalid!");
                         }
                 });
@@ -131,7 +132,7 @@
                         }
                 });
         }
-        
+
         $(document).ready(function() {
                 $('#butAdd').click(function() {
 
