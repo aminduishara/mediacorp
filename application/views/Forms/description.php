@@ -12,7 +12,7 @@
                 <div class="col-sm-12">
                         <label class="form-label" for="des">Description</label>
                         <textarea name="des" id="des" rows="10" required="required" class="form-control"></textarea>
-                        <div><span id="typedCount"></span>/<span id="requiredCount">10</span></div>
+                        <div>Remaining Word Count: <span id="typedCount"></span><span id="requiredCount" style="display: none">10</span></div>
                         <!-- <div class="wrapper">
                                 <div class="input-data">
                                         <input type="text" name="des" id="des" onclick="wordCount()" >
@@ -71,7 +71,7 @@
 
                 if (value != "") {
                         let count = parseInt(value.split(' ').length);
-                        $('#typedCount').html(count);
+                        $('#typedCount').html(required - count);
                         // if (required < count) {
                         //         alert('Maximum word count exceeded.');
                         //         return;
