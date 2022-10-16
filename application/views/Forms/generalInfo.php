@@ -1077,7 +1077,12 @@
     });
 
     $('input[name="flexRadioDefault"]').change(function() {
-        console.log(1);
+        console.log($(this).val());
+        if ($(this).val() == 1) {
+            $('.pc').show('slow');
+        } else {
+            $('.pc').hide('slow');
+        }
     })
 
 
