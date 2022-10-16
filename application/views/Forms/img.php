@@ -4,27 +4,30 @@
 
         <div class="col-md-12 row">
                 <div class="col-md-4">
-                        <?php $no = 3; for ($i = 0; $i < $no; $i++) { ?>
-                        <div class="col-md-12">
-                                <div class="card card-body row">
-                                        <div class="col-md-8">
-                                                <label>Upload Image <?php echo $i + 1 ?></label>
+                        <?php $no = 3;
+                        for ($i = 0; $i < $no; $i++) { ?>
+                                <div class="col-md-12">
+                                        <div class="card card-body">
                                                 <div class="row">
-                                                        <div class="col-md-6">
-                                                                <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
+                                                        <div class="col-md-8">
+                                                                <label>Upload Image <?php echo $i + 1 ?></label>
+                                                                <div class="row">
+                                                                        <div class="col-md-6">
+                                                                                <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                                <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)">Remove</button>
+                                                                        </div>
+                                                                </div>
                                                         </div>
-                                                        <div class="col-md-2">
-                                                                <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)">Remove</button>
+                                                        <div class="col-md-4">
+                                                                <div class="col-md-4">
+                                                                        <img id="Image<?php echo $i + 1 ?>" style="width: 50px; height: 50px; object-fit: contain;" />
+                                                                </div>
                                                         </div>
-                                                </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                                <div class="col-md-4">
-                                                        <img id="Image<?php echo $i + 1 ?>" style="width: 50px; height: 50px; object-fit: contain;" />
                                                 </div>
                                         </div>
                                 </div>
-                        </div>
                         <?php } ?>
                 </div>
 
@@ -33,7 +36,7 @@
                                 <div class="col-md-12 row">
                                         <div class="col-6">
                                                 <select class="form-select" id="ddlType" name="ddlType">
-                                                <option value="0">Select Type</option>
+                                                        <option value="0">Select Type</option>
                                                 </select>
                                         </div>
                                         <div class="col-md-3">
@@ -63,7 +66,7 @@
         </div>
 
         <!-- <div class="col-md-12 previewPDF" style="padding-top: 0; padding-bottom: 0;">
-                <embed class="w-100" height="540" src="<?php echo base_url().'uploads/A1_coolfreecv_resume_en_06_n.pdf'; ?>" type="application/pdf">
+                <embed class="w-100" height="540" src="<?php echo base_url() . 'uploads/A1_coolfreecv_resume_en_06_n.pdf'; ?>" type="application/pdf">
         </div> -->
 
         <?php echo form_close(); ?>
@@ -87,7 +90,6 @@
 
 
 <script type="text/javascript">
-
         $(document).ready(function() {
                 var aplicentID = document.getElementById("aplicentID").value;
                 console.log("L A_ID : " + aplicentID);
@@ -100,10 +102,10 @@
                                 },
                                 dataType: 'json',
                                 async: true,
-                                success: function (response) {
+                                success: function(response) {
                                         $('#ddlType').empty();
                                         $('#ddlType').append('<option value="0">Select Type</option>');
-                                        response['uploadTypes'].forEach((type)=>{
+                                        response['uploadTypes'].forEach((type) => {
                                                 $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
                                         });
 
@@ -117,7 +119,7 @@
                                                 </tr>`);
                                         });
                                 },
-                                error: function () {
+                                error: function() {
                                         alert("Invalid!");
                                 }
                         });
@@ -131,7 +133,7 @@
 
                 if (aplicentID != '-1' && typeID != 0 && $('#fileUpload')[0].files[0] != null) {
                         $(this).hide();
-                        setTimeout(function () {
+                        setTimeout(function() {
                                 let url = '<?php echo base_url('/index.php/Form/saveAplicentUpload'); ?>';
 
                                 let files = new FormData()
@@ -146,7 +148,7 @@
                                         data: files,
                                         dataType: 'json',
                                         async: true,
-                                        success: function (response) {
+                                        success: function(response) {
                                                 $('#btnUpload').show();
                                                 $('#tblUploads tbody').empty();
                                                 response['uploadFiles'].forEach((file) => {
@@ -158,17 +160,17 @@
                                                         </tr>`);
                                                 });
                                         },
-                                        error: function (err) {
+                                        error: function(err) {
                                                 swal('Error', 'Error Occured : '.err, 'Error');
                                         }
                                 });
-                        },1000);
+                        }, 1000);
                 } else {
                         alert("Plese Select type & file!");
                 }
         });
-        
-        $('#tblUploads').on('click', '#btnRemove', function () {
+
+        $('#tblUploads').on('click', '#btnRemove', function() {
                 let id = $(this).closest('tr').find('td:eq(0)').text().trim();
 
                 $.ajax({
@@ -179,10 +181,10 @@
                         },
                         dataType: 'json',
                         async: true,
-                        success: function (response) {
+                        success: function(response) {
                                 $('#tr' + id).remove();
                         },
-                        error: function () {
+                        error: function() {
                                 alert("Invalid!");
                         }
                 });
