@@ -5,33 +5,30 @@
 
         <!-- Modal -->
         <div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="modalViewLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: #1ABC9C; padding-bottom: 10px;">
-                        <h5 class="modal-title" style="color: white;" id="modalViewLabel">Terms and Conditions</h5>
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+                                <div class="modal-header" style="background-color: #1ABC9C; padding-bottom: 10px;">
+                                        <h5 class="modal-title" style="color: white;" id="modalViewLabel">Terms and Conditions</h5>
+                                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                         </button> -->
-                    </div>
-                    <div class="modal-body pb-0">
-                        <div class="col-md-12">
-                                <h5>What Are the Terms and Conditions and When Are They Needed?</h5>
-                                <p>
-“Terms and Conditions” is the document governing the contractual relationship between the provider of a service and its user. On the web, this document is often also called “Terms of Service” (ToS), “Terms of Use”, EULA (“End-User License Agreement”), “General Conditions” or “Legal Notes”.
-The Terms and Conditions are nothing other than a contract in which the owner clarifies the conditions of use of its service. Some quick examples are the use of the content (copyright) , the rules that users must follow while interacting with one another on the website / app and, finally, rules related to the cancellation or suspension of a user’s account etc.
-Particular emphasis should be given to the limitation of liability clauses (and disclaimers) , for example the case of malfunctions of the app or website.
-The Terms and Conditions therefore, represent the document that helps in dealing with problems or preventing them in the first place. Because of that, the Terms and Conditions are fundamental in many cases in order to mount an adequate and proper defense.
-                                </p>
+                                </div>
+                                <div class="modal-body pb-0">
+                                        <div class="col-md-12">
+                                                <h5>Terms and Conditions</h5>
+                                                <p>
+                                                        <?php if (isset($para->mas_com_terms)) echo $para->mas_com_terms; ?>
+                                                </p>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                        <input type="checkbox" id="cbAgree" name="cbAgree" style="width: 20px; height: 20px;">
+                                        <label for="cbAgree"> I agree to the Terms & Conditions</label>
+                                        <button type="button" class="btn btn-primary" id="btnAgree">I Agree</button>
+                                        <button type="button" class="btn btn-secondary" onclick="$('#modalView').modal('hide');">Close</button>
+                                </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="checkbox" id="cbAgree" name="cbAgree" style="width: 20px; height: 20px;">
-                        <label for="cbAgree"> I agree to the Terms & Conditions</label>
-                        <button type="button" class="btn btn-primary" id="btnAgree">I Agree</button>
-                        <button type="button" class="btn btn-secondary" onclick="$('#modalView').modal('hide');">Close</button>
-                    </div>
                 </div>
-            </div>
         </div>
 
 
@@ -416,13 +413,13 @@ The Terms and Conditions therefore, represent the document that helps in dealing
                         window.location.reload();
                 }
         }
-        
+
         $("#btnSubmit").click(function() {
                 $('#modalView').modal('show');
         });
 
         $("#btnAgree").click(function() {
-                if($("#cbAgree").is(':checked')) {
+                if ($("#cbAgree").is(':checked')) {
                         $('#modalView').modal('hide');
                         buttonSubmit();
                 }
