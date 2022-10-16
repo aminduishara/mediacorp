@@ -44,7 +44,7 @@
                                                         <div class="col-md-3">
                                                                 <input class="form-control" type="file" id="fileUpload" name="fileUpload" accept="application/pdf,application/vnd.ms-excel">
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-3 text-end">
                                                                 <button class="btn btn-warning" id="btnUpload" name="btnUpload">Upload</button>
                                                         </div>
                                                 </div>
