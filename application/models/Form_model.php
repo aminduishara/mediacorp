@@ -40,7 +40,7 @@ class Form_model extends CI_Model
   public function formData()
   {
     $lableData = $this->db->get('gen_mas_reglable');
-    return $lableData;
+    return $lableData->result_array();
   }
 
   public function saveData($data1, $data2)
