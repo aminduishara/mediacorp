@@ -2,8 +2,6 @@
     <?php
     if ($lableData->num_rows() > 0) {
         foreach ($lableData->result() as $row) { ?>
-
-
             <div class="row">
                 <?php if ($row->mas_reglable_id == 1) {
                     if ($row->mas_reglable_visibility == 0) {
@@ -42,22 +40,7 @@
                             </label>
                         </div>
                     </div>
-                <?php } ?>
-                <?php
-                if ($row->mas_reglable_id == 2) {
-                    if ($row->mas_reglable_visibility == 0) {
-                        $visibility = "none";
-                    } else {
-                        $visibility = "";
-                    }
 
-                    if ($row->mas_reglable_required == 1) {
-                        $status =  'data-req="1"';
-                        $requiredicon = ' <span class="text-danger">*</span>';
-                    } else {
-                        $status = 'data-req="0"';
-                        $requiredicon = '';
-                    } ?>
                     <div class="form-group col-md-6" style="display:<?php echo $visibility ?>">
                         <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                         <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
