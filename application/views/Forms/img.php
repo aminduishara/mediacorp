@@ -16,7 +16,7 @@
                                                                                 <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
                                                                         </div>
                                                                         <div class="col-md-2">
-                                                                                <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)">Remove</button>
+                                                                                <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)"><i class="fa fa-remove"></i></button>
                                                                         </div>
                                                                 </div>
                                                         </div>
