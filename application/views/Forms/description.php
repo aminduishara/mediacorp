@@ -134,7 +134,7 @@
 
         $(document).ready(function() {
                 $('#butAdd').click(function() {
-                        if (parseInt($('#typedCount').val()) < 0) {
+                        if (parseInt($('#typedCount').html()) < 0) {
                                 alert('Please add description within the given word count.');
                                 return;
                         }
