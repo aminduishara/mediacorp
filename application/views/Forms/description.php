@@ -12,7 +12,7 @@
                 <div class="col-sm-12">
                         <label class="form-label" for="des">Description</label>
                         <textarea name="des" id="des" rows="10" required="required" class="form-control"></textarea>
-                        <div>Remaining Word Count: <span id="typedCount"></span><span id="requiredCount" style="display: none">10</span></div>
+                        <div>Remaining Word Count: <span id="typedCount" style="font-weight: bold"></span><span id="requiredCount" style="display: none">10</span></div>
                         <!-- <div class="wrapper">
                                 <div class="input-data">
                                         <input type="text" name="des" id="des" onclick="wordCount()" >
@@ -134,7 +134,10 @@
 
         $(document).ready(function() {
                 $('#butAdd').click(function() {
-
+                        if (parseInt($('#typedCount').val()) < 0) {
+                                alert('Please add description within the given word count.');
+                                return;
+                        }
                         var id = document.getElementById('refNo').value;
                         var description = document.getElementById('des').value;
                         var label = document.getElementById('label').value;
