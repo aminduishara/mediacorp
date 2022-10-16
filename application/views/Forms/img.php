@@ -12,7 +12,7 @@
                                                         <div class="col-md-8">
                                                                 <label>Upload Image <?php echo $i + 1 ?></label>
                                                                 <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-md-8">
                                                                                 <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)" required>
                                                                         </div>
                                                                         <div class="col-md-2">
