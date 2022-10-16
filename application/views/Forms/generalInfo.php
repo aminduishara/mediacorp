@@ -543,7 +543,7 @@
                     $requiredicon = '';
                 } ?>
 
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="col-sm-6 mt-4 pc" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
                                 <input type="text" name="FirstName" id="first_name" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
@@ -571,7 +571,7 @@
                     $status = 'data-req="0"';
                     $requiredicon = '';
                 } ?>
-                    <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                    <div class="col-sm-6 mt-4 pc" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
                                 <input type="text" name="LastName" id="last_name" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
@@ -1075,6 +1075,10 @@
 
         });
     });
+
+    $('input[name="flexRadioDefault"]').change(function() {
+        console.log(1);
+    })
 
 
     // $('#Next').on('click', function (e) {
