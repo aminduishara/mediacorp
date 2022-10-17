@@ -24,7 +24,7 @@
                             <lable><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></lable>
                         </div>
 
-                        <div class="col">
+                        <div class="col ml-5">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                                 <label class="form-check-label" for="aplicent_type1">
