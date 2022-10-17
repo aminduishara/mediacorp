@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="col">
-                            <div class="form-check">
+                            <div class="form-check mt-3">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                                 <label class="form-check-label" for="aplicent_type1">
                                     PERFORMANCE CATEGORIES
