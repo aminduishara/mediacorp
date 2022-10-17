@@ -11,8 +11,14 @@
   <div class="col-12">
     <div class="card">
       <div class="row" style="position: relative;">
-        <div class="svg">
-          <img src="<?php echo base_url(); ?>assets/Vector 1.svg" alt="side panel" style="position: absolute; top: 0; left: -100px; height: 130px; width: 130px;">
+        <div class="svg" style="position: absolute; top: 0; left: -100px; height: 130px; width: 130px;">
+          <!-- <img src="<?php echo base_url(); ?>assets/Vector 1.svg" alt="side panel" > -->
+          <svg width="51" height="58" viewBox="0 0 51 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50.3098 49.5714C50.6048 56.1429 45 57 45 57V43C45 43 50.0148 43 50.3098 49.5714Z" stroke="black" stroke-width="0.5" />
+            <path d="M14.5 36.5C14.2788 29.9286 21.9909 29 21.9909 29H45.0001V43H21.9909C21.9909 43 14.7212 43.0714 14.5 36.5Z" stroke="black" stroke-width="0.5" />
+            <path d="M49.9888 21.5714C50.2837 28.1429 44.6789 29 44.6789 29V15C44.6789 15 49.6938 15 49.9888 21.5714Z" stroke="black" stroke-width="0.5" />
+            <path d="M1.01375 8.42857C0.653205 1.85714 7.50352 1 7.50352 1H45V15H7.50352C7.50352 15 1.37429 15 1.01375 8.42857Z" stroke="black" stroke-width="0.5" />
+          </svg>
         </div>
         <div class="col-md-1 left-pane d-none d-md-flex d-lg-flex d-xl-flex d-xxl-flex">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
