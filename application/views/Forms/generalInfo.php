@@ -1,3 +1,4 @@
+<div>
 <form class="rounded p-4">
     <?php
     if ($lableData->num_rows() > 0) {
@@ -292,7 +293,6 @@
                     </div>
                 </div>
 
-                <div class="row">
                         
                 <?php
 
@@ -311,7 +311,8 @@
                         $requiredicon = '';
                     } ?>
 
-                        <div class="col-sm-6" style="display:<?php echo $visibility ?>">
+                <div class="row" style="display:<?php echo $visibility ?>">
+                        <div class="col-sm-6">
                             <div class="wrapper">
                                 <div class="input-data">
                                     <input type="number" name="No_Employees" id="no_employees" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
@@ -688,7 +689,7 @@
     </div>
 
 </form>
-
+</div>
 
 <script type="text/javascript">
     var labelData = {};
