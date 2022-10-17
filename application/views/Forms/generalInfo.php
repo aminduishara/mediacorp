@@ -296,7 +296,7 @@
                 
                 <?php
 
-                } else if ($row->mas_reglable_id == 21) {
+                } else if ($row->mas_reglable_id == 11) {
                     if ($row->mas_reglable_visibility == 0) {
                         $visibility = "none";
                     } else {
@@ -310,10 +310,11 @@
                         $status = 'data-req="0"';
                         $requiredicon = '';
                     } ?>
-                        <div class="col-sm-6 mt-4">
+
+                        <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                             <div class="wrapper">
                                 <div class="input-data">
-                                    <input type="text" name="contact_person" id="contact_person" <?php echo $status; ?> onchange="this.setAttribute('value', this.value);">
+                                    <input type="text" name="Address1" id="address_line1" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
                                     <div class="underline"></div>
                                     <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
                                 </div>
