@@ -795,7 +795,7 @@
             var applicantEmail = document.getElementById("applicant_email").value;
             var webSite = document.getElementById("website_url").value;
             var organization = document.getElementById("organization").value;
-            var noEmployees = document.getElementById("no_employees").value;
+            //Svar noEmployees = document.getElementById("no_employees").value;
             var date = document.getElementById("date").value;
             var address1 = document.getElementById("address_line1").value;
             var address2 = document.getElementById("address_line2").value;
