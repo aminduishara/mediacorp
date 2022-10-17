@@ -642,7 +642,33 @@
                     </div>
                 </div>
 
+                <div class="row">
+                <?php
 
+                } else if ($row->mas_reglable_id == 9) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+                        <div class="col-sm-6">
+                            <div class="wrapper">
+                                <div class="input-data">
+                                    <input type="number" name="No_Employees" id="no_employees" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                                    <div class="underline"></div>
+                                    <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                </div>
+                            </div>
+                        </div>
+                </div>
     <?php
 
             }
