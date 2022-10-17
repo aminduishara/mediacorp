@@ -17,7 +17,7 @@
   <div class="col-12">
     <div class="card">
       <div class="row" style="position: relative;">
-        <div class="svg d-none d-md-block d-lg-block d-xl-block d-xxl-block" style="position: absolute; top: -2px; left: -108px; height: 130px; width: 130px;">
+        <div class="svg d-none d-md-block d-lg-block d-xl-block d-xxl-block" style="position: absolute; top: -8px; left: -100px; height: 130px; width: 130px;">
           <!-- <img src="<?php echo base_url(); ?>assets/Vector 1.svg" alt="side panel" > -->
           <!-- <svg width="110" height="130" viewBox="0 0 51 58" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.3098 49.5714C50.6048 56.1429 45 57 45 57V43C45 43 50.0148 43 50.3098 49.5714Z" stroke="white" stroke-width="0.5" fill="white" />
@@ -26,7 +26,7 @@
             <path d="M1.01375 8.42857C0.653205 1.85714 7.50352 1 7.50352 1H45V15H7.50352C7.50352 15 1.37429 15 1.01375 8.42857Z" stroke="black" stroke-width="0" class="svgCl" />
 
           </svg> -->
-          <svg width="110" height="130" viewBox="0 0 50 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="100" height="130" viewBox="0 0 50 57" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M49.3098 48.5714C49.6048 55.1429 44 56 44 56V42C44 42 49.0148 42 49.3098 48.5714Z" fill="white" stroke="white" stroke-width="0.5" />
             <path d="M13.5 35.5C13.2788 28.9286 20.9909 28 20.9909 28H44.0001V42H20.9909C20.9909 42 13.7212 42.0714 13.5 35.5Z" fill="#396CF0" />
             <path d="M13.5 35.5C13.2788 28.9286 20.9909 28 20.9909 28H44.0001V42H20.9909C20.9909 42 13.7212 42.0714 13.5 35.5Z" fill="url(#paint0_linear_2_13)" fill-opacity="0.2" />
