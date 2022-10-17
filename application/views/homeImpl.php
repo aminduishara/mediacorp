@@ -10,7 +10,10 @@
   </div>
   <div class="col-12">
     <div class="card">
-      <div class="row">
+      <div class="row" style="position: relative;">
+        <div class="svg">
+          <img src="<?php echo WEBROOT; ?>assets/Vector 1.svg" alt="side panel">
+        </div>
         <div class="col-md-1 left-pane d-none d-md-flex d-lg-flex d-xl-flex d-xxl-flex">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
