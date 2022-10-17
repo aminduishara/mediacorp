@@ -20,11 +20,11 @@
                 <div class="row">
 
                     <div class="col-sm-6"  style="display:<?php echo $visibility ?>">
-                        <div class="col-sm-2">
+                        <div class="col">
                             <lable><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></lable>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                                 <label class="form-check-label" for="aplicent_type1">
