@@ -312,7 +312,7 @@
                     $requiredicon = '';
                 } ?>
 
-                    <div class="col-sm-6" style="display:<?php echo $visibility ?>">
+                    <div class="col-sm-6">
                         <div class="wrapper">
                             <div class="input-data">
                                 <input type="number" name="No_Employees" id="no_employees" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
