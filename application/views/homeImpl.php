@@ -1,4 +1,10 @@
 <?php include 'application/views/Layout/htmlHeader.php'; ?>
+<style>
+  .svg .svgCl {
+    background-color: #396cf0 !important;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)) !important;
+  }
+</style>
 
 <div class="container pt-5 pb-1 mb-5">
   <div class="col-12 text-end">
@@ -15,9 +21,9 @@
           <!-- <img src="<?php echo base_url(); ?>assets/Vector 1.svg" alt="side panel" > -->
           <svg width="110" height="130" viewBox="0 0 51 58" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.3098 49.5714C50.6048 56.1429 45 57 45 57V43C45 43 50.0148 43 50.3098 49.5714Z" stroke="white" stroke-width="0.5" fill="white" />
-            <path d="M14.5 36.5C14.2788 29.9286 21.9909 29 21.9909 29H45.0001V43H21.9909C21.9909 43 14.7212 43.0714 14.5 36.5Z" stroke="black" stroke-width="0" fill="#396cf0" />
+            <path d="M14.5 36.5C14.2788 29.9286 21.9909 29 21.9909 29H45.0001V43H21.9909C21.9909 43 14.7212 43.0714 14.5 36.5Z" stroke="black" stroke-width="0" class="scvCl" />
             <path d="M49.9888 21.5714C50.2837 28.1429 44.6789 29 44.6789 29V15C44.6789 15 49.6938 15 49.9888 21.5714Z" stroke="black" stroke-width="0" fill="white" />
-            <path d="M1.01375 8.42857C0.653205 1.85714 7.50352 1 7.50352 1H45V15H7.50352C7.50352 15 1.37429 15 1.01375 8.42857Z" stroke="black" stroke-width="0" fill="#396cf0" />
+            <path d="M1.01375 8.42857C0.653205 1.85714 7.50352 1 7.50352 1H45V15H7.50352C7.50352 15 1.37429 15 1.01375 8.42857Z" stroke="black" stroke-width="0" class="scvCl" />
 
           </svg>
         </div>
