@@ -47,7 +47,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-6">
+                    
 
                         <?php
                         } else if ($row->mas_reglable_id == 2) {
@@ -65,7 +65,7 @@
                                 $requiredicon = '';
                             } ?>
 
-                            <div class="row mt-4" style="display:<?php echo $visibility ?>">
+                            <div class="col-sm-6" style="display:<?php echo $visibility ?>">
                                 <div class="form-group col-sm-12">
                                     <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
                                     <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
@@ -94,8 +94,6 @@
                                     </select>
                                 </div>
                             </div>
-
-                    </div>
 
                 </div>
 
