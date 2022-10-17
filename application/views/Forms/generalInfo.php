@@ -17,32 +17,34 @@
                     $requiredicon = '';
                 } ?>
 
-                <div class="row" style="display:<?php echo $visibility ?>">
+                <div class="row">
 
-                    <div class="col-sm-3">
-                        <lable><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></lable>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
-                            <label class="form-check-label" for="aplicent_type1">
-                                PERFORMANCE CATEGORIES
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status; ?>>
-                            <label class="form-check-label" for="aplicent_type2">
-                                PROGRAMME CATEGORIES
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type3" value="3" <?php echo $status; ?>>
-                            <label class="form-check-label" for="aplicent_type3">
-                                CREATIVE CATEGORIES
-                            </label>
+                    <div class="col-sm-6"  style="display:<?php echo $visibility ?>">
+                        <div class="col-sm-3">
+                            <lable><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></lable>
                         </div>
 
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
+                                <label class="form-check-label" for="aplicent_type1">
+                                    PERFORMANCE CATEGORIES
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status; ?>>
+                                <label class="form-check-label" for="aplicent_type2">
+                                    PROGRAMME CATEGORIES
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type3" value="3" <?php echo $status; ?>>
+                                <label class="form-check-label" for="aplicent_type3">
+                                    CREATIVE CATEGORIES
+                                </label>
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="col-sm-6">
