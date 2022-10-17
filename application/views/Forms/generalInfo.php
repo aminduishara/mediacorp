@@ -324,7 +324,7 @@
 
                     <?php
 
-                    } else if ($row->mas_reglable_id == 10) {
+                    } else if ($row->mas_reglable_id == 21) {
                         if ($row->mas_reglable_visibility == 0) {
                             $visibility = "none";
                         } else {
