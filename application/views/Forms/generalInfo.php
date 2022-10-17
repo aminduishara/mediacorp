@@ -310,7 +310,7 @@
                         $status = 'data-req="0"';
                         $requiredicon = '';
                     } ?>
-                        <div class="col-sm-6 mt-4"">
+                        <div class="col-sm-6 mt-4">
                             <div class="wrapper">
                                 <div class="input-data">
                                     <input type="text" name="contact_person" id="contact_person" <?php echo $status; ?> onchange="this.setAttribute('value', this.value);">
