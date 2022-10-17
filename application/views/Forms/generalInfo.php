@@ -19,12 +19,12 @@
 
                 <div class="row">
 
-                    <div class="col-md-6"  style="display:<?php echo $visibility ?>">
+                    <div class="col-sm-6"  style="display:<?php echo $visibility ?>">
                         <div class="col">
                             <lable><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></lable>
                         </div>
 
-                        <div class="col ml-5">
+                        <div class="col">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                                 <label class="form-check-label" for="aplicent_type1">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
 
                         <?php
                         } else if ($row->mas_reglable_id == 2) {
