@@ -11,7 +11,7 @@
   <div class="col-12">
     <div class="card">
       <div class="row" style="position: relative;">
-        <div class="svg" style="position: absolute; top: -2px; left: -120px; height: 130px; width: 130px;">
+        <div class="svg" style="position: absolute; top: -1.5px; left: -120px; height: 130px; width: 130px;">
           <!-- <img src="<?php echo base_url(); ?>assets/Vector 1.svg" alt="side panel" > -->
           <svg width="130" height="130" viewBox="0 0 51 58" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.3098 49.5714C50.6048 56.1429 45 57 45 57V43C45 43 50.0148 43 50.3098 49.5714Z" stroke="black" stroke-width="0.5" />
