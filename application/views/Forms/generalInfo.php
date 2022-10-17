@@ -322,31 +322,33 @@
                             </div>
                         </div>
 
-                <?php
+                    <?php
 
-                } else if ($row->mas_reglable_id == 21) {
-                    if ($row->mas_reglable_visibility == 0) {
-                        $visibility = "none";
-                    } else {
-                        $visibility = "";
-                    }
+                    } else if ($row->mas_reglable_id == 10) {
+                        if ($row->mas_reglable_visibility == 0) {
+                            $visibility = "none";
+                        } else {
+                            $visibility = "";
+                        }
 
-                    if ($row->mas_reglable_required == 1) {
-                        $status =  'data-req="1"';
-                        $requiredicon = ' <span class="text-danger">*</span>';
-                    } else {
-                        $status = 'data-req="0"';
-                        $requiredicon = '';
-                    } ?>
-                        <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
-                            <div class="wrapper">
-                                <div class="input-data">
-                                    <input type="text" name="contact_person" id="contact_person" <?php echo $status; ?> onchange="this.setAttribute('value', this.value);">
-                                    <div class="underline"></div>
-                                    <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                        if ($row->mas_reglable_required == 1) {
+                            $status =  'data-req="1"';
+                            $requiredicon = ' <span class="text-danger">*</span>';
+                        } else {
+                            $status = 'data-req="0"';
+                            $requiredicon = '';
+                        } ?>
+
+
+                            <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
+                                <div class="wrapper">
+                                    <div class="input-data">
+                                        <input type="text" name="contact_person" id="contact_person" <?php echo $status; ?> onchange="this.setAttribute('value', this.value);">
+                                        <div class="underline"></div>
+                                        <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
                 </div>
 
