@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://demo2022.e-valuate.net/Registration';
+$config['base_url'] = 'http://localhost:8099/InternProjects/mediacorp/';
 
 /*
 |--------------------------------------------------------------------------
