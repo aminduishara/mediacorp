@@ -292,7 +292,38 @@
                     </div>
                 </div>
 
-                <div class="row">                    
+                <div class="row">
+                        
+                <?php
+
+                } else if ($row->mas_reglable_id == 9) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
+
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
+
+                        <div class="col-sm-6" style="display:<?php echo $visibility ?>">
+                            <div class="wrapper">
+                                <div class="input-data">
+                                    <input type="number" name="No_Employees" id="no_employees" <?php echo $status; ?> value="" onchange="this.setAttribute('value', this.value);">
+                                    <div class="underline"></div>
+                                    <label><?php echo $row->mas_reglable_text ?><?php echo $requiredicon; ?></label>
+                                </div>
+                            </div>
+                        </div>  
+
+                </div>
+
+                <div class="row">              
                 
                 <?php
 
@@ -795,7 +826,7 @@
             var applicantEmail = document.getElementById("applicant_email").value;
             var webSite = document.getElementById("website_url").value;
             var organization = document.getElementById("organization").value;
-            //Svar noEmployees = document.getElementById("no_employees").value;
+            var noEmployees = document.getElementById("no_employees").value;
             var date = document.getElementById("date").value;
             var address1 = document.getElementById("address_line1").value;
             var address2 = document.getElementById("address_line2").value;
