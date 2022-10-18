@@ -36,6 +36,9 @@
         <div class="col-md-12" style="min-height: 60vh;">
                 <div class="row">
                         <div class="col-md-4">
+                                <div>
+                                        <h3>Images Upload</h3>
+                                </div>
                                 <?php $no = 3;
                                 for ($i = 0; $i < $no; $i++) { ?>
                                         <div class="col-md-12">
@@ -76,7 +79,7 @@
                                                                 <input class="form-control" type="file" id="fileUpload" name="fileUpload" accept="application/pdf,application/vnd.ms-excel">
                                                         </div>
                                                         <div class="col-md-3 text-end">
-                                                                <button class="btn btn-warning" id="btnUpload" name="btnUpload">Upload</button>
+                                                                <button type="button" class="btn btn-warning" id="btnUpload" name="btnUpload">Upload</button>
                                                         </div>
                                                 </div>
                                         </div>
