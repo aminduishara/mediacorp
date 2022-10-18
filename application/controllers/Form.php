@@ -59,7 +59,8 @@ class Form extends CI_Controller
       'aplicent_con_desig' => $this->input->post('designation', TRUE),
       'aplicent_con_mobile' => $this->input->post('mobileNo', TRUE),
       'aplicent_con_telno' => $this->input->post('teleNo', TRUE),
-      'aplicent_status' => 1
+      'aplicent_status' => 1,
+      'evaluationsid' => 1
     );
 
     $data2 = $this->input->post('id', TRUE);
