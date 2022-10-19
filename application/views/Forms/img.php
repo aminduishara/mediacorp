@@ -67,8 +67,10 @@
                         </div>
 
                         <div class="col-md-8">
-                                <div class="card card-body">
+                                <div>
                                         <h3>Type Upload</h3>
+                                </div>
+                                <div class="card card-body">
                                         <div class="col-md-12">
                                                 <div class="row">
                                                         <div class="col-md-6">
