@@ -487,7 +487,7 @@
                                                         <td hidden>${index['videolink_id']}</td>
                                                         <td>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
                                                         <td>${index['videolink_url']}</td>
-                                                        <td><button type="button" class="btn btn-info"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger"><i class="fa fa-remove"></i></button></td>
+                                                        <td><button type="button" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button></td>
                                                 </tr>
                                         `)
                                 )
