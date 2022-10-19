@@ -480,7 +480,7 @@
                                 text: text
                         },
                         success: function(res) {
-                                console.log(res);
+                                console.log(res['data']);
 
                         },
                         error: function(e) {
