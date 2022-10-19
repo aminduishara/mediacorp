@@ -89,7 +89,7 @@ class Form_model extends CI_Model
   public function GetEconomyData()
   {
 
-    $query = $this->db->query('SELECT * FROM `gen_mas_economy` WHERE `mas_economy_status` = 1');
+    $query = $this->db->query('SELECT *, evaluations_mast.mas_economy_id as defaulteconomy FROM `gen_mas_economy` INNER JOIN evaluations_mast ON evaluations_id = 1 WHERE `mas_economy_status` = 1');
     return $query;
   }
 
@@ -191,6 +191,12 @@ class Form_model extends CI_Model
   public function getParameters()
   {
     $query = $this->db->get('gen_mas_companypara');
+    return $query->row();
+  }
+
+  public function getEvaluation()
+  {
+    $query = $this->db->get('evaluations_mast')->where('evaluations_id', 1);
     return $query->row();
   }
 }

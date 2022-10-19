@@ -24,6 +24,7 @@ class Welcome extends CI_Controller
 		$this->load->model("Form_model");
 		$data["lableData"] = $this->Form_model->formData();
 		$data["para"] = $this->Form_model->getParameters();
+		// $data["evaluation"] = $this->Form_model->getEvaluation();
 		$this->load->view('homeImpl', $data);
 		//$this->load->view('Sample');
 		// $this->load->model("Form_model");
