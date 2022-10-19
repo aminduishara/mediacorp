@@ -480,7 +480,7 @@
                                 text: text
                         },
                         success: function(res) {
-                                console.log(res);
+                                console.log(res.uploadFiles);
 
                         },
                         error: function(e) {
