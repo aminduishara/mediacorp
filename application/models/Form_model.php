@@ -210,7 +210,7 @@ class Form_model extends CI_Model
   {
     $query = $this->db->get('aplicent_videolinks');
     $this->db->where('aplicent_id', $id);
-    return $query->result();
+    return $query->result_array();
   }
 }
 
