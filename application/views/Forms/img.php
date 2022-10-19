@@ -570,6 +570,7 @@
 
         $('#tblVideoLinks').on('click', '#btnVideoRemove', function() {
                 let id = $(this).closest('tr').find('td:eq(0)').text().trim();
+                var aplicentID = $("#aplicentID").val();
                 $.ajax({
                         type: 'POST',
                         url: "<?php echo base_url('/index.php/Form/removeVideos'); ?>",
