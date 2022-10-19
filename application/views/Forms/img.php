@@ -480,8 +480,7 @@
                                 text: text
                         },
                         success: function(res) {
-                                var obj = $.parseJSON(res);
-                                console.log(obj);
+                                console.log(res);
 
                         },
                         error: function(e) {
