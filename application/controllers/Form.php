@@ -420,7 +420,7 @@ class Form extends CI_Controller
       'aplicent_id' => $_POST['aplicentID'],
       'videolink_type ' => $_POST['type'],
       'videolink_youtube' => 2,
-      'videolink_url' => $_POST['link'],
+      'videolink_url' => $_POST['text'],
       'videolink_createdby' => $_POST['aplicentID'],
       'videolink_createddate' => date('Y-m-d H:i:s')
     );
