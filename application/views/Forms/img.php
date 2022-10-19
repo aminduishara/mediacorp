@@ -130,7 +130,8 @@
                                                                 <thead>
                                                                         <tr>
                                                                                 <th hidden>ID</th>
-                                                                                <th>Video Link</th>
+                                                                                <th>Type</th>
+                                                                                <th>Link</th>
                                                                                 <th width="12%">Action</th>
                                                                         </tr>
                                                                 </thead>
