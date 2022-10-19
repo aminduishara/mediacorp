@@ -112,7 +112,7 @@
                                                 <div class="row">
                                                         <div class="col-md-4">
                                                                 <select class="form-select" id="cmbVideoType" name="cmbVideoType">
-                                                                        <option value="0">Select Type</option>
+                                                                        <option value="">Select Type</option>
                                                                         <option value="1">Video</option>
                                                                         <option value="2">Audio</option>
                                                                 </select>
@@ -469,20 +469,26 @@
                 let type = $('#cmbVideoType').val();
                 let text = $('#videoText').val();
                 var aplicentID = $("#aplicentID").val();
+                if (type != '' && text != '') {
+                        $(this).attr('disabled', true);
+                        $(this).text('Uploading......');
 
-                $.ajax({
-                        type: 'POST',
-                        url: "<?php echo base_url('/index.php/Form/saveVideos'); ?>",
-                        dataType: 'json',
-                        data: {
-                                aplicentID: aplicentID,
-                                type: type,
-                                text: text
-                        },
-                        success: function(res) {
-                                $('#tblVideoLinks tbody').empty();
-                                res['data'].forEach((index) =>
-                                        $('#tblVideoLinks tbody').append(`
+                        $.ajax({
+                                type: 'POST',
+                                url: "<?php echo base_url('/index.php/Form/saveVideos'); ?>",
+                                dataType: 'json',
+                                data: {
+                                        aplicentID: aplicentID,
+                                        type: type,
+                                        text: text
+                                },
+                                success: function(res) {
+                                        $(this).attr('disabled', false);
+                                        $('#videoText').val('');
+                                        $('#cmbVideoType').val('');
+                                        $('#tblVideoLinks tbody').empty();
+                                        res['data'].forEach((index) =>
+                                                $('#tblVideoLinks tbody').append(`
                                                 <tr>
                                                         <td hidden>${index['videolink_id']}</td>
                                                         <td>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
@@ -490,12 +496,15 @@
                                                         <td><button type="button" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button></td>
                                                 </tr>
                                         `)
-                                )
+                                        )
 
-                        },
-                        error: function(e) {
-                                console.error(e);
-                        }
-                });
+                                },
+                                error: function(e) {
+                                        console.error(e);
+                                }
+                        });
+                } else {
+                        swal('Warning', 'Please select a type and add a valid URL', 'warning');
+                }
         })
 </script>
