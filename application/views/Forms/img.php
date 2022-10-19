@@ -214,7 +214,8 @@
                 var typeID = $('#ddlType').val();
 
                 if (aplicentID != '-1' && typeID != 0 && $('#fileUpload')[0].files[0] != null) {
-                        $(this).hide();
+                        $(this).attr('disabled', true);
+                        $(this).text('Uploading......');
                         setTimeout(function() {
                                 let url = '<?php echo base_url('/index.php/Form/saveAplicentUpload'); ?>';
 
@@ -231,7 +232,8 @@
                                         dataType: 'json',
                                         async: true,
                                         success: function(response) {
-                                                $('#btnUpload').show();
+                                                $('#btnUpload').attr('disabled', false);
+                                                $('#btnUpload').text('Upload');
                                                 $('#tblUploads tbody').empty();
                                                 response['uploadFiles'].forEach((file) => {
                                                         $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
@@ -471,7 +473,7 @@
                 var aplicentID = $("#aplicentID").val();
                 if (type != '' && text != '') {
                         $(this).attr('disabled', true);
-                        $(this).text('Uploading......');
+                        $(this).text('Saving......');
 
                         $.ajax({
                                 type: 'POST',
@@ -483,7 +485,8 @@
                                         text: text
                                 },
                                 success: function(res) {
-                                        $(this).attr('disabled', false);
+                                        $('#btnAddVideoLink').attr('disabled', false);
+                                        $('#btnAddVideoLink').text('Add');
                                         $('#videoText').val('');
                                         $('#cmbVideoType').val('');
                                         $('#tblVideoLinks tbody').empty();
