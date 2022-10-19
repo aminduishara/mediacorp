@@ -199,6 +199,18 @@ class Form_model extends CI_Model
     $query = $this->db->get('evaluations_mast')->where('evaluations_id', 1);
     return $query->row();
   }
+
+  public function saveVideoLink($data)
+  {
+    $query = $this->db->insert('aplicent_videolinks', $data);
+    echo json_encode($query);
+  }
+
+  public function getVideoLink($id)
+  {
+    $query = $this->db->get('aplicent_videolinks')->where('aplicent_id', $id);
+    return $query->result();
+  }
 }
 
 /* End of file Form_model.php */

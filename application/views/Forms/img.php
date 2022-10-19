@@ -464,4 +464,28 @@
                         buttonSubmit();
                 }
         });
+
+        $('#btnAddVideoLink').click(function() {
+                let type = $('#cmbVideoType').val();
+                let text = $('#videoText').val();
+                var aplicentID = $("#aplicentID").val();
+
+                $.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url('/index.php/Form/saveVideos'); ?>",
+                        dataType: 'json',
+                        data: {
+                                aplicentID: aplicentID,
+                                type: type,
+                                text: text
+                        },
+                        success: function(res) {
+                                console.log(JSON.parse(res));
+
+                        },
+                        error: function(e) {
+                                console.error(e);
+                        }
+                });
+        })
 </script>

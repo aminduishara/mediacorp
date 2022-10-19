@@ -70,10 +70,10 @@ class Form extends CI_Controller
     $result = $this->Form_model->saveData($data1, $data2);
 
     return $result;
-    
   }
 
-  public function UpdateAplicentData(){
+  public function UpdateAplicentData()
+  {
 
     $data1 = array(
       'date_time' => $this->input->post('datetime', TRUE),
@@ -108,7 +108,6 @@ class Form extends CI_Controller
     $result = $this->Form_model->updateData($data1, $aplicent_id);
 
     return $result;
-    
   }
 
   public function SaveImages()
@@ -156,7 +155,6 @@ class Form extends CI_Controller
     $result = $this->Form_model->insertDes($data);
 
     return $result;
-
   }
 
   public function GetUserDes()
@@ -231,7 +229,6 @@ class Form extends CI_Controller
     $result = $this->Form_model->UpdateUserDes($contentID, $description, $label);
 
     return $result;
-
   }
 
   public function RemoveDescription()
@@ -320,7 +317,8 @@ class Form extends CI_Controller
     echo json_encode($json_data);
   }
 
-  public function SaveImagesToDB(){
+  public function SaveImagesToDB()
+  {
     $img1 = $this->input->post('img1', TRUE);
     $img2 = $this->input->post('img2', TRUE);
     $img3 = $this->input->post('img3', TRUE);
@@ -331,42 +329,41 @@ class Form extends CI_Controller
     $result = $this->Form_model->SaveImagesDB($img1, $img2, $img3, $aplicentID);
 
     echo json_encode($result);
-
   }
 
-  public function GetWordCount(){
+  public function GetWordCount()
+  {
     $selectedLabel = $this->input->post('selectedLabel', TRUE);
-    
+
     $this->load->model('Form_model');
     $result = $this->Form_model->GetLabelWordCount($selectedLabel);
 
     $json_data['wordCount'] = $result->result();
     echo json_encode($json_data);
-
   }
 
 
 
 
-  public function getUploadTypes() 
+  public function getUploadTypes()
   {
     $this->load->model('Form_model');
-    
+
     $result1 = $this->Form_model->GetUploadType();
     $data['uploadTypes'] = $result1->result();
     echo json_encode($data);
   }
 
-  public function getUploadData() 
+  public function getUploadData()
   {
     $this->load->model('Form_model');
-    
+
     $result1 = $this->Form_model->GetUploadType();
     $data['uploadTypes'] = $result1->result();
 
     $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
     $data['uploadFiles'] = $result2->result();
-    
+
     echo json_encode($data);
   }
 
@@ -416,17 +413,21 @@ class Form extends CI_Controller
     echo json_encode(1);
   }
 
-
-
-
-
-
-
-
-
-
-
-
+  function saveVideos()
+  {
+    $this->load->model('Form_model');
+    $insData = array(
+      'aplicent_id' => $_POST['aplicentID'],
+      'videolink_type ' => $_POST['type'],
+      'videolink_youtube' => 2,
+      'videolink_url' => $_POST['link'],
+      'videolink_createdby' => $_POST['aplicentID'],
+      'videolink_createddate' => date('Y-m-d H:i:s')
+    );
+    $this->Form_model->saveVideoLink($insData);
+    $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
+    echo json_encode($data);
+  }
 }
 
 
