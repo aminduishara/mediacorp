@@ -108,14 +108,14 @@
                                         <h3>Audio / Video Links <span style="font-size: 13px;">Recommended: Unlisted youtube videos</span></h3>
                                         <div class="col-md-12">
                                                 <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                                 <select class="form-select" id="cmbVideoType" name="cmbVideoType">
                                                                         <option value="0">Select Type</option>
                                                                         <option value="1">Video</option>
                                                                         <option value="2">Audio</option>
                                                                 </select>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-5">
                                                                 <input class="form-control" type="text" id="videoText" name="videoText">
                                                         </div>
                                                         <div class="col-md-3 text-end">
