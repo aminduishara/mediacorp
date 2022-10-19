@@ -152,7 +152,7 @@ class Form_model extends CI_Model
 
   public function GetLabelWordCount($selectedLabel)
   {
-    $sql = "SELECT cat_mast_label_conlength FROM cat_mast_label WHERE cat_mast_label_id = $selectedLabel";
+    $sql = "SELECT cat_mast_label_conlength, cat_mast_label_Instruction FROM cat_mast_label WHERE cat_mast_label_id = $selectedLabel";
 
     $query = $this->db->query($sql);
     return $query;
