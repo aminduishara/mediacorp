@@ -526,6 +526,7 @@
                 let type = $('#cmbVideoType').val();
                 let text = $('#videoText').val();
                 var id = $("#txtVideoID").val();
+                var aplicentID = $("#aplicentID").val();
                 if (type != '' && text != '' && id != '') {
                         $(this).hide();
 
@@ -536,7 +537,8 @@
                                 data: {
                                         id: id,
                                         type: type,
-                                        text: text
+                                        text: text,
+                                        aplicentID: aplicentID
                                 },
                                 success: function(res) {
                                         $('#btnAddVideoLink').show();
