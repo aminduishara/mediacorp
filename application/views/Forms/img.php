@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-md-8">
                                 <div class="card card-body">
-                                        <h3>Audio / Video Links</h3>
+                                        <h3>Audio / Video Links <span style="font-size: 13px;">Recommended: Unlisted youtube videos</span></h3>
                                         <div class="col-md-12">
                                                 <div class="row">
                                                         <div class="col-md-6">
