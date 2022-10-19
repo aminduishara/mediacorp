@@ -81,7 +81,7 @@
                                                 document.getElementById('economy_id').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataEconomy"].map(
                                                     row => {
                                                         let selected = row['mas_economy_id'] == row['defaulteconomy'] ? 'selected' : '';
-                                                        `<option value="${row['mas_economy_id']}" ${selected}>${row['mas_economy_name']}</option>`
+                                                        return (`<option value="${row['mas_economy_id']}" ${selected}>${row['mas_economy_name']}</option>`)
                                                     }
                                                 );
                                             },
