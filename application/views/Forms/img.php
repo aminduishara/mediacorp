@@ -119,7 +119,7 @@
                                                         </div>
                                                         <div class="col-md-5">
                                                                 <input type="hidden" id="txtVideoID">
-                                                                <input class="form-control" type="text" id="videoText" name="videoText">
+                                                                <input class="form-control" type="text" id="videoText" name="videoText" placeholder="https://youtu.be/xxxxxxxxxxx">
                                                         </div>
                                                         <div class="col-md-3 text-end">
                                                                 <button type="button" class="btn btn-warning" id="btnAddVideoLink" name="btnAddVideoLink">Add</button>
