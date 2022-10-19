@@ -118,10 +118,12 @@
                                                                 </select>
                                                         </div>
                                                         <div class="col-md-5">
+                                                                <input type="hidden" id="txtVideoID">
                                                                 <input class="form-control" type="text" id="videoText" name="videoText">
                                                         </div>
                                                         <div class="col-md-3 text-end">
                                                                 <button type="button" class="btn btn-warning" id="btnAddVideoLink" name="btnAddVideoLink">Add</button>
+                                                                <button type="button" class="btn btn-warning" id="btnUpdateVideoLink" name="btnUpdateVideoLink" style="display: none">Update</button>
                                                         </div>
                                                 </div>
                                         </div>
@@ -494,9 +496,62 @@
                                                 $('#tblVideoLinks tbody').append(`
                                                 <tr>
                                                         <td hidden>${index['videolink_id']}</td>
+                                                        <td hidden>${index['videolink_type']}</td>
                                                         <td>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
                                                         <td>${index['videolink_url']}</td>
-                                                        <td><button type="button" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button></td>
+                                                        <td><button type="button" class="btn btn-info btn-sm" id="btnVideoEdit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm" id="btnVideoRemove"><i class="fa fa-remove"></i></button></td>
+                                                </tr>
+                                        `)
+                                        )
+
+                                },
+                                error: function(e) {
+                                        console.error(e);
+                                }
+                        });
+                } else {
+                        swal('Warning', 'Please select a type and add a valid URL', 'warning');
+                }
+        })
+
+        $('#tblVideoLinks').on('click', '#btnVideoEdit', function() {
+                $('#txtVideoID').val($(this).closest('tr').find('td:eq(0)').text().trim());
+                $('#videoText').val($(this).closest('tr').find('td:eq(3)').text().trim());
+                $('#cmbVideoType').val($(this).closest('tr').find('td:eq(1)').text().trim());
+                $('#btnUpdateVideoLink').show();
+                $('#btnAddVideoLink').hide();
+        })
+
+        $('#btnUpdateVideoLink').click(function() {
+                let type = $('#cmbVideoType').val();
+                let text = $('#videoText').val();
+                var id = $("#txtVideoID").val();
+                if (type != '' && text != '' && id != '') {
+                        $(this).hide();
+
+                        $.ajax({
+                                type: 'POST',
+                                url: "<?php echo base_url('/index.php/Form/updateVideos'); ?>",
+                                dataType: 'json',
+                                data: {
+                                        id: id,
+                                        type: type,
+                                        text: text
+                                },
+                                success: function(res) {
+                                        $('#btnAddVideoLink').show();
+                                        $('#videoText').val('');
+                                        $('#cmbVideoType').val('');
+                                        $('#txtVideoID').val('');
+                                        $('#tblVideoLinks tbody').empty();
+                                        res['data'].forEach((index) =>
+                                                $('#tblVideoLinks tbody').append(`
+                                                <tr>
+                                                        <td hidden>${index['videolink_id']}</td>
+                                                        <td hidden>${index['videolink_type']}</td>
+                                                        <td>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
+                                                        <td>${index['videolink_url']}</td>
+                                                        <td><button type="button" class="btn btn-info btn-sm" id="btnVideoEdit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm" id="btnVideoRemove"><i class="fa fa-remove"></i></button></td>
                                                 </tr>
                                         `)
                                         )

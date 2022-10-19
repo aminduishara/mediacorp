@@ -211,6 +211,13 @@ class Form_model extends CI_Model
     $query = $this->db->query("SELECT * FROM aplicent_videolinks");
     return $query;
   }
+
+  public function updateVideoLink($data, $id)
+  {
+    $this->db->where('videolink_id', $id);
+    $query = $this->db->update('aplicent_videolinks', $data);
+    return $query;
+  }
 }
 
 /* End of file Form_model.php */

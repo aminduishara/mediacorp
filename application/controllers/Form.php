@@ -419,12 +419,28 @@ class Form extends CI_Controller
     $insData = array(
       'aplicent_id' => $_POST['aplicentID'],
       'videolink_type ' => $_POST['type'],
-      'videolink_youtube' => 2,
+      'videolink_youtube' => $_POST['type'] == 1 ? 2 : 1,
       'videolink_url' => $_POST['text'],
       'videolink_createdby' => $_POST['aplicentID'],
       'videolink_createddate' => date('Y-m-d H:i:s')
     );
     $this->Form_model->saveVideoLink($insData);
+    $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
+    $d['data'] = $data->result();
+    echo json_encode($d);
+  }
+
+  function updateVideos()
+  {
+    $this->load->model('Form_model');
+    $insData = array(
+      'videolink_type ' => $_POST['type'],
+      'videolink_youtube' => $_POST['type'] == 1 ? 2 : 1,
+      'videolink_url' => $_POST['text'],
+      'videolink_updatedby' => $_POST['aplicentID'],
+      'videolink_updateddate' => date('Y-m-d H:i:s')
+    );
+    $this->Form_model->updateVideoLink($insData, $_POST['id']);
     $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
     $d['data'] = $data->result();
     echo json_encode($d);
