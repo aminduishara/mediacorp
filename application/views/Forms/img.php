@@ -473,7 +473,7 @@
                 $.ajax({
                         type: 'POST',
                         url: "<?php echo base_url('/index.php/Form/saveVideos'); ?>",
-                        dataType: 'json',
+                        dataType: 'text',
                         data: {
                                 aplicentID: aplicentID,
                                 type: type,
