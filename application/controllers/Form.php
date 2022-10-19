@@ -425,7 +425,7 @@ class Form extends CI_Controller
       'videolink_createddate' => date('Y-m-d H:i:s')
     );
     $this->Form_model->saveVideoLink($insData);
-    $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
+    $data['uploadFiles'] = $this->Form_model->getVideoLink($_POST['aplicentID']);
     echo json_encode($data);
   }
 }
