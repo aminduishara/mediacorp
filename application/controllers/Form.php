@@ -449,7 +449,7 @@ class Form extends CI_Controller
   function removeVideos()
   {
     $this->load->model('Form_model');
-    $this->Form_model->removeVideoLink($_POST['id']);
+    $this->Form_model->removeVideos($_POST['id']);
     $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
     $d['data'] = $data->result();
     echo json_encode($d);
