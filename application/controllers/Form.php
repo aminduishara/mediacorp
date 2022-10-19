@@ -426,7 +426,7 @@ class Form extends CI_Controller
     );
     $this->Form_model->saveVideoLink($insData);
     $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
-    return $data;
+    return json_encode($data);
   }
 }
 
