@@ -203,7 +203,7 @@ class Form_model extends CI_Model
   public function saveVideoLink($data)
   {
     $query = $this->db->insert('aplicent_videolinks', $data);
-    echo json_encode($query);
+    return 1;
   }
 
   public function getVideoLink($id)
