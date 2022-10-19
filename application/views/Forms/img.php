@@ -68,6 +68,7 @@
 
                         <div class="col-md-8">
                                 <div class="card card-body">
+                                        <h3>Type Upload</h3>
                                         <div class="col-md-12">
                                                 <div class="row">
                                                         <div class="col-md-6">
@@ -92,6 +93,44 @@
                                                                                 <th hidden>ID</th>
                                                                                 <th>Upload Type</th>
                                                                                 <th>File Name</th>
+                                                                                <th width="12%">Action</th>
+                                                                        </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                        </table>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-md-8">
+                                <div class="card card-body">
+                                        <h3>Audio / Video Links</h3>
+                                        <div class="col-md-12">
+                                                <div class="row">
+                                                        <div class="col-md-6">
+                                                                <select class="form-select" id="cmbVideoType" name="cmbVideoType">
+                                                                        <option value="0">Select Type</option>
+                                                                        <option value="1">Video</option>
+                                                                        <option value="2">Audio</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                                <input class="form-control" type="text" id="videoText" name="videoText">
+                                                        </div>
+                                                        <div class="col-md-3 text-end">
+                                                                <button type="button" class="btn btn-warning" id="btnAddVideoLink" name="btnAddVideoLink">Add</button>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="col-md-12 mt-1">
+                                                <div class="table-responsive" style="max-height: 30vh; overflow-y: auto;">
+                                                        <table class="table table-striped table-bordered" id="tblUploads">
+                                                                <thead>
+                                                                        <tr>
+                                                                                <th hidden>ID</th>
+                                                                                <th>Video Link</th>
                                                                                 <th width="12%">Action</th>
                                                                         </tr>
                                                                 </thead>
