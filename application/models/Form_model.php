@@ -208,7 +208,8 @@ class Form_model extends CI_Model
 
   public function getVideoLink($id)
   {
-    $query = $this->db->get('aplicent_videolinks')->where('aplicent_id', $id);
+    $query = $this->db->get('aplicent_videolinks');
+    $this->db->where('aplicent_id', $id);
     return $query->result();
   }
 }
