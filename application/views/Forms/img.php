@@ -567,4 +567,35 @@
                         swal('Warning', 'Please select a type and add a valid URL', 'warning');
                 }
         })
+
+        $('#tblVideoLinks').on('click', '#btnVideoRemove', function() {
+                let id = $(this).closest('tr').find('td:eq(0)').text().trim();
+                $.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url('/index.php/Form/removeVideos'); ?>",
+                        dataType: 'json',
+                        data: {
+                                aplicentID: aplicentID,
+                                id: id
+                        },
+                        success: function(res) {
+                                $('#tblVideoLinks tbody').empty();
+                                res['data'].forEach((index) =>
+                                        $('#tblVideoLinks tbody').append(`
+                                                <tr>
+                                                        <td hidden>${index['videolink_id']}</td>
+                                                        <td hidden>${index['videolink_type']}</td>
+                                                        <td>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
+                                                        <td>${index['videolink_url']}</td>
+                                                        <td><button type="button" class="btn btn-info btn-sm" id="btnVideoEdit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm" id="btnVideoRemove"><i class="fa fa-remove"></i></button></td>
+                                                </tr>
+                                        `)
+                                )
+
+                        },
+                        error: function(e) {
+                                console.error(e);
+                        }
+                });
+        })
 </script>

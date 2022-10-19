@@ -218,6 +218,13 @@ class Form_model extends CI_Model
     $query = $this->db->update('aplicent_videolinks', $data);
     return $query;
   }
+
+  public function removeVideos($id)
+  {
+    $this->db->where('videolink_id', $id);
+    $this->db->delete('aplicent_videolinks');
+    return 1;
+  }
 }
 
 /* End of file Form_model.php */
