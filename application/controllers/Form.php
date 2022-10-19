@@ -449,13 +449,6 @@ class Form extends CI_Controller
   function removeVideos()
   {
     $this->load->model('Form_model');
-    $insData = array(
-      'videolink_type ' => $_POST['type'],
-      'videolink_youtube' => $_POST['type'] == 1 ? 2 : 1,
-      'videolink_url' => $_POST['text'],
-      'videolink_updatedby' => $_POST['aplicentID'],
-      'videolink_updateddate' => date('Y-m-d H:i:s')
-    );
     $this->Form_model->removeVideoLink($_POST['id']);
     $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
     $d['data'] = $data->result();
