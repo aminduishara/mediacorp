@@ -480,7 +480,8 @@
                                 text: text
                         },
                         success: function(res) {
-                                console.log(res.uploadFiles);
+                                var obj = $.parseJSON(res);
+                                console.log(obj);
 
                         },
                         error: function(e) {
