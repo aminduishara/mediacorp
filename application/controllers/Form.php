@@ -285,7 +285,7 @@ class Form extends CI_Controller
 
     $this->load->model('Form_model');
 
-    $result = $this->Form_model->GetCateData();
+    $result = $this->Form_model->GetCateData($_POST['id']);
 
     $json_data['dataCate'] = $result->result();
     echo json_encode($json_data);
