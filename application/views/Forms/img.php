@@ -69,7 +69,7 @@
 
                         <div class="col-md-8">
                                 <div>
-                                        <h3>Attach the Reference File (PDF only)</h3>
+                                        <h3>Attach the Reference File <span style="font-size: 1rem; font-weight: normal;">(PDF only)</span></h3>
                                 </div>
                                 <div class="card card-body">
                                         <div class="col-md-12">
