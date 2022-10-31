@@ -11,7 +11,7 @@
     <h3 class="text-center"><?php if (isset($para->mas_compara_header1)) echo $para->mas_compara_header1 . ' ' . $para->mas_compara_header2 . ' ' . $para->mas_compara_header3; ?></h3>
     <div class="col-md-4 offset-md-8">
       <div class="row">
-        <label for="" class="col-md-4">Reference No:</label>
+        <label for="" class="col-md-4">Ref. No:</label>
         <div class="col-md-8">
           <input class="mt-1 form-co ntrol" id="refNo" value="0000" disabled>
           <input id="aplicentID" value="-1" hidden>
