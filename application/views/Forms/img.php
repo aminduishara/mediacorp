@@ -45,7 +45,7 @@
                                                 <div class="card card-body">
                                                         <div class="row">
                                                                 <div class="col-md-8">
-                                                                        <label><?php echo $i == 2 ? 'Programme End Frame' : 'Performer&#39;s Photo' ?></label>
+                                                                        <label><?php echo $i == 0 ? 'Programme End Frame' : 'Performer&#39;s Photo' ?></label>
                                                                         <div class="row">
                                                                                 <div class="col-md-8">
                                                                                         <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)">
