@@ -26,7 +26,7 @@
         </div>
         <div class="row mt-4 mb-4">
                 <div class="form-group col-sm-12 text-end">
-                        <input type="button" class="text-white btn btn-md btn-info px-5" value="Add Description" id="butAdd">
+                        <input type="button" class="text-white btn btn-md btn-info px-5" value="Add" id="butAdd">
                 </div>
         </div>
         <div id="table-responsive" style="height: 35vh; max-height: 35vh; overflow-y: auto;">
