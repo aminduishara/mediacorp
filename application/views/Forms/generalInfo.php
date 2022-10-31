@@ -125,6 +125,9 @@
                                     jQuery.ajax({
                                         type: "POST",
                                         url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
+                                        data: {
+                                            id: 1
+                                        },
                                         success: function(data) {
                                             var json_data = JSON.parse(data);
                                             //console.log(json_data);
@@ -1090,6 +1093,29 @@
         } else {
             $('.pc').hide('slow');
         }
+    })
+
+    $('input[name="aplicent_type"]').change(function() {
+        let val = $(this).val();
+        $.ajax({
+            type: "post",
+            url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
+            data: {
+                id: val
+            },
+            success: function(data) {
+                var json_data = JSON.parse(data);
+                //console.log(json_data);
+
+                document.getElementById('category').innerHTML = '<option value="0">Select the Category</option>' + json_data["dataCate"].map(
+                    row =>
+                    `<option value="${row['cat_id']}">${row['cat_name']}</option>`
+                );
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
     })
 
 
