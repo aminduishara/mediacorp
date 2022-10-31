@@ -25,19 +25,19 @@
 
                     <div class="col-sm-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="aplicent_type" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                             <label class="form-check-label" for="aplicent_type1">
                                 PERFORMANCE CATEGORIES
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="aplicent_type" id="aplicent_type2" value="2" <?php echo $status; ?>>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status; ?>>
                             <label class="form-check-label" for="aplicent_type2">
                                 PROGRAMME CATEGORIES
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="aplicent_type" id="aplicent_type3" value="3" <?php echo $status; ?>>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type3" value="3" <?php echo $status; ?>>
                             <label class="form-check-label" for="aplicent_type3">
                                 CREATIVE CATEGORIES
                             </label>
@@ -170,9 +170,6 @@
                                 jQuery.ajax({
                                     type: "POST",
                                     url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
-                                    data: {
-                                        id: 1
-                                    },
                                     success: function(data) {
                                         var json_data = JSON.parse(data);
                                         //console.log(json_data);
@@ -1143,27 +1140,4 @@
     //     var triggerEl = document.querySelector('#myTab li:last-child a')
     //     bootstrap.Tab.getInstance(triggerEl).show()
     // })
-
-    $('input[name="aplicent_type"]').change(function() {
-        let val = $(this).val();
-        $.ajax({
-            type: "post",
-            url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
-            data: {
-                id: val
-            },
-            success: function(data) {
-                var json_data = JSON.parse(data);
-                //console.log(json_data);
-
-                document.getElementById('category').innerHTML = '<option value="0">Select the Category</option>' + json_data["dataCate"].map(
-                    row =>
-                    `<option value="${row['cat_id']}">${row['cat_name']}</option>`
-                );
-            },
-            error: function(e) {
-                console.log(e);
-            }
-        });
-    })
 </script>
