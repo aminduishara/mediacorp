@@ -9,7 +9,7 @@
 <div class="container pt-5 pb-1 mb-5">
   <div class="col-12 text-end">
     <h3 class="text-center"><?php if (isset($para->mas_compara_header1)) echo $para->mas_compara_header1 . ' ' . $para->mas_compara_header2 . ' ' . $para->mas_compara_header3; ?></h3>
-    <div class="col-md-5 offset-md-10">
+    <div class="col-md-5 offset-md-7">
       <div class="row">
         <label for="" class="col-md-3">Reference No:</label>
         <div class="col-md-9">
