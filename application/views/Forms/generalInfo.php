@@ -25,19 +25,19 @@
 
                     <div class="col-sm-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
+                            <input class="form-check-input" type="radio" name="aplicent_type" id="aplicent_type1" value="1" checked <?php echo $status; ?>>
                             <label class="form-check-label" for="aplicent_type1">
                                 PERFORMANCE CATEGORIES
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type2" value="2" <?php echo $status; ?>>
+                            <input class="form-check-input" type="radio" name="aplicent_type" id="aplicent_type2" value="2" <?php echo $status; ?>>
                             <label class="form-check-label" for="aplicent_type2">
                                 PROGRAMME CATEGORIES
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="aplicent_type3" value="3" <?php echo $status; ?>>
+                            <input class="form-check-input" type="radio" name="aplicent_type" id="aplicent_type3" value="3" <?php echo $status; ?>>
                             <label class="form-check-label" for="aplicent_type3">
                                 CREATIVE CATEGORIES
                             </label>
@@ -1140,4 +1140,8 @@
     //     var triggerEl = document.querySelector('#myTab li:last-child a')
     //     bootstrap.Tab.getInstance(triggerEl).show()
     // })
+
+    $('input[name="aplicent_type"]').change(function() {
+        console.log($(this).val());
+    })
 </script>
