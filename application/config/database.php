@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost:3306',
-	'username' => 'root',
-	'password' => '1234',
-	'database' => 'evaluate_mediacorp_2021',
+	'hostname' => 'vajeendra30432.netfirmsmysql.com',
+	'username' => 'demoadmin',
+	'password' => 'EVL@demo2022',
+	'database' => 'evaluate_demo_2022',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

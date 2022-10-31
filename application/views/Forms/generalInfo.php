@@ -47,51 +47,51 @@
 
                     <div class="col-sm-6">
 
-                        <?php
-                        } else if ($row->mas_reglable_id == 2) {
-                            if ($row->mas_reglable_visibility == 0) {
-                                $visibility = "none";
-                            } else {
-                                $visibility = "";
-                            }
+                    <?php
+                } else if ($row->mas_reglable_id == 2) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                            if ($row->mas_reglable_required == 1) {
-                                $status =  'data-req="1"';
-                                $requiredicon = ' <span class="text-danger">*</span>';
-                            } else {
-                                $status = 'data-req="0"';
-                                $requiredicon = '';
-                            } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
-                            <div class="row mt-4" style="display:<?php echo $visibility ?>">
-                                <div class="form-group col-sm-12">
-                                    <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
-                                    <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
-                                        <script>
-                                            jQuery.ajax({
-                                                type: "POST",
-                                                url: "<?php echo base_url('/index.php/Form/GetEconomy'); ?>",
-                                                success: function(data) {
-                                                    var json_data = JSON.parse(data);
-                                                    //console.log(json_data);
+                        <div class="row mt-4" style="display:<?php echo $visibility ?>">
+                            <div class="form-group col-sm-12">
+                                <label for="economy_id"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?>
+                                <select class="form-select" name="economy_id" id="economy_id" <?php echo $status; ?>>
+                                    <script>
+                                        jQuery.ajax({
+                                            type: "POST",
+                                            url: "<?php echo base_url('/index.php/Form/GetEconomy'); ?>",
+                                            success: function(data) {
+                                                var json_data = JSON.parse(data);
+                                                //console.log(json_data);
 
-                                                    document.getElementById('economy_id').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataEconomy"].map(
-                                                        row =>
-                                                        `<option value="${row['mas_economy_id']}">${row['mas_economy_name']}</option>`
-                                                    );
-                                                },
-                                                error: function() {
+                                                document.getElementById('economy_id').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataEconomy"].map(
+                                                    row =>
+                                                    `<option value="${row['mas_economy_id']}">${row['mas_economy_name']}</option>`
+                                                );
+                                            },
+                                            error: function() {
 
-                                                    document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
+                                                document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
 
-                                                }
+                                            }
 
-                                            });
-                                        </script>
+                                        });
+                                    </script>
 
-                                    </select>
-                                </div>
+                                </select>
                             </div>
+                        </div>
 
                     </div>
 
@@ -99,20 +99,20 @@
 
 
             <?php
-            } else if ($row->mas_reglable_id == 2) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 2) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                 <div class="row mt-4" style="display:<?php echo $visibility ?>">
                     <div class="form-group col-sm-12">
@@ -149,20 +149,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 3) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 3) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <label for="category"><?php echo $row->mas_reglable_text ?></label><?php echo $requiredicon; ?><br>
                         <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()" <?php echo $status; ?>>
@@ -193,20 +193,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 4) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 4) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
 
 
@@ -223,20 +223,20 @@
 
             <?php
 
-            } else if ($row->mas_reglable_id == 5) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 5) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                 <div class="row" style="display:<?php echo $visibility ?>">
                     <div class="col-sm-12 mt-4">
@@ -258,20 +258,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 6) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 6) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -285,20 +285,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 7) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 7) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="form-group col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -313,20 +313,20 @@
 
             <?php
 
-            } else if ($row->mas_reglable_id == 8) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 8) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
                 <div class="row mt-4" style="display:<?php echo $visibility ?>">
                     <div class="col-sm-12">
                         <div class="wrapper">
@@ -345,20 +345,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 9) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 9) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="col-sm-6" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -374,20 +374,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 10) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 10) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
@@ -404,20 +404,20 @@
                 <div class="row">
                 <?php
 
-            } else if ($row->mas_reglable_id == 21) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 21) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
@@ -431,20 +431,20 @@
                 <div class="row">
                 <?php
 
-            } else if ($row->mas_reglable_id == 11) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 11) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -459,20 +459,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 12) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 12) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -490,20 +490,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 13) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 13) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
 
                     <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
@@ -519,20 +519,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 14) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 14) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -547,20 +547,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 15) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 15) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -578,20 +578,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 16) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 16) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="col-sm-6 mt-4 pc" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -607,20 +607,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 17) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 17) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
                     <div class="col-sm-6 mt-4 pc" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
@@ -637,20 +637,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 18) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 18) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
                     <div class="col-sm-6 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
                             <div class="input-data">
@@ -664,20 +664,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 19) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 19) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -692,20 +692,20 @@
 
                 <?php
 
-            } else if ($row->mas_reglable_id == 20) {
-                if ($row->mas_reglable_visibility == 0) {
-                    $visibility = "none";
-                } else {
-                    $visibility = "";
-                }
+                } else if ($row->mas_reglable_id == 20) {
+                    if ($row->mas_reglable_visibility == 0) {
+                        $visibility = "none";
+                    } else {
+                        $visibility = "";
+                    }
 
-                if ($row->mas_reglable_required == 1) {
-                    $status =  'data-req="1"';
-                    $requiredicon = ' <span class="text-danger">*</span>';
-                } else {
-                    $status = 'data-req="0"';
-                    $requiredicon = '';
-                } ?>
+                    if ($row->mas_reglable_required == 1) {
+                        $status =  'data-req="1"';
+                        $requiredicon = ' <span class="text-danger">*</span>';
+                    } else {
+                        $status = 'data-req="0"';
+                        $requiredicon = '';
+                    } ?>
 
                     <div class="form-group col-sm-3 mt-4" style="display:<?php echo $visibility ?>">
                         <div class="wrapper">
@@ -721,9 +721,9 @@
 
     <?php
 
+                }
             }
         }
-    }
     ?>
 
 

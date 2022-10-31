@@ -124,6 +124,7 @@
 
                                 document.getElementById('requiredCount').innerHTML = wordCount;
                                 document.getElementById('typedCount').innerHTML = wordCount;
+                                $('#des').attr('placeholder', json_data["wordCount"][0]['cat_mast_label_Instruction']);
                                 // document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
                         },
                         error: function() {

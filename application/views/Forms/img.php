@@ -36,6 +36,9 @@
         <div class="col-md-12" style="min-height: 60vh;">
                 <div class="row">
                         <div class="col-md-4">
+                                <div>
+                                        <h3>Images Upload</h3>
+                                </div>
                                 <?php $no = 3;
                                 for ($i = 0; $i < $no; $i++) { ?>
                                         <div class="col-md-12">
@@ -48,7 +51,7 @@
                                                                                         <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)">
                                                                                 </div>
                                                                                 <div class="col-md-2">
-                                                                                        <button class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)"><i class="fa fa-remove"></i></button>
+                                                                                        <button type="button" class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)"><i class="fa fa-remove"></i></button>
                                                                                 </div>
                                                                         </div>
                                                                 </div>
@@ -64,6 +67,9 @@
                         </div>
 
                         <div class="col-md-8">
+                                <div>
+                                        <h3>Type Upload</h3>
+                                </div>
                                 <div class="card card-body">
                                         <div class="col-md-12">
                                                 <div class="row">
@@ -76,7 +82,7 @@
                                                                 <input class="form-control" type="file" id="fileUpload" name="fileUpload" accept="application/pdf,application/vnd.ms-excel">
                                                         </div>
                                                         <div class="col-md-3 text-end">
-                                                                <button class="btn btn-warning" id="btnUpload" name="btnUpload">Upload</button>
+                                                                <button type="button" class="btn btn-warning" id="btnUpload" name="btnUpload">Upload</button>
                                                         </div>
                                                 </div>
                                         </div>
@@ -89,6 +95,47 @@
                                                                                 <th hidden>ID</th>
                                                                                 <th>Upload Type</th>
                                                                                 <th>File Name</th>
+                                                                                <th width="12%">Action</th>
+                                                                        </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                        </table>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-md-8 mt-1">
+                                <div class="card card-body">
+                                        <h3>Audio / Video Links <span style="font-size: 13px;">Recommended: Unlisted youtube videos</span></h3>
+                                        <div class="col-md-12">
+                                                <div class="row">
+                                                        <div class="col-md-4">
+                                                                <select class="form-select" id="cmbVideoType" name="cmbVideoType">
+                                                                        <option value="">Select Type</option>
+                                                                        <option value="1">Video</option>
+                                                                        <option value="2">Audio</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                                <input type="hidden" id="txtVideoID">
+                                                                <input class="form-control" type="text" id="videoText" name="videoText" placeholder="https://youtu.be/xxxxxxxxxxx">
+                                                        </div>
+                                                        <div class="col-md-3 text-end">
+                                                                <button type="button" class="btn btn-warning" id="btnAddVideoLink" name="btnAddVideoLink">Add</button>
+                                                                <button type="button" class="btn btn-warning" id="btnUpdateVideoLink" name="btnUpdateVideoLink" style="display: none">Update</button>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="col-md-12 mt-1">
+                                                <div class="table-responsive" style="max-height: 30vh; overflow-y: auto;">
+                                                        <table class="table table-striped table-bordered" id="tblVideoLinks">
+                                                                <thead>
+                                                                        <tr>
+                                                                                <th hidden>ID</th>
+                                                                                <th>Type</th>
+                                                                                <th>Link</th>
                                                                                 <th width="12%">Action</th>
                                                                         </tr>
                                                                 </thead>
@@ -169,7 +216,8 @@
                 var typeID = $('#ddlType').val();
 
                 if (aplicentID != '-1' && typeID != 0 && $('#fileUpload')[0].files[0] != null) {
-                        $(this).hide();
+                        $(this).attr('disabled', true);
+                        $(this).text('Uploading......');
                         setTimeout(function() {
                                 let url = '<?php echo base_url('/index.php/Form/saveAplicentUpload'); ?>';
 
@@ -186,7 +234,8 @@
                                         dataType: 'json',
                                         async: true,
                                         success: function(response) {
-                                                $('#btnUpload').show();
+                                                $('#btnUpload').attr('disabled', false);
+                                                $('#btnUpload').text('Upload');
                                                 $('#tblUploads tbody').empty();
                                                 response['uploadFiles'].forEach((file) => {
                                                         $('#tblUploads tbody').append(`<tr id="tr${file['aplicent_upload_id']}">
@@ -419,4 +468,135 @@
                         buttonSubmit();
                 }
         });
+
+        $('#btnAddVideoLink').click(function() {
+                let type = $('#cmbVideoType').val();
+                let text = $('#videoText').val();
+                var aplicentID = $("#aplicentID").val();
+                if (type != '' && text != '') {
+                        $(this).attr('disabled', true);
+                        $(this).text('Saving......');
+
+                        $.ajax({
+                                type: 'POST',
+                                url: "<?php echo base_url('/index.php/Form/saveVideos'); ?>",
+                                dataType: 'json',
+                                data: {
+                                        aplicentID: aplicentID,
+                                        type: type,
+                                        text: text
+                                },
+                                success: function(res) {
+                                        $('#btnAddVideoLink').attr('disabled', false);
+                                        $('#btnAddVideoLink').text('Add');
+                                        $('#videoText').val('');
+                                        $('#cmbVideoType').val('');
+                                        $('#tblVideoLinks tbody').empty();
+                                        res['data'].forEach((index) =>
+                                                $('#tblVideoLinks tbody').append(`
+                                                <tr>
+                                                        <td hidden>${index['videolink_id']}</td>
+                                                        <td hidden>${index['videolink_type']}</td>
+                                                        <td>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
+                                                        <td>${index['videolink_url']}</td>
+                                                        <td><button type="button" class="btn btn-info btn-sm" id="btnVideoEdit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm" id="btnVideoRemove"><i class="fa fa-remove"></i></button></td>
+                                                </tr>
+                                        `)
+                                        )
+
+                                },
+                                error: function(e) {
+                                        console.error(e);
+                                }
+                        });
+                } else {
+                        swal('Warning', 'Please select a type and add a valid URL', 'warning');
+                }
+        })
+
+        $('#tblVideoLinks').on('click', '#btnVideoEdit', function() {
+                $('#txtVideoID').val($(this).closest('tr').find('td:eq(0)').text().trim());
+                $('#videoText').val($(this).closest('tr').find('td:eq(3)').text().trim());
+                $('#cmbVideoType').val($(this).closest('tr').find('td:eq(1)').text().trim());
+                $('#btnUpdateVideoLink').show();
+                $('#btnAddVideoLink').hide();
+        })
+
+        $('#btnUpdateVideoLink').click(function() {
+                let type = $('#cmbVideoType').val();
+                let text = $('#videoText').val();
+                var id = $("#txtVideoID").val();
+                var aplicentID = $("#aplicentID").val();
+                if (type != '' && text != '' && id != '') {
+                        $(this).hide();
+
+                        $.ajax({
+                                type: 'POST',
+                                url: "<?php echo base_url('/index.php/Form/updateVideos'); ?>",
+                                dataType: 'json',
+                                data: {
+                                        id: id,
+                                        type: type,
+                                        text: text,
+                                        aplicentID: aplicentID
+                                },
+                                success: function(res) {
+                                        $('#btnAddVideoLink').show();
+                                        $('#videoText').val('');
+                                        $('#cmbVideoType').val('');
+                                        $('#txtVideoID').val('');
+                                        $('#tblVideoLinks tbody').empty();
+                                        res['data'].forEach((index) =>
+                                                $('#tblVideoLinks tbody').append(`
+                                                <tr>
+                                                        <td hidden>${index['videolink_id']}</td>
+                                                        <td hidden>${index['videolink_type']}</td>
+                                                        <td>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
+                                                        <td>${index['videolink_url']}</td>
+                                                        <td><button type="button" class="btn btn-info btn-sm" id="btnVideoEdit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm" id="btnVideoRemove"><i class="fa fa-remove"></i></button></td>
+                                                </tr>
+                                        `)
+                                        )
+
+                                },
+                                error: function(e) {
+                                        console.error(e);
+                                }
+                        });
+                } else {
+                        swal('Warning', 'Please select a type and add a valid URL', 'warning');
+                }
+        })
+
+        $('#tblVideoLinks').on('click', '#btnVideoRemove', function() {
+                let id = $(this).closest('tr').find('td:eq(0)').text().trim();
+                var aplicentID = $("#aplicentID").val();
+                $.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url('/index.php/Form/removeVideos'); ?>",
+                        dataType: 'json',
+                        data: {
+                                aplicentID: aplicentID,
+                                id: id
+                        },
+                        success: function(res) {
+                                $('#tblVideoLinks tbody').empty();
+                                res['data'].forEach((index) =>
+                                        $('#tblVideoLinks tbody').append(`
+                                                <tr>
+                                                        <td hidden>${index['videolink_id']}</td>
+                                                        <td hidden>${index['videolink_type']}</td>
+                                                        <td>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
+                                                        <td>${index['videolink_url']}</td>
+                                                        <td><button type="button" class="btn btn-info btn-sm" id="btnVideoEdit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm" id="btnVideoRemove"><i class="fa fa-remove"></i></button></td>
+                                                </tr>
+                                        `)
+                                )
+
+                        },
+                        error: function(e) {
+                                console.error(e);
+                        }
+                });
+        })
 </script>

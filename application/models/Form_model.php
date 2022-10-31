@@ -89,14 +89,14 @@ class Form_model extends CI_Model
   public function GetEconomyData()
   {
 
-    $query = $this->db->query('SELECT * FROM `gen_mas_economy` WHERE `mas_economy_status` = 1');
+    $query = $this->db->query('SELECT gen_mas_economy.mas_economy_id, mas_economy_name, evaluations_mast.mas_economy_id as defaulteconomy FROM `gen_mas_economy` INNER JOIN evaluations_mast ON evaluations_id = 1 WHERE `mas_economy_status` = 1');
     return $query;
   }
 
-  public function GetCateData()
+  public function GetCateData($id)
   {
 
-    $query = $this->db->query('SELECT * FROM `cat_mast` WHERE `freeze_status` = "unfreezed"');
+    $query = $this->db->query("SELECT * FROM `cat_mast` WHERE `freeze_status` = 'unfreezed' AND cat_type = $id");
     return $query;
   }
 
@@ -152,7 +152,7 @@ class Form_model extends CI_Model
 
   public function GetLabelWordCount($selectedLabel)
   {
-    $sql = "SELECT cat_mast_label_conlength FROM cat_mast_label WHERE cat_mast_label_id = $selectedLabel";
+    $sql = "SELECT cat_mast_label_conlength, cat_mast_label_Instruction FROM cat_mast_label WHERE cat_mast_label_id = $selectedLabel";
 
     $query = $this->db->query($sql);
     return $query;
@@ -192,6 +192,38 @@ class Form_model extends CI_Model
   {
     $query = $this->db->get('gen_mas_companypara');
     return $query->row();
+  }
+
+  public function getEvaluation()
+  {
+    $query = $this->db->get('evaluations_mast')->where('evaluations_id', 1);
+    return $query->row();
+  }
+
+  public function saveVideoLink($data)
+  {
+    $query = $this->db->insert('aplicent_videolinks', $data);
+    return 1;
+  }
+
+  public function getVideoLink($id)
+  {
+    $query = $this->db->query("SELECT * FROM aplicent_videolinks WHERE aplicent_id = '$id' ORDER BY videolink_id DESC");
+    return $query;
+  }
+
+  public function updateVideoLink($data, $id)
+  {
+    $this->db->where('videolink_id', $id);
+    $query = $this->db->update('aplicent_videolinks', $data);
+    return $query;
+  }
+
+  public function removeVideos($id)
+  {
+    $this->db->where('videolink_id', $id);
+    $this->db->delete('aplicent_videolinks');
+    return 1;
   }
 }
 
