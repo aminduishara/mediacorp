@@ -39,13 +39,13 @@
                                 <div>
                                         <h3>Images Upload</h3>
                                 </div>
-                                <?php $no = 3;
+                                <?php $no = 2;
                                 for ($i = 0; $i < $no; $i++) { ?>
                                         <div class="col-md-12">
                                                 <div class="card card-body">
                                                         <div class="row">
                                                                 <div class="col-md-8">
-                                                                        <label>Upload Image <?php echo $i + 1 ?></label>
+                                                                        <label><?php echo $i == 1 ? 'Programme End Frame' : 'Performer&#39;s Photo' ?></label>
                                                                         <div class="row">
                                                                                 <div class="col-md-8">
                                                                                         <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)">
