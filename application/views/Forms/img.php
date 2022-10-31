@@ -38,6 +38,7 @@
                         <div class="col-md-4">
                                 <div>
                                         <h3>Images Upload</h3>
+                                        <h5>(Performer&#39;s Photo & End Frame in hi-res jpeg)</h5>
                                 </div>
                                 <?php $no = 2;
                                 for ($i = 0; $i < $no; $i++) { ?>
