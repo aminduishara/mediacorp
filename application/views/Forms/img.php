@@ -68,7 +68,7 @@
 
                         <div class="col-md-8">
                                 <div>
-                                        <h3>Type Upload</h3>
+                                        <h3>Attach the Reference File (PDF only)</h3>
                                 </div>
                                 <div class="card card-body">
                                         <div class="col-md-12">
