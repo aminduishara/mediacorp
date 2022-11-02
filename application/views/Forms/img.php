@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="modal-body pb-0">
                                         <div class="col-md-12">
-                                                <h5>Terms and Conditions</h5>
+                                                <h5>Declaration</h5>
                                                 <p>
                                                         <?php if (isset($para->mas_com_terms)) echo $para->mas_com_terms; ?>
                                                 </p>
@@ -23,8 +23,8 @@
                                 </div>
                                 <div class="modal-footer">
                                         <input type="checkbox" id="cbAgree" name="cbAgree" style="width: 20px; height: 20px;">
-                                        <label for="cbAgree"> I agree to the Terms & Conditions</label>
-                                        <button type="button" class="btn btn-primary" id="btnAgree">I Agree</button>
+                                        <label for="cbAgree"> I agree to the above declaration</label>
+                                        <button type="button" class="btn btn-primary" id="btnAgree">Submit Declaration</button>
                                         <button type="button" class="btn btn-secondary" onclick="$('#modalView').modal('hide');">Close</button>
                                 </div>
                         </div>
@@ -290,7 +290,7 @@
                 } else if (id == 2) {
                         Image2.src = URL.createObjectURL(event.target.files[0]);
                 } else if (id == 3) {
-                        Image3.src = URL.createObjectURL(event.target.files[0]);
+                        // Image3.src = URL.createObjectURL(event.target.files[0]);
                 } else {
                         return;
                 }
@@ -306,8 +306,8 @@
                         document.getElementById('ImgFile2').value = null;
                         Image2.src = "";
                 } else if (id == 3) {
-                        document.getElementById('ImgFile3').value = null;
-                        Image3.src = "";
+                        // document.getElementById('ImgFile3').value = null;
+                        // Image3.src = "";
                 } else {
                         return;
                 }
@@ -318,7 +318,7 @@
                 $(this).hide();
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
-                var image3 = document.getElementById("ImgFile3").files.length;
+                // var image3 = document.getElementById("ImgFile3").files.length;
                 var aplicentID = document.getElementById("aplicentID").value;
 
                 let url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
@@ -329,7 +329,7 @@
 
                         var Filename2 = aplicentID + "-" + $('#ImgFile2').val().split('\\').pop();
 
-                        var Filename3 = aplicentID + "-" + $('#ImgFile3').val().split('\\').pop();
+                        // var Filename3 = aplicentID + "-" + $('#ImgFile3').val().split('\\').pop();
 
                         if (image1) {
                                 let files = new FormData()
@@ -371,32 +371,32 @@
                                         }
                                 });
                         }
-                        if (image3) {
-                                let files = new FormData()
+                        // if (image3) {
+                        //         let files = new FormData()
 
-                                files.append('fileToUpload', $('#ImgFile3')[0].files[0]);
-                                files.append('name', Filename3);
+                        //         files.append('fileToUpload', $('#ImgFile3')[0].files[0]);
+                        //         files.append('name', Filename3);
 
-                                $.ajax({
-                                        type: 'post',
-                                        url: url,
-                                        processData: false,
-                                        contentType: false,
-                                        data: files,
-                                        success: function(res) {
-                                                console.log('Image Uploaded');
+                        //         $.ajax({
+                        //                 type: 'post',
+                        //                 url: url,
+                        //                 processData: false,
+                        //                 contentType: false,
+                        //                 data: files,
+                        //                 success: function(res) {
+                        //                         console.log('Image Uploaded');
 
-                                        },
-                                        error: function() {
-                                                console.log('Upload Fail');
-                                        }
-                                });
-                        }
+                        //                 },
+                        //                 error: function() {
+                        //                         console.log('Upload Fail');
+                        //                 }
+                        //         });
+                        // }
 
 
                         var filename1 = String(Filename1);
                         var filename2 = String(Filename2);
-                        var filename3 = String(Filename3);
+                        // var filename3 = String(Filename3);
 
                         // $.ajax({
 
@@ -425,7 +425,7 @@
                                 data: {
                                         img1: filename1,
                                         img2: filename2,
-                                        img3: filename3,
+                                        img3: '',
                                         aplicentID: aplicentID
                                 },
                                 success: function(res) {
@@ -443,7 +443,7 @@
 
 
 
-                if (image1 || image2 || image3) {
+                if (image1 || image2) {
                         $(this).val('Uploading.....');
                         $(this).attr('disabled', true);
                         $(this).show('slow');
