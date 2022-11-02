@@ -238,11 +238,8 @@
             let projectName = document.getElementById("project_name").value;
             let applicantEmail = document.getElementById("applicant_email").value;
             let organization = document.getElementById("organization").value;
-            let date = document.getElementById("date").value;
             let address1 = document.getElementById("address_line1").value;
             let address2 = document.getElementById("address_line2").value;
-            let city = document.getElementById("city").value;
-            let province = document.getElementById("state").value;
             let zipCode = document.getElementById("zip_code").value;
             let fullName = document.getElementById("first_name").value;
             let lastName = document.getElementById("last_name").value;
