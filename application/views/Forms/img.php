@@ -8,7 +8,7 @@
                 <div class="modal-dialog modal-xl" role="document">
                         <div class="modal-content">
                                 <div class="modal-header" style="background-color: #1ABC9C; padding-bottom: 10px;">
-                                        <h5 class="modal-title" style="color: white;" id="modalViewLabel">Terms and Conditions</h5>
+                                        <h5 class="modal-title" style="color: white;" id="modalViewLabel">Declaration</h5>
                                         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                         </button> -->
