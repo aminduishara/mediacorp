@@ -30,7 +30,7 @@
             </div>
             <div class="col-sm-6">
                 <label for="category">Category <span class="text text-danger">*</span></label>
-                <select class="form-select" name="category" id="category" onchange="GetSubCate()" onclick="GetSubCate()">
+                <select class="form-select" name="category" id="category">
                 </select>
             </div>
         </div>
@@ -169,51 +169,50 @@
             </div>
         </div>
     </form>
-</div>
-<script>
-    $(document).ready(function() {
-        $.ajax({
-            type: "POST",
-            url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
-            data: {
-                id: 1
-            },
-            success: function(data) {
-                var json_data = JSON.parse(data);
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
+                data: {
+                    id: 1
+                },
+                success: function(data) {
+                    var json_data = JSON.parse(data);
 
-                document.getElementById('category').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataCate"].map(
-                    row =>
-                    `<option value="${row['cat_id']}">${row['cat_name']}</option>`
-                );
-            },
-            error: function(e) {
-                document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
-                console.log(e);
-            }
+                    document.getElementById('category').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataCate"].map(
+                        row =>
+                        `<option value="${row['cat_id']}">${row['cat_name']}</option>`
+                    );
+                },
+                error: function(e) {
+                    document.getElementById('economy_id').innerHTML = `<option value="00">Empty</option>`;
+                    console.log(e);
+                }
 
-        });
-    })
+            });
+        })
 
-    $('input[name="aplicent_type"]').change(function() {
-        let val = $(this).val();
-        $.ajax({
-            type: "post",
-            url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
-            data: {
-                id: val
-            },
-            success: function(data) {
-                var json_data = JSON.parse(data);
-                //console.log(json_data);
+        $('input[name="aplicent_type"]').change(function() {
+            let val = $(this).val();
+            $.ajax({
+                type: "post",
+                url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
+                data: {
+                    id: val
+                },
+                success: function(data) {
+                    var json_data = JSON.parse(data);
+                    //console.log(json_data);
 
-                document.getElementById('category').innerHTML = '<option value="0">Select the Category</option>' + json_data["dataCate"].map(
-                    row =>
-                    `<option value="${row['cat_id']}">${row['cat_name']}</option>`
-                );
-            },
-            error: function(e) {
-                console.log(e);
-            }
-        });
-    })
-</script>
+                    document.getElementById('category').innerHTML = '<option value="0">Select the Category</option>' + json_data["dataCate"].map(
+                        row =>
+                        `<option value="${row['cat_id']}">${row['cat_name']}</option>`
+                    );
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+        })
+    </script>
