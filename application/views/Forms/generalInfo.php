@@ -183,7 +183,7 @@
         $(document).ready(function() {
             var currentdate = new Date();
 
-            var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+            var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
             $('#aplicent_date').val(datetime);
             $.ajax({
                 type: "POST",
