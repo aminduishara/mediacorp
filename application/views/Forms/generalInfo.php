@@ -377,7 +377,7 @@
                     success: function(res) {
                         var json_result = JSON.parse(res);
                         console.log(json_result["updatequery"]);
-                        alert("Data Updated");
+                        // alert("Data Updated");
                         getLabels();
                         $('.nav-tabs li:eq(1) a').tab('show');
 
