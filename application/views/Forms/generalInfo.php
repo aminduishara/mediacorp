@@ -181,10 +181,7 @@
     </form>
     <script>
         $(document).ready(function() {
-            var currentdate = new Date();
 
-            var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
-            $('#aplicent_date').val(datetime);
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
@@ -244,6 +241,9 @@
                 $('.prc').show('slow');
                 $('#first_namelabel').html('Name of Production Personnel <span class="text text-danger">*</span>')
                 $('.nrp').hide('slow');
+                var currentdate = new Date();
+                var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
+                $('#aplicent_date').val(datetime);
             } else {
                 $('.pc').hide('slow');
                 $('.prc').hide('slow');
