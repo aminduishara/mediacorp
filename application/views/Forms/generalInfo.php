@@ -1,6 +1,6 @@
     <form class="rounded p-4">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="col">
                     <label>Type <span class="text text-danger">*</span></label>
                 </div>
@@ -27,14 +27,14 @@
 
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <label for="category">Category <span class="text text-danger">*</span></label>
                 <select class="form-select" name="category" id="category">
                 </select>
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-sm-12">
+            <div class="col-md-12">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="project_name" id="project_name" value="" onchange="this.setAttribute('value', this.value);">
@@ -44,17 +44,28 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-4 prc" style="display: none">
+            <div class="col-md-6">
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="date" name="aplicent_date" id="aplicent_date" value="" onchange="this.setAttribute('value', this.value);">
+                        <div class="underline"></div>
+                        <label for="aplicent_date">Date of Transmission (Chosen Episode) <span class="text text-danger">*</span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row mt-4 pc">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="first_name" id="first_name" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
-                        <label for="first_name">Name of Presenter/Actor <span class="text text-danger">*</span></label>
+                        <label for="first_name" id="first_namelabel">Name of Presenter/Actor <span class="text text-danger">*</span></label>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6 nrp">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="last_name" id="last_name" value="" onchange="this.setAttribute('value', this.value);">
@@ -65,7 +76,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="organization" id="organization" value="" onchange="this.setAttribute('value', this.value);">
@@ -76,7 +87,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-sm-12">
+            <div class="col-md-12">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="address_line2" id="address_line2" value="" onchange="this.setAttribute('value', this.value);">
@@ -87,7 +98,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="zip_code" id="zip_code" value="" onchange="this.setAttribute('value', this.value);">
@@ -98,7 +109,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="address_line1" id="address_line1" value="" onchange="this.setAttribute('value', this.value);">
@@ -107,7 +118,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="applicant_email" id="applicant_email" value="" onchange="this.setAttribute('value', this.value);">
@@ -118,7 +129,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="contact_person" id="contact_person" value="" onchange="this.setAttribute('value', this.value);">
@@ -127,9 +138,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <div class="wrapper">
                             <div class="input-data">
                                 <input type="text" name="mobile_no" id="mobile_no" value="" onchange="this.setAttribute('value', this.value);">
@@ -138,7 +149,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <div class="wrapper">
                             <div class="input-data">
                                 <input type="text" name="telephone_no" id="telephone_no" value="" onchange="this.setAttribute('value', this.value);">
@@ -151,7 +162,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="wrapper">
                     <div class="input-data">
                         <input type="text" name="designation" id="designation" value="" onchange="this.setAttribute('value', this.value);">
@@ -163,7 +174,7 @@
         </div>
 
         <div class="row mt-4 mb-4">
-            <div class="form-group col-sm-12 text-end">
+            <div class="form-group col-md-12 text-end">
                 <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Save & Next" id="butsave">
             </div>
         </div>
@@ -216,10 +227,22 @@
         })
 
         $('input[name="aplicent_type"]').change(function() {
+            $('#first_namelabel').html('Name of Presenter/Actor <span class="text text-danger">*</span>')
+            $('.nrp').show('slow');
             if ($(this).val() == 1) {
                 $('.pc').show('slow');
+                $('.prc').hide('slow');
+            } else if ($(this).val() == 2) {
+                $('.pc').hide('slow');
+                $('.prc').show('slow');
+            } else if ($(this).val() == 3) {
+                $('.pc').show('slow');
+                $('.prc').show('slow');
+                $('#first_namelabel').html('Name of Production Personnel <span class="text text-danger">*</span>')
+                $('.nrp').hide('slow');
             } else {
                 $('.pc').hide('slow');
+                $('.prc').hide('slow');
             }
         })
 
@@ -236,6 +259,7 @@
             let type = aplicent_type;
             let category = $("#category").val();
             let projectName = $("#project_name").val();
+            let aplicent_date = $("#aplicent_date").val();
             let applicantEmail = $("#applicant_email").val();
             let organization = $("#organization").val();
             let address1 = $("#address_line1").val();
@@ -251,6 +275,11 @@
             if (!category) {
                 alert('Please select a category');
                 document.getElementById("category").focus();
+                return;
+            }
+            if (!aplicent_date && type == 2) {
+                alert('Please enter date of transmission');
+                document.getElementById("aplicent_date").focus();
                 return;
             }
             if (!projectName) {
@@ -336,7 +365,8 @@
                         lastName: lastName,
                         designation: designation,
                         mobileNo: mobileNo,
-                        teleNo: teleNo
+                        teleNo: teleNo,
+                        aplicent_date: aplicent_date
 
                     },
                     success: function(res) {
@@ -379,7 +409,8 @@
                         lastName: lastName,
                         designation: designation,
                         mobileNo: mobileNo,
-                        teleNo: teleNo
+                        teleNo: teleNo,
+                        aplicent_date: aplicent_date
 
                     },
                     success: function(res) {
