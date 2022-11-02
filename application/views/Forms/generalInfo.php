@@ -242,13 +242,19 @@
                 $('#first_namelabel').html('Name of Production Personnel <span class="text text-danger">*</span>')
                 $('.nrp').hide('slow');
                 var currentdate = new Date();
-                var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
-                $('#aplicent_date').val(currentdate);
+                var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + pad(currentdate.getDate(), 2);
+                $('#aplicent_date').val(datetime);
             } else {
                 $('.pc').hide('slow');
                 $('.prc').hide('slow');
             }
         })
+
+        function pad(num, size) {
+            var s = num + "";
+            while (s.length < size) s = "0" + s;
+            return s;
+        }
 
         $("#butsave").click(function() {
             let aplicent_type;
