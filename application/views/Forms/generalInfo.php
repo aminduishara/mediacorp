@@ -340,6 +340,7 @@
                         console.log(json_result["insertQuery"]);
                         console.log(json_result["updatequery"]);
                         $('.nav-tabs li:eq(1) a').tab('show');
+                        getLabels();
 
                     },
                     error: function(e) {
