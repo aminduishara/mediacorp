@@ -215,7 +215,7 @@
             });
         })
 
-        $('input[name="flexRadioDefault"]').change(function() {
+        $('input[name="aplicent_type"]').change(function() {
             if ($(this).val() == 1) {
                 $('.pc').show('slow');
             } else {
