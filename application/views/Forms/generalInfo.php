@@ -246,6 +246,7 @@
             let designation = $("#designation").val();
             let mobileNo = $("#mobile_no").val();
             let teleNo = $("#telephone_no").val();
+            let contact_person = $("#contact_person").val();
 
             if (!category) {
                 alert('Please select a category');
@@ -255,31 +256,6 @@
             if (!projectName) {
                 alert('Please enter program title');
                 document.getElementById("project_name").focus();
-                return;
-            }
-            if (!applicantEmail) {
-                alert('Please enter an email');
-                document.getElementById("applicant_email").focus();
-                return;
-            }
-            if (!organization) {
-                alert('Please enter an company');
-                document.getElementById("organization").focus();
-                return;
-            }
-            if (!address1) {
-                alert('Please enter contact no');
-                document.getElementById("address_line1").focus();
-                return;
-            }
-            if (!address2) {
-                alert('Please enter an address');
-                document.getElementById("address_line2").focus();
-                return;
-            }
-            if (!zipCode) {
-                alert('Please enter a postal code');
-                document.getElementById("zip_code").focus();
                 return;
             }
             if (!fullName && type == 1) {
@@ -292,9 +268,34 @@
                 document.getElementById("last_name").focus();
                 return;
             }
-            if (!designation) {
-                alert('Please enter a designation');
-                document.getElementById("designation").focus();
+            if (!organization) {
+                alert('Please enter an company');
+                document.getElementById("organization").focus();
+                return;
+            }
+            if (!address2) {
+                alert('Please enter an address');
+                document.getElementById("address_line2").focus();
+                return;
+            }
+            if (!zipCode) {
+                alert('Please enter a postal code');
+                document.getElementById("zip_code").focus();
+                return;
+            }
+            if (!address1) {
+                alert('Please enter contact no');
+                document.getElementById("address_line1").focus();
+                return;
+            }
+            if (!applicantEmail) {
+                alert('Please enter an email');
+                document.getElementById("applicant_email").focus();
+                return;
+            }
+            if (!contact_person) {
+                alert('Please enter a contact person');
+                document.getElementById("contact_person").focus();
                 return;
             }
             if (!mobileNo) {
@@ -307,6 +308,13 @@
                 document.getElementById("telephone_no").focus();
                 return;
             }
+            if (!designation) {
+                alert('Please enter a designation');
+                document.getElementById("designation").focus();
+                return;
+            }
+
+
 
             if ($('#aplicentID').val() == -1) {
 
