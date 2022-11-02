@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
+        <div class="row mt-4 pc">
             <div class="col-sm-6">
                 <div class="wrapper">
                     <div class="input-data">
@@ -204,7 +204,7 @@
                     var json_data = JSON.parse(data);
                     //console.log(json_data);
 
-                    document.getElementById('category').innerHTML = '<option value="0">Select the Category</option>' + json_data["dataCate"].map(
+                    document.getElementById('category').innerHTML = '<option value="0">Select Category</option>' + json_data["dataCate"].map(
                         row =>
                         `<option value="${row['cat_id']}">${row['cat_name']}</option>`
                     );
@@ -213,5 +213,13 @@
                     console.log(e);
                 }
             });
+        })
+
+        $('input[name="flexRadioDefault"]').change(function() {
+            if ($(this).val() == 1) {
+                $('.pc').show('slow');
+            } else {
+                $('.pc').hide('slow');
+            }
         })
     </script>
