@@ -1,8 +1,8 @@
 <form class="p-4" id="desForm">
         <input type="text" name="hiddenContentID" id="hiddenContentID" value="0" hidden>
-        <div class="row" style="display:<?php echo $visibility ?>">
+        <div class="row">
                 <div class="form-group col-sm-12">
-                        <label for="exampleInputName" class="form-label">Label</label><br>
+                        <label for="label" class="form-label">Label</label>
                         <select class="form-select" name="label" id="label" required="required">
                                 <option value="0">Select the Label</option>
                         </select>
@@ -10,7 +10,7 @@
         </div>
         <div class="row mt-2">
                 <div class="col-sm-12">
-                        <label class="form-label" for="des">Description (Word Count: <span id="requiredCount" style="font-weight: bold;">10</span>)</label>
+                        <label class="form-label" for="des">Description (Word Count: <span id="requiredCount" style="font-weight: bold;">0</span>)</label>
                         <textarea name="des" id="des" rows="8" required="required" class="form-control"></textarea>
                         <div>Remaining Word Count: <span id="typedCount" style="font-weight: bold"></span></div>
                         <!-- <div class="wrapper">
