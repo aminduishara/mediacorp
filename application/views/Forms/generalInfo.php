@@ -48,7 +48,7 @@
             <div class="col-md-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="date" name="aplicent_date" id="aplicent_date" value="" onchange="this.setAttribute('value', '<?php echo date('m/d/Y') ?>');">
+                        <input type="date" name="aplicent_date" id="aplicent_date" value="<?php echo date('m/d/Y') ?>" onchange="this.setAttribute('value', '<?php echo date('m/d/Y') ?>');">
                         <div class="underline"></div>
                         <label for="aplicent_date">Date of Transmission (Chosen Episode) <span class="text text-danger">*</span></label>
                     </div>
