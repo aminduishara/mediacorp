@@ -48,7 +48,7 @@
             <div class="col-md-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="date" name="aplicent_date" id="aplicent_date" value="" onchange="this.setAttribute('value', this.value);">
+                        <input type="date" name="aplicent_date" id="aplicent_date" value="" onchange="this.setAttribute('value', '<?php echo date('Y-m-d') ?>');">
                         <div class="underline"></div>
                         <label for="aplicent_date">Date of Transmission (Chosen Episode) <span class="text text-danger">*</span></label>
                     </div>
@@ -241,9 +241,6 @@
                 $('.prc').show('slow');
                 $('#first_namelabel').html('Name of Production Personnel <span class="text text-danger">*</span>')
                 $('.nrp').hide('slow');
-                var currentdate = new Date();
-                var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + pad(currentdate.getDate(), 2);
-                $('#aplicent_date').val(datetime);
             } else {
                 $('.pc').hide('slow');
                 $('.prc').hide('slow');
