@@ -307,5 +307,123 @@
                 document.getElementById("telephone_no").focus();
                 return;
             }
+
+            if ($('#aplicentID').val() == -1) {
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url('/index.php/Form/SaveFormData'); ?>",
+                    dataType: 'html',
+                    data: {
+                        id: id,
+                        type: type,
+                        category: category,
+                        projectName: projectName,
+                        applicantEmail: applicantEmail,
+                        organization: organization,
+                        address1: address1,
+                        address2: address2,
+                        zipCode: zipCode,
+                        fullName: fullName,
+                        lastName: lastName,
+                        designation: designation,
+                        mobileNo: mobileNo,
+                        teleNo: teleNo
+
+                    },
+                    success: function(res) {
+                        var json_result = JSON.parse(res);
+
+                        console.log(json_result);
+                        $('#aplicentID').val(json_result["aplicent_id"]);
+                        $('#refNo').val(json_result["refno"]);
+                        console.log(json_result["insertQuery"]);
+                        console.log(json_result["updatequery"]);
+                        $('.nav-tabs li:eq(1) a').tab('show');
+
+                    },
+                    error: function(e) {
+                        alert('Error Occurred');
+                        console.error('Error Occurred' + e);
+                    }
+                });
+
+            } else {
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url('/index.php/Form/UpdateAplicentData'); ?>",
+                    dataType: 'html',
+                    data: {
+
+                        id: id,
+                        aplicent_id: $('#aplicentID').val(),
+                        type: type,
+                        category: category,
+                        projectName: projectName,
+                        applicantEmail: applicantEmail,
+                        organization: organization,
+                        address1: address1,
+                        address2: address2,
+                        zipCode: zipCode,
+                        fullName: fullName,
+                        lastName: lastName,
+                        designation: designation,
+                        mobileNo: mobileNo,
+                        teleNo: teleNo
+
+                    },
+                    success: function(res) {
+                        var json_result = JSON.parse(res);
+                        console.log(json_result["updatequery"]);
+                        alert("Data Updated");
+                        getLabels();
+                        $('.nav-tabs li:eq(1) a').tab('show');
+
+                    },
+                    error: function(e) {
+                        alert('Error Occurred');
+                        console.error('Error Occurred' + e);
+                    }
+                });
+
+            }
         });
+
+        function getLabels() {
+            jQuery.ajax({
+                type: 'POST',
+                url: "<?php echo base_url('/index.php/Form/GetLabel'); ?>",
+                data: {
+                    id: $('#category').val(),
+                    aplicant_id: $('#aplicentID').val()
+                },
+                success: function(data) {
+                    json_data = JSON.parse(data);
+                    console.log(json_data);
+                    if (json_data["dataLabel"].length == 0) {
+
+                        document.getElementById('label').innerHTML = '<option value="0">Select the Label</option>';
+                        document.getElementById("butAdd").disabled = true;
+
+                    } else {
+
+                        document.getElementById("butAdd").disabled = false;
+                        var json_data = JSON.parse(data);
+                        document.getElementById('label').innerHTML = json_data["dataLabel"].map(
+                            post => {
+                                if (post["aplicent_id"] == null) {
+                                    return `<option value="${post["cat_mast_label_id"]}">${post["cat_mast_label_name"]}</option>`;
+                                }
+                            })
+
+                    }
+
+                },
+                error: function() {
+                    alert('Error Occured');
+                }
+            });
+
+        }
     </script>
