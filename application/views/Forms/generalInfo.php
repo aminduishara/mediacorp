@@ -162,6 +162,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="row mt-4 mb-4">
+            <div class="form-group col-sm-12 text-end">
+                <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Save & Next" id="butsave">
+            </div>
+        </div>
     </form>
 </div>
 <script>
@@ -185,6 +191,29 @@
                 console.log(e);
             }
 
+        });
+    })
+
+    $('input[name="aplicent_type"]').change(function() {
+        let val = $(this).val();
+        $.ajax({
+            type: "post",
+            url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
+            data: {
+                id: val
+            },
+            success: function(data) {
+                var json_data = JSON.parse(data);
+                //console.log(json_data);
+
+                document.getElementById('category').innerHTML = '<option value="0">Select the Category</option>' + json_data["dataCate"].map(
+                    row =>
+                    `<option value="${row['cat_id']}">${row['cat_name']}</option>`
+                );
+            },
+            error: function(e) {
+                console.log(e);
+            }
         });
     })
 </script>
