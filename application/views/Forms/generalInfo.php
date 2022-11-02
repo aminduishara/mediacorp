@@ -179,7 +179,7 @@
                 success: function(data) {
                     var json_data = JSON.parse(data);
 
-                    document.getElementById('category').innerHTML = '<option value="0">Select the <?php echo $row->mas_reglable_text ?></option>' + json_data["dataCate"].map(
+                    document.getElementById('category').innerHTML = '<option value="0">Select Category</option>' + json_data["dataCate"].map(
                         row =>
                         `<option value="${row['cat_id']}">${row['cat_name']}</option>`
                     );
