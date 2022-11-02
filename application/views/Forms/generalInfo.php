@@ -234,22 +234,77 @@
             const val = Math.floor(1000 + Math.random() * 9000);
             let id = val;
             let type = aplicent_type;
-            let category = document.getElementById("category").value;
-            let projectName = document.getElementById("project_name").value;
-            let applicantEmail = document.getElementById("applicant_email").value;
-            let organization = document.getElementById("organization").value;
-            let address1 = document.getElementById("address_line1").value;
-            let address2 = document.getElementById("address_line2").value;
-            let zipCode = document.getElementById("zip_code").value;
-            let fullName = document.getElementById("first_name").value;
-            let lastName = document.getElementById("last_name").value;
-            let designation = document.getElementById("designation").value;
-            let mobileNo = document.getElementById("mobile_no").value;
-            let teleNo = document.getElementById("telephone_no").value;
+            let category = $("#category").val();
+            let projectName = $("#project_name").val();
+            let applicantEmail = $("#applicant_email").val();
+            let organization = $("#organization").val();
+            let address1 = $("#address_line1").val();
+            let address2 = $("#address_line2").val();
+            let zipCode = $("#zip_code").val();
+            let fullName = $("#first_name").val();
+            let lastName = $("#last_name").val();
+            let designation = $("#designation").val();
+            let mobileNo = $("#mobile_no").val();
+            let teleNo = $("#telephone_no").val();
 
             if (!category) {
-                alert('Please fill all the required data');
+                alert('Please select a category');
                 document.getElementById("category").focus();
+                return;
+            }
+            if (!projectName) {
+                alert('Please enter program title');
+                document.getElementById("project_name").focus();
+                return;
+            }
+            if (!applicantEmail) {
+                alert('Please enter an email');
+                document.getElementById("applicant_email").focus();
+                return;
+            }
+            if (!organization) {
+                alert('Please enter an company');
+                document.getElementById("organization").focus();
+                return;
+            }
+            if (!address1) {
+                alert('Please enter contact no');
+                document.getElementById("address_line1").focus();
+                return;
+            }
+            if (!address2) {
+                alert('Please enter an address');
+                document.getElementById("address_line2").focus();
+                return;
+            }
+            if (!zipCode) {
+                alert('Please enter a postal code');
+                document.getElementById("zip_code").focus();
+                return;
+            }
+            if (!fullName) {
+                alert('Please enter a name of presenter/actor');
+                document.getElementById("first_name").focus();
+                return;
+            }
+            if (!lastName) {
+                alert('Please enter a name of role played');
+                document.getElementById("last_name").focus();
+                return;
+            }
+            if (!designation) {
+                alert('Please enter a designation');
+                document.getElementById("designation").focus();
+                return;
+            }
+            if (!mobileNo) {
+                alert('Please enter a mobile no');
+                document.getElementById("mobile_no").focus();
+                return;
+            }
+            if (!teleNo) {
+                alert('Please enter a telephone no');
+                document.getElementById("telephone_no").focus();
                 return;
             }
         });
