@@ -181,6 +181,10 @@
     </form>
     <script>
         $(document).ready(function() {
+            var currentdate = new Date();
+
+            var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+            $('#aplicent_date').val(currentdate);
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
