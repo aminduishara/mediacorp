@@ -204,7 +204,7 @@
                     var json_data = JSON.parse(data);
                     //console.log(json_data);
 
-                    document.getElementById('category').innerHTML = '<option value="0">Select Category</option>' + json_data["dataCate"].map(
+                    document.getElementById('category').innerHTML = '<option value="">Select Category</option>' + json_data["dataCate"].map(
                         row =>
                         `<option value="${row['cat_id']}">${row['cat_name']}</option>`
                     );
