@@ -67,7 +67,7 @@
                                 <?php } ?>
                         </div>
 
-                        <div class="col-md-8">
+                        <div class="col-md-8" style="display: none;">
                                 <div>
                                         <h3>Attach the Reference File <span style="font-size: 1rem; font-weight: normal;">(PDF only)</span></h3>
                                 </div>
@@ -108,14 +108,14 @@
                         </div>
                         <div class="col-md-8 mt-1">
                                 <div class="card card-body">
-                                        <h3>Audio / Video Links <span style="font-size: 13px;">Recommended: Unlisted YouTube videos</span></h3>
+                                        <h3>Video Links</h3>
                                         <div class="col-md-12">
                                                 <div class="row">
                                                         <div class="col-md-4">
                                                                 <select class="form-select" id="cmbVideoType" name="cmbVideoType">
                                                                         <option value="">Select Type</option>
-                                                                        <option value="1">Video</option>
-                                                                        <option value="2">Audio</option>
+                                                                        <option value="1">YouTube</option>
+                                                                        <!-- <option value="2">Audio</option> -->
                                                                 </select>
                                                         </div>
                                                         <div class="col-md-5">
