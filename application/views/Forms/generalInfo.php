@@ -282,12 +282,12 @@
                 document.getElementById("zip_code").focus();
                 return;
             }
-            if (!fullName) {
+            if (!fullName && type == 1) {
                 alert('Please enter a name of presenter/actor');
                 document.getElementById("first_name").focus();
                 return;
             }
-            if (!lastName) {
+            if (!lastName && type == 1) {
                 alert('Please enter a name of role played');
                 document.getElementById("last_name").focus();
                 return;
