@@ -37,7 +37,7 @@
             <div class="col-sm-12">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="project_name" id="project_name" value="">
+                        <input type="text" name="project_name" id="project_name" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="project_name">Title of Programme Nominated <span class="text text-danger">*</span></label>
                     </div>
@@ -48,7 +48,7 @@
             <div class="col-sm-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="first_name" id="first_name" value="">
+                        <input type="text" name="first_name" id="first_name" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="first_name">Name of Presenter/Actor <span class="text text-danger">*</span></label>
                     </div>
@@ -57,7 +57,7 @@
             <div class="col-sm-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="last_name" id="last_name" value="">
+                        <input type="text" name="last_name" id="last_name" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="last_name">Name of Role Played <span class="text text-danger">*</span></label>
                     </div>
@@ -68,7 +68,7 @@
             <div class="col-sm-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="organization" id="organization" value="">
+                        <input type="text" name="organization" id="organization" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="organization">Company <span class="text text-danger">*</span></label>
                     </div>
@@ -79,7 +79,7 @@
             <div class="col-sm-12">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="address_line2" id="address_line2" value="">
+                        <input type="text" name="address_line2" id="address_line2" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="address_line2">Address <span class="text text-danger">*</span></label>
                     </div>
@@ -90,7 +90,7 @@
             <div class="col-sm-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="zip_code" id="zip_code" value="">
+                        <input type="text" name="zip_code" id="zip_code" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="zip_code">Postal Code <span class="text text-danger">*</span></label>
                     </div>
@@ -101,7 +101,7 @@
             <div class="col-sm-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="address_line1" id="address_line1" value="">
+                        <input type="text" name="address_line1" id="address_line1" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="address_line1">Contact No <span class="text text-danger">*</span></label>
                     </div>
@@ -110,7 +110,7 @@
             <div class="col-sm-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="applicant_email" id="applicant_email" value="">
+                        <input type="text" name="applicant_email" id="applicant_email" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="applicant_email">Email Address <span class="text text-danger">*</span></label>
                     </div>
@@ -121,7 +121,7 @@
             <div class="col-sm-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="contact_person" id="contact_person" value="">
+                        <input type="text" name="contact_person" id="contact_person" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="contact_person">Contact Person <span class="text text-danger">*</span></label>
                     </div>
@@ -132,7 +132,7 @@
                     <div class="col-sm-6">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="mobile_no" id="mobile_no" value="">
+                                <input type="text" name="mobile_no" id="mobile_no" value="" onchange="this.setAttribute('value', this.value);">
                                 <div class="underline"></div>
                                 <label for="mobile_no">Mobile No <span class="text text-danger">*</span></label>
                             </div>
@@ -141,7 +141,7 @@
                     <div class="col-sm-6">
                         <div class="wrapper">
                             <div class="input-data">
-                                <input type="text" name="telephone_no" id="telephone_no" value="">
+                                <input type="text" name="telephone_no" id="telephone_no" value="" onchange="this.setAttribute('value', this.value);">
                                 <div class="underline"></div>
                                 <label for="telephone_no">Telephone No <span class="text text-danger">*</span></label>
                             </div>
@@ -154,7 +154,7 @@
             <div class="col-sm-6">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="designation" id="designation" value="">
+                        <input type="text" name="designation" id="designation" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
                         <label for="designation">Designation <span class="text text-danger">*</span></label>
                     </div>
