@@ -344,7 +344,7 @@
                     },
                     error: function(e) {
                         alert('Error Occurred');
-                        console.error('Error Occurred' + e);
+                        console.error(e);
                     }
                 });
 
