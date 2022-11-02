@@ -402,23 +402,17 @@
                 success: function(data) {
                     json_data = JSON.parse(data);
                     console.log(json_data);
-                    if (json_data["dataLabel"].length == 0) {
 
-                        document.getElementById('label').innerHTML = '<option value="0">Select the Label</option>';
-                        document.getElementById("butAdd").disabled = true;
+                    document.getElementById("butAdd").disabled = false;
+                    var json_data = JSON.parse(data);
+                    document.getElementById('label').innerHTML = '<option value="0">Select the Label</option>' + json_data["dataLabel"].map(
+                        post => {
+                            if (post["aplicent_id"] == null) {
+                                return `<option value="${post["cat_mast_label_id"]}">${post["cat_mast_label_name"]}</option>`;
+                            }
+                        })
 
-                    } else {
 
-                        document.getElementById("butAdd").disabled = false;
-                        var json_data = JSON.parse(data);
-                        document.getElementById('label').innerHTML = json_data["dataLabel"].map(
-                            post => {
-                                if (post["aplicent_id"] == null) {
-                                    return `<option value="${post["cat_mast_label_id"]}">${post["cat_mast_label_name"]}</option>`;
-                                }
-                            })
-
-                    }
 
                 },
                 error: function() {
