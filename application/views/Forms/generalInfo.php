@@ -222,4 +222,38 @@
                 $('.pc').hide('slow');
             }
         })
+
+        $("#butsave").click(function() {
+            let aplicent_type;
+
+            if (document.getElementById("aplicent_type1").checked) {
+                aplicent_type = document.getElementById("aplicent_type1").value;
+            } else {
+                aplicent_type = document.getElementById("aplicent_type2").value;
+            }
+            const val = Math.floor(1000 + Math.random() * 9000);
+            let id = val;
+            let type = aplicent_type;
+            let category = document.getElementById("category").value;
+            let projectName = document.getElementById("project_name").value;
+            let applicantEmail = document.getElementById("applicant_email").value;
+            let organization = document.getElementById("organization").value;
+            let date = document.getElementById("date").value;
+            let address1 = document.getElementById("address_line1").value;
+            let address2 = document.getElementById("address_line2").value;
+            let city = document.getElementById("city").value;
+            let province = document.getElementById("state").value;
+            let zipCode = document.getElementById("zip_code").value;
+            let fullName = document.getElementById("first_name").value;
+            let lastName = document.getElementById("last_name").value;
+            let designation = document.getElementById("designation").value;
+            let mobileNo = document.getElementById("mobile_no").value;
+            let teleNo = document.getElementById("telephone_no").value;
+
+            if (!category) {
+                alert('Please fill all the required data');
+                document.getElementById("category").focus();
+                return;
+            }
+        });
     </script>
