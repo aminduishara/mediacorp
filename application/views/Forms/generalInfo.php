@@ -243,7 +243,7 @@
                 $('.nrp').hide('slow');
                 var currentdate = new Date();
                 var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
-                $('#aplicent_date').val(datetime);
+                $('#aplicent_date').val(currentdate);
             } else {
                 $('.pc').hide('slow');
                 $('.prc').hide('slow');
