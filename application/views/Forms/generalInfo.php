@@ -38,7 +38,7 @@
             <div class="col-sm-12">
                 <div class="wrapper">
                     <div class="input-data">
-                        <input type="text" name="project_name" id="project_name" <?php echo $status; ?> value="">
+                        <input type="text" name="project_name" id="project_name" value="">
                         <div class="underline"></div>
                         <label for="project_name">Title of Programme Nominated <span class="text text-danger">*</span></label>
                     </div>
