@@ -45,6 +45,7 @@ class Form extends CI_Controller
       'sub_cat_mast_id' => $this->input->post('category', TRUE),
       'product_name' => $this->input->post('projectName', TRUE),
       'reg_email' => $this->input->post('applicantEmail', TRUE),
+      'aplicent_date' => date('Y-m-d'),
       'aplicent_profile' => $this->input->post('organization', TRUE),
       'aplicent_add1' => $this->input->post('address1', TRUE),
       'aplicent_add2' => $this->input->post('address2', TRUE),
