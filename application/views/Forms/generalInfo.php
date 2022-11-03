@@ -245,6 +245,20 @@
                 $('.pc').hide('slow');
                 $('.prc').hide('slow');
             }
+            $.ajax({
+                type: "post",
+                url: "<?php echo base_url('/index.php/Form/GetTerms'); ?>",
+                data: {
+                    id: $(this).val()
+                },
+                success: function(data) {
+                    var json_data = JSON.parse(data);
+                    console.log(json_data);
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
         })
 
         function pad(num, size) {

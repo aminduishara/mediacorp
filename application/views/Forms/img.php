@@ -16,8 +16,8 @@
                                 <div class="modal-body pb-0">
                                         <div class="col-md-12">
                                                 <h5>Declaration</h5>
-                                                <p>
-                                                        <?php if (isset($para->mas_com_terms)) echo $para->mas_com_terms; ?>
+                                                <p id="decDeclaration">
+
                                                 </p>
                                         </div>
                                 </div>

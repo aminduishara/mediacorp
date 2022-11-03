@@ -446,6 +446,13 @@ class Form extends CI_Controller
     $d['data'] = $data->result();
     echo json_encode($d);
   }
+
+  function GetTerms()
+  {
+    $this->load->model('Form_model');
+    $data = $this->Form_model->GetTerms($_POST['id']);
+    echo json_encode($data->row());
+  }
 }
 
 

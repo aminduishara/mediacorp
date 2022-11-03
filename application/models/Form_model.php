@@ -225,6 +225,13 @@ class Form_model extends CI_Model
     $this->db->delete('aplicent_videolinks');
     return 1;
   }
+
+  public function GetTerms($id)
+  {
+
+    $query = $this->db->query("SELECT mas_aplicanttype_termandconditions FROM `gen_mas_aplicanttype` WHERE `mas_aplicanttype_id` = $id");
+    return $query;
+  }
 }
 
 /* End of file Form_model.php */
