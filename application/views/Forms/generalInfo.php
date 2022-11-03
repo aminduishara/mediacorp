@@ -253,7 +253,7 @@
                 },
                 success: function(data) {
                     var json_data = JSON.parse(data);
-                    console.log(json_data);
+                    console.log(json_data['mas_aplicanttype_termandconditions']);
                 },
                 error: function(e) {
                     console.log(e);
