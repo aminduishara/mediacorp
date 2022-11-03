@@ -202,6 +202,21 @@
                 }
 
             });
+
+            $.ajax({
+                type: "post",
+                url: "<?php echo base_url('/index.php/Form/GetTerms'); ?>",
+                data: {
+                    id: 1
+                },
+                success: function(data) {
+                    var json_data = JSON.parse(data);
+                    $('#decDeclaration').html(json_data['mas_aplicanttype_termandconditions']);
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
         })
 
         $('input[name="aplicent_type"]').change(function() {
