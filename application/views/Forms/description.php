@@ -10,7 +10,7 @@
         </div>
         <div class="row mt-2">
                 <div class="col-sm-12">
-                        <label class="form-label" for="des">Description (Word Count: <span id="requiredCount" style="font-weight: bold;">0</span>)</label>
+                        <label class="form-label" for="des">(Word Count: <span id="requiredCount" style="font-weight: bold;">0</span>)</label>
                         <textarea name="des" id="des" rows="8" required="required" class="form-control"></textarea>
                         <div>Remaining Word Count: <span id="typedCount" style="font-weight: bold"></span></div>
                         <!-- <div class="wrapper">
@@ -85,23 +85,27 @@
                 $('.nav-tabs li:eq(0) a').tab('show');
         })
         $('#Next').click(function() {
-                $.ajax({
-                        type: "post",
-                        url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
-                        dataType: 'json',
-                        async: true,
-                        success: function(response) {
-                                $('#ddlType').empty();
-                                $('#ddlType').append('<option value="0">Select Type</option>');
-                                response['uploadTypes'].forEach((type) => {
-                                        $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
-                                });
-                        },
-                        error: function() {
-                                alert("Invalid!");
-                        }
-                });
-                $('.nav-tabs li:eq(2) a').tab('show');
+                if ($('#DesTable tbody tr').length > 0) {
+                        $.ajax({
+                                type: "post",
+                                url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
+                                dataType: 'json',
+                                async: true,
+                                success: function(response) {
+                                        $('#ddlType').empty();
+                                        $('#ddlType').append('<option value="0">Select Type</option>');
+                                        response['uploadTypes'].forEach((type) => {
+                                                $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
+                                        });
+                                },
+                                error: function() {
+                                        alert("Invalid!");
+                                }
+                        });
+                        $('.nav-tabs li:eq(2) a').tab('show');
+                } else {
+                        swal('Warning', 'Please add the labels.', 'warning');
+                }
         })
 
         $('#label').change(function() {
