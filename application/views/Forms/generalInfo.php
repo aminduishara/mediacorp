@@ -212,6 +212,8 @@
                 success: function(data) {
                     var json_data = JSON.parse(data);
                     $('#decDeclaration').html(json_data['mas_aplicanttype_termandconditions']);
+                    $('#aplicent_date').attr('min', json_data['mas_aplicanttype_eligibledatefrom']);
+                    $('#aplicent_date').attr('max', json_data['mas_aplicanttype_eligibledateto']);
                 },
                 error: function(e) {
                     console.log(e);
