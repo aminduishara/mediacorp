@@ -113,23 +113,23 @@
                                         alert("Invalid!");
                                 }
                         });
-                        // $.ajax({
-                        //         type: "post",
-                        //         url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
-                        //         dataType: 'json',
-                        //         async: false,
-                        //         success: function(response) {
-                        //                 $('#ddlType').empty();
-                        //                 $('#ddlType').append('<option value="0">Select Type</option>');
-                        //                 response['uploadTypes'].forEach((type) => {
-                        //                         $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
-                        //                 });
-                        //         },
-                        //         error: function() {
-                        //                 alert("Invalid!");
-                        //         }
-                        // });
-                        // $('.nav-tabs li:eq(2) a').tab('show');
+                        $.ajax({
+                                type: "post",
+                                url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
+                                dataType: 'json',
+                                async: false,
+                                success: function(response) {
+                                        $('#ddlType').empty();
+                                        $('#ddlType').append('<option value="0">Select Type</option>');
+                                        response['uploadTypes'].forEach((type) => {
+                                                $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
+                                        });
+                                },
+                                error: function() {
+                                        alert("Invalid!");
+                                }
+                        });
+                        $('.nav-tabs li:eq(2) a').tab('show');
                 } else {
                         swal('Warning', 'Please add the labels.', 'warning');
                 }
