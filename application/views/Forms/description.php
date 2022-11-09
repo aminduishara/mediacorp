@@ -88,21 +88,37 @@
                 if ($('#DesTable tbody tr').length > 0) {
                         $.ajax({
                                 type: "post",
-                                url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
+                                url: "<?php echo base_url('/index.php/Form/checkrequiredLabel'); ?>",
                                 dataType: 'json',
-                                async: true,
+                                data: {
+                                        id: $('#category').val()
+                                },
+                                async: false,
                                 success: function(response) {
-                                        $('#ddlType').empty();
-                                        $('#ddlType').append('<option value="0">Select Type</option>');
-                                        response['uploadTypes'].forEach((type) => {
-                                                $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
-                                        });
+                                        var json_data = JSON.parse(data);
+                                        console.log(json_data);
                                 },
                                 error: function() {
                                         alert("Invalid!");
                                 }
                         });
-                        $('.nav-tabs li:eq(2) a').tab('show');
+                        // $.ajax({
+                        //         type: "post",
+                        //         url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
+                        //         dataType: 'json',
+                        //         async: false,
+                        //         success: function(response) {
+                        //                 $('#ddlType').empty();
+                        //                 $('#ddlType').append('<option value="0">Select Type</option>');
+                        //                 response['uploadTypes'].forEach((type) => {
+                        //                         $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
+                        //                 });
+                        //         },
+                        //         error: function() {
+                        //                 alert("Invalid!");
+                        //         }
+                        // });
+                        // $('.nav-tabs li:eq(2) a').tab('show');
                 } else {
                         swal('Warning', 'Please add the labels.', 'warning');
                 }
@@ -253,6 +269,7 @@
                                                         <button type="button" class="btn btn-primary" onclick="EditDes(${row['aplicent_content_id']})">Edit</button>
                                                         <button type="button" class="btn btn-danger" onclick="RemoveDes(${row['aplicent_content_id']})">Remove</button>
                                                 </td>
+                                                <td hidden>${row['cat_mast_label_id']}</td>
                                                 </tr>`).join("");
 
 

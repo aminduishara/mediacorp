@@ -453,6 +453,13 @@ class Form extends CI_Controller
     $data = $this->Form_model->GetTerms($_POST['id']);
     echo json_encode($data->row());
   }
+
+  function checkrequiredLabel()
+  {
+    $this->load->model('Form_model');
+    $data = $this->Form_model->checkrequiredLabel($_POST['id']);
+    echo json_encode($data->result());
+  }
 }
 
 
