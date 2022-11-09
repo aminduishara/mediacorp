@@ -236,7 +236,7 @@ class Form_model extends CI_Model
   public function checkrequiredLabel($id)
   {
 
-    $query = $this->db->query("SELECT cat_mast_label_id FROM `cat_mast_label` WHERE `cat_mast_label_required` = 1 AND cat_id = $id");
+    $query = $this->db->query("SELECT cat_mast_label_id, cat_mast_label_name FROM `cat_mast_label` WHERE `cat_mast_label_required` = 1 AND cat_id = $id");
     return $query;
   }
 }

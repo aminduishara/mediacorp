@@ -96,7 +96,14 @@
                                 async: false,
                                 success: function(response) {
                                         var json_data = JSON.parse(data);
-                                        console.log(json_data);
+                                        json_data.forEach(post => {
+                                                $('#DesTable tbody').each(function() {
+                                                        if (post['cat_mast_label_id'] != $(this).closest('tr').find('td:eq(4)').text().trim()) {
+                                                                swal('Warning', `Please add ${post['cat_mast_label_name']}`, 'warning');
+                                                                return;
+                                                        }
+                                                })
+                                        })
                                 },
                                 error: function() {
                                         alert("Invalid!");
