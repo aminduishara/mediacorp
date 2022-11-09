@@ -38,11 +38,11 @@
                         <div class="col-md-4">
                                 <div>
                                         <h3>Images Upload</h3>
-                                        <span>(Performer&#39;s Photo & End Frame in hi-res jpeg)</span>
+                                        <span id="lblImageText">(Performer&#39;s Photo & End Frame in hi-res jpeg)</span>
                                 </div>
                                 <?php $no = 2;
                                 for ($i = 0; $i < $no; $i++) { ?>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" id="divImg<?php echo $i; ?>">
                                                 <div class="card card-body">
                                                         <div class="row">
                                                                 <div class="col-md-8">

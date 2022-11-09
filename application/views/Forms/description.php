@@ -126,6 +126,13 @@
                                                         }
                                                 });
                                                 $('.nav-tabs li:eq(2) a').tab('show');
+                                                if ($('input[name="aplicent_type"]').val() == 1) {
+                                                        $('#lblImageText').html('(Performer&#39;s Photo & End Frame in hi-res jpeg)');
+                                                        $('#divImg1').show();
+                                                } else {
+                                                        $('#lblImageText').html('(End Frame in hi-res jpeg)');
+                                                        $('#divImg1').hide();
+                                                }
                                         }
                                 },
                                 error: function() {
