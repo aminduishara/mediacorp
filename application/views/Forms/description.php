@@ -86,6 +86,7 @@
         })
         $('#Next').click(function() {
                 if ($('#DesTable tbody tr').length > 0) {
+                        let c = 0;
                         $.ajax({
                                 type: "post",
                                 url: "<?php echo base_url('/index.php/Form/checkrequiredLabel'); ?>",
@@ -96,7 +97,7 @@
                                 async: false,
                                 success: function(response) {
                                         // var json_data = JSON.parse(response);
-                                        let c = 0;
+
                                         response.forEach(post => {
                                                 $('#DesTable tbody tr').each(function() {
                                                         if (post['cat_mast_label_id'] == $(this).closest('tr').find('td:eq(4)').text().trim()) {
@@ -108,38 +109,38 @@
                                                         return;
                                                 }
                                         })
-                                        if (c == 1) {
-                                                $.ajax({
-                                                        type: "post",
-                                                        url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
-                                                        dataType: 'json',
-                                                        async: false,
-                                                        success: function(response) {
-                                                                $('#ddlType').empty();
-                                                                $('#ddlType').append('<option value="0">Select Type</option>');
-                                                                response['uploadTypes'].forEach((type) => {
-                                                                        $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
-                                                                });
-                                                        },
-                                                        error: function() {
-                                                                alert("Invalid!");
-                                                        }
-                                                });
-                                                $('.nav-tabs li:eq(2) a').tab('show');
-                                                if ($('input[name="aplicent_type"]').val() == 1) {
-                                                        $('#lblImageText').html('(Performer&#39;s Photo & End Frame in hi-res jpeg)');
-                                                        $('#divImg1').show();
-                                                } else {
-                                                        $('#lblImageText').html('(End Frame in hi-res jpeg)');
-                                                        $('#divImg1').hide();
-                                                }
-                                        }
+
                                 },
                                 error: function() {
                                         alert("Invalid!");
                                 }
                         });
-
+                        if (c == 1) {
+                                $.ajax({
+                                        type: "post",
+                                        url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
+                                        dataType: 'json',
+                                        async: false,
+                                        success: function(response) {
+                                                $('#ddlType').empty();
+                                                $('#ddlType').append('<option value="0">Select Type</option>');
+                                                response['uploadTypes'].forEach((type) => {
+                                                        $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
+                                                });
+                                        },
+                                        error: function() {
+                                                alert("Invalid!");
+                                        }
+                                });
+                                $('.nav-tabs li:eq(2) a').tab('show');
+                                if ($('input[name="aplicent_type"]').val() == 1) {
+                                        $('#lblImageText').html('(Performer&#39;s Photo & End Frame in hi-res jpeg)');
+                                        $('#divImg1').show();
+                                } else {
+                                        $('#lblImageText').html('(End Frame in hi-res jpeg)');
+                                        $('#divImg1').hide();
+                                }
+                        }
                 } else {
                         swal('Warning', 'Please add the labels.', 'warning');
                 }
