@@ -97,7 +97,7 @@
                                 async: false,
                                 success: function(response) {
                                         // var json_data = JSON.parse(response);
-
+                                        if (response.length == 0) c = 1;
                                         response.forEach(post => {
                                                 $('#DesTable tbody tr').each(function() {
                                                         if (post['cat_mast_label_id'] == $(this).closest('tr').find('td:eq(4)').text().trim()) {
