@@ -96,7 +96,7 @@ class Form_model extends CI_Model
   public function GetCateData($id)
   {
 
-    $query = $this->db->query("SELECT * FROM `cat_mast` WHERE `freeze_status` = 'unfreezed' AND cat_type = $id");
+    $query = $this->db->query("SELECT * FROM `cat_mast` WHERE `freeze_status` = 'unfreezed' AND cat_type = $id ORDER BY cat_order");
     return $query;
   }
 
