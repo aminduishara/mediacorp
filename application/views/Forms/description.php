@@ -96,15 +96,17 @@
                                 async: false,
                                 success: function(response) {
                                         // var json_data = JSON.parse(response);
+                                        let c = 0;
                                         response.forEach(post => {
                                                 $('#DesTable tbody tr').each(function() {
-                                                        console.log('1 a ' + $(this).closest('tr').find('td:eq(4)').text().trim())
-                                                        console.log('2 a ' + post['cat_mast_label_id'])
-                                                        if (post['cat_mast_label_id'] != $(this).closest('tr').find('td:eq(4)').text().trim()) {
-                                                                swal('Warning', `Please add ${post['cat_mast_label_name']}`, 'warning');
-                                                                return;
+                                                        if (post['cat_mast_label_id'] == $(this).closest('tr').find('td:eq(4)').text().trim()) {
+                                                                c = 1;
                                                         }
                                                 })
+                                                if (c == 0) {
+                                                        swal('Warning', `Please add ${post['cat_mast_label_name']}`, 'warning');
+                                                        return;
+                                                }
                                         })
                                 },
                                 error: function() {
