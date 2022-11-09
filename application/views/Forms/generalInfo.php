@@ -256,7 +256,7 @@
             } else if ($(this).val() == 3) {
                 $('.pc').show('slow');
                 $('.prc').show('slow');
-                $('#first_namelabel').html('Name of Production Personnel <span class="text text-danger">*</span>')
+                $('#first_namelabel').html('Name(s) of Production Personnel <span class="text text-danger">*</span>')
                 $('.nrp').hide('slow');
             } else {
                 $('.pc').hide('slow');
