@@ -1,3 +1,11 @@
+<style>
+        .loading {
+                width: 100%;
+                height: 100%;
+                background-color: teal;
+                position: absolute;
+        }
+</style>
 <div class="p-5">
 
         <?php echo form_open_multipart('Form/GetImages'); ?>
@@ -54,6 +62,7 @@
 
 
         <div class="col-md-12" style="min-height: 60vh;">
+                <div class="loading"></div>
                 <div class="row">
                         <div class="col-md-4">
                                 <div>
