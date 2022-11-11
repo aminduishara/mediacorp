@@ -2,7 +2,7 @@
         .loading {
                 width: 93%;
                 height: 93%;
-                background-color: teal;
+                background-color: rgba(133, 193, 233, .2);
                 position: absolute;
                 z-index: 100;
                 display: flex;
