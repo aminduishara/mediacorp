@@ -35,13 +35,13 @@
                         <div class="modal-content">
                                 <div class="modal-header" style="background-color: #5DADE2; padding-bottom: 10px;">
                                         <h5 class="modal-title" style="color: white;" id="modalViewLabel">How to copy the URL</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        </button> -->
                                 </div>
                                 <div class="modal-body pb-0">
                                         <div class="col-md-12">
-                                                <img src="<?php echo base_url(); ?>assets/imglink.jpg" alt="link image" style="object-fit: contain; width: 10rem; 10rem;">
+                                                <img src="<?php echo base_url(); ?>assets/imglink.jpg" alt="link image" style="object-fit: contain; width: 60rem; 60rem;">
                                         </div>
                                 </div>
                                 <div class="modal-footer">
