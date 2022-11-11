@@ -61,7 +61,7 @@
 
 
 
-        <div class="col-md-12" style="min-height: 60vh;">
+        <div class="col-md-12" style="min-height: 60vh; position: relative;">
                 <div class="loading"></div>
                 <div class="row">
                         <div class="col-md-4">
