@@ -544,8 +544,8 @@
                 if (image1 || image2) {
                         // $(this).val('Uploading.....');
                         // $(this).attr('disabled', true);
-                        $('.loading').css('display', 'none');
                         setTimeout(() => {
+                                $('.loading').css('display', 'none');
                                 swal('Successfully Completed! Your reference is ' + $('#refNo').val(), 'You may use above reference number if you wish to edit your submission', 'success').then(function() {
                                         window.location.reload();
                                 })
@@ -577,8 +577,8 @@
 
         $("#btnAgree").click(function() {
                 if ($("#cbAgree").is(':checked')) {
-                        $('#modalView').modal('hide');
                         $('.loading').css('display', 'flex');
+                        $('#modalView').modal('hide');
                         buttonSubmit();
                 }
         });
