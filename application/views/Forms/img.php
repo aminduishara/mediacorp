@@ -422,7 +422,7 @@
 
                 let url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
 
-                if (image1 != 0 && image2 != 0 && image3 != 0) {
+                if (image1 != 0 && image2 != 0) {
 
                         var Filename1 = aplicentID + "-" + $('#ImgFile1').val().split('\\').pop();
 
