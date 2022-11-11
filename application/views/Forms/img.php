@@ -551,6 +551,7 @@
                                 })
                         }, 5000);
                 } else {
+                        $('.loading').css('display', 'none');
                         swal('Successfully Completed! Your reference is ' + $('#refNo').val(), 'You may use above reference number if you wish to edit your submission', 'success').then(function() {
                                 window.location.reload();
                         })
