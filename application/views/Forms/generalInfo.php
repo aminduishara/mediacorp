@@ -291,8 +291,10 @@
 
             if (document.getElementById("aplicent_type1").checked) {
                 aplicent_type = document.getElementById("aplicent_type1").value;
-            } else {
+            } else if (document.getElementById("aplicent_type2").checked) {
                 aplicent_type = document.getElementById("aplicent_type2").value;
+            } else {
+                aplicent_type = document.getElementById("aplicent_type3").value;
             }
             const val = Math.floor(1000 + Math.random() * 9000);
             let id = val;
