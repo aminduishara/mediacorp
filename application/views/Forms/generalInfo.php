@@ -214,6 +214,7 @@
                     $('#decDeclaration').html(json_data['mas_aplicanttype_termandconditions']);
                     $('#aplicent_date').attr('min', json_data['mas_aplicanttype_eligibledatefrom']);
                     $('#aplicent_date').attr('max', json_data['mas_aplicanttype_eligibledateto']);
+                    $('#lbtFooter').html(json_data['com_parameter_license']);
                 },
                 error: function(e) {
                     console.log(e);

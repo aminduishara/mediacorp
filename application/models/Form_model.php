@@ -229,7 +229,7 @@ class Form_model extends CI_Model
   public function GetTerms($id)
   {
 
-    $query = $this->db->query("SELECT mas_aplicanttype_termandconditions, mas_aplicanttype_eligibledatefrom, mas_aplicanttype_eligibledateto FROM `gen_mas_aplicanttype` INNER JOIN gen_com_parameters ON gen_com_parameters.com_parameter_id = 1 WHERE `mas_aplicanttype_id` = $id");
+    $query = $this->db->query("SELECT mas_aplicanttype_termandconditions, mas_aplicanttype_eligibledatefrom, mas_aplicanttype_eligibledateto, com_parameter_license FROM `gen_mas_aplicanttype` INNER JOIN gen_com_parameters ON gen_com_parameters.com_parameter_id = 1 WHERE `mas_aplicanttype_id` = $id");
     return $query;
   }
 

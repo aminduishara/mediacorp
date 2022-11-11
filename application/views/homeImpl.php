@@ -82,7 +82,7 @@
 </div>
 <div class="navbar fixed-bottom navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="font-size: 1rem">v1.0</a>
+    <a class="navbar-brand" href="#" style="font-size: 1rem" id="lbtFooter">v3.0</a>
     <a class="navbar-text" href="#" style="text-decoration: none">Stemcore Asia Pvt Ltd</a>
   </div>
 </div>
