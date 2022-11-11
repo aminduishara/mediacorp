@@ -2,7 +2,12 @@
         .loading {
                 width: 93%;
                 height: 93%;
-                background-color: rgba(133, 193, 233, .2);
+                background: rgba(255, 255, 255, 0.15);
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
                 position: absolute;
                 z-index: 100;
                 display: flex;
@@ -21,7 +26,7 @@
                 width: 15px;
                 height: 15px;
                 border-radius: 50%;
-                background-color: #fff;
+                background-color: #000000;
                 animation: move 500ms linear 0ms infinite;
                 margin-right: 30px;
         }
