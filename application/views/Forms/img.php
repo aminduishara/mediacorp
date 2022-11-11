@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="modal-body pb-0">
                                         <div class="col-md-12">
-                                                <img src="<?php echo base_url(); ?>assets/imglink.jpg" alt="link image" style="object-fit: contain; width: 60rem; 60rem;">
+                                                <img src="<?php echo base_url(); ?>assets/imglink1.jpg" alt="link image" style="object-fit: contain; width: 60rem; 60rem;">
                                         </div>
                                 </div>
                                 <div class="modal-footer">
