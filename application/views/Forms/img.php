@@ -275,7 +275,6 @@
 
 <script type="text/javascript">
         $(document).ready(function() {
-                $('.loading').css('display', 'flex');
                 var aplicentID = document.getElementById("aplicentID").value;
                 console.log("L A_ID : " + aplicentID);
                 if (aplicentID != '-1') {
@@ -415,7 +414,6 @@
         }
 
         function buttonSubmit() {
-                $('.loading').css('display', 'flex');
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
                 // var image3 = document.getElementById("ImgFile3").files.length;
@@ -580,6 +578,7 @@
         $("#btnAgree").click(function() {
                 if ($("#cbAgree").is(':checked')) {
                         $('#modalView').modal('hide');
+                        $('.loading').css('display', 'flex');
                         buttonSubmit();
                 }
         });
