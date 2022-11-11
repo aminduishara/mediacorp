@@ -12,6 +12,7 @@
                 align-items: center;
                 justify-content: center;
                 left: -10px;
+                display: none;
         }
 
         .loading .container1 {
@@ -413,7 +414,7 @@
         }
 
         function buttonSubmit() {
-                $(this).hide();
+                $('.loading').show();
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
                 // var image3 = document.getElementById("ImgFile3").files.length;
@@ -542,9 +543,9 @@
 
 
                 if (image1 || image2) {
-                        $(this).val('Uploading.....');
-                        $(this).attr('disabled', true);
-                        $(this).show('slow');
+                        // $(this).val('Uploading.....');
+                        // $(this).attr('disabled', true);
+                        $('.loading').hide();
                         setTimeout(() => {
                                 swal('Successfully Completed! Your reference is ' + $('#refNo').val(), 'You may use above reference number if you wish to edit your submission', 'success').then(function() {
                                         window.location.reload();
