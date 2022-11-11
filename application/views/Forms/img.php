@@ -45,7 +45,7 @@
                                         </div>
                                 </div>
                                 <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
+                                        <button type="button" class="btn btn-secondary" onclick="$('#modalImage').modal('hide');">Close</button>
                                 </div>
                         </div>
                 </div>
