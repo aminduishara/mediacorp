@@ -61,7 +61,7 @@
                     <div class="input-data">
                         <input type="text" name="first_name" id="first_name" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
-                        <label for="first_name" id="first_namelabel">Name of Presenter/Actor <span class="text text-danger">*</span></label>
+                        <label for="first_name" id="first_namelabel">Name of Actor/Host/DJ <span class="text text-danger">*</span></label>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                     <div class="input-data">
                         <input type="text" name="last_name" id="last_name" value="" onchange="this.setAttribute('value', this.value);">
                         <div class="underline"></div>
-                        <label for="last_name">Name of Role Played <span class="text text-danger">*</span></label>
+                        <label for="last_name">Name of Role Played (Indicate <b>NA</b> if not applicable) <span class="text text-danger">*</span></label>
                     </div>
                 </div>
             </div>
