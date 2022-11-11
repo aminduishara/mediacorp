@@ -2,9 +2,9 @@
         <input type="text" name="hiddenContentID" id="hiddenContentID" value="0" hidden>
         <div class="row">
                 <div class="form-group col-sm-12">
-                        <label for="label" class="form-label">Label</label>
+                        <label for="label" class="form-label">Supporting Information</label>
                         <select class="form-select" name="label" id="label" required="required">
-                                <option value="0">Select the Label</option>
+                                <option value="0">Select the Information</option>
                         </select>
                 </div>
         </div>
@@ -142,7 +142,7 @@
                                 }
                         }
                 } else {
-                        swal('Warning', 'Please add the labels.', 'warning');
+                        swal('Warning', 'Please add the supporting information.', 'warning');
                 }
         })
 
