@@ -7,14 +7,14 @@
                 z-index: 100;
         }
 
-        .loading .container {
+        .loading .container1 {
                 height: 15px;
                 width: 105px;
                 display: flex;
                 position: relative;
         }
 
-        .loading .container .circle {
+        .loading .container1 .circle {
                 width: 15px;
                 height: 15px;
                 border-radius: 50%;
@@ -23,14 +23,14 @@
                 margin-right: 30px;
         }
 
-        .loading .container .circle:first-child {
+        .loading .container1 .circle:first-child {
                 position: absolute;
                 top: 0;
                 left: 0;
                 animation: grow 500ms linear 0ms infinite;
         }
 
-        .loading .container .circle:last-child {
+        .loading .container1 .circle:last-child {
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -116,7 +116,7 @@
 
 
         <div class="loading">
-                <div class="container">
+                <div class="container1">
                         <span class="circle"></span>
                         <span class="circle"></span>
                         <span class="circle"></span>
