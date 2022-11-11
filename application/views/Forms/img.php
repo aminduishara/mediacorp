@@ -482,12 +482,20 @@
 
         $("#btnSubmit").click(function() {
                 var image1 = document.getElementById("ImgFile1").files.length;
-                if ($('#tblVideoLinks tbody tr').length > 0 && image1 > 0) {
-                        $('#modalView').modal('show');
-                } else {
-                        swal('Warning', 'Please upload the image/s and add the YouTube link', 'warning');
+                var image2 = document.getElementById("ImgFile2").files.length;
+                if ($('#tblVideoLinks tbody tr').length <= 0) {
+                        swal('Warning', 'Please add the YouTube link', 'warning');
                         return;
                 }
+                if (image1 <= 0) {
+                        swal('Warning', 'Please upload the Programme End Frame', 'warning');
+                        return;
+                }
+                if ($('input[name="aplicent_type"]:checked').val() == 1 && image2 <= 0) {
+                        swal('Warning', 'Please upload the Performer’s Photo', 'warning');
+                        return;
+                }
+                $('#modalView').modal('show');
         });
 
         $("#btnAgree").click(function() {
