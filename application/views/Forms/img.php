@@ -5,6 +5,9 @@
                 background-color: teal;
                 position: absolute;
                 z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
         }
 
         .loading .container1 {
