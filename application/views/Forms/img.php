@@ -275,6 +275,7 @@
 
 <script type="text/javascript">
         $(document).ready(function() {
+                $('.loading').css('display', 'flex');
                 var aplicentID = document.getElementById("aplicentID").value;
                 console.log("L A_ID : " + aplicentID);
                 if (aplicentID != '-1') {
