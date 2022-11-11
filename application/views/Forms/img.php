@@ -1,10 +1,63 @@
 <style>
         .loading {
-                width: 100%;
-                height: 100%;
+                width: 93%;
+                height: 93%;
                 background-color: teal;
                 position: absolute;
                 z-index: 100;
+        }
+
+        .loading .container {
+                height: 15px;
+                width: 105px;
+                display: flex;
+                position: relative;
+        }
+
+        .loading .container .circle {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background-color: #fff;
+                animation: move 500ms linear 0ms infinite;
+                margin-right: 30px;
+        }
+
+        .loading .container .circle:first-child {
+                position: absolute;
+                top: 0;
+                left: 0;
+                animation: grow 500ms linear 0ms infinite;
+        }
+
+        .loading .container .circle:last-child {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-right: 0;
+                animation: grow 500ms linear 0s infinite reverse;
+        }
+
+        @keyframes grow {
+                from {
+                        transform: scale(0, 0);
+                        opacity: 0;
+                }
+
+                to {
+                        transform: scale(1, 1);
+                        opacity: 1;
+                }
+        }
+
+        @keyframes move {
+                from {
+                        transform: translateX(0px);
+                }
+
+                to {
+                        transform: translateX(45px);
+                }
         }
 </style>
 <div class="p-5" style="position: relative;">
@@ -62,7 +115,14 @@
 
 
 
-        <div class="loading"></div>
+        <div class="loading">
+                <div class="container">
+                        <span class="circle"></span>
+                        <span class="circle"></span>
+                        <span class="circle"></span>
+                        <span class="circle"></span>
+                </div>
+        </div>
         <div class="col-md-12" style="min-height: 60vh;">
                 <div class="row">
                         <div class="col-md-4">
