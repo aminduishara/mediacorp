@@ -30,6 +30,26 @@
                         </div>
                 </div>
         </div>
+        <div class="modal fade" id="modalImage" tabindex="-1" role="dialog" aria-labelledby="modalViewLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+                                <div class="modal-header" style="background-color: #5DADE2; padding-bottom: 10px;">
+                                        <h5 class="modal-title" style="color: white;" id="modalViewLabel">How to copy the URL</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                                <div class="modal-body pb-0">
+                                        <div class="col-md-12">
+                                                <img src="<?php echo base_url(); ?>assets/imglink.jpg" alt="link image" style="object-fit: contain; width: 10rem; 10rem;">
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" onclick="$('#modalView').modal('hide');">Close</button>
+                                </div>
+                        </div>
+                </div>
+        </div>
 
 
 
@@ -123,6 +143,7 @@
                                                                 <input class="form-control" type="text" id="videoText" name="videoText" placeholder="https://youtu.be/xxxxxxxxxxx">
                                                         </div>
                                                         <div class="col-md-3 text-end">
+                                                                <button type="button" class="btn btn-info" id="btnInfo" name="btnInfo">?</button>
                                                                 <button type="button" class="btn btn-warning" id="btnAddVideoLink" name="btnAddVideoLink">Add</button>
                                                                 <button type="button" class="btn btn-warning" id="btnUpdateVideoLink" name="btnUpdateVideoLink" style="display: none">Update</button>
                                                         </div>
@@ -605,5 +626,9 @@
                                 console.error(e);
                         }
                 });
+        })
+
+        $('#btnInfo').click(function() {
+                $('#modalImage').modal('show');
         })
 </script>

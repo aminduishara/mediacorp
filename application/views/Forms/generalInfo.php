@@ -491,7 +491,7 @@
 
                     document.getElementById("butAdd").disabled = false;
                     var json_data = JSON.parse(data);
-                    document.getElementById('label').innerHTML = '<option value="0">Select the Label</option>' + json_data["dataLabel"].map(
+                    document.getElementById('label').innerHTML = '<option value="0">Select</option>' + json_data["dataLabel"].map(
                         post => {
                             if (post["aplicent_id"] == null) {
                                 return `<option value="${post["cat_mast_label_id"]}">${post["cat_mast_label_name"]}</option>`;
