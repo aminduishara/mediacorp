@@ -327,8 +327,13 @@
                 document.getElementById("project_name").focus();
                 return;
             }
-            if (!fullName && (type == 1 || type == 3)) {
+            if (!fullName && type == 1) {
                 alert('Please enter a name of presenter/actor');
+                document.getElementById("first_name").focus();
+                return;
+            }
+            if (!fullName && type == 3) {
+                alert('Please enter a name(s) of production personnel');
                 document.getElementById("first_name").focus();
                 return;
             }
