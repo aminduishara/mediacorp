@@ -111,14 +111,14 @@
                                         <h3>YouTube Links <span style="font-size: 1rem; font-weight: normal;">Unlisted YouTube Videos</span></h3>
                                         <div class="col-md-12">
                                                 <div class="row">
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-4" style="display: none">
                                                                 <select class="form-select" id="cmbVideoType" name="cmbVideoType">
-                                                                        <option value="">Select Type</option>
+                                                                        <!-- <option value="">Select Type</option> -->
                                                                         <option value="1">YouTube</option>
                                                                         <!-- <option value="2">Audio</option> -->
                                                                 </select>
                                                         </div>
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-9">
                                                                 <input type="hidden" id="txtVideoID">
                                                                 <input class="form-control" type="text" id="videoText" name="videoText" placeholder="https://youtu.be/xxxxxxxxxxx">
                                                         </div>
@@ -135,7 +135,7 @@
                                                                 <thead>
                                                                         <tr>
                                                                                 <th hidden>ID</th>
-                                                                                <th>Type</th>
+                                                                                <th hidden>Type</th>
                                                                                 <th>Link</th>
                                                                                 <th width="12%">Action</th>
                                                                         </tr>
@@ -460,7 +460,13 @@
         }
 
         $("#btnSubmit").click(function() {
-                $('#modalView').modal('show');
+                var image1 = document.getElementById("ImgFile1").files.length;
+                if ($('#tblVideoLinks tbody tr').length > 0 && image1 > 0) {
+                        $('#modalView').modal('show');
+                } else {
+                        swal('Warning', 'Please upload the image/s and add the YouTube link', 'warning');
+                        return;
+                }
         });
 
         $("#btnAgree").click(function() {
@@ -498,7 +504,7 @@
                                                 <tr>
                                                         <td hidden>${index['videolink_id']}</td>
                                                         <td hidden>${index['videolink_type']}</td>
-                                                        <td>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
+                                                        <td hidden>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
                                                         <td>${index['videolink_url']}</td>
                                                         <td><button type="button" class="btn btn-info btn-sm" id="btnVideoEdit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm" id="btnVideoRemove"><i class="fa fa-remove"></i></button></td>
                                                 </tr>
