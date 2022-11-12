@@ -4,8 +4,8 @@
         <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalEditLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
-                    <div class="modal-header bg-info" style="padding-bottom: 10px;">
-                        <h5 class="modal-title" style="color: white;" id="modalEditLabel">Edit Aplicent</h5>
+                    <div class="modal-header bg-primary" style="padding-bottom: 10px;">
+                        <h5 class="modal-title" style="color: white;" id="modalEditLabel">Edit Application</h5>
                         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button> -->
