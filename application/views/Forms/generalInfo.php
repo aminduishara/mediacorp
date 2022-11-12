@@ -567,13 +567,30 @@
                         console.log(response);
 
                         if (response != null) {
-
                             alert("Aplicent_id : " + response["aplicent_id"]);
 
                             $('#refNo').val(response["aplicent_ref"]);
+                            $('#aplicentID').val(response["aplicent_id"]); // Hidden Head ID
+
+                            if (response["aplicent_type"] == "1") {
+                                $("#category").val(response["aplicant_cat"]);
+                                $("#project_name").val(response["product_name"]);
+                                $("#aplicent_date").val(response["aplicent_date"]);
+                                $("#applicant_email").val(response["reg_email"]);
+                                $("#organization").val(response["aplicent_profile"]);
+                                $("#address_line1").val(response["aplicent_add1"]);
+                                $("#address_line2").val(response["aplicent_add2"]);
+                                $("#zip_code").val(response["aplicent_postal"]);
+                                $("#first_name").val(response["aplicant_nam"]);
+                                $("#last_name").val(response["aplicent_con_lname"]);
+                                $("#designation").val(response["aplicent_con_desig"]);
+                                $("#mobile_no").val(response["aplicent_con_mobile"]);
+                                $("#telephone_no").val(response["aplicent_con_telno"]);
+                                // $("#contact_person").val(response[""]);
+                            }
 
                         } else {
-                            swal('Info', 'No Applicant.', 'info');
+                            swal('No Applicant Found.', '', 'info');
                         }
                     },
                     error: function(e) {
@@ -582,7 +599,7 @@
                     }
                 });
             } else {
-                swal('Warning', 'Please enter the Ref. No & Email.', 'warning');
+                swal('Please enter the Ref. No & Email.', '', 'warning');
             }
         });
 
