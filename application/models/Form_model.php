@@ -239,6 +239,30 @@ class Form_model extends CI_Model
     $query = $this->db->query("SELECT cat_mast_label_id, cat_mast_label_name FROM `cat_mast_label` WHERE `cat_mast_label_required` = 1 AND cat_id = $id");
     return $query;
   }
+
+
+  public function getAplicentData($refNo, $email) // new-line
+  {
+    $query = $this->db->query("SELECT * FROM aplicent_reg WHERE aplicent_ref = '$refNo' AND reg_email = '$email'");
+    return $query;
+  }
+  
+  // public function saveData($data1, $data2)
+  // {
+  //   $insertQuery = $this->db->insert('aplicent_reg', $data1);
+  //   $insert_id = (int)$this->db->insert_id();
+  //   $refno = $insert_id . '-' . $data2;
+  //   $query = $this->db->query("UPDATE `aplicent_reg` SET `aplicent_ref` ='$refno', `aplicent_refno` = '$insert_id' WHERE `aplicent_id` = '$insert_id'");
+
+  //   $data =  array(
+  //     'aplicent_id' => $insert_id,
+  //     'insertQuery' => $insertQuery,
+  //     'updatequery' => $query,
+  //     'refno' => $refno
+  //   );
+
+  //   echo json_encode($data);
+  // }
 }
 
 /* End of file Form_model.php */

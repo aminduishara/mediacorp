@@ -460,6 +460,55 @@ class Form extends CI_Controller
     $data = $this->Form_model->checkrequiredLabel($_POST['id']);
     echo json_encode($data->result());
   }
+
+
+
+
+  public function getAplicentData() // new-line
+  {
+    $refNo = $this->input->post('refNo', TRUE);
+    $email = $this->input->post('emailAddress', TRUE);
+
+    $this->load->model('Form_model');
+    $result = $this->Form_model->getAplicentData($refNo, $email);
+    return $result;
+  }
+
+  // public function SaveFormData()
+  // {
+
+  //   $data1 = array(
+  //     'date_time' => date('Y-m-d H:i:s'),
+  //     'aplicant_nam' => $this->input->post('fullName', TRUE),
+  //     'aplicent_type' => $this->input->post('type', TRUE),
+  //     'aplicent_date' => $this->input->post('aplicent_date', TRUE),
+  //     'mas_economy_id' => 1,
+  //     'aplicant_cat' => $this->input->post('category', TRUE),
+  //     'sub_cat_mast_id' => $this->input->post('category', TRUE),
+  //     'product_name' => $this->input->post('projectName', TRUE),
+  //     'reg_email' => $this->input->post('applicantEmail', TRUE),
+  //     'aplicent_profile' => $this->input->post('organization', TRUE),
+  //     'aplicent_add1' => $this->input->post('address1', TRUE),
+  //     'aplicent_add2' => $this->input->post('address2', TRUE),
+  //     'aplicent_postal' => $this->input->post('zipCode', TRUE),
+  //     'aplicent_con_fname' => $this->input->post('fullName', TRUE),
+  //     'aplicent_con_lname' => $this->input->post('lastName', TRUE),
+  //     'aplicent_con_desig' => $this->input->post('designation', TRUE),
+  //     'aplicent_con_mobile' => $this->input->post('mobileNo', TRUE),
+  //     'aplicent_con_telno' => $this->input->post('teleNo', TRUE),
+  //     'aplicent_status' => 1,
+  //     'evaluationsid' => 1
+  //   );
+
+  //   $data2 = $this->input->post('id', TRUE);
+
+  //   $this->load->model('Form_model');
+
+  //   $result = $this->Form_model->saveData($data1, $data2);
+
+  //   return $result;
+  // }
+
 }
 
 

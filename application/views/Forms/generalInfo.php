@@ -1,4 +1,35 @@
     <form class="rounded p-4">
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalEditLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #1ABC9C; padding-bottom: 10px;">
+                        <h5 class="modal-title" style="color: white;" id="modalEditLabel">Edit Aplicent</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body pb-0">
+                        <div class="col-md-12 row">
+                            <div class="col-12">
+                                <label for="txtRefNo">Ref. No:</label>
+                                <input type="text" class="form-control" id="txtRefNo" name="txtRefNo" placeholder="Ref. No">
+                            </div>
+                            <div class="col-12">
+                                <label for="txtEmailAddress">Email Address:</label>
+                                <input type="text" class="form-control" id="txtEmailAddress" name="txtEmailAddress" placeholder="Email Address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="btnCheck" disabled>Check</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="col">
@@ -175,11 +206,15 @@
 
         <div class="row mt-4 mb-4">
             <div class="form-group col-md-12 text-end">
+                
+                <input type="button" class="text-white btn btn-md btn-warning px-5 mt-5" value="Edit" id="butViewEdit">
+                
                 <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Save & Next" id="butsave">
             </div>
         </div>
     </form>
     <script>
+
         $(document).ready(function() {
 
             $.ajax({
@@ -508,4 +543,40 @@
             });
 
         }
+
+
+        $('#butViewEdit').click(function() {
+            $('#modalEdit').modal('show');
+        });
+
+        $('#btnCheck').click(function() {
+            var refNo = $('#txtRefNo').val();
+            var emailAddress = $('#txtEmailAddress').val();
+
+            if (refNo != "" && emailAddress != "") {
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url('/index.php/Form/getAplicentData'); ?>",
+                    data: {
+                        refNo: refNo,
+                        emailAddress: emailAddress
+                    },
+                    success: function(data) {
+
+                        var json_result = JSON.parse(res);
+                        // console.log(json_result);
+                        // $('#aplicentID').val(json_result["aplicent_id"]);
+                        
+                        alert("Aplicent_id : " + json_result["aplicent_id"]);
+
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }
+                });
+            } else {
+                swal('Warning', 'Please enter the Ref. No & Email.', 'warning');
+            }
+        });
+
     </script>
