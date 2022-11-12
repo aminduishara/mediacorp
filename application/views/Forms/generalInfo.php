@@ -4,7 +4,7 @@
         <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalEditLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #1ABC9C; padding-bottom: 10px;">
+                    <div class="modal-header bg-info" style="padding-bottom: 10px;">
                         <h5 class="modal-title" style="color: white;" id="modalEditLabel">Edit Aplicent</h5>
                         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
