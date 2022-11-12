@@ -456,7 +456,7 @@
                         if (image2) {
                                 let files = new FormData()
 
-                                files.append('fileToUpload', $('#ImgFile1')[0].files[0]);
+                                files.append('fileToUpload', $('#ImgFile2')[0].files[0]);
                                 files.append('name', Filename2);
                                 $.ajax({
                                         type: 'post',
@@ -758,13 +758,11 @@
                                                 <td><button type="button" class="btn btn-info btn-sm" id="btnVideoEdit"><i class="fa fa-pencil"></i></button>
                                                         <button type="button" class="btn btn-danger btn-sm" id="btnVideoRemove"><i class="fa fa-remove"></i></button>
                                                 </td>
-                                        </tr>`)
-                                );
+                                        </tr>`));
                         },
                         error: function(e) {
                                 console.error(e);
                         }
                 });
         }
-
 </script>
