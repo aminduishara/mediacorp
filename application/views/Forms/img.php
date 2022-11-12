@@ -569,15 +569,17 @@
         $("#btnSubmit").click(function() {
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
+                var imageH1 = $('#ImgFileHidden').val();
+                var imageH2 = $('#ImgFileHidden').val();
                 if ($('#tblVideoLinks tbody tr').length <= 0) {
                         swal('Warning', 'Please add the YouTube link', 'warning');
                         return;
                 }
-                if (image1 <= 0) {
+                if (image1 <= 0 || imageH1 != "") {
                         swal('Warning', 'Please upload the Programme End Frame', 'warning');
                         return;
                 }
-                if ($('input[name="aplicent_type"]:checked').val() == 1 && image2 <= 0) {
+                if ($('input[name="aplicent_type"]:checked').val() == 1 && (image2 <= 0 || imageH2 != "")) {
                         swal('Warning', 'Please upload the Performer’s Photo', 'warning');
                         return;
                 }
