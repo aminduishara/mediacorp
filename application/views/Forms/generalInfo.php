@@ -583,19 +583,19 @@
                             aplicent_Type_Change(response["aplicent_type"]);
 
                             // $("#category").val(response["aplicant_cat"]); // use changeCategoryDDL(a, b)
-                            $("#project_name").val(response["product_name"]);
-                            $("#aplicent_date").val(response["aplicent_date"]);
-                            $("#applicant_email").val(response["reg_email"]);
-                            $("#organization").val(response["aplicent_profile"]);
-                            $("#address_line1").val(response["aplicent_add1"]);
-                            $("#address_line2").val(response["aplicent_add2"]);
-                            $("#zip_code").val(response["aplicent_postal"]);
-                            $("#first_name").val(response["aplicant_nam"]);
-                            $("#last_name").val(response["aplicent_con_lname"]);
-                            $("#designation").val(response["aplicent_con_desig"]);
-                            $("#mobile_no").val(response["aplicent_con_mobile"]);
-                            $("#telephone_no").val(response["aplicent_con_telno"]);
-                            $("#contact_person").val(response["contact_person"]);
+                            $("#project_name").attr('value', response["product_name"]);
+                            $("#aplicent_date").attr('value', response["aplicent_date"]);
+                            $("#applicant_email").attr('value', response["reg_email"]);
+                            $("#organization").attr('value', response["aplicent_profile"]);
+                            $("#address_line1").attr('value', response["aplicent_add1"]);
+                            $("#address_line2").attr('value', response["aplicent_add2"]);
+                            $("#zip_code").attr('value', response["aplicent_postal"]);
+                            $("#first_name").attr('value', response["aplicant_nam"]);
+                            $("#last_name").attr('value', response["aplicent_con_lname"]);
+                            $("#designation").attr('value', response["aplicent_con_desig"]);
+                            $("#mobile_no").attr('value', response["aplicent_con_mobile"]);
+                            $("#telephone_no").attr('value', response["aplicent_con_telno"]);
+                            $("#contact_person").attr('value', response["contact_person"]);
 
                             changeCategoryDDL(response["aplicent_type"], response["aplicant_cat"]);
 
