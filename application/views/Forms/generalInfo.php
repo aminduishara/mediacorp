@@ -209,7 +209,7 @@
         <div class="row mt-4 mb-4">
             <div class="form-group col-md-12 text-end">
 
-                <input type="button" class="text-white btn btn-md btn-warning px-5 mt-5 float-left" value="Edit Application" id="butViewEdit">
+                <input type="button" class="text-white btn btn-md btn-warning px-5 mt-5 float-start" value="Edit Application" id="butViewEdit">
 
                 <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Save & Next" id="butsave">
             </div>
