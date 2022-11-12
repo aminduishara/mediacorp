@@ -564,13 +564,17 @@
                     dataType: 'json',
                     async: true,
                     success: function(response) {
-
                         console.log(response);
 
-                        alert("Aplicent_id : " + response["aplicent_id"]);
+                        if (response != null) {
 
-                        $('#refNo').val(response["aplicent_ref"]);
+                            alert("Aplicent_id : " + response["aplicent_id"]);
 
+                            $('#refNo').val(response["aplicent_ref"]);
+
+                        } else {
+                            swal('Info', 'No Applicant.', 'info');
+                        }
                     },
                     error: function(e) {
                         alert('Error Occurred');
