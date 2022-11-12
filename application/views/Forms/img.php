@@ -523,7 +523,8 @@
 
                                 alert(filename1 + " :: " + filename2);
                                 alert(imageH1 + " :: " + imageH2);
-
+                                alert(image1 + " :: " + image2);
+                                
                         // jQuery.ajax({
                         //         type: 'POST',
                         //         url: "<?php echo base_url('/index.php/Form/SaveImagesToDB'); ?>",
