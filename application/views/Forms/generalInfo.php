@@ -561,6 +561,8 @@
                         refNo: refNo,
                         emailAddress: emailAddress
                     },
+                    dataType: 'json',
+                    async: true,
                     success: function(response) {
 
                         console.log(response);
