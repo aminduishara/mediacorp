@@ -653,8 +653,9 @@
             //         return;
             // }
 
-            alert ('<?php echo base_url() ?>' + "uploads/link1");
-
+            let url = '<?php echo base_url() ?>' + "uploads/" + link1;
+            alert (url);
+            Image1.src = URL.createObjectURL(url);
         }
 
     </script>
