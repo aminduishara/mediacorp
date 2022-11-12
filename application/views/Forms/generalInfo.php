@@ -6,9 +6,9 @@
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: #1ABC9C; padding-bottom: 10px;">
                         <h5 class="modal-title" style="color: white;" id="modalEditLabel">Edit Aplicent</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                        </button>
+                        </button> -->
                     </div>
                     <div class="modal-body pb-0">
                         <div class="col-md-12 row">
@@ -23,8 +23,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="btnCheck" disabled>Check</button>
+                        <button type="button" class="btn btn-primary" id="btnCheck">Check</button>
+                        <button type="button" class="btn btn-secondary" onclick="$('#modalEdit').modal('hide');">Close</button>
                     </div>
                 </div>
             </div>
@@ -566,6 +566,8 @@
                         var json_result = JSON.parse(res);
                         // console.log(json_result);
                         // $('#aplicentID').val(json_result["aplicent_id"]);
+                        
+                        $('#refNo').val(json_result["aplicent_ref"]);
                         
                         alert("Aplicent_id : " + json_result["aplicent_id"]);
 
