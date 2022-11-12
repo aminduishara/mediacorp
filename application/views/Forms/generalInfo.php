@@ -209,16 +209,16 @@
         <div class="row mt-4 mb-4">
             <div class="form-group col-md-12 text-end">
 
-                <input type="button" class="text-white btn btn-md btn-warning px-5 mt-5 float-start" value="Edit Application" id="butViewEdit" data-bs-toggle="popover" title="Edit Application" data-bs-content="Edit your existing application.">
+                <input type="button" class="text-white btn btn-md btn-warning px-5 mt-5 float-start" value="Edit Application" id="butViewEdit" data-bs-toggle="tooltip" title="Edit your existing Application" data-bs-placement="top">
 
                 <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Save & Next" id="butsave">
             </div>
         </div>
     </form>
     <script>
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-        var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl)
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
         })
         $(document).ready(function() {
 
