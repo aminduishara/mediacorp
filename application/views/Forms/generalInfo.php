@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="btnCheck">Check</button>
+                        <button type="button" class="btn btn-primary" id="btnCheck">Edit</button>
                         <button type="button" class="btn btn-secondary" onclick="$('#modalEdit').modal('hide');">Close</button>
                     </div>
                 </div>
