@@ -606,7 +606,7 @@
                             updateVideoLinkTable(response["aplicent_id"]);
 
                         } else {
-                            swal('No Applicant Found.', '', 'info');
+                            swal('Warning', 'Application not found.', 'warning');
                         }
                     },
                     error: function(e) {
