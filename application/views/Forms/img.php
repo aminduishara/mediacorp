@@ -575,11 +575,11 @@
                         swal('Warning', 'Please add the YouTube link', 'warning');
                         return;
                 }
-                if (image1 <= 0 || imageH1 != "") {
+                if (image1 <= 0 || imageH1 == "") {
                         swal('Warning', 'Please upload the Programme End Frame', 'warning');
                         return;
                 }
-                if ($('input[name="aplicent_type"]:checked').val() == 1 && (image2 <= 0 || imageH2 != "")) {
+                if ($('input[name="aplicent_type"]:checked').val() == 1 && (image2 <= 0 || imageH2 == "")) {
                         swal('Warning', 'Please upload the Performer’s Photo', 'warning');
                         return;
                 }
