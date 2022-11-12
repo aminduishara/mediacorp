@@ -148,6 +148,7 @@
                                                                         <div class="row">
                                                                                 <div class="col-md-8">
                                                                                         <input class="form-control" type="file" id="ImgFile<?php echo $i + 1 ?>" onchange="preview(<?php echo $i + 1 ?>)">
+                                                                                        <input type="hidden" id="ImgFileHidden<?php echo $i + 1 ?>" value=""> <!-- Hidden File Name for Edit -->
                                                                                 </div>
                                                                                 <div class="col-md-2">
                                                                                         <button type="button" class="btn btn-danger" onclick="clearImage(<?php echo $i + 1 ?>)"><i class="fa fa-remove"></i></button>
@@ -419,9 +420,12 @@
                 // var image3 = document.getElementById("ImgFile3").files.length;
                 var aplicentID = document.getElementById("aplicentID").value;
 
+                var imageH1 = $('#ImgFileHidden').val();
+                var imageH2 = $('#ImgFileHidden').val();
+
                 let url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
 
-                if (image1 != 0 && image2 != 0) {
+                if ((image1 != 0 || imageH1 != "") && (image2 != 0 || imageH1 != "")) {
 
                         var Filename1 = aplicentID + "-" + $('#ImgFile1').val().split('\\').pop();
 
@@ -516,25 +520,29 @@
                         //                         console.log(error);
                         //                 }
                         // });
-                        jQuery.ajax({
-                                type: 'POST',
-                                url: "<?php echo base_url('/index.php/Form/SaveImagesToDB'); ?>",
-                                dataType: 'html',
-                                data: {
-                                        img1: filename1,
-                                        img2: filename2,
-                                        img3: '',
-                                        aplicentID: aplicentID
-                                },
-                                success: function(res) {
 
-                                        console.log(JSON.parse(res));
+                                alert(filename1 + " :: " + filename2);
+                                alert(imageH1 + " :: " + imageH2);
 
-                                },
-                                error: function() {
-                                        console.log("Fail To Update the DB");
-                                }
-                        });
+                        // jQuery.ajax({
+                        //         type: 'POST',
+                        //         url: "<?php echo base_url('/index.php/Form/SaveImagesToDB'); ?>",
+                        //         dataType: 'html',
+                        //         data: {
+                        //                 img1: filename1,
+                        //                 img2: filename2,
+                        //                 img3: '',
+                        //                 aplicentID: aplicentID
+                        //         },
+                        //         success: function(res) {
+
+                        //                 console.log(JSON.parse(res));
+
+                        //         },
+                        //         error: function() {
+                        //                 console.log("Fail To Update the DB");
+                        //         }
+                        // });
 
 
                 }

@@ -641,21 +641,17 @@
             });
         }
 
-        function previewImgs(link1, link2) {
-
-            // if (id == 1) {
-            //         Image1.src = URL.createObjectURL(event.target.files[0]);
-            // } else if (id == 2) {
-            //         Image2.src = URL.createObjectURL(event.target.files[0]);
-            // } else if (id == 3) {
-            //         // Image3.src = URL.createObjectURL(event.target.files[0]);
-            // } else {
-            //         return;
-            // }
-
-            let url = '<?php echo base_url() ?>' + "uploads/" + link1;
-            alert (url);
-            $("#Image1").attr("src",url);
+        function previewImgs(fileName1, fileName2) {
+            if (fileName1 != "") {
+                let url1 = '<?php echo base_url() ?>' + "uploads/" + fileName1;
+                $("#Image1").attr("src",url1);
+                $('#ImgFileHidden1').val(fileName1);
+            }
+            if (fileName2 != "") {
+                let url2 = '<?php echo base_url() ?>' + "uploads/" + fileName2;
+                $("#Image2").attr("src",url2);
+                $('#ImgFileHidden2').val(fileName2);
+            }
         }
 
     </script>
