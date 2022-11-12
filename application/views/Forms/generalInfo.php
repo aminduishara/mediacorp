@@ -11,14 +11,16 @@
                         </button> -->
                     </div>
                     <div class="modal-body pb-0">
-                        <div class="col-md-12 row">
-                            <div class="col-md-5">
-                                <label for="txtRefNo">Ref. No:</label>
-                                <input type="text" class="form-control" id="txtRefNo" name="txtRefNo" placeholder="Ref. No">
-                            </div>
-                            <div class="col-md-7">
-                                <label for="txtEmailAddress">Email Address:</label>
-                                <input type="text" class="form-control" id="txtEmailAddress" name="txtEmailAddress" placeholder="Email Address">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for="txtRefNo">Ref. No:</label>
+                                    <input type="text" class="form-control" id="txtRefNo" name="txtRefNo" placeholder="Ref. No">
+                                </div>
+                                <div class="col-md-7">
+                                    <label for="txtEmailAddress">Email Address:</label>
+                                    <input type="text" class="form-control" id="txtEmailAddress" name="txtEmailAddress" placeholder="Email Address">
+                                </div>
                             </div>
                         </div>
                     </div>
