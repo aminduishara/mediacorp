@@ -602,6 +602,7 @@
                             $('#modalEdit').modal('hide');
 
                             RefreshTable();
+                            previewImgs(response["aplicent_image"], response["aplicent_image2"]);
                             updateVideoLinkTable(response["aplicent_id"]);
 
                         } else {
@@ -638,6 +639,22 @@
                     console.log(e);
                 }
             });
+        }
+
+        function previewImgs(link1, link2) {
+
+            // if (id == 1) {
+            //         Image1.src = URL.createObjectURL(event.target.files[0]);
+            // } else if (id == 2) {
+            //         Image2.src = URL.createObjectURL(event.target.files[0]);
+            // } else if (id == 3) {
+            //         // Image3.src = URL.createObjectURL(event.target.files[0]);
+            // } else {
+            //         return;
+            // }
+
+            alert ('<?php echo base_url() ?>' + "uploads/link1");
+
         }
 
     </script>
