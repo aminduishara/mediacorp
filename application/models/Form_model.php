@@ -244,7 +244,7 @@ class Form_model extends CI_Model
   public function getAplicentData($refNo, $email) // new-line
   {
     $query = $this->db->query("SELECT * FROM aplicent_reg WHERE aplicent_ref = '$refNo' AND reg_email = '$email'");
-    return $query;
+    return $query->row();
   }
   
   // public function saveData($data1, $data2)

@@ -565,9 +565,9 @@
 
                         console.log(response);
 
-                        alert("Aplicent_id : " + response['aplicent_id']);
+                        alert("Aplicent_id : " + response["aplicent_id"]);
 
-                        $('#refNo').val(response['aplicent_ref']);
+                        $('#refNo').val(response["aplicent_ref"]);
 
                     },
                     error: function(e) {
