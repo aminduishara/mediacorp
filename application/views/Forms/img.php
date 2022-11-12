@@ -420,8 +420,8 @@
                 // var image3 = document.getElementById("ImgFile3").files.length;
                 var aplicentID = document.getElementById("aplicentID").value;
 
-                var imageH1 = $('#ImgFileHidden').val();
-                var imageH2 = $('#ImgFileHidden').val();
+                var imageH1 = $('#ImgFileHidden1').val();
+                var imageH2 = $('#ImgFileHidden2').val();
 
                 let url = '<?php echo base_url('/index.php/Form/SaveImages'); ?>';
 
@@ -569,8 +569,8 @@
         $("#btnSubmit").click(function() {
                 var image1 = document.getElementById("ImgFile1").files.length;
                 var image2 = document.getElementById("ImgFile2").files.length;
-                var imageH1 = $('#ImgFileHidden').val();
-                var imageH2 = $('#ImgFileHidden').val();
+                var imageH1 = $('#ImgFileHidden1').val();
+                var imageH2 = $('#ImgFileHidden2').val();
                 if ($('#tblVideoLinks tbody tr').length <= 0) {
                         swal('Warning', 'Please add the YouTube link', 'warning');
                         return;
