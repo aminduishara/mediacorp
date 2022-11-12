@@ -521,29 +521,35 @@
                         //                 }
                         // });
 
-                                alert(filename1 + " :: " + filename2);
-                                alert(imageH1 + " :: " + imageH2);
-                                alert(image1 + " :: " + image2);
-                                
-                        // jQuery.ajax({
-                        //         type: 'POST',
-                        //         url: "<?php echo base_url('/index.php/Form/SaveImagesToDB'); ?>",
-                        //         dataType: 'html',
-                        //         data: {
-                        //                 img1: filename1,
-                        //                 img2: filename2,
-                        //                 img3: '',
-                        //                 aplicentID: aplicentID
-                        //         },
-                        //         success: function(res) {
+                        // alert(filename1 + " :: " + filename2);
+                        // alert(imageH1 + " :: " + imageH2);
+                        // alert(image1 + " :: " + image2);
+                        if (image1 == 0) {
+                                filename1 = imageH1;
+                        }
+                        if (image2 == 0) {
+                                filename2 = imageH2;
+                        }
 
-                        //                 console.log(JSON.parse(res));
+                        jQuery.ajax({
+                                type: 'POST',
+                                url: "<?php echo base_url('/index.php/Form/SaveImagesToDB'); ?>",
+                                dataType: 'html',
+                                data: {
+                                        img1: filename1,
+                                        img2: filename2,
+                                        img3: '',
+                                        aplicentID: aplicentID
+                                },
+                                success: function(res) {
 
-                        //         },
-                        //         error: function() {
-                        //                 console.log("Fail To Update the DB");
-                        //         }
-                        // });
+                                        console.log(JSON.parse(res));
+
+                                },
+                                error: function() {
+                                        console.log("Fail To Update the DB");
+                                }
+                        });
 
 
                 }
