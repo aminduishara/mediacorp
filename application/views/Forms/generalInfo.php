@@ -16,7 +16,7 @@
                                 <label for="txtRefNo">Ref. No:</label>
                                 <input type="text" class="form-control" id="txtRefNo" name="txtRefNo" placeholder="Ref. No">
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 pt-2">
                                 <label for="txtEmailAddress">Email Address:</label>
                                 <input type="text" class="form-control" id="txtEmailAddress" name="txtEmailAddress" placeholder="Email Address">
                             </div>
@@ -563,16 +563,17 @@
                     },
                     success: function(data) {
 
-                        var json_result = JSON.parse(res);
+                        // var json_result = JSON.parse(data);
                         // console.log(json_result);
                         // $('#aplicentID').val(json_result["aplicent_id"]);
                         
-                        $('#refNo').val(json_result["aplicent_ref"]);
-                        
-                        alert("Aplicent_id : " + json_result["aplicent_id"]);
+                        $('#refNo').val(data['aplicent_ref']);
+
+                        alert("Aplicent_id : " + data['aplicent_id']);
 
                     },
                     error: function(e) {
+                        alert('Error Occurred');
                         console.log(e);
                     }
                 });

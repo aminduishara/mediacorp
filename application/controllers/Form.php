@@ -470,8 +470,8 @@ class Form extends CI_Controller
     $email = $this->input->post('emailAddress', TRUE);
 
     $this->load->model('Form_model');
-    $result = $this->Form_model->getAplicentData($refNo, $email);
-    return $result;
+    $data = $this->Form_model->getAplicentData($refNo, $email);
+    echo json_encode($data->result());
   }
 
   // public function SaveFormData()
