@@ -580,7 +580,7 @@
                                 $("#aplicent_type3").attr('checked', 'checked');
                             }
                             
-                            $("#category").val(response["aplicant_cat"]);
+                            // $("#category").val(response["aplicant_cat"]); // use changeCategoryDDL(a, a)
                             $("#project_name").val(response["product_name"]);
                             $("#aplicent_date").val(response["aplicent_date"]);
                             $("#applicant_email").val(response["reg_email"]);
@@ -595,7 +595,7 @@
                             $("#telephone_no").val(response["aplicent_con_telno"]);
                             // $("#contact_person").val(response[""]);
 
-                            changeCategoryDDL(response["aplicent_type"]);
+                            changeCategoryDDL(response["aplicent_type"], response["aplicant_cat"]);
 
                             $('#modalEdit').modal('hide');
 
@@ -615,7 +615,7 @@
             }
         });
 
-        function changeCategoryDDL(typeID) {
+        function changeCategoryDDL(typeID, selectedVal) {
             $.ajax({
                 type: "post",
                 url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
@@ -625,11 +625,11 @@
                 success: function(data) {
                     var json_data = JSON.parse(data);
                     //console.log(json_data);
-
                     document.getElementById('category').innerHTML = '<option value="">Select Category</option>' + json_data["dataCate"].map(
                         row =>
                         `<option value="${row['cat_id']}">${row['cat_name']}</option>`
                     );
+                    $("#category").val(selectedVal);
                 },
                 error: function(e) {
                     console.log(e);
