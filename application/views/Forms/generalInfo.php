@@ -544,7 +544,7 @@
 
         }
 
-
+        //////////////////////////////////////////  CM  ///////////////////////////////////////////
         $('#butViewEdit').click(function() {
             $('#modalEdit').modal('show');
         });
@@ -573,21 +573,33 @@
                             $('#aplicentID').val(response["aplicent_id"]); // Hidden Head ID
 
                             if (response["aplicent_type"] == "1") {
-                                $("#category").val(response["aplicant_cat"]);
-                                $("#project_name").val(response["product_name"]);
-                                $("#aplicent_date").val(response["aplicent_date"]);
-                                $("#applicant_email").val(response["reg_email"]);
-                                $("#organization").val(response["aplicent_profile"]);
-                                $("#address_line1").val(response["aplicent_add1"]);
-                                $("#address_line2").val(response["aplicent_add2"]);
-                                $("#zip_code").val(response["aplicent_postal"]);
-                                $("#first_name").val(response["aplicant_nam"]);
-                                $("#last_name").val(response["aplicent_con_lname"]);
-                                $("#designation").val(response["aplicent_con_desig"]);
-                                $("#mobile_no").val(response["aplicent_con_mobile"]);
-                                $("#telephone_no").val(response["aplicent_con_telno"]);
-                                // $("#contact_person").val(response[""]);
+                                $("#aplicent_type1").attr('checked', 'checked');
+                            } else if (response["aplicent_type"] == "2") {
+                                $("#aplicent_type2").attr('checked', 'checked');
+                            } else {
+                                $("#aplicent_type3").attr('checked', 'checked');
                             }
+                            
+                            $("#category").val(response["aplicant_cat"]);
+                            $("#project_name").val(response["product_name"]);
+                            $("#aplicent_date").val(response["aplicent_date"]);
+                            $("#applicant_email").val(response["reg_email"]);
+                            $("#organization").val(response["aplicent_profile"]);
+                            $("#address_line1").val(response["aplicent_add1"]);
+                            $("#address_line2").val(response["aplicent_add2"]);
+                            $("#zip_code").val(response["aplicent_postal"]);
+                            $("#first_name").val(response["aplicant_nam"]);
+                            $("#last_name").val(response["aplicent_con_lname"]);
+                            $("#designation").val(response["aplicent_con_desig"]);
+                            $("#mobile_no").val(response["aplicent_con_mobile"]);
+                            $("#telephone_no").val(response["aplicent_con_telno"]);
+                            // $("#contact_person").val(response[""]);
+
+                            changeCategoryDDL(response["aplicent_type"]);
+
+                            $('#modalEdit').modal('hide');
+
+                            RefreshTable();
 
                         } else {
                             swal('No Applicant Found.', '', 'info');
@@ -602,5 +614,27 @@
                 swal('Please enter the Ref. No & Email.', '', 'warning');
             }
         });
+
+        function changeCategoryDDL(typeID) {
+            $.ajax({
+                type: "post",
+                url: "<?php echo base_url('/index.php/Form/GetCate'); ?>",
+                data: {
+                    id: typeID
+                },
+                success: function(data) {
+                    var json_data = JSON.parse(data);
+                    //console.log(json_data);
+
+                    document.getElementById('category').innerHTML = '<option value="">Select Category</option>' + json_data["dataCate"].map(
+                        row =>
+                        `<option value="${row['cat_id']}">${row['cat_name']}</option>`
+                    );
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+        }
 
     </script>
