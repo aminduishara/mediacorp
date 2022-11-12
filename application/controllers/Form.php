@@ -53,6 +53,7 @@ class Form extends CI_Controller
       'aplicent_con_fname' => $this->input->post('fullName', TRUE),
       'aplicent_con_lname' => $this->input->post('lastName', TRUE),
       'aplicent_con_desig' => $this->input->post('designation', TRUE),
+      'contact_person' => $this->input->post('contact_person', TRUE),
       'aplicent_con_mobile' => $this->input->post('mobileNo', TRUE),
       'aplicent_con_telno' => $this->input->post('teleNo', TRUE),
       'aplicent_status' => 1,
@@ -87,6 +88,7 @@ class Form extends CI_Controller
       'aplicent_con_fname' => $this->input->post('fullName', TRUE),
       'aplicent_con_lname' => $this->input->post('lastName', TRUE),
       'aplicent_con_desig' => $this->input->post('designation', TRUE),
+      'contact_person' => $this->input->post('contact_person', TRUE),
       'aplicent_con_mobile' => $this->input->post('mobileNo', TRUE),
       'aplicent_con_telno' => $this->input->post('teleNo', TRUE),
       'aplicent_status' => 1,
@@ -472,6 +474,13 @@ class Form extends CI_Controller
     $this->load->model('Form_model');
     $data = $this->Form_model->getAplicentData($refNo, $email);
     echo json_encode($data);
+  }
+
+  public function getVideoLinksByAplicentID() // new-line
+  {
+    $this->load->model('Form_model');
+    $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
+    echo json_encode($data->result());
   }
 
   // public function SaveFormData()

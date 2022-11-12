@@ -447,6 +447,7 @@
                         fullName: fullName,
                         lastName: lastName,
                         designation: designation,
+                        contact_person: contact_person,
                         mobileNo: mobileNo,
                         teleNo: teleNo,
                         aplicent_date: aplicent_date
@@ -491,6 +492,7 @@
                         fullName: fullName,
                         lastName: lastName,
                         designation: designation,
+                        contact_person: contact_person,
                         mobileNo: mobileNo,
                         teleNo: teleNo,
                         aplicent_date: aplicent_date
@@ -567,7 +569,7 @@
                         console.log(response);
 
                         if (response != null) {
-                            alert("Aplicent_id : " + response["aplicent_id"]);
+                            // alert("Aplicent_id : " + response["aplicent_id"]);
 
                             $('#refNo').val(response["aplicent_ref"]);
                             $('#aplicentID').val(response["aplicent_id"]); // Hidden Head ID
@@ -580,7 +582,7 @@
                                 $("#aplicent_type3").attr('checked', 'checked');
                             }
                             
-                            // $("#category").val(response["aplicant_cat"]); // use changeCategoryDDL(a, a)
+                            // $("#category").val(response["aplicant_cat"]); // use changeCategoryDDL(a, b)
                             $("#project_name").val(response["product_name"]);
                             $("#aplicent_date").val(response["aplicent_date"]);
                             $("#applicant_email").val(response["reg_email"]);
@@ -593,13 +595,14 @@
                             $("#designation").val(response["aplicent_con_desig"]);
                             $("#mobile_no").val(response["aplicent_con_mobile"]);
                             $("#telephone_no").val(response["aplicent_con_telno"]);
-                            // $("#contact_person").val(response[""]);
+                            $("#contact_person").val(response["contact_person"]);
 
                             changeCategoryDDL(response["aplicent_type"], response["aplicant_cat"]);
 
                             $('#modalEdit').modal('hide');
 
                             RefreshTable();
+                            updateVideoLinkTable(response["aplicent_id"]);
 
                         } else {
                             swal('No Applicant Found.', '', 'info');

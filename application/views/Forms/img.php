@@ -718,4 +718,36 @@
         $('#btnInfo').click(function() {
                 $('#modalImage').modal('show');
         })
+
+        function updateVideoLinkTable(aplicentID) {
+                $.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url('/index.php/Form/getVideoLinksByAplicentID'); ?>",
+                        dataType: 'json',
+                        data: {
+                                aplicentID: aplicentID
+                        },
+                        success: function(res) {
+                                // $('#btnAddVideoLink').attr('disabled', false);
+                                $('#btnAddVideoLink').text('Add');
+                                $('#videoText').val('');
+                                $('#cmbVideoType').val('');
+                                $('#tblVideoLinks tbody').empty();
+                                res.forEach((index) => $('#tblVideoLinks tbody').append(`<tr>
+                                                <td hidden>${index['videolink_id']}</td>
+                                                <td hidden>${index['videolink_type']}</td>
+                                                <td hidden>${index['videolink_type'] == 1 ? 'Video':'Audio'}</td>
+                                                <td>${index['videolink_url']}</td>
+                                                <td><button type="button" class="btn btn-info btn-sm" id="btnVideoEdit"><i class="fa fa-pencil"></i></button>
+                                                        <button type="button" class="btn btn-danger btn-sm" id="btnVideoRemove"><i class="fa fa-remove"></i></button>
+                                                </td>
+                                        </tr>`)
+                                );
+                        },
+                        error: function(e) {
+                                console.error(e);
+                        }
+                });
+        }
+
 </script>
