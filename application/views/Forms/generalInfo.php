@@ -12,11 +12,11 @@
                     </div>
                     <div class="modal-body pb-0">
                         <div class="col-md-12 row">
-                            <div class="col-12">
+                            <div class="col-md-5">
                                 <label for="txtRefNo">Ref. No:</label>
                                 <input type="text" class="form-control" id="txtRefNo" name="txtRefNo" placeholder="Ref. No">
                             </div>
-                            <div class="col-12 pt-4">
+                            <div class="col-md-9 pt-4">
                                 <label for="txtEmailAddress">Email Address:</label>
                                 <input type="text" class="form-control" id="txtEmailAddress" name="txtEmailAddress" placeholder="Email Address">
                             </div>
@@ -206,15 +206,14 @@
 
         <div class="row mt-4 mb-4">
             <div class="form-group col-md-12 text-end">
-                
+
                 <input type="button" class="text-white btn btn-md btn-warning px-5 mt-5" value="Edit" id="butViewEdit">
-                
+
                 <input type="button" class="text-white btn btn-md btn-primary px-5 mt-5" value="Save & Next" id="butsave">
             </div>
         </div>
     </form>
     <script>
-
         $(document).ready(function() {
 
             $.ajax({
@@ -643,12 +642,12 @@
         function previewImgs(fileName1, fileName2) {
             if (fileName1 != "") {
                 let url1 = '<?php echo base_url() ?>' + "uploads/" + fileName1;
-                $("#Image1").attr("src",url1);
+                $("#Image1").attr("src", url1);
                 $('#ImgFileHidden1').val(fileName1);
             }
             if (fileName2 != "") {
                 let url2 = '<?php echo base_url() ?>' + "uploads/" + fileName2;
-                $("#Image2").attr("src",url2);
+                $("#Image2").attr("src", url2);
                 $('#ImgFileHidden2').val(fileName2);
             }
         }
@@ -688,5 +687,4 @@
                 }
             });
         }
-
     </script>
