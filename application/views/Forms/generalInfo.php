@@ -569,8 +569,6 @@
                         console.log(response);
 
                         if (response != null) {
-                            // alert("Aplicent_id : " + response["aplicent_id"]);
-
                             $('#refNo').val(response["aplicent_ref"]);
                             $('#aplicentID').val(response["aplicent_id"]); // Hidden Head ID
 
@@ -581,7 +579,8 @@
                             } else {
                                 $("#aplicent_type3").attr('checked', 'checked');
                             }
-                            
+                            aplicent_Type_Change(response["aplicent_type"]);
+
                             // $("#category").val(response["aplicant_cat"]); // use changeCategoryDDL(a, b)
                             $("#project_name").val(response["product_name"]);
                             $("#aplicent_date").val(response["aplicent_date"]);
@@ -652,6 +651,42 @@
                 $("#Image2").attr("src",url2);
                 $('#ImgFileHidden2').val(fileName2);
             }
+        }
+
+        function aplicent_Type_Change(typeID) {
+            $('#first_namelabel').html('Name of Presenter/Actor <span class="text text-danger">*</span>')
+            $('.nrp').show('slow');
+            if (typeID == 1) {
+                $('.pc').show('slow');
+                $('.prc').hide('slow');
+            } else if (typeID == 2) {
+                $('.pc').hide('slow');
+                $('.prc').show('slow');
+            } else if (typeID == 3) {
+                $('.pc').show('slow');
+                $('.prc').show('slow');
+                $('#first_namelabel').html('Name(s) of Production Personnel <span class="text text-danger">*</span>')
+                $('.nrp').hide('slow');
+            } else {
+                $('.pc').hide('slow');
+                $('.prc').hide('slow');
+            }
+            $.ajax({
+                type: "post",
+                url: "<?php echo base_url('/index.php/Form/GetTerms'); ?>",
+                data: {
+                    id: typeID
+                },
+                success: function(data) {
+                    var json_data = JSON.parse(data);
+                    $('#decDeclaration').html(json_data['mas_aplicanttype_termandconditions']);
+                    $('#aplicent_date').attr('min', json_data['mas_aplicanttype_eligibledatefrom']);
+                    $('#aplicent_date').attr('max', json_data['mas_aplicanttype_eligibledateto']);
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
         }
 
     </script>
