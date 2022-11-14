@@ -27,8 +27,8 @@
                     `<tr>
                                                 <th scope="row">${row['mas_reglable_id']}</td>
                                                 <td>${row['mas_reglable_text']}</td>
-                                                <td>${row['mas_reglable_visibility']}</td>
-                                                <td>${row['mas_reglable_required']}</td>
+                                                <td>${row['mas_reglable_visibility'] == 1 ? 'Show' : 'Hidden'}</td>
+                                                <td>${row['mas_reglable_required'] == 1 ? 'Required' : 'Not-Required'}</td>
                                                 <td>${row['mas_reglable_order']}</td>
                                                 <td>
                                                         <button type="button" class="btn btn-primary" onclick="updateLable(${row['mas_reglable_id']},'${row['mas_reglable_text']}',${row['mas_reglable_visibility']},${row['mas_reglable_required']},${row['mas_reglable_order']})">Edit</button>
