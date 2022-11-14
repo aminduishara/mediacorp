@@ -8,17 +8,20 @@
                         </select>
                 </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-2">
                 <div class="col-sm-12">
-                        <div class="wrapper">
+                        <label class="form-label" for="des">Description (Word Count: <span id="requiredCount" style="font-weight: bold;">10</span>)</label>
+                        <textarea name="des" id="des" rows="8" required="required" class="form-control"></textarea>
+                        <div>Remaining Word Count: <span id="typedCount" style="font-weight: bold"></span></div>
+                        <!-- <div class="wrapper">
                                 <div class="input-data">
-                                        <input type="text" name="des" id="des" required="required" onchange="wordCount()" onclick="wordCount()">
+                                        <input type="text" name="des" id="des" onclick="wordCount()" >
                                         <div class="underline"></div>
                                         <label class="form-label">Description</label>
-                                        <div><span id="typedCount"></span>/<span  id="requiredCount"></span></div>
+                                        <div><span id="typedCount"></span>/<span id="requiredCount"></span></div>
 
                                 </div>
-                        </div>
+                        </div> -->
                 </div>
         </div>
         <div class="row mt-4 mb-4">
@@ -61,12 +64,51 @@
 
 
 <script type="text/javascript">
+        var tempDesc = "";
+        $('#des').on('keyup', function(e) {
+                var required = parseInt($('#requiredCount').html().trim());
+                var value = $(this).val().trim();
 
-        function wordCount(){
-                
-                var typedString = document.getElementById('des').value;
+                if (value != "") {
+                        let count = parseInt(value.split(' ').length);
+                        $('#typedCount').html(required - count);
+                        // if (required < count) {
+                        //         alert('Maximum word count exceeded.');
+                        //         return;
+                        // }
+                } else {
+                        $('#typedCount').html('0');
+                }
+        });
+
+        $('#Back').click(function() {
+                $('.nav-tabs li:eq(0) a').tab('show');
+        })
+        $('#Next').click(function() {
+                $.ajax({
+                        type: "post",
+                        url: "<?php echo base_url('/index.php/Form/getUploadTypes'); ?>",
+                        dataType: 'json',
+                        async: true,
+                        success: function(response) {
+                                $('#ddlType').empty();
+                                $('#ddlType').append('<option value="0">Select Type</option>');
+                                response['uploadTypes'].forEach((type) => {
+                                        $('#ddlType').append(`<option value="${type['mas_uploadtype_id']}">${type['mas_uploadtype_des']}</option>`)
+                                });
+                        },
+                        error: function() {
+                                alert("Invalid!");
+                        }
+                });
+                $('.nav-tabs li:eq(2) a').tab('show');
+        })
+
+        $('#label').change(function() {
+                // var typedString = document.getElementById('des').value;
                 var selectedLabel = document.getElementById('label').value;
                 var wordCount = 0;
+                // document.getElementById('typedCount').innerHTML = '0';
 
                 jQuery.ajax({
                         type: 'POST',
@@ -76,35 +118,28 @@
                                 selectedLabel: selectedLabel
                         },
                         success: function(data) {
-                                
                                 json_data = JSON.parse(data);
                                 console.log(json_data["wordCount"][0]["cat_mast_label_conlength"]);
                                 wordCount = json_data["wordCount"][0]["cat_mast_label_conlength"];
 
                                 document.getElementById('requiredCount').innerHTML = wordCount;
-                                document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
-
-
+                                document.getElementById('typedCount').innerHTML = wordCount;
+                                $('#des').attr('placeholder', json_data["wordCount"][0]['cat_mast_label_Instruction']);
+                                // document.getElementById('typedCount').innerHTML = typedString.split(' ').length;
                         },
                         error: function() {
                                 alert('Error Occured. Please try again.');
-                                document.getElementById('des').value = '';
+                                // document.getElementById('des').value = '';
                         }
                 });
-
-
-        }
-
-        $('#Back').click(function() {
-                $('.nav-tabs li:eq(0) a').tab('show');
-        })
-        $('#Next').click(function() {
-                $('.nav-tabs li:eq(2) a').tab('show')
-        })
+        });
 
         $(document).ready(function() {
                 $('#butAdd').click(function() {
-
+                        if (parseInt($('#typedCount').html()) < 0) {
+                                alert('Please add description within the given word count.');
+                                return;
+                        }
                         var id = document.getElementById('refNo').value;
                         var description = document.getElementById('des').value;
                         var label = document.getElementById('label').value;

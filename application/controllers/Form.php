@@ -59,7 +59,8 @@ class Form extends CI_Controller
       'aplicent_con_desig' => $this->input->post('designation', TRUE),
       'aplicent_con_mobile' => $this->input->post('mobileNo', TRUE),
       'aplicent_con_telno' => $this->input->post('teleNo', TRUE),
-      'aplicent_status' => 1
+      'aplicent_status' => 1,
+      'evaluationsid' => 1
     );
 
     $data2 = $this->input->post('id', TRUE);
@@ -69,10 +70,10 @@ class Form extends CI_Controller
     $result = $this->Form_model->saveData($data1, $data2);
 
     return $result;
-    
   }
 
-  public function UpdateAplicentData(){
+  public function UpdateAplicentData()
+  {
 
     $data1 = array(
       'date_time' => $this->input->post('datetime', TRUE),
@@ -107,7 +108,6 @@ class Form extends CI_Controller
     $result = $this->Form_model->updateData($data1, $aplicent_id);
 
     return $result;
-    
   }
 
   public function SaveImages()
@@ -155,7 +155,6 @@ class Form extends CI_Controller
     $result = $this->Form_model->insertDes($data);
 
     return $result;
-
   }
 
   public function GetUserDes()
@@ -230,7 +229,6 @@ class Form extends CI_Controller
     $result = $this->Form_model->UpdateUserDes($contentID, $description, $label);
 
     return $result;
-
   }
 
   public function RemoveDescription()
@@ -287,7 +285,7 @@ class Form extends CI_Controller
 
     $this->load->model('Form_model');
 
-    $result = $this->Form_model->GetCateData();
+    $result = $this->Form_model->GetCateData($_POST['id']);
 
     $json_data['dataCate'] = $result->result();
     echo json_encode($json_data);
@@ -319,7 +317,8 @@ class Form extends CI_Controller
     echo json_encode($json_data);
   }
 
-  public function SaveImagesToDB(){
+  public function SaveImagesToDB()
+  {
     $img1 = $this->input->post('img1', TRUE);
     $img2 = $this->input->post('img2', TRUE);
     $img3 = $this->input->post('img3', TRUE);
@@ -330,20 +329,131 @@ class Form extends CI_Controller
     $result = $this->Form_model->SaveImagesDB($img1, $img2, $img3, $aplicentID);
 
     echo json_encode($result);
-
   }
 
-  public function GetWordCount(){
+  public function GetWordCount()
+  {
     $selectedLabel = $this->input->post('selectedLabel', TRUE);
-    
+
     $this->load->model('Form_model');
     $result = $this->Form_model->GetLabelWordCount($selectedLabel);
 
     $json_data['wordCount'] = $result->result();
     echo json_encode($json_data);
-
   }
 
+
+
+
+  public function getUploadTypes()
+  {
+    $this->load->model('Form_model');
+
+    $result1 = $this->Form_model->GetUploadType();
+    $data['uploadTypes'] = $result1->result();
+    echo json_encode($data);
+  }
+
+  public function getUploadData()
+  {
+    $this->load->model('Form_model');
+
+    $result1 = $this->Form_model->GetUploadType();
+    $data['uploadTypes'] = $result1->result();
+
+    $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
+    $data['uploadFiles'] = $result2->result();
+
+    echo json_encode($data);
+  }
+
+  public function saveAplicentUpload()
+  {
+    ob_start();
+    define('SITE_ROOT', realpath(dirname(__FILE__)));
+    // echo SITE_ROOT;
+    if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
+      $pdfFile = $_FILES['fileToUpload']['name'];
+      switch ($_FILES['fileToUpload']["error"]) {
+        case UPLOAD_ERR_OK:
+          $target = "./uploads/";
+          // $target = $target . basename($_FILES['fileToUpload']['name']);
+          $extension = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
+          $newname = $pdfFile;
+
+          if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target . $newname)) {
+            $status = "The file " . basename($_FILES['fileToUpload']['name']) . " has been uploaded";
+            $imageFileType = pathinfo($newname . '.' . $extension, PATHINFO_EXTENSION);
+          } else {
+            $status = "Sorry, there was a problem uploading your file.";
+          }
+          break;
+      }
+    }
+
+    $this->load->model('Form_model');
+    $insData = array(
+      'aplicent_id' => $_POST['aplicentID'],
+      'aplicent_upload_name' => $pdfFile,
+      'aplicent_upload_status' => 1,
+      'aplicent_upload_remarks' => '',
+      'mas_uploadtype_id' => $_POST['typeID']
+    );
+    $this->Form_model->saveAplicentUpload($insData);
+
+    $result2 = $this->Form_model->GetAplicentUpload($_POST['aplicentID']);
+    $data['uploadFiles'] = $result2->result();
+    echo json_encode($data);
+  }
+
+  public function removeAplicentUpload()
+  {
+    $this->load->model('Form_model');
+    $this->Form_model->deleteAplicentUpload($_POST['id']);
+    echo json_encode(1);
+  }
+
+  function saveVideos()
+  {
+    $this->load->model('Form_model');
+    $insData = array(
+      'aplicent_id' => $_POST['aplicentID'],
+      'videolink_type ' => $_POST['type'],
+      'videolink_youtube' => $_POST['type'] == 1 ? 2 : 1,
+      'videolink_url' => $_POST['text'],
+      'videolink_createdby' => $_POST['aplicentID'],
+      'videolink_createddate' => date('Y-m-d H:i:s')
+    );
+    $this->Form_model->saveVideoLink($insData);
+    $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
+    $d['data'] = $data->result();
+    echo json_encode($d);
+  }
+
+  function updateVideos()
+  {
+    $this->load->model('Form_model');
+    $insData = array(
+      'videolink_type ' => $_POST['type'],
+      'videolink_youtube' => $_POST['type'] == 1 ? 2 : 1,
+      'videolink_url' => $_POST['text'],
+      'videolink_updatedby' => $_POST['aplicentID'],
+      'videolink_updateddate' => date('Y-m-d H:i:s')
+    );
+    $this->Form_model->updateVideoLink($insData, $_POST['id']);
+    $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
+    $d['data'] = $data->result();
+    echo json_encode($d);
+  }
+
+  function removeVideos()
+  {
+    $this->load->model('Form_model');
+    $this->Form_model->removeVideos($_POST['id']);
+    $data = $this->Form_model->getVideoLink($_POST['aplicentID']);
+    $d['data'] = $data->result();
+    echo json_encode($d);
+  }
 }
 
 
