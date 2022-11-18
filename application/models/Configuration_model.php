@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class Lable_model extends CI_Model {
+class Configuration_model extends CI_Model {
 
   // ------------------------------------------------------------------------
 
