@@ -16,7 +16,7 @@
 
         jQuery.ajax({
             type: "POST",
-            url: "<?php echo base_url('/index.php/UpdateLableCtrl/getAllLables'); ?>",
+            url: "<?php echo base_url('/index.php/Configuration/getAllLables'); ?>",
             success: function(data) {
                 var json_data = JSON.parse(data);
                 //console.log(json_data);
@@ -58,7 +58,7 @@
 
     jQuery.ajax({
         type: "POST",
-        url: "<?php echo base_url('/index.php/UpdateLableCtrl/updateLable'); ?>",
+        url: "<?php echo base_url('/index.php/Configuration/updateLable'); ?>",
         dataType: 'json',
         data: {
 
