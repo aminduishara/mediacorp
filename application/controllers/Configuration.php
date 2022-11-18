@@ -77,7 +77,7 @@ class Configuration extends CI_Controller
 
     $this->load->model('Configuration_model');
 
-    $result = $this->Lable_model->GetAllLables();
+    $result = $this->Configuration_model->GetAllLables();
 
     $json_data['allLableData'] = $result->result();
     echo json_encode($json_data);
@@ -94,7 +94,7 @@ class Configuration extends CI_Controller
 
 
     $this->load->model('Configuration_model');
-    $result = $this->Lable_model->updateLable($mas_reglable_id, $mas_reglable_text, $mas_reglable_visibility, $reqStatus,$mas_reglable_order);
+    $result = $this->Configuration_model->updateLable($mas_reglable_id, $mas_reglable_text, $mas_reglable_visibility, $reqStatus,$mas_reglable_order);
 
     return json_encode($result);
 
