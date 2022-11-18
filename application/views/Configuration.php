@@ -184,7 +184,7 @@
                 <input type="text" id="lableID" name="lableID" class="form-control mb-4" hidden>
 
                 <label>Name</label>
-                <input type="text" id="lableName" name="lableName" class="form-control mb-4">
+                <input type="text" id="lableName" name="lableName" class="form-control mb-4" onchange="SetCode()">
 
                 <label>Visibility</label>
                 <select id="lableVisibility" name="lableVisibility" class="form-control mb-4">
