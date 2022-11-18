@@ -134,8 +134,8 @@
                         row => inputType = String(row['mas_inputtype_code'])
                     );
                 
-                    var htmlTag = inputType.replace("txtName", htmlTxtName.trim());
-                    var FinalhtmlTag = htmlTag.replace("txtID", htmlTxtID.trim());
+                    var htmlTag = inputType.replaceAll("txtName", htmlTxtName.trim());
+                    var FinalhtmlTag = htmlTag.replaceAll("txtID", htmlTxtID.trim());
                     
                     $('#labletxtArea').val(FinalhtmlTag)
                 },
