@@ -57,9 +57,29 @@ class Configuration_model extends CI_Model {
     return $query;
   }
 
-  public function updateLable($mas_reglable_id, $mas_reglable_text, $mas_reglable_visibility, $reqStatus,$mas_reglable_order)
+  public function GetAllTypes()
   {    
-    $query = $this->db->query("UPDATE `gen_mas_reglable` SET `mas_reglable_text`= '$mas_reglable_text', `mas_reglable_visibility`=$mas_reglable_visibility, `mas_reglable_required`=$reqStatus, `mas_reglable_order`= $mas_reglable_order WHERE `mas_reglable_id`= $mas_reglable_id");
+    $query = $this->db->query('SELECT * FROM `gen_mas_aplicanttype`');
+    return $query;
+  }
+
+  public function GetAllInputTypes()
+  {    
+    $query = $this->db->query('SELECT * FROM `gen_mas_inputtype`');
+    return $query;
+  }
+
+  public function GetInputTypes($id)
+  {    
+    $query = $this->db->query("SELECT * FROM `gen_mas_inputtype` WHERE `mas_inputtype_id`= $id");
+    return $query;
+  }
+
+  public function updateLable($mas_reglable_id, $mas_reglable_text, $mas_reglable_visibility, $mas_reglable_required, $mas_reglable_order, $mas_reglable_type, $mas_reglable_code)
+  {    
+
+    $sqlquery = "UPDATE `gen_mas_reglable` SET `mas_reglable_text`= '$mas_reglable_text', `mas_reglable_visibility`=$mas_reglable_visibility, `mas_reglable_required`=$mas_reglable_required, `mas_reglable_order`= $mas_reglable_order, `mas_reglable_type`= $mas_reglable_type, `mas_reglable_code`= '$mas_reglable_code' WHERE `mas_reglable_id`= $mas_reglable_id";
+    $query = $this->db->query($sqlquery);
 
     echo json_encode($query);
   }

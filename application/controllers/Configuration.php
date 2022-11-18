@@ -66,7 +66,7 @@ class Configuration extends CI_Controller
 
     // $this->load->model('Configuration_model');
 
-    // $result = $this->Form_model->saveData($data1, $data2);
+    // $result = $this->Configuration_model->saveData($data1, $data2);
 
     // return $result;
     
@@ -89,18 +89,61 @@ class Configuration extends CI_Controller
     $mas_reglable_id = $this->input->post('mas_reglable_id', TRUE);
     $mas_reglable_text = $this->input->post('mas_reglable_text', TRUE);
     $mas_reglable_visibility = $this->input->post('mas_reglable_visibility', TRUE);
-    $reqStatus = $this->input->post('reqStatus', TRUE);
-    $mas_reglable_order = $this->input->post('mas_reglable_order', TRUE);
+    $mas_reglable_required = $this->input->post('mas_reglable_required', TRUE);    
+    $mas_reglable_order = $this->input->post('mas_reglable_order', TRUE);    
+    $mas_reglable_type = $this->input->post('mas_reglable_type', TRUE);    
+    $mas_reglable_code = $this->input->post('mas_reglable_code', FALSE);
 
 
+    // print_r($mas_reglable_id);
+    // print_r($mas_reglable_text);
+    // print_r($mas_reglable_visibility);
+    // print_r($mas_reglable_required);
+    // print_r($mas_reglable_order);
+    // print_r($mas_reglable_type);
+    // print_r($mas_reglable_code);
     $this->load->model('Configuration_model');
-    $result = $this->Configuration_model->updateLable($mas_reglable_id, $mas_reglable_text, $mas_reglable_visibility, $reqStatus,$mas_reglable_order);
+    $result = $this->Configuration_model->updateLable($mas_reglable_id, $mas_reglable_text, $mas_reglable_visibility, $mas_reglable_required, $mas_reglable_order, $mas_reglable_type, $mas_reglable_code);
 
     return json_encode($result);
 
   }
 
+  public function getAllTypes()
+  {
 
+    $this->load->model('Configuration_model');
+
+    $result = $this->Configuration_model->GetAllTypes();
+
+    $json_data['allTypeData'] = $result->result();
+    echo json_encode($json_data);
+  }
+
+  public function getAllInputTypes()
+  {
+
+    $this->load->model('Configuration_model');
+
+    $result = $this->Configuration_model->GetAllInputTypes();
+
+    $json_data['allInputTypesData'] = $result->result();
+    echo json_encode($json_data);
+  }
+
+  public function getInputTypes()
+  {
+
+     
+    $mas_inputtype_id = $this->input->post('mas_inputtype_id', TRUE);
+
+    $this->load->model('Configuration_model');
+
+    $result = $this->Configuration_model->GetInputTypes($mas_inputtype_id);
+
+    $json_data['InputTypesData'] = $result->result();
+    echo json_encode($json_data);
+  }
 
 }
 
